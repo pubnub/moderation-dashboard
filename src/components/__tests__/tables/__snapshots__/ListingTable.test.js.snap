@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Listing Table Snapshot 1`] = `
+<div>
+  <ListingPagination
+    handleChangePage={[Function]}
+    page={0}
+    rowsPerPage={25}
+    tableData={
+      Array [
+        Object {
+          "app_id": 35387765,
+          "app_type": Object {
+            "name": "pubsub",
+            "value": 1,
+          },
+          "created": 1622091646,
+          "dates": Object {
+            "bill_by_uuid": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+            "eh_skip_pub_func_exec_for_internal_chan_msg_enabled": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+            "multiplexing": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+            "name": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+            "realtime_analytics": Object {
+              "created": 1622091646,
+              "modified": 1626181312,
+            },
+            "realtime_analytics_channel": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+            "wildcardsubscribe": Object {
+              "created": 1622091646,
+              "modified": null,
+            },
+          },
+          "expires": null,
+          "id": 1033619,
+          "modified": 1622091646,
+          "product_id": 12,
+          "properties": Object {
+            "bill_by_uuid": 1,
+            "eh_skip_pub_func_exec_for_internal_chan_msg_enabled": 1,
+            "multiplexing": 1,
+            "name": "Creator Keyset",
+            "realtime_analytics": 0,
+            "realtime_analytics_channel": "ouya7ZzkKZmfCK2AIlUa",
+            "wildcardsubscribe": 1,
+          },
+          "publish_key": "pub-c-db8614ea-d77b-4998-8953-90644cb7a498",
+          "secret_key": "sec-c-NTQxZGUwODctMDI4Yi00NWE5LWIxZmEtZTU0ZWRiNDgwNDM4",
+          "status": 1,
+          "subscribe_key": "sub-c-7f42862c-bea8-11eb-8415-662615fc053c",
+        },
+      ]
+    }
+  />
+  <WithStyles(ForwardRef(TableContainer))
+    className="makeStyles-table-7"
+  >
+    <WithStyles(ForwardRef(Table))
+      aria-label="enhanced table"
+      aria-labelledby="tableTitle"
+      size="medium"
+    >
+      <EnhancedTableHead
+        headOrder="asc"
+        headOrderBy=""
+        onRequestSort={[Function]}
+        rowCount={1}
+      />
+      <WithStyles(ForwardRef(TableBody))>
+        <WithStyles(ForwardRef(TableRow))
+          className="makeStyles-tableRow-1"
+          hover={true}
+          key="1033619-0"
+          onClick={[Function]}
+          role="checkbox"
+          tabIndex={-1}
+        >
+          <WithStyles(ForwardRef(TableCell))
+            align="left"
+            key="1033619-0-0"
+          >
+            <WithStyles(ForwardRef(Grid))
+              container={true}
+            >
+              <Styled(MuiBox)
+                mr={1}
+              >
+                <WithStyles(ForwardRef(Avatar))
+                  style={
+                    Object {
+                      "backgroundColor": "#FFFABB",
+                      "borderRadius": "8px",
+                      "color": "#FFD502",
+                    }
+                  }
+                  variant="square"
+                />
+              </Styled(MuiBox)>
+              <Styled(MuiBox)>
+                <small
+                  className="makeStyles-keyName-4"
+                />
+                <br />
+                <small
+                  className="makeStyles-appName-5"
+                >
+                  1033619
+                </small>
+              </Styled(MuiBox)>
+              <Styled(MuiBox)
+                ml={1}
+                pt={1}
+              >
+                <Markers
+                  isUser={true}
+                  row={
+                    Object {
+                      "app_id": 35387765,
+                      "app_type": Object {
+                        "name": "pubsub",
+                        "value": 1,
+                      },
+                      "created": 1622091646,
+                      "dates": Object {
+                        "bill_by_uuid": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                        "eh_skip_pub_func_exec_for_internal_chan_msg_enabled": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                        "multiplexing": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                        "name": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                        "realtime_analytics": Object {
+                          "created": 1622091646,
+                          "modified": 1626181312,
+                        },
+                        "realtime_analytics_channel": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                        "wildcardsubscribe": Object {
+                          "created": 1622091646,
+                          "modified": null,
+                        },
+                      },
+                      "expires": null,
+                      "id": 1033619,
+                      "modified": 1622091646,
+                      "product_id": 12,
+                      "properties": Object {
+                        "bill_by_uuid": 1,
+                        "eh_skip_pub_func_exec_for_internal_chan_msg_enabled": 1,
+                        "multiplexing": 1,
+                        "name": "Creator Keyset",
+                        "realtime_analytics": 0,
+                        "realtime_analytics_channel": "ouya7ZzkKZmfCK2AIlUa",
+                        "wildcardsubscribe": 1,
+                      },
+                      "publish_key": "pub-c-db8614ea-d77b-4998-8953-90644cb7a498",
+                      "secret_key": "sec-c-NTQxZGUwODctMDI4Yi00NWE5LWIxZmEtZTU0ZWRiNDgwNDM4",
+                      "status": 1,
+                      "subscribe_key": "sub-c-7f42862c-bea8-11eb-8415-662615fc053c",
+                    }
+                  }
+                />
+              </Styled(MuiBox)>
+            </WithStyles(ForwardRef(Grid))>
+          </WithStyles(ForwardRef(TableCell))>
+          <WithStyles(ForwardRef(TableCell))
+            align="left"
+            key="1033619-0-1"
+          >
+            pub-c-db8614ea-d77b-4998-8953-90644cb7a498
+          </WithStyles(ForwardRef(TableCell))>
+          <WithStyles(ForwardRef(TableCell))
+            align="left"
+            key="1033619-0-2"
+          >
+            sub-c-7f42862c-bea8-11eb-8415-662615fc053c
+          </WithStyles(ForwardRef(TableCell))>
+          <WithStyles(ForwardRef(TableCell))
+            align="left"
+            key="1033619-0-3"
+          >
+            1622091646
+          </WithStyles(ForwardRef(TableCell))>
+        </WithStyles(ForwardRef(TableRow))>
+      </WithStyles(ForwardRef(TableBody))>
+    </WithStyles(ForwardRef(Table))>
+  </WithStyles(ForwardRef(TableContainer))>
+</div>
+`;

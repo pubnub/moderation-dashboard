@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Members Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-members-12"
+    >
+      Members
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+    >
+      <WithStyles(ForwardRef(Grid))>
+        <Styled(MuiBox)
+          mb={2}
+          ml={1}
+          mr={1}
+        >
+          <WithStyles(ForwardRef(Avatar))
+            className="makeStyles-onlineUsers-17"
+            variant="square"
+          >
+            0
+          </WithStyles(ForwardRef(Avatar))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)>
+        <small
+          className="makeStyles-totalCount-14"
+        >
+          Online Users
+        </small>
+      </Styled(MuiBox)>
+      <WithStyles(ForwardRef(Grid))>
+        <Styled(MuiBox)
+          mb={2}
+          ml={1}
+          mr={1}
+        >
+          <WithStyles(ForwardRef(Avatar))
+            className="makeStyles-totalUsers-16"
+            variant="square"
+          >
+            0
+          </WithStyles(ForwardRef(Avatar))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)>
+        <small
+          className="makeStyles-totalCount-14"
+        >
+          Total Users
+        </small>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <UserAction
+    action=""
+    open={false}
+    setOpen={[Function]}
+    title="Are you sure?"
+    updated={[Function]}
+    user={Array []}
+  >
+    You want to 
+     this user?
+  </UserAction>
+  <MembersLoader
+    fetchChannelsMembersOnScroll={[Function]}
+    loading={false}
+    membersLength={0}
+    totalCount={5}
+  />
+</Fragment>
+`;

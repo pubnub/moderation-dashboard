@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User action meta data Modal should render correctly with no props 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="confirm-dialog"
+    className="makeStyles-confirmDialog-3"
+    fullWidth={true}
+    maxWidth="xs"
+    onClose={[Function]}
+    testid="DialogId"
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      id="confirm-dialog"
+    />
+    <WithStyles(ForwardRef(DialogContent)) />
+    <WithStyles(ForwardRef(DialogActions))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-confirmButton-1"
+        onClick={[Function]}
+      >
+        <WithStyles(ForwardRef(Typography))>
+          Yes, 
+           them
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-cancelButton-2"
+        onClick={[Function]}
+        variant="contained"
+      >
+        Cancel
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(DialogActions))>
+  </WithStyles(ForwardRef(Dialog))>
+</Fragment>
+`;

@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Channel List Test Cases Channel Snapshot 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+    title="Channels"
+  />
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-between"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={3}
+    >
+      <Styled(MuiBox)
+        pl={1}
+      >
+        <WithStyles(ForwardRef(Typography))
+          testid="channelHeader"
+          variant="h5"
+        >
+          Channels
+        </WithStyles(ForwardRef(Typography))>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      sm={9}
+    >
+      <Styled(MuiBox)
+        display="flex"
+        justifyContent="flex-end"
+      >
+        <Styled(MuiBox)
+          ml={2}
+        >
+          <Search
+            cancelSearch={[Function]}
+            id="search"
+            placeholder="Search for channel name"
+            requestSearch={[Function]}
+            searched=""
+          />
+        </Styled(MuiBox)>
+        <Styled(MuiBox)
+          ml={2}
+        >
+          <AddChannelMetadataModal
+            isAdded={[Function]}
+          />
+        </Styled(MuiBox)>
+        <Styled(MuiBox)
+          ml={2}
+        >
+          <JoinChannelModal />
+        </Styled(MuiBox)>
+      </Styled(MuiBox)>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <br />
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    spacing={6}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      xs={12}
+    >
+      <ChannelsTable
+        data={Array []}
+        deleteChannel={[Function]}
+        searchResult={Array []}
+        setSearchableData={[Function]}
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
+`;

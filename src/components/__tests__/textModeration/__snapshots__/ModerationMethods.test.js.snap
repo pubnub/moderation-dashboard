@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case for Moderation Methods Snapshot 1`] = `
+<WordListProfanityMethod
+  state={
+    Object {
+      "wordListProfanity": "true",
+    }
+  }
+/>
+`;

@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Member Detail Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="flex-start"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(IconButton))
+            onClick={[Function]}
+          >
+            <img
+              alt="toggle"
+              src="/images/Button-Arrow.svg"
+            />
+          </WithStyles(ForwardRef(IconButton))>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            pl={1}
+            pt={1}
+          >
+            <WithStyles(ForwardRef(Typography))
+              className="makeStyles-sectionHeading-1"
+              variant="body2"
+            >
+              More Details
+            </WithStyles(ForwardRef(Typography))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <br />
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="center"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+      sm={6}
+    >
+      <img
+        alt="profile"
+        className="makeStyles-profilePicture-2"
+        src="https://www.gravatar.com/avatar/c7b"
+      />
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={12}
+      sm={12}
+    >
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        className="makeStyles-name-3"
+        variant="h6"
+      >
+        John
+         
+        <span
+          className="makeStyles-online-9"
+        />
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="center"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={3}
+        md={4}
+        sm={4}
+      >
+        <WithStyles(WithStyles(ForwardRef(Tooltip)))
+          title="Mute"
+        >
+          <span>
+            <WithStyles(ForwardRef(IconButton))
+              aria-label="notification"
+              disabled={false}
+              onClick={[Function]}
+              size="small"
+            >
+              <div
+                className="makeStyles-blockIcon-8"
+              >
+                <img
+                  alt="mute"
+                  src="/images/unmute.svg"
+                  style={
+                    Object {
+                      "height": "16px",
+                      "width": "20px",
+                    }
+                  }
+                />
+              </div>
+            </WithStyles(ForwardRef(IconButton))>
+          </span>
+        </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={3}
+        md={4}
+        sm={4}
+      >
+        <WithStyles(WithStyles(ForwardRef(Tooltip)))
+          title="Block"
+        >
+          <span>
+            <WithStyles(ForwardRef(IconButton))
+              aria-label="close"
+              disabled={false}
+              onClick={[Function]}
+              size="small"
+            >
+              <div
+                className="makeStyles-blockIcon-8"
+              >
+                <img
+                  alt="block"
+                  src="/images/unblock.svg"
+                />
+              </div>
+            </WithStyles(ForwardRef(IconButton))>
+          </span>
+        </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid)) />
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      className="makeStyles-containerRoot-6"
+      container={true}
+      justify="flex-start"
+      spacing={2}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={12}
+        sm={12}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-label-4"
+          testid="nick_name"
+        >
+          NICK NAME
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-labelItem-5"
+        >
+          John
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={12}
+        sm={12}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-label-4"
+          testid="created_at"
+        >
+          CREATED DATE
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-labelItem-5"
+        >
+          Invalid date
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={12}
+        sm={12}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-label-4"
+          testid="email"
+        >
+          EMAIL ADDRESS
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-labelItem-5"
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <UserAction
+    action=""
+    open={false}
+    setOpen={[Function]}
+    title="Are you sure?"
+    updated={[Function]}
+    user={Array []}
+  >
+    You want to 
+     this user?
+  </UserAction>
+</Fragment>
+`;

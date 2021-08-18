@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Channels Table Snapshot 1`] = `
+<Fragment>
+  <ListingTable
+    data={Array []}
+    deleteRow={[Function]}
+    editRow={[Function]}
+    getNewPage={[Function]}
+    handleRowClick={[Function]}
+    headCells={
+      Array [
+        Object {
+          "alignment": "left",
+          "avatar": true,
+          "id": "id",
+          "label": "CHANNEL",
+        },
+        Object {
+          "alignment": "left",
+          "id": "description",
+          "label": "DESCRIPTION",
+        },
+        Object {
+          "alignment": "left",
+          "id": "occupancy",
+          "label": "OCCUPANCY",
+        },
+        Object {
+          "alignment": "left",
+          "icons": true,
+          "id": "icons",
+          "user": false,
+        },
+      ]
+    }
+    message=""
+    number={0}
+    tableCount={0}
+    viewRow={[Function]}
+  />
+  <ConfirmDialog
+    actionMessage="Yes, Delete it"
+    id="delete"
+    onConfirm={[Function]}
+    open={false}
+    setOpen={[Function]}
+    title="Are you sure?"
+  >
+    You want to delete this channel?
+  </ConfirmDialog>
+  <UpdateChannelMetadataModal
+    channelUpdated={[Function]}
+    data={Array []}
+    open={false}
+    setOpen={[Function]}
+  />
+</Fragment>
+`;

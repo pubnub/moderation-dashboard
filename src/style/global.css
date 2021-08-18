@@ -1,0 +1,14 @@
+.MuiIconButton-root {
+  border-radius: 25% !important;
+}
+.MuiTableCell-root {
+  border-bottom: 0px solid rgba(224, 224, 224, 1) !important;
+}
+.MuiOutlinedInput-multiline {
+  min-height: 100px !important;
+}
+.MuiSlider-mark {
+    width: 1px!important;
+    height: 8px!important;
+    border-radius: 17px!important;
+}

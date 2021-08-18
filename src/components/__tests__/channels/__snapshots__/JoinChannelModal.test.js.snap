@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Join Channel Modal Snapshot 1`] = `
+<div>
+  <WithStyles(WithStyles(ForwardRef(Tooltip)))
+    title="If you have a channel ID, you can directly join in this by clicking on this button and entering the channel ID"
+  >
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-joinChannelButton-4"
+      id="joinChannelButton"
+      onClick={[Function]}
+      startIcon={
+        <img
+          alt=""
+          src="images/link.svg"
+        />
+      }
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-buttonText-5"
+      >
+        Join Channel
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="customized-dialog-title"
+    fullWidth={true}
+    id="dialog"
+    onClose={[Function]}
+    open={false}
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      disableTypography={true}
+      id="customized-dialog-title"
+      onClose={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-headingFont-13"
+        variant="h6"
+      >
+        Join Channel
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(DialogTitle))>
+    <WithStyles(ForwardRef(DialogContent))>
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-subHeadingFont-12"
+        testid="channelId"
+      >
+        Channel ID
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(TextField))
+        className="makeStyles-inputBox-6"
+        error={false}
+        helperText=""
+        id="channelId"
+        onChange={[Function]}
+        placeholder="Enter Channel ID"
+        variant="outlined"
+      />
+    </WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(DialogActions))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-cancelButton-9"
+        id="cancelButton"
+        onClick={[Function]}
+      >
+        Cancel
+      </WithStyles(ForwardRef(Button))>
+      <WithStyles(ForwardRef(Button))
+        className="makeStyles-addButton-14"
+        color="primary"
+        id="joinButton"
+        onClick={[Function]}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-buttonText-5"
+        >
+          Join Channel
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Button))>
+    </WithStyles(ForwardRef(DialogActions))>
+  </WithStyles(ForwardRef(Dialog))>
+</div>
+`;

@@ -1,0 +1,651 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Table Icons Snapshot 1`] = `
+<TableIcons>
+  <div>
+    <WithStyles(WithStyles(ForwardRef(Tooltip)))
+      title="View"
+    >
+      <WithStyles(ForwardRef(Tooltip))
+        classes={
+          Object {
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+          }
+        }
+        title="View"
+      >
+        <ForwardRef(Tooltip)
+          classes={
+            Object {
+              "arrow": "MuiTooltip-arrow",
+              "popper": "MuiTooltip-popper",
+              "popperArrow": "MuiTooltip-popperArrow",
+              "popperInteractive": "MuiTooltip-popperInteractive",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltipArrow": "MuiTooltip-tooltipArrow",
+              "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
+              "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
+              "tooltipPlacementRight": "MuiTooltip-tooltipPlacementRight",
+              "tooltipPlacementTop": "MuiTooltip-tooltipPlacementTop",
+              "touch": "MuiTooltip-touch",
+            }
+          }
+          title="View"
+        >
+          <WithStyles(ForwardRef(IconButton))
+            aria-describedby={null}
+            className="makeStyles-icons-6"
+            edge="start"
+            label="view"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            title="View"
+          >
+            <ForwardRef(IconButton)
+              aria-describedby={null}
+              className="makeStyles-icons-6"
+              classes={
+                Object {
+                  "colorInherit": "MuiIconButton-colorInherit",
+                  "colorPrimary": "MuiIconButton-colorPrimary",
+                  "colorSecondary": "MuiIconButton-colorSecondary",
+                  "disabled": "Mui-disabled",
+                  "edgeEnd": "MuiIconButton-edgeEnd",
+                  "edgeStart": "MuiIconButton-edgeStart",
+                  "label": "MuiIconButton-label",
+                  "root": "MuiIconButton-root",
+                  "sizeSmall": "MuiIconButton-sizeSmall",
+                }
+              }
+              edge="start"
+              label="view"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              title="View"
+            >
+              <WithStyles(ForwardRef(ButtonBase))
+                aria-describedby={null}
+                centerRipple={true}
+                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                disabled={false}
+                focusRipple={true}
+                label="view"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                title="View"
+              >
+                <ForwardRef(ButtonBase)
+                  aria-describedby={null}
+                  centerRipple={true}
+                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  classes={
+                    Object {
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "root": "MuiButtonBase-root",
+                    }
+                  }
+                  disabled={false}
+                  focusRipple={true}
+                  label="view"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  title="View"
+                >
+                  <button
+                    aria-describedby={null}
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    disabled={false}
+                    label="view"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseOver={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex={0}
+                    title="View"
+                    type="button"
+                  >
+                    <span
+                      className="MuiIconButton-label"
+                    >
+                      <img
+                        alt="view"
+                        src="/images/watch.svg"
+                      />
+                    </span>
+                    <WithStyles(memo)
+                      center={true}
+                    >
+                      <ForwardRef(TouchRipple)
+                        center={true}
+                        classes={
+                          Object {
+                            "child": "MuiTouchRipple-child",
+                            "childLeaving": "MuiTouchRipple-childLeaving",
+                            "childPulsate": "MuiTouchRipple-childPulsate",
+                            "ripple": "MuiTouchRipple-ripple",
+                            "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                            "rippleVisible": "MuiTouchRipple-rippleVisible",
+                            "root": "MuiTouchRipple-root",
+                          }
+                        }
+                      >
+                        <span
+                          className="MuiTouchRipple-root"
+                        >
+                          <TransitionGroup
+                            childFactory={[Function]}
+                            component={null}
+                            exit={true}
+                          />
+                        </span>
+                      </ForwardRef(TouchRipple)>
+                    </WithStyles(memo)>
+                  </button>
+                </ForwardRef(ButtonBase)>
+              </WithStyles(ForwardRef(ButtonBase))>
+            </ForwardRef(IconButton)>
+          </WithStyles(ForwardRef(IconButton))>
+          <ForwardRef(Popper)
+            anchorEl={
+              <button
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                label="view"
+                tabindex="0"
+                title="View"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <img
+                    alt="view"
+                    src="/images/watch.svg"
+                  />
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            }
+            className="MuiTooltip-popper"
+            id={null}
+            open={false}
+            placement="bottom"
+            popperOptions={
+              Object {
+                "modifiers": Object {
+                  "arrow": Object {
+                    "element": null,
+                    "enabled": false,
+                  },
+                },
+              }
+            }
+            transition={true}
+          />
+        </ForwardRef(Tooltip)>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+    <WithStyles(WithStyles(ForwardRef(Tooltip)))
+      title="Edit"
+    >
+      <WithStyles(ForwardRef(Tooltip))
+        classes={
+          Object {
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+          }
+        }
+        title="Edit"
+      >
+        <ForwardRef(Tooltip)
+          classes={
+            Object {
+              "arrow": "MuiTooltip-arrow",
+              "popper": "MuiTooltip-popper",
+              "popperArrow": "MuiTooltip-popperArrow",
+              "popperInteractive": "MuiTooltip-popperInteractive",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltipArrow": "MuiTooltip-tooltipArrow",
+              "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
+              "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
+              "tooltipPlacementRight": "MuiTooltip-tooltipPlacementRight",
+              "tooltipPlacementTop": "MuiTooltip-tooltipPlacementTop",
+              "touch": "MuiTooltip-touch",
+            }
+          }
+          title="Edit"
+        >
+          <WithStyles(ForwardRef(IconButton))
+            aria-describedby={null}
+            className="makeStyles-icons-6"
+            edge="start"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            title="Edit"
+          >
+            <ForwardRef(IconButton)
+              aria-describedby={null}
+              className="makeStyles-icons-6"
+              classes={
+                Object {
+                  "colorInherit": "MuiIconButton-colorInherit",
+                  "colorPrimary": "MuiIconButton-colorPrimary",
+                  "colorSecondary": "MuiIconButton-colorSecondary",
+                  "disabled": "Mui-disabled",
+                  "edgeEnd": "MuiIconButton-edgeEnd",
+                  "edgeStart": "MuiIconButton-edgeStart",
+                  "label": "MuiIconButton-label",
+                  "root": "MuiIconButton-root",
+                  "sizeSmall": "MuiIconButton-sizeSmall",
+                }
+              }
+              edge="start"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              title="Edit"
+            >
+              <WithStyles(ForwardRef(ButtonBase))
+                aria-describedby={null}
+                centerRipple={true}
+                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                disabled={false}
+                focusRipple={true}
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                title="Edit"
+              >
+                <ForwardRef(ButtonBase)
+                  aria-describedby={null}
+                  centerRipple={true}
+                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  classes={
+                    Object {
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "root": "MuiButtonBase-root",
+                    }
+                  }
+                  disabled={false}
+                  focusRipple={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  title="Edit"
+                >
+                  <button
+                    aria-describedby={null}
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    disabled={false}
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex={0}
+                    title="Edit"
+                    type="button"
+                  >
+                    <span
+                      className="MuiIconButton-label"
+                    >
+                      <img
+                        alt="edit"
+                        src="/images/edit.svg"
+                      />
+                    </span>
+                    <WithStyles(memo)
+                      center={true}
+                    >
+                      <ForwardRef(TouchRipple)
+                        center={true}
+                        classes={
+                          Object {
+                            "child": "MuiTouchRipple-child",
+                            "childLeaving": "MuiTouchRipple-childLeaving",
+                            "childPulsate": "MuiTouchRipple-childPulsate",
+                            "ripple": "MuiTouchRipple-ripple",
+                            "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                            "rippleVisible": "MuiTouchRipple-rippleVisible",
+                            "root": "MuiTouchRipple-root",
+                          }
+                        }
+                      >
+                        <span
+                          className="MuiTouchRipple-root"
+                        >
+                          <TransitionGroup
+                            childFactory={[Function]}
+                            component={null}
+                            exit={true}
+                          />
+                        </span>
+                      </ForwardRef(TouchRipple)>
+                    </WithStyles(memo)>
+                  </button>
+                </ForwardRef(ButtonBase)>
+              </WithStyles(ForwardRef(ButtonBase))>
+            </ForwardRef(IconButton)>
+          </WithStyles(ForwardRef(IconButton))>
+          <ForwardRef(Popper)
+            anchorEl={
+              <button
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                tabindex="0"
+                title="Edit"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <img
+                    alt="edit"
+                    src="/images/edit.svg"
+                  />
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            }
+            className="MuiTooltip-popper"
+            id={null}
+            open={false}
+            placement="bottom"
+            popperOptions={
+              Object {
+                "modifiers": Object {
+                  "arrow": Object {
+                    "element": null,
+                    "enabled": false,
+                  },
+                },
+              }
+            }
+            transition={true}
+          />
+        </ForwardRef(Tooltip)>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+    <WithStyles(WithStyles(ForwardRef(Tooltip)))
+      title="Delete"
+    >
+      <WithStyles(ForwardRef(Tooltip))
+        classes={
+          Object {
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+          }
+        }
+        title="Delete"
+      >
+        <ForwardRef(Tooltip)
+          classes={
+            Object {
+              "arrow": "MuiTooltip-arrow",
+              "popper": "MuiTooltip-popper",
+              "popperArrow": "MuiTooltip-popperArrow",
+              "popperInteractive": "MuiTooltip-popperInteractive",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltipArrow": "MuiTooltip-tooltipArrow",
+              "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
+              "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
+              "tooltipPlacementRight": "MuiTooltip-tooltipPlacementRight",
+              "tooltipPlacementTop": "MuiTooltip-tooltipPlacementTop",
+              "touch": "MuiTooltip-touch",
+            }
+          }
+          title="Delete"
+        >
+          <WithStyles(ForwardRef(IconButton))
+            aria-describedby={null}
+            className="makeStyles-icons-6"
+            edge="start"
+            label="delete"
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            onTouchEnd={[Function]}
+            onTouchStart={[Function]}
+            title="Delete"
+          >
+            <ForwardRef(IconButton)
+              aria-describedby={null}
+              className="makeStyles-icons-6"
+              classes={
+                Object {
+                  "colorInherit": "MuiIconButton-colorInherit",
+                  "colorPrimary": "MuiIconButton-colorPrimary",
+                  "colorSecondary": "MuiIconButton-colorSecondary",
+                  "disabled": "Mui-disabled",
+                  "edgeEnd": "MuiIconButton-edgeEnd",
+                  "edgeStart": "MuiIconButton-edgeStart",
+                  "label": "MuiIconButton-label",
+                  "root": "MuiIconButton-root",
+                  "sizeSmall": "MuiIconButton-sizeSmall",
+                }
+              }
+              edge="start"
+              label="delete"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onMouseLeave={[Function]}
+              onMouseOut={[Function]}
+              onMouseOver={[Function]}
+              onTouchEnd={[Function]}
+              onTouchStart={[Function]}
+              title="Delete"
+            >
+              <WithStyles(ForwardRef(ButtonBase))
+                aria-describedby={null}
+                centerRipple={true}
+                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                disabled={false}
+                focusRipple={true}
+                label="delete"
+                onBlur={[Function]}
+                onClick={[Function]}
+                onFocus={[Function]}
+                onMouseLeave={[Function]}
+                onMouseOut={[Function]}
+                onMouseOver={[Function]}
+                onTouchEnd={[Function]}
+                onTouchStart={[Function]}
+                title="Delete"
+              >
+                <ForwardRef(ButtonBase)
+                  aria-describedby={null}
+                  centerRipple={true}
+                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  classes={
+                    Object {
+                      "disabled": "Mui-disabled",
+                      "focusVisible": "Mui-focusVisible",
+                      "root": "MuiButtonBase-root",
+                    }
+                  }
+                  disabled={false}
+                  focusRipple={true}
+                  label="delete"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onMouseLeave={[Function]}
+                  onMouseOut={[Function]}
+                  onMouseOver={[Function]}
+                  onTouchEnd={[Function]}
+                  onTouchStart={[Function]}
+                  title="Delete"
+                >
+                  <button
+                    aria-describedby={null}
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    disabled={false}
+                    label="delete"
+                    onBlur={[Function]}
+                    onClick={[Function]}
+                    onDragLeave={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onKeyUp={[Function]}
+                    onMouseDown={[Function]}
+                    onMouseLeave={[Function]}
+                    onMouseOut={[Function]}
+                    onMouseOver={[Function]}
+                    onMouseUp={[Function]}
+                    onTouchEnd={[Function]}
+                    onTouchMove={[Function]}
+                    onTouchStart={[Function]}
+                    tabIndex={0}
+                    title="Delete"
+                    type="button"
+                  >
+                    <span
+                      className="MuiIconButton-label"
+                    >
+                      <img
+                        alt="delete"
+                        src="/images/delete.svg"
+                      />
+                    </span>
+                    <WithStyles(memo)
+                      center={true}
+                    >
+                      <ForwardRef(TouchRipple)
+                        center={true}
+                        classes={
+                          Object {
+                            "child": "MuiTouchRipple-child",
+                            "childLeaving": "MuiTouchRipple-childLeaving",
+                            "childPulsate": "MuiTouchRipple-childPulsate",
+                            "ripple": "MuiTouchRipple-ripple",
+                            "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                            "rippleVisible": "MuiTouchRipple-rippleVisible",
+                            "root": "MuiTouchRipple-root",
+                          }
+                        }
+                      >
+                        <span
+                          className="MuiTouchRipple-root"
+                        >
+                          <TransitionGroup
+                            childFactory={[Function]}
+                            component={null}
+                            exit={true}
+                          />
+                        </span>
+                      </ForwardRef(TouchRipple)>
+                    </WithStyles(memo)>
+                  </button>
+                </ForwardRef(ButtonBase)>
+              </WithStyles(ForwardRef(ButtonBase))>
+            </ForwardRef(IconButton)>
+          </WithStyles(ForwardRef(IconButton))>
+          <ForwardRef(Popper)
+            anchorEl={
+              <button
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                label="delete"
+                tabindex="0"
+                title="Delete"
+                type="button"
+              >
+                <span
+                  class="MuiIconButton-label"
+                >
+                  <img
+                    alt="delete"
+                    src="/images/delete.svg"
+                  />
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            }
+            className="MuiTooltip-popper"
+            id={null}
+            open={false}
+            placement="bottom"
+            popperOptions={
+              Object {
+                "modifiers": Object {
+                  "arrow": Object {
+                    "element": null,
+                    "enabled": false,
+                  },
+                },
+              }
+            }
+            transition={true}
+          />
+        </ForwardRef(Tooltip)>
+      </WithStyles(ForwardRef(Tooltip))>
+    </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+  </div>
+</TableIcons>
+`;

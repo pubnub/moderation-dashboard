@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Header Snapshot 1`] = `
+<div
+  className="makeStyles-grow-1"
+>
+  <WithStyles(ForwardRef(AppBar))
+    className="makeStyles-root-2"
+    position="static"
+  >
+    <WithStyles(ForwardRef(Toolbar))>
+      <WithStyles(ForwardRef(IconButton))
+        aria-label="open drawer"
+        color="inherit"
+        edge="start"
+        id="toDashboard"
+        onClick={[Function]}
+      >
+        <img
+          alt=""
+          src="/images/Pubnub logo.svg"
+          width={90}
+        />
+      </WithStyles(ForwardRef(IconButton))>
+      <div
+        className="makeStyles-verticalLine-5"
+      />
+      <Breadcrumb
+        currentPage=""
+      />
+      <div
+        className="makeStyles-grow-1"
+      />
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-button-4"
+        >
+          Docs
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <div
+          className="makeStyles-verticalLine-5"
+        />
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        className="makeStyles-headerMenu-3"
+        item={true}
+      >
+        <MyAccountDropdown
+          accounts={Array []}
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Toolbar))>
+  </WithStyles(ForwardRef(AppBar))>
+</div>
+`;

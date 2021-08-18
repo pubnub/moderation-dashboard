@@ -1,0 +1,188 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`This suit will test the rendering of overview page Snapshot of the overview 1`] = `
+<DocumentFragment>
+  <div
+    class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-item"
+    >
+      <div
+        class="MuiBox-root MuiBox-root-9"
+      >
+        <h5
+          class="MuiTypography-root MuiTypography-h5"
+          testid="overview_Header"
+        >
+          Overview
+        </h5>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    class="makeStyles-root-1"
+  >
+    <div
+      class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-3"
+    >
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiPaper-root makeStyles-gridOne-2 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <div
+            class="MuiGrid-root MuiGrid-container"
+          >
+            <div
+              class="MuiBox-root MuiBox-root-10"
+            >
+              <div
+                class="MuiAvatar-root MuiAvatar-square makeStyles-avatar-6 MuiAvatar-colorDefault"
+              >
+                CR
+              </div>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6 MuiGrid-grid-md-6"
+            >
+              <small
+                class="makeStyles-values-5"
+              >
+                Creator
+              </small>
+              <br />
+              <small
+                class="makeStyles-appName-8"
+              />
+            </div>
+          </div>
+          <br />
+          <hr
+            class="MuiDivider-root"
+          />
+          <br />
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <p
+                class="MuiTypography-root makeStyles-headings-4 MuiTypography-body1"
+                testid="modified_date"
+              >
+                Modified Date
+              </p>
+              <p
+                class="MuiTypography-root makeStyles-values-5 MuiTypography-body1"
+              />
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <p
+                class="MuiTypography-root makeStyles-headings-4 MuiTypography-body1"
+                testid="created_on"
+              >
+                Created on
+              </p>
+              <p
+                class="MuiTypography-root makeStyles-values-5 MuiTypography-body1"
+              >
+                1622091646
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <div
+          class="MuiPaper-root makeStyles-gridTwo-3 MuiPaper-elevation1 MuiPaper-rounded"
+        >
+          <h6
+            class="MuiTypography-root MuiTypography-h6"
+            testid="pubnub_keys"
+          >
+            PubNub Keys
+          </h6>
+          <br />
+          <hr
+            class="MuiDivider-root"
+          />
+          <br />
+          <div
+            class="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-space-between"
+          >
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <h6
+                class="MuiTypography-root makeStyles-headings-4 MuiTypography-h6"
+                testid="publish_key"
+              >
+                Publish Key
+              </h6>
+              <p
+                class="MuiTypography-root makeStyles-values-5 MuiTypography-body1"
+              />
+              <br />
+              <p
+                class="MuiTypography-root makeStyles-headings-4 MuiTypography-body1"
+                testid="secret_key"
+              >
+                Secret Key
+                <button
+                  class="MuiButtonBase-root MuiIconButton-root makeStyles-headings-4"
+                  id="maskableIcon"
+                  tabindex="0"
+                  type="button"
+                >
+                  <span
+                    class="MuiIconButton-label"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      class="MuiSvgIcon-root"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                      />
+                    </svg>
+                  </span>
+                  <span
+                    class="MuiTouchRipple-root"
+                  />
+                </button>
+              </p>
+              <p
+                class="MuiTypography-root makeStyles-values-5 MuiTypography-body1"
+                id="maskableText"
+              />
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-6"
+            >
+              <h6
+                class="MuiTypography-root makeStyles-headings-4 MuiTypography-h6"
+                testid="subsciber_key"
+              >
+                Subscribe Key
+              </h6>
+              <p
+                class="MuiTypography-root makeStyles-values-5 MuiTypography-body1"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

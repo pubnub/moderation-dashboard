@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`update User meta data Modal should render correctly with no props 1`] = `
+<div>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="customized-dialog-title"
+    className="makeStyles-modalLayout-8"
+    fullWidth={true}
+    onClose={[Function]}
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      disableTypography={true}
+      id="customized-dialog-title"
+      onClose={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-headingFont-13"
+        variant="h6"
+      >
+        Update User Metadata
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(DialogTitle))>
+    <AddUserForm
+      buttonTitle="UPDATE"
+      disabled={true}
+      formik={
+        Object {
+          "dirty": false,
+          "errors": Object {},
+          "getFieldHelpers": [Function],
+          "getFieldMeta": [Function],
+          "getFieldProps": [Function],
+          "handleBlur": [Function],
+          "handleChange": [Function],
+          "handleReset": [Function],
+          "handleSubmit": [Function],
+          "initialErrors": Object {},
+          "initialStatus": undefined,
+          "initialTouched": Object {},
+          "initialValues": Object {
+            "email": "",
+            "name": "",
+            "profile_url": "",
+            "user_id": "",
+          },
+          "isSubmitting": false,
+          "isValid": true,
+          "isValidating": false,
+          "registerField": [Function],
+          "resetForm": [Function],
+          "setErrors": [Function],
+          "setFieldError": [Function],
+          "setFieldTouched": [Function],
+          "setFieldValue": [Function],
+          "setFormikState": [Function],
+          "setStatus": [Function],
+          "setSubmitting": [Function],
+          "setTouched": [Function],
+          "setValues": [Function],
+          "status": undefined,
+          "submitCount": 0,
+          "submitForm": [Function],
+          "touched": Object {},
+          "unregisterField": [Function],
+          "validateField": [Function],
+          "validateForm": [Function],
+          "validateOnBlur": true,
+          "validateOnChange": true,
+          "validateOnMount": false,
+          "values": Object {
+            "email": "",
+            "name": "",
+            "profile_url": "",
+            "user_id": "",
+          },
+        }
+      }
+      handleClose={[Function]}
+      userAlert={
+        Object {
+          "error": Object {
+            "msg": "",
+            "status": false,
+          },
+          "loading": false,
+          "success": Object {
+            "msg": "",
+            "status": false,
+          },
+        }
+      }
+    />
+  </WithStyles(ForwardRef(Dialog))>
+</div>
+`;

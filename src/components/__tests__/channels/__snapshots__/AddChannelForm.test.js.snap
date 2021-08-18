@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add User Test Cases Snapshot 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subHeadingFont-12"
+      testid="Channel_Id"
+    >
+      Channel ID
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-inputBox-6"
+      error={false}
+      helperText={false}
+      id="id"
+      name="id"
+      placeholder="Enter Channel ID"
+      value={3}
+      variant="outlined"
+    />
+    <Styled(MuiBox)
+      pt={1}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-subHeadingFont-12"
+        testid="Display_Name"
+      >
+        Display Name
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(TextField))
+        autoComplete="off"
+        className="makeStyles-inputBox-6"
+        id="name"
+        name="name"
+        placeholder="Enter Display Name"
+        variant="outlined"
+      />
+    </Styled(MuiBox)>
+    <Styled(MuiBox)
+      pt={1}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-subHeadingFont-12"
+        testid="Description"
+      >
+        Description
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(TextField))
+        autoComplete="off"
+        className="makeStyles-inputBox-6"
+        id="description"
+        multiline={true}
+        name="description"
+        placeholder="Enter Channel Description"
+        rows={3}
+        variant="outlined"
+      />
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      autoFocus={true}
+      className="makeStyles-cancelButton-9"
+    >
+      CANCEL
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      autoFocus={true}
+      className="makeStyles-addButton-14"
+      color="primary"
+      disabled={false}
+      startIcon={null}
+      type="submit"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-buttonText-5"
+      />
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</form>
+`;

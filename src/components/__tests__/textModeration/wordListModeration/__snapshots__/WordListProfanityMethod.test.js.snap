@@ -1,0 +1,439 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Word List Text Moderation Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Card))
+    className="makeStyles-profanityCardRoot-11"
+  >
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <label
+          className="makeStyles-labelStyle-8"
+          testId="Channel_Id"
+        >
+          Channel ID
+        </label>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <Styled(MuiBox)
+          className="makeStyles-infoIcon-21"
+        >
+          <WithStyles(WithStyles(ForwardRef(Tooltip)))
+            title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled."
+          >
+            <img
+              alt="info-circle"
+              src="/images/info-circle.svg"
+            />
+          </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <Styled(MuiBox)
+      mb={2}
+      pt={1}
+    >
+      <WithStyles(ForwardRef(TextField))
+        disabled={true}
+        error={false}
+        fullWidth={true}
+        id="channelId"
+        name="wordListChannel"
+        onChange={[Function]}
+        placeholder="Channel"
+        size="small"
+        value="initialText"
+        variant="outlined"
+      />
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="flex-start"
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Checkbox))
+            checked={true}
+            id="allChannelIdcheckBox"
+            onChange={[Function]}
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            pt={1}
+          >
+            <WithStyles(ForwardRef(Typography))
+              testid="allChannelIdText"
+              variant="body1"
+            >
+              Apply to All Channel IDs
+            </WithStyles(ForwardRef(Typography))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="flex-start"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={5}
+      >
+        <label
+          className="makeStyles-labelStyle-8"
+          testId="language"
+        >
+          Language
+        </label>
+        <Styled(MuiBox)
+          mb={2}
+          pt={1}
+        >
+          <WithStyles(ForwardRef(FormControl))
+            fullWidth={true}
+            placeholder="Langauge"
+            size="small"
+          >
+            <WithStyles(ForwardRef(Select))
+              MenuProps={
+                Object {
+                  "anchorOrigin": Object {
+                    "horizontal": "left",
+                    "vertical": "bottom",
+                  },
+                  "getContentAnchorEl": null,
+                }
+              }
+              id="wordListLanguage"
+              inputProps={
+                Object {
+                  "aria-label": "Without label",
+                }
+              }
+              name="wordListLanguage"
+              onChange={[Function]}
+              value="Hindi"
+              variant="outlined"
+            >
+              <WithStyles(ForwardRef(MenuItem))
+                key="0"
+                value="English"
+              >
+                English
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                key="1"
+                value="Hindi"
+              >
+                Hindi
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                key="2"
+                value="Spanish"
+              >
+                Spanish
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                key="3"
+                value="Portugese"
+              >
+                Portugese
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                key="4"
+                value="French"
+              >
+                French
+              </WithStyles(ForwardRef(MenuItem))>
+            </WithStyles(ForwardRef(Select))>
+          </WithStyles(ForwardRef(FormControl))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="space-between"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          container={true}
+        >
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <label
+              className="makeStyles-labelStyle-8"
+              testId="WordList"
+            >
+              Word List
+            </label>
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Styled(MuiBox)
+              className="makeStyles-infoIcon-21"
+            >
+              <WithStyles(WithStyles(ForwardRef(Tooltip)))
+                title="Note: Please add comma after a every word. No spaces are allowed"
+              >
+                <img
+                  alt="info-circle"
+                  src="/images/info-circle.svg"
+                />
+              </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+            </Styled(MuiBox)>
+          </WithStyles(ForwardRef(Grid))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Typography))
+          align="right"
+          className="makeStyles-defaultText-16"
+          onClick={[Function]}
+          testid="defaultWordsLabel"
+        >
+          Use Default words
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <Styled(MuiBox)
+      mb={2}
+      pt={1}
+    >
+      <WithStyles(ForwardRef(TextField))
+        error={false}
+        fullWidth={true}
+        id="defaultWordsBox"
+        multiline={true}
+        name="wordListLanguageWords"
+        onChange={[Function]}
+        placeholder="Type @ to select parameters"
+        rowsMax={6}
+        value="Bakwaas, Chutiye"
+        variant="outlined"
+      />
+    </Styled(MuiBox)>
+    <br />
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="flex-start"
+      spacing={6}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={6}
+        sm={6}
+      >
+        <label
+          className="makeStyles-labelStyle-8"
+          testId="MaskOrBlock"
+        >
+          When Profanity is detected
+        </label>
+        <Styled(MuiBox)
+          mb={2}
+          pt={1}
+        >
+          <WithStyles(ForwardRef(FormControl))
+            fullWidth={true}
+            size="small"
+          >
+            <WithStyles(ForwardRef(Select))
+              MenuProps={
+                Object {
+                  "anchorOrigin": Object {
+                    "horizontal": "left",
+                    "vertical": "bottom",
+                  },
+                  "getContentAnchorEl": null,
+                }
+              }
+              id="MaskOrBlockOption"
+              inputProps={
+                Object {
+                  "aria-label": "Without label",
+                }
+              }
+              name="wordListModtype"
+              onChange={[Function]}
+              value="Mask-word"
+              variant="outlined"
+            >
+              <WithStyles(ForwardRef(MenuItem))
+                value="Mask-word"
+              >
+                Mask Word
+              </WithStyles(ForwardRef(MenuItem))>
+              <WithStyles(ForwardRef(MenuItem))
+                value="Block-message"
+              >
+                Block Message
+              </WithStyles(ForwardRef(MenuItem))>
+            </WithStyles(ForwardRef(Select))>
+          </WithStyles(ForwardRef(FormControl))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        md={6}
+        sm={6}
+      >
+        <WithStyles(ForwardRef(Grid))
+          container={true}
+        >
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <label
+              testId="maskLabel"
+            >
+              Set a masking character
+            </label>
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Styled(MuiBox)
+              className="makeStyles-infoIcon-21"
+            >
+              <WithStyles(WithStyles(ForwardRef(Tooltip)))
+                title="Note: Default value will be *"
+              >
+                <img
+                  alt="info-circle"
+                  src="/images/info-circle.svg"
+                />
+              </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+            </Styled(MuiBox)>
+          </WithStyles(ForwardRef(Grid))>
+        </WithStyles(ForwardRef(Grid))>
+        <Styled(MuiBox)
+          pt={1}
+        >
+          <WithStyles(ForwardRef(TextField))
+            error={false}
+            fullWidth={true}
+            id="maskChar"
+            inputProps={
+              Object {
+                "maxLength": 1,
+              }
+            }
+            name="wordListCharacterToMaskWith"
+            onChange={[Function]}
+            placeholder="Set"
+            size="small"
+            value="*"
+            variant="outlined"
+          />
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="flex-start"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          container={true}
+        >
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <WithStyles(ForwardRef(Checkbox))
+              checked={false}
+              id="reRouteCheckBox"
+              name="wordListRerouteMessage"
+              onChange={[Function]}
+            />
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Styled(MuiBox)
+              pt={1}
+            >
+              <WithStyles(ForwardRef(Typography))
+                testid="ReRouteLabel"
+                variant="body1"
+              >
+                Route messages to
+              </WithStyles(ForwardRef(Typography))>
+            </Styled(MuiBox)>
+          </WithStyles(ForwardRef(Grid))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <Styled(MuiBox)>
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-reroute-18"
+          >
+            <img
+              alt="reroute"
+              className="makeStyles-rerouteIcon-19"
+              src="/images/reroute.svg"
+            />
+             
+            banned.initialText
+          </WithStyles(ForwardRef(Button))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="space-between"
+      spacing={2}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      />
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-cancelButton-12"
+          id="cancel"
+          variant="contained"
+        >
+          Cancel
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-saveButton-13"
+          disabled={false}
+          id="save"
+          variant="contained"
+        >
+          Save
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Card))>
+</Fragment>
+`;

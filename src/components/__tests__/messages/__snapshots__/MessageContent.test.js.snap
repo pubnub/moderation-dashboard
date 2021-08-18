@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Message Content Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Grid))
+    className="makeStyles-messageContainer-22"
+    container={true}
+  >
+    <span
+      className="makeStyles-chat-4"
+      style={
+        Object {
+          "backgroundColor": "#FFFFFF",
+        }
+      }
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-deletedChat-21"
+      >
+        Delete it
+      </WithStyles(ForwardRef(Typography))>
+    </span>
+    <Styled(MuiBox)
+      ml={2}
+    >
+      <WithStyles(WithStyles(ForwardRef(Tooltip)))
+        title="Undo"
+      >
+        <WithStyles(ForwardRef(IconButton))
+          edge="start"
+          id="undoIcon"
+          onClick={[Function]}
+        >
+          <img
+            alt="delete"
+            src="/images/undo.svg"
+          />
+        </WithStyles(ForwardRef(IconButton))>
+      </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
+`;

@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case for Text Filter Card Snapshot 1`] = `
+<WithStyles(ForwardRef(Grid))
+  container={true}
+  justify="flex-start"
+  spacing={3}
+>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+  >
+    <Styled(MuiBox)
+      className="makeStyles-methodNotSelected-9"
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="center"
+      >
+        <Styled(MuiBox)
+          p={1}
+        >
+          <img
+            alt=""
+            src="/images/word-list-not-selected.svg"
+          />
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        variant="body1"
+      >
+        Word List
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Grid))>
+  <WithStyles(ForwardRef(Grid))
+    item={true}
+  >
+    <Styled(MuiBox)
+      className="makeStyles-methodNotSelected-9"
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="center"
+      >
+        <Styled(MuiBox)
+          p={1}
+        >
+          <img
+            alt=""
+            src="/images/automatic-detection.svg"
+          />
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Typography))
+        align="center"
+        testid="autoDetection"
+        variant="body1"
+      >
+        Automatic Detection
+      </WithStyles(ForwardRef(Typography))>
+    </Styled(MuiBox)>
+  </WithStyles(ForwardRef(Grid))>
+</WithStyles(ForwardRef(Grid))>
+`;

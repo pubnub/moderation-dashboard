@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add User Test Cases Snapshot 1`] = `
+<form
+  onSubmit={[MockFunction]}
+>
+  <WithStyles(ForwardRef(DialogContent))>
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subHeadingFont-12"
+      testid="User_Id"
+    >
+      User ID
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-inputBox-6"
+      error={true}
+      helperText={true}
+      id="user_id"
+      name="user_id"
+      placeholder="Enter user ID"
+      value={128}
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subHeadingFont-12"
+      testid="User_Name"
+    >
+      User Name
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-inputBox-6"
+      error={true}
+      helperText={true}
+      id="name"
+      name="name"
+      placeholder="Enter user name"
+      value="test name"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subHeadingFont-12"
+      testid="Email"
+    >
+      Email Address
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-inputBox-6"
+      error={true}
+      helperText={true}
+      id="email"
+      name="email"
+      placeholder="Enter email address"
+      value="email@example.com"
+      variant="outlined"
+    />
+    <WithStyles(ForwardRef(Typography))
+      className="makeStyles-subHeadingFont-12"
+      testid="Profile_Url"
+    >
+      Profile URL
+    </WithStyles(ForwardRef(Typography))>
+    <WithStyles(ForwardRef(TextField))
+      autoComplete="off"
+      className="makeStyles-inputBox-6"
+      error={true}
+      helperText={true}
+      id="profile_url"
+      name="profile_url"
+      placeholder="Enter Profile URL"
+      value="http://example.com"
+      variant="outlined"
+    />
+    <br />
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      autoFocus={true}
+      className="makeStyles-cancelButton-9"
+    >
+      CANCEL
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      autoFocus={true}
+      className="makeStyles-addButton-14"
+      color="primary"
+      disabled={true}
+      startIcon={
+        <WithStyles(ForwardRef(CircularProgress))
+          className="makeStyles-loader-7"
+          size={30}
+        />
+      }
+      type="submit"
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-buttonText-5"
+      />
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</form>
+`;

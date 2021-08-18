@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Undo Delete Snapshot 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  aria-labelledby="confirm-dialog"
+  className="makeStyles-confirmDialog-3"
+  fullWidth={true}
+  id="dialog"
+  maxWidth="xs"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogTitle))
+    id="confirm-dialog"
+  >
+    Are you sure?
+  </WithStyles(ForwardRef(DialogTitle))>
+  <WithStyles(ForwardRef(DialogContent))>
+    You want to recover the message
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-confirmButton-1"
+      id="undo"
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))>
+         Yes
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-cancelButton-2"
+      id="close"
+      onClick={[Function]}
+      variant="contained"
+    >
+      Cancel
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;

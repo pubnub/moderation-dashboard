@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Routes Snapshot 1`] = `
+<BrowserRouter>
+  <Switch>
+    <AuthRoute
+      component={[Function]}
+      exact={true}
+      path="/"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/accounts"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/dashboard"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/text-moderation"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/channels"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/overview"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/users"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/channels/messages"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/image-moderation"
+    />
+  </Switch>
+</BrowserRouter>
+`;

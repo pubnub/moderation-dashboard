@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Account Card Test Cases Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(MenuItem))
+    onClick={[Function]}
+    testid="1"
+  >
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={2}
+        xs={2}
+      >
+        <WithStyles(ForwardRef(Avatar))
+          className="makeStyles-avatar-5"
+          style={
+            Object {
+              "backgroundColor": "#CAF0FF",
+              "borderRadius": "8px",
+              "color": "#3BC8FF",
+              "height": "30px",
+              "width": "30px",
+            }
+          }
+          variant="square"
+        >
+          <WithStyles(ForwardRef(Typography))
+            className="makeStyles-avatarText-4"
+            testid="capitalChar"
+          >
+            Xy
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Avatar))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={9}
+        xs={9}
+      >
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-email-3"
+          noWrap={true}
+          testid="email"
+        >
+          xyz@sourcefuse.com
+        </WithStyles(ForwardRef(Typography))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={1}
+        xs={1}
+      >
+        <Memo(ForwardRef(CheckCircleIcon))
+          className="makeStyles-checkIcon-2"
+        />
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(MenuItem))>
+</Fragment>
+`;

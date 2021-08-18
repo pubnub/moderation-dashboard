@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Breadcrumb Snapshot 1`] = `
+<div>
+  <WithStyles(ForwardRef(Breadcrumbs))
+    aria-label="breadcrumb"
+    separator={
+      <Memo
+        fontSize="small"
+      />
+    }
+  >
+    <WithStyles(ForwardRef(Link))
+      color="primary"
+      href="/dashboard"
+    >
+      <WithStyles(ForwardRef(Typography))
+        variant="body2"
+      >
+        Applications
+      </WithStyles(ForwardRef(Typography))>
+    </WithStyles(ForwardRef(Link))>
+    <WithStyles(ForwardRef(Link))
+      color="primary"
+      href="/overview"
+    >
+      <WithStyles(ForwardRef(Typography))
+        color="primary"
+        variant="body2"
+      />
+    </WithStyles(ForwardRef(Link))>
+    <WithStyles(ForwardRef(Typography))
+      color="inherit"
+      variant="body2"
+    >
+      1
+    </WithStyles(ForwardRef(Typography))>
+  </WithStyles(ForwardRef(Breadcrumbs))>
+</div>
+`;

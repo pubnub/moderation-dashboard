@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Toggle Chat Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-activeToggled-23"
+    id="chat"
+    onClick={[Function]}
+  >
+    Chat
+  </WithStyles(ForwardRef(Button))>
+  <WithStyles(ForwardRef(Button))
+    className="makeStyles-disableToggled-24"
+    id="ban"
+    onClick={[Function]}
+  >
+    Banned
+  </WithStyles(ForwardRef(Button))>
+</Fragment>
+`;

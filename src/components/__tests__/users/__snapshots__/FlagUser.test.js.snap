@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Flag User Snapshhot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="customized-dialog-title"
+    className="makeStyles-modalLayout-8"
+    fullWidth={true}
+    onClose={[Function]}
+    open={false}
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      disableTypography={true}
+      id="customized-dialog-title"
+      onClose={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-headingFont-13"
+        variant="h6"
+      >
+         User
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(IconButton))
+        aria-label="close"
+        className="makeStyles-closeButton-3"
+        onClick={[Function]}
+      >
+        <Memo(ForwardRef(CloseIcon)) />
+      </WithStyles(ForwardRef(IconButton))>
+    </WithStyles(ForwardRef(DialogTitle))>
+    <form
+      onSubmit={[Function]}
+    >
+      <WithStyles(ForwardRef(DialogContent))>
+        <WithStyles(ForwardRef(Typography))
+          className="makeStyles-subHeadingFont-12"
+          testid="reason"
+        >
+          Reason
+        </WithStyles(ForwardRef(Typography))>
+        <WithStyles(ForwardRef(TextField))
+          autoComplete="off"
+          className="makeStyles-inputBox-6"
+          id="reason"
+          name="reason"
+          onChange={[Function]}
+          placeholder="Add Reason"
+          value=""
+          variant="outlined"
+        />
+        <br />
+      </WithStyles(ForwardRef(DialogContent))>
+      <WithStyles(ForwardRef(DialogActions))>
+        <WithStyles(ForwardRef(Button))
+          autoFocus={true}
+          className="makeStyles-cancelButton-9"
+          id="cancel"
+          onClick={[Function]}
+        >
+          CANCEL
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Button))
+          autoFocus={true}
+          className="makeStyles-addButton-14"
+          color="primary"
+          disabled={false}
+          id="submit"
+          startIcon={null}
+          type="submit"
+        >
+          <WithStyles(ForwardRef(Typography))
+            className="makeStyles-buttonText-5"
+          >
+            Submit
+          </WithStyles(ForwardRef(Typography))>
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(DialogActions))>
+    </form>
+  </WithStyles(ForwardRef(Dialog))>
+</Fragment>
+`;

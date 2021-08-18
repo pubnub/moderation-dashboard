@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Slider Component Snapshot 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(WithStyles(ForwardRef(Slider)))
+    aria-labelledby="discrete-slider"
+    getAriaValueText={[Function]}
+    marks={
+      Array [
+        Object {
+          "label": 0,
+          "value": 0,
+        },
+        Object {
+          "label": 0.25,
+          "value": 0.25,
+        },
+        Object {
+          "label": 0.5,
+          "value": 0.5,
+        },
+        Object {
+          "label": 0.75,
+          "value": 0.75,
+        },
+        Object {
+          "label": 1,
+          "value": 1,
+        },
+      ]
+    }
+    max={1}
+    min={0}
+    onChange={[MockFunction]}
+    step={0.25}
+    value={0.75}
+  />
+</div>
+`;

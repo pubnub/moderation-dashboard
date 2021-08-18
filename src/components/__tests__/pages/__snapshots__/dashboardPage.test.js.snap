@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For Dashboard SnapShot 1`] = `
+<Fragment>
+  <WithStyles(CssBaseline) />
+  <Header />
+  <AppsListing />
+</Fragment>
+`;

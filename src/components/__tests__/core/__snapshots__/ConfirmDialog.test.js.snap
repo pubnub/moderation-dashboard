@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Confirm Dialog Snapshot 1`] = `
+<WithStyles(ForwardRef(Dialog))
+  aria-labelledby="confirm-dialog"
+  className="makeStyles-confirmDialog-3"
+  fullWidth={true}
+  id="dialog"
+  maxWidth="xs"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(DialogTitle))
+    id="confirm-dialog"
+  >
+    Are you sure?
+  </WithStyles(ForwardRef(DialogTitle))>
+  <WithStyles(ForwardRef(DialogContent))
+    id="content"
+  >
+    You want to delete this user?
+  </WithStyles(ForwardRef(DialogContent))>
+  <WithStyles(ForwardRef(DialogActions))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-confirmButton-1"
+      id="confirm"
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography)) />
+    </WithStyles(ForwardRef(Button))>
+    <WithStyles(ForwardRef(Button))
+      className="makeStyles-cancelButton-2"
+      id="cancel"
+      onClick={[Function]}
+      variant="contained"
+    >
+      Cancel
+    </WithStyles(ForwardRef(Button))>
+  </WithStyles(ForwardRef(DialogActions))>
+</WithStyles(ForwardRef(Dialog))>
+`;

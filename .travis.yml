@@ -1,0 +1,28 @@
+sudo: false
+language: node_js
+node_js:
+  - 14.16.1
+cache:
+  directories:
+    - node_modules
+install:
+  - sudo apt-get install -y npm
+  - npm install -g create-react-app
+script:
+  - npm install
+  - npm test
+  - npm run build || true
+deploy:
+  provider: s3
+  access_key_id: $AWS_access_key
+  secret_access_key: $AWS_secret_key
+  skip_cleanup: true
+  local_dir: build
+  region: us-west-2
+  on:
+    repo: sourcefuse/pubnub-moderation
+    branch: develop
+  bucket: test-intouch-bucket-dest
+notifications:
+  email:
+    - siddhant.bishnoi@sourcefuse.com

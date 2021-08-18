@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for MyAccount Dropdown Snapshot 1`] = `
+<div>
+  <div>
+    <WithStyles(ForwardRef(Button))
+      aria-haspopup="true"
+      className="makeStyles-button-2"
+      endIcon={<Memo />}
+      onClick={[Function]}
+    >
+      <WithStyles(ForwardRef(Avatar))
+        className="makeStyles-avatar-1"
+        variant="square"
+      >
+        Ab
+      </WithStyles(ForwardRef(Avatar))>
+      abc@sourcefuse.com
+    </WithStyles(ForwardRef(Button))>
+    <ForwardRef(Popper)
+      anchorEl={null}
+      className="makeStyles-paperRoot-3"
+      disablePortal={true}
+      open={false}
+      transition={true}
+    >
+      <Component />
+    </ForwardRef(Popper)>
+  </div>
+</div>
+`;

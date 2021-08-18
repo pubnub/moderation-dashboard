@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search Test Cases Snapshot 1`] = `
+<WithStyles(ForwardRef)
+  className="makeStyles-searchInput-7"
+  id="searchBar"
+  onCancelSearch={[Function]}
+  onChange={[Function]}
+  onRequestSearch={[Function]}
+  placeholder="Enter Text"
+  searchIcon={
+    <React.Fragment>
+      <img
+        alt=""
+        src="images/search.svg"
+      />
+    </React.Fragment>
+  }
+  value="someText"
+/>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Application Page Test Cases Should render properly 1`] = `
+<Fragment>
+  <HelmetWrapper
+    defer={true}
+    encodeSpecialCharacters={true}
+    title="Applications"
+  />
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="center"
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      lg={11}
+      md={11}
+      sm={11}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="space-between"
+        spacing={0}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          md={8}
+          sm={8}
+          xs={12}
+        >
+          <Styled(MuiBox)
+            pb={2}
+            pl={1}
+            pt={4}
+          >
+            <WithStyles(ForwardRef(Typography))
+              testid="AppListingHeader"
+              variant="h5"
+            >
+              Applications
+            </WithStyles(ForwardRef(Typography))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+          md={4}
+          sm={4}
+          xs={12}
+        >
+          <Styled(MuiBox)
+            pb={2}
+            pl={8}
+            pt={4}
+          >
+            <Search
+              cancelSearch={[Function]}
+              placeholder="Search for publish or subscribe key"
+              requestSearch={[Function]}
+              searched=""
+              testId="AppListingSearchText"
+            />
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+  <br />
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="center"
+    spacing={0}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      lg={11}
+      md={11}
+      sm={11}
+      xs={12}
+    >
+      <ApplicationTable
+        searchResult={Array []}
+      />
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</Fragment>
+`;

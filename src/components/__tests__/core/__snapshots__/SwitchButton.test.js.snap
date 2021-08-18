@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for SwitchButton Snapshot 1`] = `
+<Component
+  classes={
+    Object {
+      "checked": "Component-checked-5",
+      "focusVisible": "Component-focusVisible-6",
+      "root": "Component-root-1",
+      "switchBase": "Component-switchBase-2",
+      "thumb": "Component-thumb-3",
+      "track": "Component-track-4",
+    }
+  }
+/>
+`;

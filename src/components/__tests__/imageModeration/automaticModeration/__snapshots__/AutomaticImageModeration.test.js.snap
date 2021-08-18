@@ -1,0 +1,479 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
+<Fragment>
+  <WithStyles(ForwardRef(Card))
+    className="makeStyles-card-2"
+  >
+    <Styled(MuiBox)>
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <label
+            className="makeStyles-labelText-1"
+            testid="Channel_ID"
+          >
+            Channel ID
+          </label>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            className="makeStyles-infoIcon-10"
+          >
+            <WithStyles(WithStyles(ForwardRef(Tooltip)))
+              title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled."
+            >
+              <img
+                alt="info-circle"
+                src="/images/info-circle.svg"
+              />
+            </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)
+        mb={2}
+        pt={1}
+      >
+        <WithStyles(ForwardRef(TextField))
+          disabled={true}
+          error={false}
+          fullWidth={true}
+          id="channelId"
+          name="channelId"
+          onChange={[Function]}
+          placeholder="channel ID"
+          size="small"
+          value="initialText"
+          variant="outlined"
+        />
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+        justify="flex-start"
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <WithStyles(ForwardRef(Checkbox))
+            checked={true}
+            id="checkBox"
+            onChange={[Function]}
+          />
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            pl={1}
+            pt={1}
+          >
+            <WithStyles(ForwardRef(Typography))
+              testid="Apply_All"
+              variant="body1"
+            >
+              Apply to All Channel IDs
+            </WithStyles(ForwardRef(Typography))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="flex-start"
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        sm={12}
+      >
+        <label
+          className="makeStyles-labelText-1"
+          id="SelectTool"
+        >
+          Select third party tool for Automatic Detection
+        </label>
+        <Styled(MuiBox)
+          mb={2}
+          pt={1}
+        >
+          <WithStyles(ForwardRef(FormControl))
+            fullWidth={true}
+            size="small"
+          >
+            <WithStyles(ForwardRef(Select))
+              MenuProps={
+                Object {
+                  "anchorOrigin": Object {
+                    "horizontal": "left",
+                    "vertical": "bottom",
+                  },
+                  "getContentAnchorEl": null,
+                }
+              }
+              id="ImageModerationTool"
+              name="toolForImageModeration"
+              onChange={[Function]}
+              value="sightengine"
+              variant="outlined"
+            >
+              <WithStyles(ForwardRef(MenuItem))
+                value="sightengine"
+              >
+                SightEngine
+              </WithStyles(ForwardRef(MenuItem))>
+            </WithStyles(ForwardRef(Select))>
+          </WithStyles(ForwardRef(FormControl))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <Styled(MuiBox)
+      pt={1}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <label
+            className="makeStyles-labelText-1"
+            testId="ApiUser"
+          >
+            Sightengine API User
+          </label>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            className="makeStyles-infoIcon-10"
+          >
+            <WithStyles(WithStyles(ForwardRef(Tooltip)))
+              interactive={true}
+              title={
+                <React.Fragment>
+                  <span>
+                    Please follow steps listed 
+                  </span>
+                  <a
+                    href="https://sightengine.com/docs/image-moderation-workflows"
+                    style={
+                      Object {
+                        "color": "black",
+                        "fontWeight": 600,
+                        "textDecorationLine": "none",
+                      }
+                    }
+                  >
+                    here
+                  </a>
+                  <span>
+                     and input values
+                  </span>
+                </React.Fragment>
+              }
+            >
+              <img
+                alt="info-circle"
+                src="/images/info-circle.svg"
+              />
+            </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)
+        mb={2}
+        pt={1}
+      >
+        <WithStyles(ForwardRef(TextField))
+          error={false}
+          fullWidth={true}
+          helperText={false}
+          id="sightEngineAPIUser"
+          name="sightengineAPIUser"
+          onChange={[Function]}
+          placeholder="Sightengine API User"
+          size="small"
+          value=""
+          variant="outlined"
+        />
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+    <br />
+    <Styled(MuiBox)
+      pt={1}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <label
+            className="makeStyles-labelText-1"
+            testId="Api_Key"
+          >
+            Sightengine API Key
+          </label>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            className="makeStyles-infoIcon-10"
+          >
+            <WithStyles(WithStyles(ForwardRef(Tooltip)))
+              interactive={true}
+              title={
+                <React.Fragment>
+                  <span>
+                    Please follow steps listed 
+                  </span>
+                  <a
+                    href="https://sightengine.com/docs/image-moderation-workflows"
+                    style={
+                      Object {
+                        "color": "black",
+                        "fontWeight": 600,
+                        "textDecorationLine": "none",
+                      }
+                    }
+                  >
+                    here
+                  </a>
+                  <span>
+                     and input values
+                  </span>
+                </React.Fragment>
+              }
+            >
+              <img
+                alt="info-circle"
+                src="/images/info-circle.svg"
+              />
+            </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)
+        mb={2}
+        pt={1}
+      >
+        <WithStyles(ForwardRef(TextField))
+          error={false}
+          fullWidth={true}
+          helperText={false}
+          id="apiKey"
+          name="sightengineAPIKey"
+          onChange={[Function]}
+          placeholder="Sightengine API Key"
+          size="small"
+          value=""
+          variant="outlined"
+        />
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+    <br />
+    <Styled(MuiBox)
+      pt={1}
+    >
+      <WithStyles(ForwardRef(Grid))
+        container={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <label
+            className="makeStyles-labelText-1"
+            testId="workFlowId"
+          >
+            Sightengine Workflow ID
+          </label>
+        </WithStyles(ForwardRef(Grid))>
+        <WithStyles(ForwardRef(Grid))
+          item={true}
+        >
+          <Styled(MuiBox)
+            className="makeStyles-infoIcon-10"
+          >
+            <WithStyles(WithStyles(ForwardRef(Tooltip)))
+              interactive={true}
+              title={
+                <React.Fragment>
+                  <span>
+                    Please follow steps listed 
+                  </span>
+                  <a
+                    href="https://sightengine.com/docs/image-moderation-workflows"
+                    style={
+                      Object {
+                        "color": "black",
+                        "fontWeight": 600,
+                        "textDecorationLine": "none",
+                      }
+                    }
+                  >
+                    here
+                  </a>
+                  <span>
+                     and input values
+                  </span>
+                </React.Fragment>
+              }
+            >
+              <img
+                alt="info-circle"
+                src="/images/info-circle.svg"
+              />
+            </WithStyles(WithStyles(ForwardRef(Tooltip)))>
+          </Styled(MuiBox)>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <Styled(MuiBox)
+        mb={2}
+        pt={1}
+      >
+        <WithStyles(ForwardRef(TextField))
+          error={false}
+          fullWidth={true}
+          helperText={false}
+          id="sightEngineWorkflowId"
+          name="sightengineWorkflowId"
+          onChange={[Function]}
+          placeholder="Sightengine Workflow ID"
+          size="small"
+          value=""
+          variant="outlined"
+        />
+      </Styled(MuiBox)>
+    </Styled(MuiBox)>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="space-between"
+      spacing={6}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+        lg={6}
+        md={6}
+        sm={6}
+        xs={12}
+      >
+        <Styled(MuiBox)>
+          <label
+            className="makeStyles-labelText-1"
+            testId="riskFactor"
+          >
+            Sightengine Risk Factor
+          </label>
+          <Styled(MuiBox)
+            pt={1}
+          >
+            <SliderComponent
+              id="riskFactorSlider"
+              onChange={[Function]}
+              value=""
+            />
+          </Styled(MuiBox)>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Grid))
+          container={true}
+          justify="flex-start"
+        >
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <WithStyles(ForwardRef(Checkbox))
+              checked={false}
+              id="reRouteCheckBox"
+              name="reRouteMessages"
+              onChange={[Function]}
+            />
+          </WithStyles(ForwardRef(Grid))>
+          <WithStyles(ForwardRef(Grid))
+            item={true}
+          >
+            <Styled(MuiBox)
+              pl={1}
+              pt={1}
+            >
+              <WithStyles(ForwardRef(Typography))
+                testid="reRouteMsg"
+                variant="body1"
+              >
+                Route messages to
+              </WithStyles(ForwardRef(Typography))>
+            </Styled(MuiBox)>
+          </WithStyles(ForwardRef(Grid))>
+        </WithStyles(ForwardRef(Grid))>
+      </WithStyles(ForwardRef(Grid))>
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <Styled(MuiBox)>
+          <WithStyles(ForwardRef(Button))
+            className="makeStyles-rerouteBtn-8"
+          >
+            <img
+              alt="reroute"
+              className="makeStyles-rerouteIcon-9"
+              src="/images/reroute.svg"
+            />
+            banned.initialText
+          </WithStyles(ForwardRef(Button))>
+        </Styled(MuiBox)>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+    <br />
+    <WithStyles(ForwardRef(Grid))
+      container={true}
+      justify="space-between"
+      spacing={3}
+    >
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      />
+      <WithStyles(ForwardRef(Grid))
+        item={true}
+      >
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-cancel-3"
+          id="cancel"
+          variant="contained"
+        >
+          Cancel
+        </WithStyles(ForwardRef(Button))>
+        <WithStyles(ForwardRef(Button))
+          className="makeStyles-save-4"
+          disabled={false}
+          id="save"
+          variant="contained"
+        >
+          Save
+        </WithStyles(ForwardRef(Button))>
+      </WithStyles(ForwardRef(Grid))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Card))>
+</Fragment>
+`;

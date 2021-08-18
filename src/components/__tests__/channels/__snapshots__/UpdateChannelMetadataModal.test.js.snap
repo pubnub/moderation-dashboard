@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Case For UpdateChannelMetadataModal Snapshot 1`] = `
+<div>
+  <WithStyles(ForwardRef(Dialog))
+    aria-labelledby="customized-dialog-title"
+    className="makeStyles-modalLayout-8"
+    fullWidth={true}
+    onClose={[Function]}
+    open={true}
+  >
+    <WithStyles(ForwardRef(DialogTitle))
+      disableTypography={true}
+      id="customized-dialog-title"
+      onClose={[Function]}
+    >
+      <WithStyles(ForwardRef(Typography))
+        className="makeStyles-headingFont-13"
+        testid="UpdateChannel"
+        variant="h6"
+      >
+        Update Channel Metadata
+      </WithStyles(ForwardRef(Typography))>
+      <WithStyles(ForwardRef(IconButton))
+        aria-label="close"
+        className="makeStyles-closeButton-3"
+        onClick={[Function]}
+        testId="closeIcon"
+      >
+        <Memo(ForwardRef(CloseIcon)) />
+      </WithStyles(ForwardRef(IconButton))>
+    </WithStyles(ForwardRef(DialogTitle))>
+    <AddChannelForm
+      buttonTitle="UPDATE"
+      channelAlert={
+        Object {
+          "error": Object {
+            "msg": "",
+            "status": false,
+          },
+          "loading": false,
+          "success": Object {
+            "msg": "",
+            "status": false,
+          },
+        }
+      }
+      disabled={true}
+      formik={
+        Object {
+          "dirty": false,
+          "errors": Object {},
+          "getFieldHelpers": [Function],
+          "getFieldMeta": [Function],
+          "getFieldProps": [Function],
+          "handleBlur": [Function],
+          "handleChange": [Function],
+          "handleReset": [Function],
+          "handleSubmit": [Function],
+          "initialErrors": Object {},
+          "initialStatus": undefined,
+          "initialTouched": Object {},
+          "initialValues": Object {
+            "description": "",
+            "id": "",
+            "name": "",
+          },
+          "isSubmitting": false,
+          "isValid": true,
+          "isValidating": false,
+          "registerField": [Function],
+          "resetForm": [Function],
+          "setErrors": [Function],
+          "setFieldError": [Function],
+          "setFieldTouched": [Function],
+          "setFieldValue": [Function],
+          "setFormikState": [Function],
+          "setStatus": [Function],
+          "setSubmitting": [Function],
+          "setTouched": [Function],
+          "setValues": [Function],
+          "status": undefined,
+          "submitCount": 0,
+          "submitForm": [Function],
+          "touched": Object {},
+          "unregisterField": [Function],
+          "validateField": [Function],
+          "validateForm": [Function],
+          "validateOnBlur": true,
+          "validateOnChange": true,
+          "validateOnMount": false,
+          "values": Object {
+            "description": "",
+            "id": "",
+            "name": "",
+          },
+        }
+      }
+      handleClose={[Function]}
+    />
+  </WithStyles(ForwardRef(Dialog))>
+</div>
+`;

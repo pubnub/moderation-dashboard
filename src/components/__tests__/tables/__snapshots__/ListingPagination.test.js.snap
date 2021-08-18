@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for Listing Pagination Snapshot 1`] = `
+<WithStyles(ForwardRef(TablePagination))
+  backIconButtonProps={
+    Object {
+      "color": "primary",
+    }
+  }
+  className="makeStyles-tablePagination-10"
+  component="div"
+  count={1}
+  labelDisplayedRows={[Function]}
+  nextIconButtonProps={
+    Object {
+      "color": "primary",
+    }
+  }
+  onChangePage={[MockFunction]}
+  page={0}
+  rowsPerPage={25}
+  rowsPerPageOptions={
+    Array [
+      25,
+    ]
+  }
+/>
+`;

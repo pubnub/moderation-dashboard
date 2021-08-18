@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Cases for SnackBar Snapshot 1`] = `
+<WithStyles(ForwardRef(Snackbar))
+  anchorOrigin={
+    Object {
+      "horizontal": "right",
+      "vertical": "top",
+    }
+  }
+  autoHideDuration={9000}
+  id="snackBar"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(ForwardRef(Alert))
+    onClose={[Function]}
+    severity="info"
+  >
+    No applications found
+  </WithStyles(ForwardRef(Alert))>
+</WithStyles(ForwardRef(Snackbar))>
+`;
