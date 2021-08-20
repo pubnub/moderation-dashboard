@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test Cases for Routes Snapshot 1`] = `
-<BrowserRouter>
+<BrowserRouter
+  basename="/moderation-dashboard"
+>
   <Switch>
     <AuthRoute
       component={[Function]}

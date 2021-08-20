@@ -1,26 +1,20 @@
-import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
-import {
-  Grid,
-  Button,
-  TextField,
-  Typography,
-  CircularProgress,
-} from '@material-ui/core';
-import InputAdornment from '@material-ui/core/InputAdornment';
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Grid, Button, TextField, Typography, CircularProgress } from "@material-ui/core";
+import InputAdornment from "@material-ui/core/InputAdornment";
 import {
   PersonOutlineOutlined,
   HttpsOutlined,
   RemoveRedEyeOutlined,
   RemoveRedEye,
-} from '@material-ui/icons';
-import { useStyles } from '../../style/loginForm';
-import { signIn } from '../../services/auth';
-import { authenticate, setLocalStorage } from '../../services/localStorage';
-import { fetchAllAccounts, fetchAllApps } from '../../services/pubnub';
+} from "@material-ui/icons";
+import { useStyles } from "../../style/loginForm";
+import { signIn } from "../../services/auth";
+import { authenticate, setLocalStorage } from "../../services/localStorage";
+import { fetchAllAccounts, fetchAllApps } from "../../services/pubnub";
 
-import Alert from '@material-ui/lab/Alert';
-import Pubnub from 'pubnub';
+import Alert from "@material-ui/lab/Alert";
+import Pubnub from "pubnub";
 
 const LoginForm = () => {
   const classes = useStyles();
@@ -28,19 +22,19 @@ const LoginForm = () => {
   const uuid = Pubnub.generateUUID();
 
   const [alert, setAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
     loading: false,
   });
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   const [passwordIsMasked, setPasswordIsMasked] = useState(true);
 
   const handleChange = (type) => (e) => {
     switch (type) {
-      case 'email':
+      case "email":
         setCredentials({ ...credentials, email: e.target.value });
         break;
-      case 'password':
+      case "password":
         setCredentials({ ...credentials, password: e.target.value });
         break;
       default:
@@ -56,30 +50,24 @@ const LoginForm = () => {
       const { user, token } = authSignInResponse.result;
       setAlert({
         ...alert,
-        success: { status: true, msg: 'Successfully Authenticated' },
-        error: { status: false, msg: '' },
+        success: { status: true, msg: "Successfully Authenticated" },
+        error: { status: false, msg: "" },
       });
       authenticate({ user, token }, async () => {
         try {
           let accountsResult = await fetchAllAccounts(user.id, token);
-          let apps = await fetchAllApps(
-            accountsResult.result.accounts[0].id,
-            token
-          );
-          setLocalStorage('PubNubAccounts', accountsResult.result.accounts);
-          setLocalStorage(
-            'PubNubSelectedAccount',
-            accountsResult.result.accounts[0]
-          );
-          setLocalStorage('PubNubApplications', apps);
-          setLocalStorage('uuid', uuid);
+          let apps = await fetchAllApps(accountsResult.result.accounts[0].id, token);
+          setLocalStorage("PubNubAccounts", accountsResult.result.accounts);
+          setLocalStorage("PubNubSelectedAccount", accountsResult.result.accounts[0]);
+          setLocalStorage("PubNubApplications", apps);
+          setLocalStorage("uuid", uuid);
           setAlert({
             ...alert,
-            success: { status: true, msg: '' },
-            error: { status: false, msg: '' },
+            success: { status: true, msg: "" },
+            error: { status: false, msg: "" },
             loading: false,
           });
-          history.push('/dashboard');
+          history.push("/dashboard");
         } catch (err) {
           throw new Error(err);
         }
@@ -89,7 +77,7 @@ const LoginForm = () => {
         ...alert,
         error: { status: true, msg: err.message },
         loading: false,
-        success: { status: false, msg: '' },
+        success: { status: false, msg: "" },
       });
     }
   };
@@ -111,7 +99,7 @@ const LoginForm = () => {
                       <div className={classes.logIconContainer}>
                         <span className={classes.logIcon}>
                           <img
-                            src="images/Pubnub logo.svg"
+                            src={process.env.PUBLIC_URL + "/images/Pubnub logo.svg"}
                             alt="Pubnub Logo"
                             width={160}
                           />
@@ -119,10 +107,7 @@ const LoginForm = () => {
                       </div>
                     </Grid>
                     <Grid item sm={12} md={12} xs={12}>
-                      <Typography
-                        className={classes.logSubtitle}
-                        align="center"
-                      >
+                      <Typography className={classes.logSubtitle} align="center">
                         Enter to continue and explore within your grasp
                       </Typography>
                     </Grid>
@@ -133,13 +118,9 @@ const LoginForm = () => {
                       <Grid xs={10} sm={12} md={10} item>
                         <div className={classes.alertCard}>
                           {alert.success.status && (
-                            <Alert severity="success">
-                              {alert.success.msg}
-                            </Alert>
+                            <Alert severity="success">{alert.success.msg}</Alert>
                           )}
-                          {alert.error.status && (
-                            <Alert severity="error">{alert.error.msg}</Alert>
-                          )}
+                          {alert.error.status && <Alert severity="error">{alert.error.msg}</Alert>}
                         </div>
                         <br />
                         <br />
@@ -155,22 +136,20 @@ const LoginForm = () => {
                           InputProps={{
                             startAdornment: (
                               <InputAdornment position="start">
-                                <PersonOutlineOutlined
-                                  className={classes.textfieldIcon}
-                                />
+                                <PersonOutlineOutlined className={classes.textfieldIcon} />
                               </InputAdornment>
                             ),
                           }}
                           placeholder="E-mail address"
                           required
-                          onChange={handleChange('email')}
+                          onChange={handleChange("email")}
                           value={credentials.email}
                           autoFocus
                         />
                       </Grid>
                       <Grid xs={10} sm={12} md={10} item>
                         <TextField
-                          type={passwordIsMasked ? 'password' : 'text'}
+                          type={passwordIsMasked ? "password" : "text"}
                           autoComplete="password"
                           variant="outlined"
                           className={classes.loginTextField}
@@ -193,16 +172,14 @@ const LoginForm = () => {
                             ),
                             startAdornment: (
                               <InputAdornment position="start">
-                                <HttpsOutlined
-                                  className={classes.textfieldIcon}
-                                />
+                                <HttpsOutlined className={classes.textfieldIcon} />
                               </InputAdornment>
                             ),
                           }}
                           fullWidth
                           placeholder="Password"
                           required
-                          onChange={handleChange('password')}
+                          onChange={handleChange("password")}
                           value={credentials.password}
                         />
                       </Grid>
@@ -219,14 +196,11 @@ const LoginForm = () => {
                           type="submit"
                           startIcon={
                             alert.loading ? (
-                              <CircularProgress
-                                className={classes.loader}
-                                size={30}
-                              />
+                              <CircularProgress className={classes.loader} size={30} />
                             ) : null
                           }
                         >
-                          {alert.loading ? 'Submitting' : 'LOGIN TO CONTINUE'}
+                          {alert.loading ? "Submitting" : "LOGIN TO CONTINUE"}
                         </Button>
                       </Grid>
                     </Grid>

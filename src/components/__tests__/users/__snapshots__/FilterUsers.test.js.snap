@@ -11,7 +11,7 @@ exports[`Filter User meta data Modal Snapshhot 1`] = `
     <WithStyles(ForwardRef(IconButton))>
       <img
         alt="filter"
-        src="images/filter.svg"
+        src="/images/filter.svg"
       />
     </WithStyles(ForwardRef(IconButton))>
   </WithStyles(ForwardRef(Avatar))>
@@ -50,7 +50,7 @@ exports[`Filter User meta data Modal Snapshhot 1`] = `
             >
               <img
                 alt="filter"
-                src="images/times.svg"
+                src="/images/times.svg"
               />
             </WithStyles(ForwardRef(Button))>
           </WithStyles(ForwardRef(Grid))>

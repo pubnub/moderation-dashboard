@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -9,16 +9,12 @@ import {
   Breadcrumbs,
   Typography,
   Link,
-} from '@material-ui/core';
-import MyAccountDropdown from './MyAccountDropdown';
-import { useStyles } from '../../../style/header';
-import {
-  accountsFromLS,
-  selectedAppFromLS,
-  selectedChannelFromLS,
-} from '../../../utils/helpers';
-import Breadcrumb from './Breadcrumb';
-import { NavigateNext } from '@material-ui/icons';
+} from "@material-ui/core";
+import MyAccountDropdown from "./MyAccountDropdown";
+import { useStyles } from "../../../style/header";
+import { accountsFromLS, selectedAppFromLS, selectedChannelFromLS } from "../../../utils/helpers";
+import Breadcrumb from "./Breadcrumb";
+import { NavigateNext } from "@material-ui/icons";
 
 export default function Header() {
   const classes = useStyles();
@@ -32,7 +28,7 @@ export default function Header() {
   }, []);
 
   const showBreadcrumbs = () => {
-    if (history.location.pathname === '/dashboard') {
+    if (history.location.pathname === "/dashboard") {
       return (
         <Breadcrumbs aria-label="breadcrumb">
           <Typography color="inherit" variant="body2">
@@ -40,22 +36,19 @@ export default function Header() {
           </Typography>
         </Breadcrumbs>
       );
-    } else if (history.location.pathname === '/channels') {
-      return <Breadcrumb currentPage={'Channels'} />;
-    } else if (history.location.pathname === '/overview') {
-      return <Breadcrumb currentPage={''} />;
-    } else if (history.location.pathname === '/users') {
-      return <Breadcrumb currentPage={'Users'} />;
-    } else if (history.location.pathname === '/text-moderation') {
-      return <Breadcrumb currentPage={'Text Moderation'} />;
-    } else if (history.location.pathname === '/image-moderation') {
-      return <Breadcrumb currentPage={'Image Moderation'} />;
-    } else if (history.location.pathname === '/channels/messages') {
+    } else if (history.location.pathname === "/channels") {
+      return <Breadcrumb currentPage={"Channels"} />;
+    } else if (history.location.pathname === "/overview") {
+      return <Breadcrumb currentPage={""} />;
+    } else if (history.location.pathname === "/users") {
+      return <Breadcrumb currentPage={"Users"} />;
+    } else if (history.location.pathname === "/text-moderation") {
+      return <Breadcrumb currentPage={"Text Moderation"} />;
+    } else if (history.location.pathname === "/image-moderation") {
+      return <Breadcrumb currentPage={"Image Moderation"} />;
+    } else if (history.location.pathname === "/channels/messages") {
       return (
-        <Breadcrumbs
-          separator={<NavigateNext fontSize="small" />}
-          aria-label="breadcrumb"
-        >
+        <Breadcrumbs separator={<NavigateNext fontSize="small" />} aria-label="breadcrumb">
           <Link color="primary" href="/dashboard">
             <Typography variant="body2">Applications</Typography>
           </Link>
@@ -84,12 +77,12 @@ export default function Header() {
           <IconButton
             id="toDashboard"
             edge="start"
-            onClick={() => history.push('/dashboard')}
+            onClick={() => history.push("/dashboard")}
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
-            <img src="/images/Pubnub logo.svg" width={90} alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/Pubnub logo.svg"} width={90} alt="" />
           </IconButton>
           <div className={classes.verticalLine} />
           {showBreadcrumbs()}

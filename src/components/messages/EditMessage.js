@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   TextField,
   Button,
@@ -7,24 +7,21 @@ import {
   Typography,
   IconButton,
   Grid,
-} from '@material-ui/core';
-import {
-  addEditMessageAction,
-  deleteMessageAction,
-} from '../../services/pubnub';
-import { useStyles } from '../../style/messages';
-import SnackBar from '../core/SnackBar';
+} from "@material-ui/core";
+import { addEditMessageAction, deleteMessageAction } from "../../services/pubnub";
+import { useStyles } from "../../style/messages";
+import SnackBar from "../core/SnackBar";
 
 const EditMessage = (props) => {
   const { pubnub, channel, message } = props;
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [displayBox, setDisplayBox] = useState(false);
-  const [actionToken, setActionToken] = useState('');
+  const [actionToken, setActionToken] = useState("");
   const classes = useStyles();
   const [alertMessage, setAlertMessage] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
 
   useEffect(() => {
@@ -43,39 +40,24 @@ const EditMessage = (props) => {
   const updateMessage = () => {
     setAlertMessage({
       ...alertMessage,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     (async () => {
       try {
         if (actionToken) {
-          await deleteMessageAction(
-            pubnub,
-            channel,
-            message.timetoken,
-            actionToken
-          );
+          await deleteMessageAction(pubnub, channel, message.timetoken, actionToken);
         }
-        const response = await addEditMessageAction(
-          pubnub,
-          channel,
-          message.timetoken,
-          text
-        );
-        setText('');
+        const response = await addEditMessageAction(pubnub, channel, message.timetoken, text);
+        setText("");
         setDisabled(true);
         setDisplayBox(false);
-        props.updated(
-          message.timetoken,
-          message.actionToken,
-          'updated',
-          response
-        );
+        props.updated(message.timetoken, message.actionToken, "updated", response);
       } catch (e) {
         setAlertMessage({
           ...alertMessage,
-          success: { status: false, msg: '' },
-          error: { status: true, msg: 'Failed to edit message' },
+          success: { status: false, msg: "" },
+          error: { status: true, msg: "Failed to edit message" },
         });
       }
     })();
@@ -88,8 +70,8 @@ const EditMessage = (props) => {
   const closeEditing = () => {
     setDisplayBox(false);
     setDisabled(true);
-    setText('');
-    props.updated(message.timetoken, message.actionToken, 'updated', '');
+    setText("");
+    props.updated(message.timetoken, message.actionToken, "updated", "");
   };
   return (
     <>
@@ -97,16 +79,12 @@ const EditMessage = (props) => {
         <Box className={classes.messageBox}>
           <Grid justify="space-between" container>
             <Grid item>
-              <Typography className={classes.editMessageHeader}>
-                Edit Message
-              </Typography>
-              <Typography className={classes.editMessageFont}>
-                {message.text}
-              </Typography>
+              <Typography className={classes.editMessageHeader}>Edit Message</Typography>
+              <Typography className={classes.editMessageFont}>{message.text}</Typography>
             </Grid>
             <Grid item>
               <IconButton id="close" onClick={closeEditing}>
-                <img src="/images/close.svg" alt="close" />
+                <img src={process.env.PUBLIC_URL + "/images/close.svg"} alt="close" />
               </IconButton>
             </Grid>
           </Grid>
@@ -118,7 +96,7 @@ const EditMessage = (props) => {
             endAdornment: (
               <InputAdornment position="end">
                 <Button onClick={updateMessage}>
-                  <img src="/images/send-button.svg" alt="edit" />
+                  <img src={process.env.PUBLIC_URL + "/images/send-button.svg"} alt="edit" />
                 </Button>
               </InputAdornment>
             ),
@@ -134,9 +112,7 @@ const EditMessage = (props) => {
           disabled={disabled}
         />
       ) : null}
-      {alertMessage.error.status && (
-        <SnackBar msg={alertMessage.error.msg} status={'info'} />
-      )}
+      {alertMessage.error.status && <SnackBar msg={alertMessage.error.msg} status={"info"} />}
     </>
   );
 };

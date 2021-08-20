@@ -1,7 +1,7 @@
-import React from 'react';
-import { IconButton } from '@material-ui/core';
-import { useStyles } from '../../style/listingTable';
-import { LightTooltip } from '../../style/tooltip';
+import React from "react";
+import { IconButton } from "@material-ui/core";
+import { useStyles } from "../../style/listingTable";
+import { LightTooltip } from "../../style/tooltip";
 
 export default function TableIcons(props) {
   const { row } = props;
@@ -20,7 +20,7 @@ export default function TableIcons(props) {
                 className={classes.icons}
                 onClick={(event) => props.flagUser(event, row)}
               >
-                <img src="/images/flag.svg" alt="flag" />
+                <img src={process.env.PUBLIC_URL + "/images/flag.svg"} alt="flag" />
               </IconButton>
             </LightTooltip>
           );
@@ -32,7 +32,7 @@ export default function TableIcons(props) {
                 className={classes.icons}
                 onClick={(event) => props.unFlagUser(event, row)}
               >
-                <img src="/images/flag.svg" alt="flag" />
+                <img src={process.env.PUBLIC_URL + "/images/flag.svg"} alt="flag" />
               </IconButton>
             </LightTooltip>
           );
@@ -48,7 +48,7 @@ export default function TableIcons(props) {
                 className={classes.icons}
                 onClick={(event) => props.banUser(event, row)}
               >
-                <img src="/images/ban.svg" alt="block" />
+                <img src={process.env.PUBLIC_URL + "/images/ban.svg"} alt="block" />
               </IconButton>
             </LightTooltip>
           );
@@ -60,7 +60,7 @@ export default function TableIcons(props) {
                 className={classes.icons}
                 onClick={(event) => props.unbanUser(event, row)}
               >
-                <img src="/images/ban.svg" alt="block" />
+                <img src={process.env.PUBLIC_URL + "/images/ban.svg"} alt="block" />
               </IconButton>
             </LightTooltip>
           );
@@ -75,7 +75,7 @@ export default function TableIcons(props) {
             className={classes.icons}
             onClick={(event) => props.viewRow(event, row.id)}
           >
-            <img src="/images/watch.svg" alt="view" />
+            <img src={process.env.PUBLIC_URL + "/images/watch.svg"} alt="view" />
           </IconButton>
         </LightTooltip>
       ) : null}
@@ -87,7 +87,7 @@ export default function TableIcons(props) {
           onMouseOut={() => props.setOver(false)}
           onClick={(event) => props.editRow(event, row)}
         >
-          <img src="/images/edit.svg" alt="edit" />
+          <img src={process.env.PUBLIC_URL + "/images/edit.svg"} alt="edit" />
         </IconButton>
       </LightTooltip>
       <LightTooltip title="Delete">
@@ -99,7 +99,7 @@ export default function TableIcons(props) {
           onMouseOut={() => props.setOver(false)}
           onClick={(event) => props.deleteRow(event, row.id)}
         >
-          <img src="/images/delete.svg" alt="delete" />
+          <img src={process.env.PUBLIC_URL + "/images/delete.svg"} alt="delete" />
         </IconButton>
       </LightTooltip>
     </div>

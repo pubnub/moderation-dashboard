@@ -9,7 +9,7 @@ exports[`Test Cases for Add Channel Metadata Modal Snapshot 1`] = `
     startIcon={
       <img
         alt="add"
-        src="images/add-channel.svg"
+        src="/images/add-channel.svg"
       />
     }
   >

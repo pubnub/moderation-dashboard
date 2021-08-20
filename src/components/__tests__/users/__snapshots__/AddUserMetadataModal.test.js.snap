@@ -8,7 +8,7 @@ exports[`Add User meta data Modal should render correctly with no props 1`] = `
     startIcon={
       <img
         alt="add"
-        src="images/plus.svg"
+        src="/images/plus.svg"
       />
     }
     testid="button_id"
@@ -121,7 +121,7 @@ exports[`Add User meta data Modal should render pubnub and userinfo object corre
     startIcon={
       <img
         alt="add"
-        src="images/plus.svg"
+        src="/images/plus.svg"
       />
     }
     testid="button_id"

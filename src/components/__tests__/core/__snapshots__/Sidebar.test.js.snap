@@ -52,7 +52,7 @@ exports[`Test Cases for Sidebar Snapshot 1`] = `
               Settings
             </WithStyles(ForwardRef(Typography))>
           </WithStyles(ForwardRef(ListItemText))>
-          <Memo(ForwardRef(ExpandLessIcon)) />
+          <Memo(ForwardRef(ExpandMoreIcon)) />
         </WithStyles(ForwardRef(ListItem))>
         <WithStyles(ForwardRef(Collapse))
           in={false}

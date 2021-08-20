@@ -12,7 +12,7 @@ exports[`Search Test Cases Snapshot 1`] = `
     <React.Fragment>
       <img
         alt=""
-        src="images/search.svg"
+        src="/images/search.svg"
       />
     </React.Fragment>
   }

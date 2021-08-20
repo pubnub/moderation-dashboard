@@ -1,6 +1,6 @@
-import React from 'react';
-import { Grid, Box, Typography } from '@material-ui/core';
-import { useStyles } from '../../style/textModeration.js';
+import React from "react";
+import { Grid, Box, Typography } from "@material-ui/core";
+import { useStyles } from "../../style/textModeration.js";
 
 const FilterCard = ({ state, handleClick }) => {
   const classes = useStyles();
@@ -9,20 +9,18 @@ const FilterCard = ({ state, handleClick }) => {
       <Grid item>
         <Box
           className={
-            state.wordListProfanity === 'true'
-              ? classes.methodSelected
-              : classes.methodNotSelected
+            state.wordListProfanity === "true" ? classes.methodSelected : classes.methodNotSelected
           }
-          onClick={handleClick('wordListMethod')}
+          onClick={handleClick("wordListMethod")}
         >
           <Grid container justify="center">
             <Box p={1}>
               <img
                 alt=""
                 src={
-                  state.wordListProfanity === 'true'
-                    ? '/images/selected-word-list.svg'
-                    : '/images/word-list-not-selected.svg'
+                  state.wordListProfanity === "true"
+                    ? process.env.PUBLIC_URL + "/images/selected-word-list.svg"
+                    : process.env.PUBLIC_URL + "/images/word-list-not-selected.svg"
                 }
               />
             </Box>
@@ -35,20 +33,18 @@ const FilterCard = ({ state, handleClick }) => {
       <Grid item>
         <Box
           className={
-            state.automaticProfanity === 'true'
-              ? classes.methodSelected
-              : classes.methodNotSelected
+            state.automaticProfanity === "true" ? classes.methodSelected : classes.methodNotSelected
           }
-          onClick={handleClick('automaticMethod')}
+          onClick={handleClick("automaticMethod")}
         >
           <Grid container justify="center">
             <Box p={1}>
               <img
                 alt=""
                 src={
-                  state.automaticProfanity === 'true'
-                    ? '/images/automatic-profanity-selected.svg'
-                    : '/images/automatic-detection.svg'
+                  state.automaticProfanity === "true"
+                    ? process.env.PUBLIC_URL + "/images/automatic-profanity-selected.svg"
+                    : process.env.PUBLIC_URL + "/images/automatic-detection.svg"
                 }
               />
             </Box>

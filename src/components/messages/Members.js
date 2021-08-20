@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { Avatar, Box, Grid, IconButton, Typography } from '@material-ui/core';
-import { useStyles } from '../../style/messages';
-import { getChannelMembers, getOnlineMembers } from '../../services/pubnub';
-import { OnlineBadge, OfflineBadge } from '../../style/badge';
+import React, { useEffect, useState } from "react";
+import { Avatar, Box, Grid, IconButton, Typography } from "@material-ui/core";
+import { useStyles } from "../../style/messages";
+import { getChannelMembers, getOnlineMembers } from "../../services/pubnub";
+import { OnlineBadge, OfflineBadge } from "../../style/badge";
 import {
   capitalizeFirstLetter,
   formatProfileImageUrl,
   checkMuteStatus,
   checkBlockStatus,
-} from '../../utils/helpers';
-import { LightTooltip } from '../../style/tooltip';
-import UserAction from '../users/UserAction';
-import MembersLoader from './MembersLoader';
+} from "../../utils/helpers";
+import { LightTooltip } from "../../style/tooltip";
+import UserAction from "../users/UserAction";
+import MembersLoader from "./MembersLoader";
 
 export default function Members(props) {
   const classes = useStyles();
@@ -20,8 +20,8 @@ export default function Members(props) {
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [over, setOver] = useState(false);
   const [selectedUser, setSelectedUser] = useState([]);
-  const [action, setAction] = useState('');
-  const [nextPage, setNextPage] = useState('');
+  const [action, setAction] = useState("");
+  const [nextPage, setNextPage] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -39,23 +39,20 @@ export default function Members(props) {
   const fetchOnlineMembers = () => {
     (async () => {
       try {
-        const onlineMembersResponse = await getOnlineMembers(
-          props.pubnub,
-          props.channelName
-        );
+        const onlineMembersResponse = await getOnlineMembers(props.pubnub, props.channelName);
         setOnlineUsers(onlineMembersResponse.length);
         props.channelMembers.map((member, i) => {
-          props.channelMembers[i]['mute'] = false;
-          props.channelMembers[i]['block'] = false;
+          props.channelMembers[i]["mute"] = false;
+          props.channelMembers[i]["block"] = false;
           if (checkMuteStatus(member, props.channelName)) {
-            props.channelMembers[i]['mute'] = true;
+            props.channelMembers[i]["mute"] = true;
           }
           if (checkBlockStatus(member, props.channelName)) {
-            props.channelMembers[i]['block'] = true;
+            props.channelMembers[i]["block"] = true;
           }
           onlineMembersResponse.map((onlineMember, j) => {
             if (member.uuid.id === onlineMember.uuid) {
-              props.channelMembers[i]['status'] = 'online';
+              props.channelMembers[i]["status"] = "online";
             }
             return false;
           });
@@ -69,9 +66,9 @@ export default function Members(props) {
               profileUrl: null,
               id: null,
             },
-            status: 'online',
+            status: "online",
             actionsDisable: true,
-            toolTipTitle: 'User not a member of channel',
+            toolTipTitle: "User not a member of channel",
           };
           let filterMember = props.channelMembers.filter(
             (member) => member.uuid.id === onlineMember.uuid
@@ -101,7 +98,7 @@ export default function Members(props) {
    * Handles mute icon click to mute a user
    */
   const confirmMute = (event, user) => {
-    setAction('mute');
+    setAction("mute");
     setConfirmOpen(true);
     setSelectedUser(user);
   };
@@ -110,7 +107,7 @@ export default function Members(props) {
    * Handles unmute icon click to unmute a user
    */
   const confirmUnmute = (event, user) => {
-    setAction('unmute');
+    setAction("unmute");
     setConfirmOpen(true);
     setSelectedUser(user);
   };
@@ -119,7 +116,7 @@ export default function Members(props) {
    * Handles block icon click to blcok a user
    */
   const confirmBlock = (event, user) => {
-    setAction('block');
+    setAction("block");
     setConfirmOpen(true);
     setSelectedUser(user);
   };
@@ -128,29 +125,27 @@ export default function Members(props) {
    * Handles unblock icon click to unblock a user
    */
   const confirmUnblock = (event, user) => {
-    setAction('unblock');
+    setAction("unblock");
     setConfirmOpen(true);
     setSelectedUser(user);
   };
 
   const metadataUpdated = (userDetail, response) => {
-    let filteredArray = members.filter(
-      (item) => item.uuid.id !== userDetail.id
-    );
+    let filteredArray = members.filter((item) => item.uuid.id !== userDetail.id);
     let filteredMember = members.filter((row) => {
       return row.uuid.id.includes(userDetail.id);
     });
     switch (response) {
-      case 'mute':
+      case "mute":
         filteredMember[0].mute = true;
         break;
-      case 'unmute':
+      case "unmute":
         filteredMember[0].mute = false;
         break;
-      case 'block':
+      case "block":
         filteredMember[0].block = true;
         break;
-      case 'unblock':
+      case "unblock":
         filteredMember[0].block = false;
         break;
       default:
@@ -170,11 +165,7 @@ export default function Members(props) {
     setLoading(true);
     (async () => {
       try {
-        const channelMembers = await getChannelMembers(
-          props.pubnub,
-          props.channelName,
-          nextPage
-        );
+        const channelMembers = await getChannelMembers(props.pubnub, props.channelName, nextPage);
         setMembers((oldArray) => [...oldArray, ...channelMembers.data]);
         setNextPage(channelMembers.next);
         setLoading(false);
@@ -224,8 +215,8 @@ export default function Members(props) {
                   <OnlineBadge
                     variant="dot"
                     anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'right',
+                      vertical: "bottom",
+                      horizontal: "right",
                     }}
                   >
                     <Avatar
@@ -238,8 +229,8 @@ export default function Members(props) {
                   <OfflineBadge
                     variant="dot"
                     anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'right',
+                      vertical: "bottom",
+                      horizontal: "right",
                     }}
                   >
                     <Avatar
@@ -253,18 +244,18 @@ export default function Members(props) {
               <Grid item sm={6} xs={12} md={6}>
                 <small className={classes.values}>
                   {!member.uuid.name
-                    ? member.uuid.id.substring(0, 12) + '..' || 'Unknown'
+                    ? member.uuid.id.substring(0, 12) + ".." || "Unknown"
                     : capitalizeFirstLetter(member.uuid.name)}
                 </small>
                 <br />
                 <small className={classes.appName}>
-                  {!member.status ? 'offline' : member.status}
+                  {!member.status ? "offline" : member.status}
                 </small>
               </Grid>
               <Box ml={1}>
                 {!member.mute ? (
                   <>
-                    <LightTooltip title={member.toolTipTitle || 'Mute'}>
+                    <LightTooltip title={member.toolTipTitle || "Mute"}>
                       <span>
                         <IconButton
                           edge="start"
@@ -274,9 +265,9 @@ export default function Members(props) {
                           disabled={member.actionsDisable}
                         >
                           <img
-                            src="/images/unmute.svg"
+                            src={process.env.PUBLIC_URL + "/images/unmute.svg"}
                             alt="mute"
-                            style={{ width: '20px', height: '16px' }}
+                            style={{ width: "20px", height: "16px" }}
                           />
                         </IconButton>
                       </span>
@@ -293,7 +284,7 @@ export default function Members(props) {
                           onMouseOut={() => setOver(false)}
                           disabled={member.actionsDisable}
                         >
-                          <img src="/images/mute.svg" alt="unmute" />
+                          <img src={process.env.PUBLIC_URL + "/images/mute.svg"} alt="unmute" />
                         </IconButton>
                       </span>
                     </LightTooltip>
@@ -301,7 +292,7 @@ export default function Members(props) {
                 )}
                 {!member.block ? (
                   <>
-                    <LightTooltip title={member.toolTipTitle || 'Block'}>
+                    <LightTooltip title={member.toolTipTitle || "Block"}>
                       <span>
                         <IconButton
                           edge="start"
@@ -310,7 +301,7 @@ export default function Members(props) {
                           onMouseOut={() => setOver(false)}
                           disabled={member.actionsDisable}
                         >
-                          <img src="/images/unblock.svg" alt="block" />
+                          <img src={process.env.PUBLIC_URL + "/images/unblock.svg"} alt="block" />
                         </IconButton>
                       </span>
                     </LightTooltip>
@@ -321,14 +312,12 @@ export default function Members(props) {
                       <span>
                         <IconButton
                           edge="start"
-                          onClick={(event) =>
-                            confirmUnblock(event, member.uuid)
-                          }
+                          onClick={(event) => confirmUnblock(event, member.uuid)}
                           onMouseOver={() => setOver(true)}
                           onMouseOut={() => setOver(false)}
                           disabled={member.actionsDisable}
                         >
-                          <img src="/images/block.svg" alt="unblock" />
+                          <img src={process.env.PUBLIC_URL + "/images/block.svg"} alt="unblock" />
                         </IconButton>
                       </span>
                     </LightTooltip>

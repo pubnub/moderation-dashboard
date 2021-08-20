@@ -1,41 +1,28 @@
 /**
  * Displays Message content of a message in a selected channel
  */
-import React from 'react';
-import { useStyles } from '../../style/messages';
-import { Box, Grid, Typography, IconButton, Avatar } from '@material-ui/core';
-import { LightTooltip } from '../../style/tooltip';
-import {
-  getModeratedMessageTooltip,
-  getModeratedReasonTooltip,
-} from '../../utils/helpers';
+import React from "react";
+import { useStyles } from "../../style/messages";
+import { Box, Grid, Typography, IconButton, Avatar } from "@material-ui/core";
+import { LightTooltip } from "../../style/tooltip";
+import { getModeratedMessageTooltip, getModeratedReasonTooltip } from "../../utils/helpers";
 
 const MessageContent = (props) => {
-  const {
-    message,
-    confirmDelete,
-    updateMessage,
-    confirmUndo,
-    index,
-    toggledVal,
-  } = props;
+  const { message, confirmDelete, updateMessage, confirmUndo, index, toggledVal } = props;
   const classes = useStyles();
   return (
     <>
-      {toggledVal === 'chat' && (
+      {toggledVal === "chat" && (
         <Grid container className={classes.messageContainer}>
-          {message.actions &&
-          (message.actions === 'deleted' || message.actions.deleted) ? (
+          {message.actions && (message.actions === "deleted" || message.actions.deleted) ? (
             <>
               <span
                 className={classes.chat}
                 style={{
-                  backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#EEF3FF',
+                  backgroundColor: index % 2 !== 0 ? "#FFFFFF" : "#EEF3FF",
                 }}
               >
-                <Typography className={classes.deletedChat}>
-                  {message.text}
-                </Typography>
+                <Typography className={classes.deletedChat}>{message.text}</Typography>
               </span>
               <Box ml={2}>
                 <LightTooltip title="Undo">
@@ -44,7 +31,7 @@ const MessageContent = (props) => {
                     edge="start"
                     onClick={(event) => confirmUndo(event, message)}
                   >
-                    <img src="/images/undo.svg" alt="delete" />
+                    <img src={process.env.PUBLIC_URL + "/images/undo.svg"} alt="delete" />
                   </IconButton>
                 </LightTooltip>
               </Box>
@@ -54,12 +41,10 @@ const MessageContent = (props) => {
               <span
                 className={classes.chat}
                 style={{
-                  backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#EEF3FF',
+                  backgroundColor: index % 2 !== 0 ? "#FFFFFF" : "#EEF3FF",
                 }}
               >
-                <Typography className={classes.chatText}>
-                  {message.text}
-                </Typography>
+                <Typography className={classes.chatText}>{message.text}</Typography>
                 {message.file && message.file.url && (
                   <>
                     <Avatar src={message.file.url} className={classes.image} />
@@ -75,7 +60,7 @@ const MessageContent = (props) => {
                     label="edit"
                     onClick={(event) => updateMessage(event, message)}
                   >
-                    <img src="/images/edit-message.svg" alt="edit" />
+                    <img src={process.env.PUBLIC_URL + "/images/edit-message.svg"} alt="edit" />
                   </IconButton>
                 </LightTooltip>
                 <LightTooltip title="Delete">
@@ -85,7 +70,7 @@ const MessageContent = (props) => {
                     label="delete"
                     onClick={(event) => confirmDelete(event, message)}
                   >
-                    <img src="/images/delete-message.svg" alt="delete" />
+                    <img src={process.env.PUBLIC_URL + "/images/delete-message.svg"} alt="delete" />
                   </IconButton>
                 </LightTooltip>
               </Box>
@@ -93,22 +78,20 @@ const MessageContent = (props) => {
           )}
         </Grid>
       )}
-      {toggledVal === 'banned' && (
+      {toggledVal === "banned" && (
         <Grid container>
           <>
             <span
               className={classes.chat}
               style={{
-                backgroundColor: index % 2 !== 0 ? '#FFFFFF' : '#EEF3FF',
+                backgroundColor: index % 2 !== 0 ? "#FFFFFF" : "#EEF3FF",
               }}
             >
               <Typography className={classes.chatText}>
                 <LightTooltip
                   title={
                     <>
-                      <Typography>
-                        {getModeratedReasonTooltip(message.reason)}
-                      </Typography>
+                      <Typography>{getModeratedReasonTooltip(message.reason)}</Typography>
                       <br />
                       <Typography>
                         {getModeratedMessageTooltip(message.moderatedMessage)}
@@ -116,33 +99,26 @@ const MessageContent = (props) => {
                     </>
                   }
                 >
-                  <Typography className={classes.chatText}>
-                    {message.originalMessage}
-                  </Typography>
+                  <Typography className={classes.chatText}>{message.originalMessage}</Typography>
                 </LightTooltip>
               </Typography>
               {message.image && (
                 <>
                   <IconButton className={classes.imageContainer}>
-                    <img
-                      className={classes.image}
-                      src={message.image}
-                      alt="sentImage"
-                    />
+                    <img className={classes.image} src={message.image} alt="sentImage" />
                     {message.imageReason && (
                       <LightTooltip
                         title={
                           <>
                             <Typography>{`Reason: ${
-                              message.imageReason[0] &&
-                              message.imageReason[0].text
+                              message.imageReason[0] && message.imageReason[0].text
                             }`}</Typography>
                           </>
                         }
                         placement="right-start"
                       >
                         <img
-                          src="/images/info.svg"
+                          src={process.env.PUBLIC_URL + "/images/info.svg"}
                           alt="profilePicture"
                           className={classes.imageIcon}
                         />
