@@ -71,8 +71,13 @@ export default function profanityFunctionForImage(data) {
                 let reasonForModeration;
 
                 const textmoderation = () => {
-                  console.log("start text Moderation Function");
-                  ${textModerationPromise}
+                  if ('text' in message) {
+                    console.log("start text Moderation Function");
+                    ${textModerationPromise}
+                  } else {
+                    console.log('Message has no "text" element, performing image moderation only');
+                    return Promise.resolve(false);
+                  }
                 };
 
                 if (request.message.file) {
