@@ -2,6 +2,8 @@
 
 PubNub provides a flexible set of APIs for creating real time messaging applications. The Moderation Dashboard application makes some assumptions about how a chat application is designed. This section provides an overview for how to build a chat application that will work well with the moderation dashboard.
 
+The moderated-chat sample in the [PubNub Chat UI Components](https://www.pubnub.com/docs/chat/components/overview) project provides a reference for implementing the techniques described here, and is a reccomended starting point for developers building a new chat application.
+
 1. Users
 
    The user view in the moderation tool is populated via user metadata. Therefore any chat app should include logic that sets up each UUID with user object data that includes at least the field `name`. `email` and `profileUrl` can also be added by the admin in users object metadata which are optional fields
@@ -12,7 +14,7 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
    custom: { "name": "John Smith", "email": "jsmith@acme.com", "profileUrl": "https//profiles.acme.com/johnsmith"}
    ```
 
-   Object metadata is not enabled by default. Before making calls to the PubNub Objects API, you must enabled Objects for your keyset via the Admin Portal as described in the [User Metadata documentation](https://www.pubnub.com/docs/connections/users-metadata). In order for your chat clients to be notified of changes the user's status, you must also enable "User Metadata Events" and "Channel Metadata Events" in the Admin Portal.
+   Object metadata is not enabled by default. Before making calls to the PubNub Objects API, you must enabled Objects for your keyset via the Admin Portal as described in the [User Metadata documentation](https://www.pubnub.com/docs/connections/users-metadata). In order for your chat clients to be notified of changes to the user's status, you must also enable "User Metadata Events" and "Channel Metadata Events" in the Admin Portal.
 
    ![alt text](public/readme/enable-objects.png)
 
@@ -37,13 +39,19 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
 
    Note: It is a best practice/encouraged that moderated channels follow a channel ID naming pattern such as “public.\*“
 
-3. Messages
+3. Channel Memberships
+
+   The dashboard's ability to show which users are online/offline in the channel view is powered by [PubNub Presence](https://www.pubnub.com/docs/presence/overview). Presence is not enabled by default.  In order for this to work in the dashboard for your chat app, you must also enable "Presence" in the Admin Portal.  Once enabled you can accept the default settings.
+
+   ![alt text](public/readme/enable-presence.png)
+
+4. Messages
 
    The Moderation Dashboard provides a view that allows Admins to review messages sent over the last 24 hours, and optionally to delete or modify those messages. This functionality requires that PubNub's [Storage and Playback](https://www.pubnub.com/docs/chat/features/message-history) capability is enabled for the moderated chat application's keyset in the Admin Console. Storage is not enabled by default. After enabling storage set a retention value of 1 day (or more if your application will use stored messages in a different way).
 
    ![alt text](public/readme/enable-message-storage.png)
 
-   To modify a message, a message action is added to a message with the new updated value as below:
+   When an Admin modifies a message, a message action is added to a message with the new updated value as below:
 
    ```javascript
       action: {
@@ -52,9 +60,7 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
       },
    ```
 
-   To design a moderate-able one needs to fetch messages with message actions and check if there is a updated action added to that message.
-
-   To delete a message, a message action is added to a message with type deleted action as below:
+   When an Admin deletes a message, a message action is added to a message with type deleted action as below:
 
    ```javascript
       action: {
@@ -63,11 +69,11 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
       },
    ```
 
-   To design a moderate-able one needs to fetch messages with message actions and check if there is a deleted action added to that message.
+   To design a chat app that responds to these Admin actions, one needs to ensure that the chat app [listens for messageAction events](https://www.pubnub.com/docs/messages/actions), and updates the message history view appropriately.   Similarly, when a chat app fetches messages from [PubNub Storage](https://www.pubnub.com/docs/messages/storage#retrieving-messages) via the History API, it should ensure that any messageAction data returned is processed appropriately.
 
-4. Automatic Moderation
+5. Automatic Moderation
 
-   The Moderation Dashboard expects payload to be in below format for text and image moderation.
+   The Moderation Dashboard deploys [PubNub Functions](https://www.pubnub.com/docs/functions/overview) to perform automatic Text and Image moderation.   These functions are invoked when a `Before Publish or Fire` (for text moderation) or a `Before Publish File` (for image moderation) event occurs.   The logic in these functions expects the publish payloads to be in below format for text and image moderation.
 
    ```json
    {
@@ -114,6 +120,8 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
    }
    ```
 
+   The Text Moderation configuration allows for the moderation logic to block a message completely (in which case no subscribe event is sent to the clients), or to mask the message.   The following is an example of the message format that will be used when the text moderation logic transforms a masked message:
+
    - Moderated text message:
 
      ```json
@@ -128,6 +136,12 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
        "uuid": "user1"
      }
      ```
+
+   The Text and Image Moderation configuration allows for the moderation logic to route a copy of any masked or blocked message to be routed to a banned channel.   For example if a message is posted to a channel called `public.water-cooler`, the banned message will be sent to a channel called `banned.public.water-cooler`.
+
+   Chat clients should not display the contents of `banned.*` channels to end users as they are for the use of Moderation Admins only.
+
+   The following are examples of moderated messages sent to a banned channel:
 
    - Masked/routed text message to banned channel:
 
@@ -175,3 +189,11 @@ PubNub provides a flexible set of APIs for creating real time messaging applicat
      "uuid": ""
    }
    ```
+
+6. Files
+
+   Developers who wish to leverage the Dashboard's Image Moderation feature will need a chat application that [uses PubNub to send Files](https://www.pubnub.com/docs/messages/files). File sending is not enabled by default, and must be enabled in the Admin console for your keyset.
+
+   ![alt text](public/readme/enable-files.png)
+
+   Sending Files via PubNub requires a paid account.
