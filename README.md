@@ -1,9 +1,7 @@
 # PUBNUB MODERATION TOOL
 
 The purpose of this project is to provide an easy-to-use moderation tool (under open source
-license) for PubNub customers to deploy for their chat implementations. The tool can be used
-as a starting point for developers. They will have the flexibility to modify the tool to add more
-features or modify behaviors.
+license) for PubNub customers to deploy for their chat implementations. Developers may choose to deploy this dashboard as-is for their applications, or leverage the project as a starting point to build moderation capabilities specific to their own requirements.
 
 ## Requirements
 
@@ -15,13 +13,13 @@ features or modify behaviors.
 1. Clone the GitHub repository.
 
    ```bash
-   git clone git@github.com:sourcefuse/pubnub-moderation.git
+   git clone https://github.com/pubnub/moderation-dashboard.git
    ```
 
 1. Install the project.
 
    ```bash
-   cd pubnub-moderation
+   cd moderation-dashboard
    npm install
    ```
 
@@ -31,7 +29,7 @@ features or modify behaviors.
    npm start
    ```
 
-   A web browser should automatically open [http://localhost:3000](http://localhost:3000), and you can explore PubNub moderation tool.
+   A web browser should automatically open [http://localhost:3000](http://localhost:3000), and you can explore the moderation dashboard. 
 
 ## Intended audience
 
@@ -63,7 +61,7 @@ For details on how to build a chat app that works with this Moderation Dashboard
 
 ## Modifying this application
 
-This project is designed to provide a starting point for PubNub developers who are building chat solutions that require moderation and it encapsulates best practices for many common moderation tasks. Developers are welcome to use this project "as is" with their chat solutions, however, since one size never fits all, developers are also welcome to modify this application as needed to fit their own needs.
+This project is designed to provide a starting point for PubNub developers who are building chat solutions that require moderation, and it encapsulates best practices for many common moderation tasks. Developers are welcome to use this project "as is" with their chat solutions, however, since one size never fits all, developers are also welcome to modify this application as needed to fit their own needs.
 
 Developers interested in modifying this project are encouraged to start by understanding [the directory structure](directory-structure.md)
 

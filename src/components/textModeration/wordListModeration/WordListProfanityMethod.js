@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Grid,
   Button,
@@ -11,14 +11,11 @@ import {
   CircularProgress,
   FormControl,
   MenuItem,
-} from '@material-ui/core';
-import {
-  getProfanityWordsByLanguage,
-  constantBoolean,
-} from '../../../utils/helpers';
-import { useStyles } from '../../../style/textModeration.js';
-import { handleChange } from './WordListHandler';
-import { LightTooltip } from '../../../style/tooltip';
+} from "@material-ui/core";
+import { getProfanityWordsByLanguage, constantBoolean } from "../../../utils/helpers";
+import { useStyles } from "../../../style/textModeration.js";
+import { handleChange } from "./WordListHandler";
+import { LightTooltip } from "../../../style/tooltip";
 
 const WordListProfanityMethod = ({
   handleSave,
@@ -29,7 +26,7 @@ const WordListProfanityMethod = ({
   setProfanityList,
 }) => {
   const classes = useStyles();
-  const languageList = ['English', 'Hindi', 'Spanish', 'Portugese', 'French'];
+  const languageList = ["English", "Hindi", "Spanish", "Portugese", "French"];
 
   const {
     wordListChannel,
@@ -44,9 +41,7 @@ const WordListProfanityMethod = ({
   } = state.wordList;
 
   const checkboxForReroute = constantBoolean(wordListReRouteMessages);
-  const checkForApplyToAllChannelIds = constantBoolean(
-    applyToAllChannelIdsWordlist
-  );
+  const checkForApplyToAllChannelIds = constantBoolean(applyToAllChannelIdsWordlist);
 
   return (
     <>
@@ -60,7 +55,7 @@ const WordListProfanityMethod = ({
           <Grid item>
             <Box className={classes.infoIcon}>
               <LightTooltip title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled.">
-                <img src="/images/info-circle.svg" alt="info-circle" />
+                <img src={process.env.PUBLIC_URL + "/images/info-circle.svg"} alt="info-circle" />
               </LightTooltip>
             </Box>
           </Grid>
@@ -93,7 +88,7 @@ const WordListProfanityMethod = ({
                 onChange={handleChange({
                   setState,
                   state,
-                  name: 'applyToAllChannelIdsWordlist',
+                  name: "applyToAllChannelIdsWordlist",
                 })}
               />
             </Grid>
@@ -124,8 +119,8 @@ const WordListProfanityMethod = ({
                   variant="outlined"
                   MenuProps={{
                     anchorOrigin: {
-                      vertical: 'bottom',
-                      horizontal: 'left',
+                      vertical: "bottom",
+                      horizontal: "left",
                     },
                     getContentAnchorEl: null,
                   }}
@@ -137,7 +132,7 @@ const WordListProfanityMethod = ({
                     profanityList,
                     setProfanityList,
                   })}
-                  inputProps={{ 'aria-label': 'Without label' }}
+                  inputProps={{ "aria-label": "Without label" }}
                 >
                   {languageList.map((language, index) => {
                     return (
@@ -163,7 +158,10 @@ const WordListProfanityMethod = ({
               <Grid item>
                 <Box className={classes.infoIcon}>
                   <LightTooltip title="Note: Please add comma after a every word. No spaces are allowed">
-                    <img src="/images/info-circle.svg" alt="info-circle" />
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                      alt="info-circle"
+                    />
                   </LightTooltip>
                 </Box>
               </Grid>
@@ -208,18 +206,14 @@ const WordListProfanityMethod = ({
               When Profanity is detected
             </label>
             <Box pt={1} mb={2}>
-              <FormControl
-                className={classes.formControl}
-                size="small"
-                fullWidth
-              >
+              <FormControl className={classes.formControl} size="small" fullWidth>
                 <Select
                   id="MaskOrBlockOption"
                   variant="outlined"
                   MenuProps={{
                     anchorOrigin: {
-                      vertical: 'bottom',
-                      horizontal: 'left',
+                      vertical: "bottom",
+                      horizontal: "left",
                     },
                     getContentAnchorEl: null,
                   }}
@@ -231,7 +225,7 @@ const WordListProfanityMethod = ({
                     setProfanityList,
                   })}
                   value={wordListModType}
-                  inputProps={{ 'aria-label': 'Without label' }}
+                  inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="Mask-word">Mask Word</MenuItem>
                   <MenuItem value="Block-message">Block Message</MenuItem>
@@ -240,7 +234,7 @@ const WordListProfanityMethod = ({
             </Box>
           </Grid>
           <Grid item sm={6} md={6}>
-            {wordListModType === 'Mask-word' && (
+            {wordListModType === "Mask-word" && (
               <>
                 <Grid container>
                   <Grid item>
@@ -251,7 +245,10 @@ const WordListProfanityMethod = ({
                   <Grid item>
                     <Box className={classes.infoIcon}>
                       <LightTooltip title="Note: Default value will be *">
-                        <img src="/images/info-circle.svg" alt="info-circle" />
+                        <img
+                          src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                          alt="info-circle"
+                        />
                       </LightTooltip>
                     </Box>
                   </Grid>
@@ -311,11 +308,11 @@ const WordListProfanityMethod = ({
             <Box>
               <Button className={classes.reroute}>
                 <img
-                  src="/images/reroute.svg"
+                  src={process.env.PUBLIC_URL + "/images/reroute.svg"}
                   className={classes.rerouteIcon}
                   alt="reroute"
-                />{' '}
-                {'banned.' + wordListChannel}
+                />{" "}
+                {"banned." + wordListChannel}
               </Button>
             </Box>
           </Grid>
@@ -325,11 +322,7 @@ const WordListProfanityMethod = ({
         <Grid container justify="space-between" spacing={2}>
           <Grid item></Grid>
           <Grid item>
-            <Button
-              id="cancel"
-              className={classes.cancelButton}
-              variant="contained"
-            >
+            <Button id="cancel" className={classes.cancelButton} variant="contained">
               Cancel
             </Button>
             <Button

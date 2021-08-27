@@ -32,7 +32,7 @@ exports[`This suit will test the login functionality Snapshot of the LoginForm 1
                     <span>
                       <img
                         alt="Pubnub Logo"
-                        src="images/Pubnub logo.svg"
+                        src="/images/Pubnub logo.svg"
                         width="160"
                       />
                     </span>

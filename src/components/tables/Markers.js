@@ -1,7 +1,7 @@
-import React from 'react';
-import { Typography } from '@material-ui/core';
-import { LightTooltip } from '../../style/tooltip';
-import { formatDate } from '../../utils/helpers';
+import React from "react";
+import { Typography } from "@material-ui/core";
+import { LightTooltip } from "../../style/tooltip";
+import { formatDate } from "../../utils/helpers";
 
 export default function Markers(props) {
   const isflagged = props.row && props.row.custom && props.row.custom.flag;
@@ -16,17 +16,15 @@ export default function Markers(props) {
               <br />
               <Typography>{`Flagged By: ${props.row.custom.flaggedBy}`}</Typography>
               <br />
-              <Typography>{`Flagged At: ${formatDate(
-                props.row.custom.flaggedAt
-              )}`}</Typography>
+              <Typography>{`Flagged At: ${formatDate(props.row.custom.flaggedAt)}`}</Typography>
             </>
           }
         >
-          <img src="/images/flagged.svg" alt="flagged" />
+          <img src={process.env.PUBLIC_URL + "/images/flagged.svg"} alt="flagged" />
         </LightTooltip>
       ) : null}
       {props.isUser && isBanned ? (
-        <img src="/images/banned.svg" alt="banned" />
+        <img src={process.env.PUBLIC_URL + "/images/banned.svg"} alt="banned" />
       ) : null}
     </>
   );

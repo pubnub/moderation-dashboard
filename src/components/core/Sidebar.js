@@ -1,5 +1,5 @@
-import React from 'react';
-import { useHistory } from 'react-router-dom';
+import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   Typography,
   List,
@@ -7,8 +7,8 @@ import {
   ListItemIcon,
   ListItemText,
   Collapse,
-} from '@material-ui/core';
-import { useStyles } from '../../style/sidebar';
+} from "@material-ui/core";
+import { useStyles } from "../../style/sidebar";
 import {
   DescriptionOutlined,
   HomeOutlined,
@@ -18,7 +18,7 @@ import {
   SettingsOutlined,
   ExpandMore,
   ExpandLess,
-} from '@material-ui/icons';
+} from "@material-ui/icons";
 
 function Sidebar({ content }) {
   const classes = useStyles();
@@ -35,8 +35,8 @@ function Sidebar({ content }) {
       <List disablePadding={true}>
         <ListItem
           id="overviewItem"
-          onClick={() => history.push('/overview')}
-          selected={history.location.pathname === '/overview'}
+          onClick={() => history.push("/overview")}
+          selected={history.location.pathname === "/overview"}
           button
         >
           <ListItemIcon className={classes.listItemRoot}>
@@ -54,15 +54,15 @@ function Sidebar({ content }) {
           <ListItemText>
             <Typography variant="body2">Settings</Typography>
           </ListItemText>
-          {open ? <ExpandMore /> : <ExpandLess />}
+          {open ? <ExpandLess /> : <ExpandMore />}
         </ListItem>
 
         <Collapse in={open} timeout="auto" unmountOnExit>
           <List component="div" disablePadding>
             <ListItem
               button
-              onClick={() => history.push('/text-moderation')}
-              selected={history.location.pathname === '/text-moderation'}
+              onClick={() => history.push("/text-moderation")}
+              selected={history.location.pathname === "/text-moderation"}
             >
               <ListItemIcon className={classes.settingsItemRoot}>
                 <DescriptionOutlined className={classes.textModerationIcon} />
@@ -72,7 +72,7 @@ function Sidebar({ content }) {
               </ListItemText>
             </ListItem>
 
-            <ListItem button onClick={() => history.push('/image-moderation')}>
+            <ListItem button onClick={() => history.push("/image-moderation")}>
               <ListItemIcon className={classes.settingsItemRoot}>
                 <ChatBubbleOutline className={classes.chatIcon} />
               </ListItemIcon>
@@ -86,8 +86,8 @@ function Sidebar({ content }) {
         <ListItem
           id="usersItem"
           button
-          onClick={() => history.push('/users')}
-          selected={history.location.pathname === '/users'}
+          onClick={() => history.push("/users")}
+          selected={history.location.pathname === "/users"}
         >
           <ListItemIcon className={classes.listItemRoot}>
             <PersonOutlined className={classes.userIcon} />
@@ -100,8 +100,8 @@ function Sidebar({ content }) {
         <ListItem
           id="channelsItem"
           button
-          onClick={() => history.push('/channels')}
-          selected={history.location.pathname === '/channels'}
+          onClick={() => history.push("/channels")}
+          selected={history.location.pathname === "/channels"}
         >
           <ListItemIcon className={classes.listItemRoot}>
             <MailOutline className={classes.channelIcon} />

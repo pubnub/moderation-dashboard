@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   DialogContent,
   DialogActions,
@@ -8,15 +8,15 @@ import {
   Typography,
   IconButton,
   TextField,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import { useStyles } from '../../style/createModerationModal';
-import { LightTooltip } from '../../style/tooltip';
-import { useHistory } from 'react-router';
+} from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import { useStyles } from "../../style/createModerationModal";
+import { LightTooltip } from "../../style/tooltip";
+import { useHistory } from "react-router";
 
 export function JoinChannelModal() {
   const [open, setOpen] = useState(false);
-  const [channelName, setChannelName] = useState('');
+  const [channelName, setChannelName] = useState("");
   const [error, setError] = useState(false);
 
   const history = useHistory();
@@ -36,7 +36,7 @@ export function JoinChannelModal() {
       return false;
     }
     history.push({
-      pathname: '/channels/messages',
+      pathname: "/channels/messages",
       state: { channel: channelName },
     });
   };
@@ -48,7 +48,7 @@ export function JoinChannelModal() {
           id="joinChannelButton"
           onClick={handleClickOpen}
           className={classes.joinChannelButton}
-          startIcon={<img src="images/link.svg" alt="" />}
+          startIcon={<img src={process.env.PUBLIC_URL + "/images/link.svg"} alt="" />}
         >
           <Typography className={classes.buttonText}>Join Channel</Typography>
         </Button>
@@ -60,20 +60,12 @@ export function JoinChannelModal() {
         aria-labelledby="customized-dialog-title"
         open={open}
       >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          disableTypography
-        >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} disableTypography>
           <Typography variant="h6" className={classes.headingFont}>
             Join Channel
           </Typography>
           {open ? (
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              className={classes.closeButton}
-            >
+            <IconButton aria-label="close" onClick={handleClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           ) : null}
@@ -89,15 +81,11 @@ export function JoinChannelModal() {
             className={classes.inputBox}
             onChange={(e) => setChannelName(e.target.value)}
             error={error}
-            helperText={error ? 'Channel is Required' : ''}
+            helperText={error ? "Channel is Required" : ""}
           />
         </DialogContent>
         <DialogActions>
-          <Button
-            id="cancelButton"
-            onClick={handleClose}
-            className={classes.cancelButton}
-          >
+          <Button id="cancelButton" onClick={handleClose} className={classes.cancelButton}>
             Cancel
           </Button>
           <Button

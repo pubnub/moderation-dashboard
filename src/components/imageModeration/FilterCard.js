@@ -1,27 +1,21 @@
-import React from 'react';
-import { Grid, Box, Typography } from '@material-ui/core';
-import { useStyles } from '../../style/textModeration.js';
+import React from "react";
+import { Grid, Box, Typography } from "@material-ui/core";
+import { useStyles } from "../../style/textModeration.js";
 
 const FilterCard = ({ state }) => {
   const classes = useStyles();
   return (
     <Grid container justify="flex-start" spacing={3}>
       <Grid item>
-        <Box
-          className={
-            !state.initialLoading
-              ? classes.methodSelected
-              : classes.methodNotSelected
-          }
-        >
+        <Box className={!state.initialLoading ? classes.methodSelected : classes.methodNotSelected}>
           <Grid container justify="center">
             <Box p={1}>
               <img
                 alt=""
                 src={
                   !state.initialLoading
-                    ? '/images/automatic-profanity-selected.svg'
-                    : '/images/automatic-detection.svg'
+                    ? process.env.PUBLIC_URL + "/images/automatic-profanity-selected.svg"
+                    : process.env.PUBLIC_URL + "/images/automatic-detection.svg"
                 }
               />
             </Box>

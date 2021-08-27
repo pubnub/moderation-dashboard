@@ -12,7 +12,7 @@ exports[`Test Case For Join Channel Modal Snapshot 1`] = `
       startIcon={
         <img
           alt=""
-          src="images/link.svg"
+          src="/images/link.svg"
         />
       }
     >

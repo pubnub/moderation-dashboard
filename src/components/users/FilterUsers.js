@@ -1,7 +1,7 @@
-import React from 'react';
-import { useStyles } from '../../style/drawer';
-import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import { useStyles } from "../../style/drawer";
+import Drawer from "@material-ui/core/Drawer";
+import Button from "@material-ui/core/Button";
 import {
   Avatar,
   Box,
@@ -13,7 +13,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 export default function FilterUsers(props) {
   const classes = useStyles();
@@ -30,16 +30,16 @@ export default function FilterUsers(props) {
   };
 
   const handleChange = (e) => {
-    if (e.target.checked && e.target.value === 'ban') {
+    if (e.target.checked && e.target.value === "ban") {
       setIsFlagChecked(false);
       setIsBanChecked(true);
       props.isFiltered(e.target.value);
-    } else if (e.target.checked && e.target.value === 'flag') {
+    } else if (e.target.checked && e.target.value === "flag") {
       setIsBanChecked(false);
       setIsFlagChecked(true);
       props.isFiltered(e.target.value);
     } else {
-      props.isFiltered('all');
+      props.isFiltered("all");
       setIsBanChecked(false);
       setIsFlagChecked(false);
     }
@@ -47,14 +47,9 @@ export default function FilterUsers(props) {
 
   return (
     <>
-      <Avatar
-        id="openDrawer"
-        variant="square"
-        onClick={handleClickOpen}
-        className={classes.avatar}
-      >
+      <Avatar id="openDrawer" variant="square" onClick={handleClickOpen} className={classes.avatar}>
         <IconButton>
-          <img src="images/filter.svg" alt="filter" />
+          <img src={process.env.PUBLIC_URL + "/images/filter.svg"} alt="filter" />
         </IconButton>
       </Avatar>
       <Drawer anchor="right" open={open} onClose={handleClose}>
@@ -66,7 +61,7 @@ export default function FilterUsers(props) {
               </Grid>
               <Grid item>
                 <Button id="drawer" onClick={handleClose}>
-                  <img src="images/times.svg" alt="filter" />
+                  <img src={process.env.PUBLIC_URL + "/images/times.svg"} alt="filter" />
                 </Button>
               </Grid>
             </Grid>

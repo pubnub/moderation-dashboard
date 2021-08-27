@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Grid,
   Button,
@@ -11,13 +11,13 @@ import {
   CircularProgress,
   FormControl,
   MenuItem,
-} from '@material-ui/core';
-import { useStyles } from '../../../style/automaticProfanityMethod';
-import Slider from '../../core/SliderComponent';
-import { constantBoolean } from '../../../utils/helpers';
-import { LightTooltip } from '../../../style/tooltip';
-import { handleChange } from './AutomaticHandler';
-import { handleTisaneChange } from './TisaneHandler';
+} from "@material-ui/core";
+import { useStyles } from "../../../style/automaticProfanityMethod";
+import Slider from "../../core/SliderComponent";
+import { constantBoolean } from "../../../utils/helpers";
+import { LightTooltip } from "../../../style/tooltip";
+import { handleChange } from "./AutomaticHandler";
+import { handleTisaneChange } from "./TisaneHandler";
 
 const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
   const {
@@ -46,22 +46,20 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
 
   const classes = useStyles();
   const checkboxForReroute = constantBoolean(automaticDetectionReRouteMessages);
-  const checkForApplyToAllChannelIds = constantBoolean(
-    applyToAllChannelIdsAutomatic
-  );
+  const checkForApplyToAllChannelIds = constantBoolean(applyToAllChannelIdsAutomatic);
 
   const TooltipText = (
     <>
       <span>Sign up with </span>
       <a
-        style={{ fontWeight: 600, color: 'black', textDecorationLine: 'none' }}
+        style={{ fontWeight: 600, color: "black", textDecorationLine: "none" }}
         href="https://tisane.ai/signup/"
       >
         Tisane.ai
       </a>
       <span> locate your key under your </span>
       <a
-        style={{ fontWeight: 600, color: 'black', textDecorationLine: 'none' }}
+        style={{ fontWeight: 600, color: "black", textDecorationLine: "none" }}
         href="https://tisane.ai/developer/"
       >
         Developer Profile.
@@ -70,7 +68,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
     </>
   );
 
-  const languageList = ['English', 'Spanish', 'Portugese', 'French'];
+  const languageList = ["English", "Spanish", "Portugese", "French"];
 
   return (
     <>
@@ -85,7 +83,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
             <Grid item>
               <Box className={classes.infoIcon}>
                 <LightTooltip title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled.">
-                  <img src="/images/info-circle.svg" alt="info-circle" />
+                  <img src={process.env.PUBLIC_URL + "/images/info-circle.svg"} alt="info-circle" />
                 </LightTooltip>
               </Box>
             </Grid>
@@ -115,7 +113,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                 onChange={handleChange({
                   setState,
                   state,
-                  name: 'applyToAllChannelIdsAutomatic',
+                  name: "applyToAllChannelIdsAutomatic",
                 })}
               />
             </Grid>
@@ -144,8 +142,8 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                   onChange={handleChange({ setState, state })}
                   MenuProps={{
                     anchorOrigin: {
-                      vertical: 'bottom',
-                      horizontal: 'left',
+                      vertical: "bottom",
+                      horizontal: "left",
                     },
                     getContentAnchorEl: null,
                   }}
@@ -158,7 +156,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
           </Grid>
         </Grid>
         <br />
-        {toolForAutomaticDetection === 'siftninja' && (
+        {toolForAutomaticDetection === "siftninja" && (
           <>
             <Box pt={1}>
               <Grid container>
@@ -170,7 +168,10 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                 <Grid item>
                   <Box className={classes.infoIcon}>
                     <LightTooltip title="This option is only available for users who have an existing SiftNinja account">
-                      <img src="/images/info-circle.svg" alt="info-circle" />
+                      <img
+                        src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                        alt="info-circle"
+                      />
                     </LightTooltip>
                   </Box>
                 </Grid>
@@ -199,7 +200,10 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                 <Grid item>
                   <Box className={classes.infoIcon}>
                     <LightTooltip title="This option is only available for users who have an existing SiftNinja account">
-                      <img src="/images/info-circle.svg" alt="info-circle" />
+                      <img
+                        src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                        alt="info-circle"
+                      />
                     </LightTooltip>
                   </Box>
                 </Grid>
@@ -228,7 +232,10 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                 <Grid item>
                   <Box className={classes.infoIcon}>
                     <LightTooltip title="This option is only available for users who have an existing SiftNinja account">
-                      <img src="/images/info-circle.svg" alt="info-circle" />
+                      <img
+                        src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                        alt="info-circle"
+                      />
                     </LightTooltip>
                   </Box>
                 </Grid>
@@ -244,11 +251,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                   value={siftNinjaApiKey}
                   onChange={handleChange({ setState, state })}
                 />
-                <Typography
-                  testid="connectivity"
-                  align="right"
-                  className={classes.testText}
-                >
+                <Typography testid="connectivity" align="right" className={classes.testText}>
                   Test Conectivity
                 </Typography>
               </Box>
@@ -268,7 +271,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForVulgar',
+                        name: "riskFactorThresholdForVulgar",
                       })}
                     />
                   </Box>
@@ -287,7 +290,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForSexting',
+                        name: "riskFactorThresholdForSexting",
                       })}
                     />
                   </Box>
@@ -306,7 +309,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForRacism',
+                        name: "riskFactorThresholdForRacism",
                       })}
                     />
                   </Box>
@@ -315,7 +318,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
             </Grid>
           </>
         )}
-        {toolForAutomaticDetection === 'tisane' && (
+        {toolForAutomaticDetection === "tisane" && (
           <>
             <Box pt={1}>
               <Grid container>
@@ -327,7 +330,10 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                 <Grid item>
                   <Box className={classes.infoIcon}>
                     <LightTooltip title={TooltipText} interactive>
-                      <img src="/images/info-circle.svg" alt="info-circle" />
+                      <img
+                        src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                        alt="info-circle"
+                      />
                     </LightTooltip>
                   </Box>
                 </Grid>
@@ -363,14 +369,14 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       variant="outlined"
                       MenuProps={{
                         anchorOrigin: {
-                          vertical: 'bottom',
-                          horizontal: 'left',
+                          vertical: "bottom",
+                          horizontal: "left",
                         },
                         getContentAnchorEl: null,
                       }}
                       value={tisaneLanguage}
                       name="tisaneLanguage"
-                      inputProps={{ 'aria-label': 'Without label' }}
+                      inputProps={{ "aria-label": "Without label" }}
                       onChange={handleTisaneChange({ setState, state })}
                     >
                       {languageList.map((language, index) => {
@@ -400,7 +406,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleTisaneChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForBigotry',
+                        name: "riskFactorThresholdForBigotry",
                       })}
                     />
                   </Box>
@@ -419,7 +425,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleTisaneChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForCyberBullying',
+                        name: "riskFactorThresholdForCyberBullying",
                       })}
                     />
                   </Box>
@@ -438,7 +444,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleTisaneChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForCriminalActivity',
+                        name: "riskFactorThresholdForCriminalActivity",
                       })}
                     />
                   </Box>
@@ -457,7 +463,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleTisaneChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForSexualAdvances',
+                        name: "riskFactorThresholdForSexualAdvances",
                       })}
                     />
                   </Box>
@@ -476,7 +482,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                       onChange={handleTisaneChange({
                         setState,
                         state,
-                        name: 'riskFactorThresholdForProfanity',
+                        name: "riskFactorThresholdForProfanity",
                       })}
                     />
                   </Box>
@@ -501,12 +507,12 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                   onChange={handleChange({ setState, state })}
                   MenuProps={{
                     anchorOrigin: {
-                      vertical: 'bottom',
-                      horizontal: 'left',
+                      vertical: "bottom",
+                      horizontal: "left",
                     },
                     getContentAnchorEl: null,
                   }}
-                  inputProps={{ 'aria-label': 'Without label' }}
+                  inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="mask-message">Mask Message</MenuItem>
                   <MenuItem value="block-message">Block Message</MenuItem>
@@ -515,7 +521,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
             </Box>
           </Grid>
           <Grid item sm={6} md={6}>
-            {automaticDetectionModType === 'mask-message' && (
+            {automaticDetectionModType === "mask-message" && (
               <>
                 <Grid container>
                   <Grid item>
@@ -526,7 +532,10 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
                   <Grid item>
                     <Box className={classes.infoIcon}>
                       <LightTooltip title="Note: Default value will be *">
-                        <img src="/images/info-circle.svg" alt="info-circle" />
+                        <img
+                          src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                          alt="info-circle"
+                        />
                       </LightTooltip>
                     </Box>
                   </Grid>
@@ -575,11 +584,11 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
             <Box>
               <Button className={classes.rerouteBtn}>
                 <img
-                  src="/images/reroute.svg"
+                  src={process.env.PUBLIC_URL + "/images/reroute.svg"}
                   className={classes.rerouteIconStyle}
                   alt="reroute"
                 />
-                {'banned.' + automaticDetectionChannel}
+                {"banned." + automaticDetectionChannel}
               </Button>
             </Box>
           </Grid>
@@ -588,11 +597,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
         <Grid container justify="space-between" spacing={3}>
           <Grid item></Grid>
           <Grid item>
-            <Button
-              id="cancel"
-              className={classes.cancelButtonStyle}
-              variant="contained"
-            >
+            <Button id="cancel" className={classes.cancelButtonStyle} variant="contained">
               Cancel
             </Button>
             <Button

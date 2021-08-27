@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Grid,
   Button,
@@ -11,18 +11,18 @@ import {
   CircularProgress,
   FormControl,
   MenuItem,
-} from '@material-ui/core';
-import { useStyles } from '../../../style/imageModeration';
-import Slider from '../../core/SliderComponent';
-import { LightTooltip } from '../../../style/tooltip';
-import { handleChange } from './ImageModerationHandler';
-import { constantBoolean } from '../../../utils/helpers';
+} from "@material-ui/core";
+import { useStyles } from "../../../style/imageModeration";
+import Slider from "../../core/SliderComponent";
+import { LightTooltip } from "../../../style/tooltip";
+import { handleChange } from "./ImageModerationHandler";
+import { constantBoolean } from "../../../utils/helpers";
 
 const TooltipText = (
   <>
     <span>Please follow steps listed </span>
     <a
-      style={{ fontWeight: 600, color: 'black', textDecorationLine: 'none' }}
+      style={{ fontWeight: 600, color: "black", textDecorationLine: "none" }}
       href="https://sightengine.com/docs/image-moderation-workflows"
     >
       here
@@ -33,9 +33,7 @@ const TooltipText = (
 
 const AutomaticImageModeration = ({ state, setState, handleSave }) => {
   const classes = useStyles();
-  const checkForApplyToAllChannelIds = constantBoolean(
-    state.applyToAllChannelIds
-  );
+  const checkForApplyToAllChannelIds = constantBoolean(state.applyToAllChannelIds);
   const checkboxForReroute = constantBoolean(state.reRouteMessages);
 
   if (!state.initialLoading) {
@@ -52,7 +50,10 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
               <Grid item>
                 <Box className={classes.infoIcon}>
                   <LightTooltip title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled.">
-                    <img src="/images/info-circle.svg" alt="info-circle" />
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                      alt="info-circle"
+                    />
                   </LightTooltip>
                 </Box>
               </Grid>
@@ -64,9 +65,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                 variant="outlined"
                 name="channelId"
                 error={state.channelIdError}
-                disabled={
-                  checkForApplyToAllChannelIds || state.channelIdDisabled
-                }
+                disabled={checkForApplyToAllChannelIds || state.channelIdDisabled}
                 placeholder="channel ID"
                 value={state.channelId}
                 onChange={handleChange({ setState, state })}
@@ -84,7 +83,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                   onChange={handleChange({
                     setState,
                     state,
-                    name: 'applyToAllChannelIds',
+                    name: "applyToAllChannelIds",
                   })}
                   disabled={state.channelIdDisabled}
                 />
@@ -114,8 +113,8 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                     onChange={handleChange({ setState, state })}
                     MenuProps={{
                       anchorOrigin: {
-                        vertical: 'bottom',
-                        horizontal: 'left',
+                        vertical: "bottom",
+                        horizontal: "left",
                       },
                       getContentAnchorEl: null,
                     }}
@@ -137,7 +136,10 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
               <Grid item>
                 <Box className={classes.infoIcon}>
                   <LightTooltip title={TooltipText} interactive>
-                    <img src="/images/info-circle.svg" alt="info-circle" />
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                      alt="info-circle"
+                    />
                   </LightTooltip>
                 </Box>
               </Grid>
@@ -148,10 +150,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                 variant="outlined"
                 name="sightengineAPIUser"
                 error={state.sightengineAPIUserError}
-                helperText={
-                  state.sightengineAPIUserError &&
-                  'Sightengine API User is required'
-                }
+                helperText={state.sightengineAPIUserError && "Sightengine API User is required"}
                 value={state.sightengineAPIUser}
                 onChange={handleChange({ setState, state })}
                 size="small"
@@ -171,7 +170,10 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
               <Grid item>
                 <Box className={classes.infoIcon}>
                   <LightTooltip title={TooltipText} interactive>
-                    <img src="/images/info-circle.svg" alt="info-circle" />
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                      alt="info-circle"
+                    />
                   </LightTooltip>
                 </Box>
               </Grid>
@@ -182,10 +184,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                 variant="outlined"
                 name="sightengineAPIKey"
                 error={state.sightengineAPIKeyError}
-                helperText={
-                  state.sightengineAPIKeyError &&
-                  'Sightengine API Key is required'
-                }
+                helperText={state.sightengineAPIKeyError && "Sightengine API Key is required"}
                 value={state.sightengineAPIKey}
                 onChange={handleChange({ setState, state })}
                 size="small"
@@ -205,7 +204,10 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
               <Grid item>
                 <Box className={classes.infoIcon}>
                   <LightTooltip title={TooltipText} interactive>
-                    <img src="/images/info-circle.svg" alt="info-circle" />
+                    <img
+                      src={process.env.PUBLIC_URL + "/images/info-circle.svg"}
+                      alt="info-circle"
+                    />
                   </LightTooltip>
                 </Box>
               </Grid>
@@ -219,8 +221,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                 size="small"
                 error={state.sightengineWorkflowIdError}
                 helperText={
-                  state.sightengineWorkflowIdError &&
-                  'Sightengine Workflow ID is required'
+                  state.sightengineWorkflowIdError && "Sightengine Workflow ID is required"
                 }
                 value={state.sightengineWorkflowId}
                 onChange={handleChange({ setState, state })}
@@ -243,7 +244,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
                     onChange={handleChange({
                       setState,
                       state,
-                      name: 'sightengineRiskFactorThreshold',
+                      name: "sightengineRiskFactorThreshold",
                     })}
                   />
                 </Box>
@@ -275,11 +276,11 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
               <Box>
                 <Button className={classes.rerouteBtn}>
                   <img
-                    src="/images/reroute.svg"
+                    src={process.env.PUBLIC_URL + "/images/reroute.svg"}
                     className={classes.rerouteIcon}
                     alt="reroute"
                   />
-                  {'banned.' + state.channelId}
+                  {"banned." + state.channelId}
                 </Button>
               </Box>
             </Grid>
@@ -288,11 +289,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
           <Grid container justify="space-between" spacing={3}>
             <Grid item></Grid>
             <Grid item>
-              <Button
-                id="cancel"
-                className={classes.cancel}
-                variant="contained"
-              >
+              <Button id="cancel" className={classes.cancel} variant="contained">
                 Cancel
               </Button>
               <Button

@@ -1,6 +1,6 @@
-import React from 'react';
-import { useStyles } from '../../style/textModeration';
-import SearchBar from 'material-ui-search-bar';
+import React from "react";
+import { useStyles } from "../../style/textModeration";
+import SearchBar from "material-ui-search-bar";
 
 export default function Search(props) {
   const classes = useStyles();
@@ -21,7 +21,7 @@ export default function Search(props) {
       className={classes.searchInput}
       searchIcon={
         <>
-          <img src="images/search.svg" alt="" />
+          <img src={process.env.PUBLIC_URL + "/images/search.svg"} alt="" />
         </>
       }
       disabled={props.disabled}

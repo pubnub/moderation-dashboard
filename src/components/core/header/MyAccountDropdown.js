@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from "react";
 import {
   Button,
   ClickAwayListener,
@@ -10,15 +10,12 @@ import {
   Box,
   Divider,
   MenuList,
-} from '@material-ui/core';
-import { KeyboardArrowDownOutlined } from '@material-ui/icons';
-import { useStyles } from '../../../style/myAccountDropdown';
-import { signout } from '../../../services/localStorage';
-import AccountList from '../../accounts/AccountList';
-import {
-  capitalizeFirstCharacter,
-  selectedAccountsFromLS,
-} from '../../../utils/helpers';
+} from "@material-ui/core";
+import { KeyboardArrowDownOutlined } from "@material-ui/icons";
+import { useStyles } from "../../../style/myAccountDropdown";
+import { signout } from "../../../services/localStorage";
+import AccountList from "../../accounts/AccountList";
+import { capitalizeFirstCharacter, selectedAccountsFromLS } from "../../../utils/helpers";
 
 export default function MyAccountDropdown({ accounts }) {
   const classes = useStyles();
@@ -38,7 +35,7 @@ export default function MyAccountDropdown({ accounts }) {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
     }
@@ -56,16 +53,14 @@ export default function MyAccountDropdown({ accounts }) {
       <div>
         <Button
           ref={anchorRef}
-          aria-controls={open ? 'menu-list-grow' : undefined}
+          aria-controls={open ? "menu-list-grow" : undefined}
           aria-haspopup="true"
           className={classes.button}
           endIcon={<KeyboardArrowDownOutlined />}
           onClick={handleToggle}
         >
           <Avatar className={classes.avatar} variant="square">
-            {capitalizeFirstCharacter(
-              selectedAccountsFromLS().email.slice(0, 2)
-            )}
+            {capitalizeFirstCharacter(selectedAccountsFromLS().email.slice(0, 2))}
           </Avatar>
           {selectedAccountsFromLS().email}
         </Button>
@@ -81,27 +76,22 @@ export default function MyAccountDropdown({ accounts }) {
             <Grow
               {...TransitionProps}
               style={{
-                transformOrigin:
-                  placement === 'bottom' ? 'center top' : 'center bottom',
+                transformOrigin: placement === "bottom" ? "center top" : "center bottom",
               }}
             >
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="menu-list-grow"
-                    onKeyDown={handleListKeyDown}
-                  >
+                  <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                     <AccountList accounts={accounts} />
                     <Box pl={2} pr={2}>
                       <Divider />
                     </Box>
                     <MenuItem
                       onClick={() =>
-                        signout(() => (window.location.href = '/'))
+                        signout(() => (window.location.href = "/moderation-dashboard"))
                       }
                     >
-                      <img src="/images/sign-out.svg" alt="Signout" />
+                      <img src={process.env.PUBLIC_URL + "/images/sign-out.svg"} alt="Signout" />
                       <Box pl={1}>
                         <small>Logout</small>
                       </Box>
