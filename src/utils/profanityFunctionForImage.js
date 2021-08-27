@@ -1,6 +1,6 @@
-import { constantBoolean } from './helpers';
-import { FilterConditionForWordList } from './wordlist/index';
-import { FilterConditionForAutomatic } from './automaticTextModeration/filterConditionForAutomatic';
+import { constantBoolean } from "./helpers";
+import { FilterConditionForWordList } from "./wordlist/index";
+import { FilterConditionForAutomatic } from "./automaticTextModeration/filterConditionForAutomatic";
 
 /* ---------
     This functon will be passe to the event hanlder
@@ -17,18 +17,18 @@ export default function profanityFunctionForImage(data) {
     applyToAllChannelIds,
     textPnFnStatusdata,
   } = data;
-  let regexForBanned = `"\\b(banned)\\b"`.replace(/\\/g, '\\\\');
+  let regexForBanned = `"\\b(banned)\\b"`.replace(/\\/g, "\\\\");
 
   const checkForTextModeration = () => {
     if (!constantBoolean(textPnFnStatusdata.textModerationToggle)) {
       return ` return Promise.resolve(false)`;
     }
     if (constantBoolean(textPnFnStatusdata.wordListProfanity)) {
-      return FilterConditionForWordList(textPnFnStatusdata, 'image');
+      return FilterConditionForWordList(textPnFnStatusdata, "image");
     }
     if (constantBoolean(textPnFnStatusdata.automaticProfanity)) {
       // update for automatic
-      return FilterConditionForAutomatic(textPnFnStatusdata, 'image');
+      return FilterConditionForAutomatic(textPnFnStatusdata, "image");
     }
     return `return Promise.resolve(false)`;
   };
@@ -42,10 +42,10 @@ export default function profanityFunctionForImage(data) {
     When this function runs it will moderate the image if it passes the sightengine reject_prob value
     and then it will re-route the image to the respective banned channel
   ---------  */
-  const imageModeration = (imageTypeFunction = 'block') => {
+  const imageModeration = (imageTypeFunction = "block") => {
     let imageFunction = ` imageBannedFlag = true; `;
     const textModerationPromise = checkForTextModeration();
-    if (imageTypeFunction === 'reroute') {
+    if (imageTypeFunction === "reroute") {
       imageFunction = ` imageBannedReouteFlag = true;`;
     }
 
@@ -57,11 +57,13 @@ export default function profanityFunctionForImage(data) {
                 const pubnub = require("pubnub");
 
                 if (bannedChannel.test(request.channels[0])) {
-                  request.message.type = "text";
-                  return request.ok(request);
+                  return request.ok();
                 }
 
-                let message = request.message.message;
+                let envelope = request.message;
+                let message = envelope.message;
+                let file = envelope.file;
+
                 let originalMessage;
                 let moderatedMessage;
                 let imageBannedFlag = false;
@@ -70,149 +72,148 @@ export default function profanityFunctionForImage(data) {
                 let textReouteFlag = false;
                 let reasonForModeration;
 
+                console.log("received image moderation request: ", envelope);
+
                 const textmoderation = () => {
-                  console.log("start text Moderation Function");
-                  ${textModerationPromise}
+                  if (message && message.text) {
+                    ${textModerationPromise}
+                  } else {
+                    console.log("skipping text moderation, either the message or the text field is missing");
+                    return true;
+                  }
                 };
 
-                if (request.message.file) {
-                      var apiUrl = "https://api.sightengine.com/1.0/check-workflow.json";
-                      var fileUrl = "";
-                      const channel = request.channels[0];
-                      const fileId = request.message.file.id;
-                      const fileName = request.message.file.name;
-                      fileUrl = pubnub.getFileUrl({
-                        channel: channel,
-                        id: fileId,
-                        name: fileName,
-                      });
-                      const queryParams = {
-                        'api_secret': '${sightengineAPIKey}',
-                        'workflow': '${sightengineWorkflowId}',
-                        'api_user': '${sightengineAPIUser}',
-                        url: fileUrl
-                      };
+                if (file) {
+                  const apiUrl = "https://api.sightengine.com/1.0/check-workflow.json";
+                  const channel = request.channels[0];
+                  const fileUrl = pubnub.getFileUrl({
+                    channel: channel,
+                    id: file.id,
+                    name: file.name,
+                  });
+                  const queryParams = {
+                    'api_secret': '${sightengineAPIKey}',
+                    'workflow': '${sightengineWorkflowId}',
+                    'api_user': '${sightengineAPIUser}',
+                    url: fileUrl
+                  };
 
-                      const imageModerationFunction = () => {
-                        return new Promise((resolve, reject) => {
-                          console.log("start image Moderation Function");
-                          xhr
-                            .fetch(apiUrl + "?" + query.stringify(queryParams))
-                            .then(function (r) {
-                              const body = JSON.parse(r.body || r);
-                              return resolve(body);
-                            })
-                            .catch(function (e) {
-                              console.error(e);
-                              return reject(e);
-                            });
+                  const imageModerationFunction = () => {
+                    return new Promise((resolve, reject) => {
+                      xhr
+                        .fetch(apiUrl + "?" + query.stringify(queryParams))
+                        .then(function (r) {
+                          const body = JSON.parse(r.body || r);
+                          return resolve(body);
+                        })
+                        .catch(function (e) {
+                          console.error(e);
+                          return reject(e);
                         });
-                      };
+                    });
+                  };
 
-                      return Promise.all([imageModerationFunction(), textmoderation()])
-                        .then((values) => {
-                          console.log("values", values);
-                          let payload = {'file': {}, 'message': {}};
-                          if (
-                            values[0] &&
-                            values[0].summary &&
-                            values[0].summary.reject_prob &&
-                            '${sightengineRiskFactorThreshold}' < values[0].summary.reject_prob
-                          ) {
-                              ${imageFunction}
-                            }
+                  return Promise.all([imageModerationFunction(), textmoderation()])
+                    .then((values) => {
+                      console.log("image moderation result: ", values[0].summary);
+                      let payload = {};
 
-                          if (imageBannedReouteFlag) {
-                            payload.file = {
-                              type:'image',
-                              url: fileUrl,
-                              id: fileId,
-                              name: fileName,
-                              reason: values[0].summary.reject_reason,
-                            }
-                          }
+                      if (
+                        values[0] &&
+                        values[0].summary &&
+                        values[0].summary.reject_prob &&
+                        '${sightengineRiskFactorThreshold}' < values[0].summary.reject_prob
+                      ) {
+                          ${imageFunction}
+                        }
 
-                          if (textReouteFlag) {
-                            payload.message.type = "text";
-                            if (originalMessage) {
-                               payload.message.originalMessage = originalMessage;
-                            } else {
-                               payload.message.originalMessage = request.message.message.text;
-                            }
-                            if (moderatedMessage) {
-                               payload.message.moderatedMessage = moderatedMessage;
-                            }
-                            if (reasonForModeration) {
-                               payload.message.reason = reasonForModeration;
-                            }
-                          }
-                
-                          if (payload.file.type || payload.message.type) {
-                            return pubnub
-                            .publish({
-                              channel: "banned." + request.channels[0],
-                              message: payload,
-                            })
-                            .then((publishResponse) => {
-                              if (textBlockedFlag && (imageBannedFlag || imageBannedReouteFlag)) {
-                                return request.abort("moderated message");
-                              }
-                              if (!imageBannedFlag && !imageBannedReouteFlag) {
-                                message.file = {};
-                                message.file.id = fileId;
-                                message.file.name = fileName;
-                                message.file.url = fileUrl;
-                              }
-                              if (textBlockedFlag) {
-                                delete message.text;
-                              }
-                              if (message.text) {
-                                message.message = {}
-                                message.message.text = message.text
-                                delete message.text
-                              }
-                              message.file =  message.file || {};
-                              message.message =  message.message || {};
-                              if (!message.file.name && !message.message.text) {
-                                return request.abort("moderated message");
-                              }
-                              return request.ok(message);
-                            })
-                            .catch((err) => {
-                              console.error(err);
-                            });
-                          }
-                          if (values[0] || values[1]) {
-                           if (textBlockedFlag && imageBannedFlag) {
+                      if (imageBannedReouteFlag) {
+                        payload["file"] = {
+                          url: fileUrl,
+                          id: file.id,
+                          name: file.name,
+                          reason: values[0].summary.reject_reason,
+                        }
+                      }
+
+                      if (textReouteFlag) {
+                        payload["message"] = { type: "text" };
+                        payload.message.originalMessage = originalMessage || message.text;
+
+                        if (moderatedMessage) {
+                            payload.message.moderatedMessage = moderatedMessage;
+                        }
+                        if (reasonForModeration) {
+                            payload.message.reason = reasonForModeration;
+                        }
+                      }
+
+                      // this block handles re-routing
+                      if (payload.file || payload.message) {
+                        return pubnub
+                        .publish({
+                          channel: "banned." + request.channels[0],
+                          message: payload,
+                        })
+                        .then((publishResponse) => {
+                          if (textBlockedFlag && (imageBannedFlag || imageBannedReouteFlag)) {
+                            console.log("aborting reason 1 (both text and image were re-routed)");
                             return request.abort("moderated message");
-                           }
-                            if (textBlockedFlag) {
-                              delete message.text;
-                            }
-                            if (!imageBannedFlag) {
-                              request.message.message.file = {};
-                              request.message.message.file.url = fileUrl;
-                              request.message.message.file.id = fileId;
-                              request.message.message.file.name = fileName;
-                              request.message.message.type = "text";
-                            }
-                            message.message = {}
-                            if (message.text) {
-                              message.message.text = message.text
-                              delete message.text
-                            }
-                            message.file =  message.file || {};
-                            if (!message.file.name && !message.message.text) {
-                              return request.abort("moderated message");
-                            }
-                            return request.ok(message);
                           }
+
+                          if (textBlockedFlag) {
+                            delete envelope.message;
+                          }
+
+                          if (imageBannedFlag || imageBannedReouteFlag) {
+                            delete envelope.file;
+                          }
+
+                          if (!envelope.message && !envelope.file) {
+                            console.log("aborting reason 2 (message was empty, image was re-routed)");
+                            return request.abort("moderated message");
+                          }
+
+                          console.log(
+                            "passing reason 1 (only one of message or file was re-routed)",
+                            request.message
+                          );
+                          return request.ok();
                         })
                         .catch((err) => {
-                          console.log(err);
-                          return request.abort(err);
+                          console.error(err);
                         });
-                    }
+                      }
+
+                      // this block handles blocking (no re-routing enabled)
+                      if (values[0] || values[1]) {
+                        if (textBlockedFlag && imageBannedFlag) {
+                          console.log("aborting reason 3 (both text and image were blocked)");
+                          return request.abort("moderated message");
+                        }
+
+                        if (textBlockedFlag) {
+                          delete envelope.message;
+                        }
+
+                        if (imageBannedFlag || imageBannedReouteFlag) {
+                          delete envelope.file;
+                        }
+
+                        if (!envelope.message && !envelope.file) {
+                          console.log("aborting reason 2 (message was empty, image was blocked)");
+                          return request.abort("moderated message");
+                        }
+
+                        console.log("passing reason 2 (both file and message are ok)", request.message);
+                        return request.ok();
+                      }
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                      return request.abort(err);
+                    });
+                }
               }
                 `;
   };
@@ -220,9 +221,9 @@ export default function profanityFunctionForImage(data) {
   This function is for handling differect use cases for image moderation
 ---------- */
   const filterConditions = () => {
-    let imageTypeFunction = 'block';
+    let imageTypeFunction = "block";
     if (constantBoolean(reRouteMessages)) {
-      imageTypeFunction = 'reroute';
+      imageTypeFunction = "reroute";
     }
     return imageModeration(imageTypeFunction);
   };
