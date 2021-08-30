@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Grid, CircularProgress, Typography } from '@material-ui/core';
-import { useStyles } from '../../style/textModeration.js';
-import SnackBar from '../core/SnackBar';
-import ModerationMethods from './ModerationMethods';
-import SwitchButton from '../core/SwitchButton';
-import FilterCard from './FilterCard';
-import profanityFunction from '../../utils/profanityFunction';
+import React, { useState, useEffect } from "react";
+import { Grid, CircularProgress, Typography } from "@material-ui/core";
+import { useStyles } from "../../style/textModeration.js";
+import SnackBar from "../core/SnackBar";
+import ModerationMethods from "./ModerationMethods";
+import SwitchButton from "../core/SwitchButton";
+import FilterCard from "./FilterCard";
+import profanityFunction from "../../utils/profanityFunction";
 
-import { getCookie } from '../../services/localStorage';
+import { getCookie } from "../../services/localStorage";
 import {
   fetchWords,
   constantBoolean,
@@ -16,7 +16,7 @@ import {
   filterEventHandler,
   getProfanityWordsByLanguage,
   pnFunctionFilterStatus,
-} from '../../utils/helpers';
+} from "../../utils/helpers";
 import {
   fetchPubNubFunction,
   createPubNubFunction,
@@ -24,53 +24,53 @@ import {
   stopPubNubFunction,
   createPubNubEventHandler,
   updatePubNubEventHandler,
-} from '../../services/pubnub';
+} from "../../services/pubnub";
 
-import { handleImageModerationSave } from '../../utils/imageModeration';
+import { handleImageModerationSave } from "../../utils/imageModeration";
 
 const TextModeration = () => {
   const classes = useStyles();
   const [profanityList, setProfanityList] = useState({
-    English: '',
-    Hindi: '',
-    French: '',
-    Portugese: '',
-    Spanish: '',
+    English: "",
+    Hindi: "",
+    French: "",
+    Portugese: "",
+    Spanish: "",
   });
   const [state, setState] = useState({
     wordList: {
-      wordListChannel: '*',
+      wordListChannel: "*",
       applyToAllChannelIdsWordlist: true,
       wordsListPatternError: false,
-      wordListLanguage: 'English',
-      wordListModType: 'Mask-word',
+      wordListLanguage: "English",
+      wordListModType: "Mask-word",
       wordListReRouteMessages: false,
       wordsListMaskCharError: false,
       wordsListChannelError: false,
-      wordListCharacterToMaskWith: '*',
+      wordListCharacterToMaskWith: "*",
     },
     automaticDetection: {
       applyToAllChannelIdsAutomatic: true,
-      toolForAutomaticDetection: 'tisane',
+      toolForAutomaticDetection: "tisane",
       siftNinjaRiskFactorThresholdVulgar: 0,
       siftNinjaRiskFactorThresholdSexting: 0,
       siftNinjaRiskFactorThresholdRacism: 0,
-      siftNinjaAccountName: '',
-      siftNinjaChannelName: '',
-      siftNinjaApiKey: '',
+      siftNinjaAccountName: "",
+      siftNinjaChannelName: "",
+      siftNinjaApiKey: "",
       tisaneRiskFactorThresholdBigotry: 0,
       tisaneRiskFactorThresholdCyberBullying: 0,
       tisaneRiskFactorThresholdCriminalActivity: 0,
       tisaneRiskFactorThresholdSexualAdvances: 0,
       tisaneRiskFactorThresholdProfanity: 0,
-      tisaneApiKey: '',
-      tisaneLanguage: 'English',
-      automaticDetectionChannel: '*',
+      tisaneApiKey: "",
+      tisaneLanguage: "English",
+      automaticDetectionChannel: "*",
       automaticChannelError: false,
       automaticMaskCharError: false,
       automaticDetectionReRouteMessages: false,
-      automaticDetectionModType: 'mask-message',
-      automaticDetectionCharacterToMaskWith: '*',
+      automaticDetectionModType: "mask-message",
+      automaticDetectionCharacterToMaskWith: "*",
     },
     textModerationToggle: false,
     wordListProfanity: false,
@@ -80,14 +80,12 @@ const TextModeration = () => {
     initialLoading: true,
     errorStatus: false,
     successStatus: false,
-    errorMsg: '',
-    successMsg: '',
+    errorMsg: "",
+    successMsg: "",
   });
 
   const checkForWordListProfanity = constantBoolean(state.wordListProfanity);
-  const checkForTextModerationToogle = constantBoolean(
-    state.textModerationToggle
-  );
+  const checkForTextModerationToogle = constantBoolean(state.textModerationToggle);
   const badWordsByLanguage = getProfanityWordsByLanguage(
     profanityList,
     state.wordList.wordListLanguage
@@ -99,17 +97,17 @@ const TextModeration = () => {
 
   const handleClick = (name) => (e) => {
     e.preventDefault();
-    if (name === 'wordListMethod') {
+    if (name === "wordListMethod") {
       setState({
         ...state,
-        wordListProfanity: 'true',
-        automaticProfanity: 'false',
+        wordListProfanity: "true",
+        automaticProfanity: "false",
       });
-    } else if (name === 'automaticMethod') {
+    } else if (name === "automaticMethod") {
       setState({
         ...state,
-        wordListProfanity: 'false',
-        automaticProfanity: 'true',
+        wordListProfanity: "false",
+        automaticProfanity: "true",
       });
     }
   };
@@ -118,17 +116,15 @@ const TextModeration = () => {
     setState((previousState) => ({
       ...previousState,
       errorStatus: false,
-      errorMsg: '',
+      errorMsg: "",
       successStatus: false,
-      successMsg: '',
+      successMsg: "",
     }));
   }, [state.wordListProfanity, state.automaticProfanity]);
 
   useEffect(() => {
     const regexForValidateWordList = /^.*?[,.]$/;
-    const wordListValidationResult = regexForValidateWordList.test(
-      badWordsByLanguage.trim()
-    );
+    const wordListValidationResult = regexForValidateWordList.test(badWordsByLanguage.trim());
     if (wordListValidationResult) {
       setState((beforeState) => ({
         ...beforeState,
@@ -144,7 +140,7 @@ const TextModeration = () => {
       setState((previous) => ({
         ...previous,
         errorStatus: false,
-        errorMsg: '',
+        errorMsg: "",
         wordList: {
           ...previous.wordList,
           wordsListPatternError: false,
@@ -157,7 +153,7 @@ const TextModeration = () => {
     setState((before) => ({
       ...before,
       errorStatus: false,
-      errorMsg: '',
+      errorMsg: "",
       wordList: {
         ...before.wordList,
         wordsListMaskCharError: false,
@@ -166,12 +162,12 @@ const TextModeration = () => {
     if (
       !state.wordList.wordListCharacterToMaskWith.trim() &&
       state.wordListProfanity &&
-      state.wordList.wordListModType === 'Mask-word'
+      state.wordList.wordListModType === "Mask-word"
     ) {
       setState((prev) => ({
         ...prev,
         errorStatus: true,
-        errorMsg: 'Please set a making character',
+        errorMsg: "Please set a making character",
         wordList: {
           ...prev.wordList,
           wordsListMaskCharError: true,
@@ -188,7 +184,7 @@ const TextModeration = () => {
     setState((prevStateValue) => ({
       ...prevStateValue,
       errorStatus: false,
-      errorMsg: 'Please set a making character',
+      errorMsg: "Please set a making character",
       automaticDetection: {
         ...prevStateValue.automaticDetection,
         automaticMaskCharError: false,
@@ -197,12 +193,12 @@ const TextModeration = () => {
     if (
       !state.automaticDetection.automaticDetectionCharacterToMaskWith.trim() &&
       state.automaticProfanity &&
-      state.automaticDetection.automaticDetectionModType === 'mask-message'
+      state.automaticDetection.automaticDetectionModType === "mask-message"
     ) {
       setState((prevValue) => ({
         ...prevValue,
         errorStatus: true,
-        errorMsg: 'Please set a making character',
+        errorMsg: "Please set a making character",
         automaticDetection: {
           ...prevValue.automaticDetection,
           automaticMaskCharError: true,
@@ -234,8 +230,8 @@ const TextModeration = () => {
             ...previousValue.automaticDetection,
             automaticChannelError: checkForWordListProfanity ? false : true,
           },
-          errorMsg: 'Channel name is required',
-          successMsg: '',
+          errorMsg: "Channel name is required",
+          successMsg: "",
           successStatus: false,
         }));
       } else {
@@ -243,8 +239,8 @@ const TextModeration = () => {
           ...preValue,
           errorStatus: false,
           saveLoading: false,
-          errorMsg: '',
-          successMsg: '',
+          errorMsg: "",
+          successMsg: "",
           wordList: {
             ...preValue.wordList,
             wordsListChannelError: false,
@@ -266,20 +262,15 @@ const TextModeration = () => {
 
   useEffect(() => {
     const selectedApp = selectedAppFromLS();
-    const headerToken = getCookie('token');
+    const headerToken = getCookie("token");
     (async () => {
       if (selectedApp) {
         try {
-          const fetchFunctionsResponse = await fetchPubNubFunction(
-            selectedApp.id,
-            headerToken
-          );
+          const fetchFunctionsResponse = await fetchPubNubFunction(selectedApp.id, headerToken);
 
           if (filterFunction(fetchFunctionsResponse, selectedApp).length) {
-            const eventHandlers = filterFunction(
-              fetchFunctionsResponse,
-              selectedApp
-            )[0].event_handlers;
+            const eventHandlers = filterFunction(fetchFunctionsResponse, selectedApp)[0]
+              .event_handlers;
             const eventHandler = filterEventHandler(
               eventHandlers,
               filterFunction(fetchFunctionsResponse, selectedApp)
@@ -287,11 +278,7 @@ const TextModeration = () => {
             if (eventHandler.length > 0) {
               const data = pnFunctionFilterStatus(eventHandler[0].code);
 
-              const {
-                wordListProfanity,
-                automaticProfanity,
-                textModerationToggle,
-              } = data;
+              const { wordListProfanity, automaticProfanity, textModerationToggle } = data;
 
               const {
                 wordListReRouteMessages,
@@ -364,11 +351,11 @@ const TextModeration = () => {
               }));
               setProfanityList((prev) => ({
                 ...prev,
-                English: englishProfanity.split('|').join(','),
-                Hindi: hindiProfanity.split('|').join(','),
-                Portugese: portugeseProfanity.split('|').join(','),
-                French: frenchProfanity.split('|').join(','),
-                Spanish: spanishProfanity.split('|').join(','),
+                English: englishProfanity.split("|").join(","),
+                Hindi: hindiProfanity.split("|").join(","),
+                Portugese: portugeseProfanity.split("|").join(","),
+                French: frenchProfanity.split("|").join(","),
+                Spanish: spanishProfanity.split("|").join(","),
               }));
             } else {
               setState((prevState) => ({
@@ -390,7 +377,7 @@ const TextModeration = () => {
             errorStatus: true,
             saveLoading: false,
             errorMsg: error.message,
-            successMsg: '',
+            successMsg: "",
             successStatus: false,
             initialLoading: false,
           });
@@ -431,16 +418,13 @@ const TextModeration = () => {
       tisaneLanguage,
     } = state.automaticDetection;
 
-    const { wordListProfanity, automaticProfanity, textModerationToggle } =
-      state;
+    const { wordListProfanity, automaticProfanity, textModerationToggle } = state;
 
     const config = {
-      type: 'js',
+      type: "js",
       key_id: key_id,
       block_id: block_id,
-      channels: checkForWordListProfanity
-        ? wordListChannel
-        : automaticDetectionChannel,
+      channels: checkForWordListProfanity ? wordListChannel : automaticDetectionChannel,
       code: `${profanityFunction({
         wordListProfanity,
         automaticProfanity,
@@ -469,30 +453,27 @@ const TextModeration = () => {
         tisaneApiKey,
         tisaneLanguage,
       })}`,
-      event: 'js-before-publish',
-      log_level: 'debug',
+      event: "js-before-publish",
+      log_level: "debug",
       name: `BLOCK-${block_id}`,
-      output: 'output-0.5823105682419438',
+      output: "output-0.5823105682419438",
     };
     try {
       await createPubNubEventHandler(config, token);
       if (checkForTextModerationToogle) {
-        await startPubNubFunction(
-          { key_id: key_id, block_id: block_id },
-          token
-        );
+        await startPubNubFunction({ key_id: key_id, block_id: block_id }, token);
       }
       await handleImageModerationSave(app, token, {
         state,
         setState,
-        uiPagecall: 'textModeration',
+        uiPagecall: "textModeration",
       });
       setState({
         ...state,
         errorStatus: false,
         saveLoading: false,
-        errorMsg: '',
-        successMsg: 'Successfully updated',
+        errorMsg: "",
+        successMsg: "Successfully updated",
         successStatus: true,
       });
     } catch (error) {
@@ -501,19 +482,13 @@ const TextModeration = () => {
         errorStatus: true,
         saveLoading: false,
         errorMsg: error.message,
-        successMsg: '',
+        successMsg: "",
         successStatus: false,
       });
     }
   }
 
-  async function UpdateEventHandler(
-    app,
-    eventHandler,
-    block_id,
-    key_id,
-    token
-  ) {
+  async function UpdateEventHandler(app, eventHandler, block_id, key_id, token) {
     const {
       wordListChannel,
       applyToAllChannelIdsWordlist,
@@ -544,17 +519,14 @@ const TextModeration = () => {
       tisaneLanguage,
     } = state.automaticDetection;
 
-    const { wordListProfanity, automaticProfanity, textModerationToggle } =
-      state;
+    const { wordListProfanity, automaticProfanity, textModerationToggle } = state;
 
     const updatedConfig = {
-      type: 'js',
+      type: "js",
       key_id: key_id,
       block_id: block_id,
       id: eventHandler[0].id,
-      channels: checkForWordListProfanity
-        ? wordListChannel
-        : automaticDetectionChannel,
+      channels: checkForWordListProfanity ? wordListChannel : automaticDetectionChannel,
       code: `${profanityFunction({
         wordListProfanity,
         applyToAllChannelIdsAutomatic,
@@ -583,10 +555,10 @@ const TextModeration = () => {
         tisaneApiKey,
         tisaneLanguage,
       })}`,
-      event: 'js-before-publish',
-      log_level: 'debug',
+      event: "js-before-publish",
+      log_level: "debug",
       name: `BLOCK-${block_id}`,
-      output: 'output-0.5823105682419438',
+      output: "output-0.5823105682419438",
     };
 
     try {
@@ -596,14 +568,14 @@ const TextModeration = () => {
         await handleImageModerationSave(app, token, {
           state,
           setState,
-          uiPagecall: 'textModeration',
+          uiPagecall: "textModeration",
         });
         return setState({
           ...state,
           errorStatus: false,
           saveLoading: false,
-          errorMsg: '',
-          successMsg: 'Successfully updated',
+          errorMsg: "",
+          successMsg: "Successfully updated",
           successStatus: true,
         });
       }
@@ -611,14 +583,14 @@ const TextModeration = () => {
       await handleImageModerationSave(app, token, {
         state,
         setState,
-        uiPagecall: 'textModeration',
+        uiPagecall: "textModeration",
       });
       setState({
         ...state,
         errorStatus: false,
         saveLoading: false,
-        errorMsg: '',
-        successMsg: 'Successfully updated',
+        errorMsg: "",
+        successMsg: "Successfully updated",
         successStatus: true,
       });
     } catch (err) {
@@ -627,14 +599,14 @@ const TextModeration = () => {
         errorStatus: true,
         saveLoading: false,
         errorMsg: err.message,
-        successMsg: '',
+        successMsg: "",
         successStatus: false,
       });
     }
   }
 
   const defaultWords = async (language) => {
-    let response = await fetchWords(`/words/${language}.txt`);
+    let response = await fetchWords(`${process.env.PUBLIC_URL}/words/${language}.txt`);
     setProfanityList({ ...profanityList, [language]: response });
   };
 
@@ -646,7 +618,7 @@ const TextModeration = () => {
     }
 
     setState({ ...state, saveLoading: true });
-    const token = getCookie('token');
+    const token = getCookie("token");
     const app = selectedAppFromLS();
 
     if (app) {
@@ -656,8 +628,7 @@ const TextModeration = () => {
 
         if (filterFunction(functionResponse, app).length) {
           const blockId = filterFunction(functionResponse, app)[0].id;
-          const eventHandlerList = filterFunction(functionResponse, app)[0]
-            .event_handlers;
+          const eventHandlerList = filterFunction(functionResponse, app)[0].event_handlers;
           const eventHandler = filterEventHandler(
             eventHandlerList,
             filterFunction(functionResponse, app)
@@ -671,7 +642,7 @@ const TextModeration = () => {
           const config = {
             key_id: app.id,
             name: `KEY-${app.id}`,
-            description: 'This is a profanity function',
+            description: "This is a profanity function",
           };
           await createPubNubFunction(config, token);
           const fetchFunctions = await fetchPubNubFunction(app.id, token);
@@ -688,7 +659,7 @@ const TextModeration = () => {
           errorStatus: true,
           saveLoading: false,
           errorMsg: error.message,
-          successMsg: '',
+          successMsg: "",
           successStatus: false,
         });
       }
@@ -697,9 +668,7 @@ const TextModeration = () => {
 
   return (
     <>
-      {state.successStatus && (
-        <SnackBar status="success" msg={state.successMsg} />
-      )}
+      {state.successStatus && <SnackBar status="success" msg={state.successMsg} />}
       {state.errorStatus && <SnackBar status="error" msg={state.errorMsg} />}
       <Typography testid="title" variant="h6" className={classes.title}>
         Text Moderation
@@ -717,12 +686,7 @@ const TextModeration = () => {
       <br />
       {state.initialLoading && (
         <Grid container justify="center">
-          <CircularProgress
-            size={65}
-            thickness={4}
-            color="primary"
-            className={classes.loader}
-          />
+          <CircularProgress size={65} thickness={4} color="primary" className={classes.loader} />
         </Grid>
       )}
       <br />
