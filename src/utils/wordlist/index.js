@@ -78,7 +78,7 @@ export function FilterConditionForWordList(
 
   if (type === 'default') {
     return `if(request && request.ok){
-        return request.ok()
+        return request.ok();
       }`;
   }
 
@@ -89,7 +89,7 @@ function wordListMaskWords({ regex, wordListCharacterToMaskWith, type }) {
   if (type === 'default') {
     return `if (request && request.ok) {
       var badWords = new RegExp(${regex}, "g")
-      var bannedChannel = new RegExp(${regexForBanned}, "g")
+      var bannedChannel = new RegExp(${regexForBanned}, "g");
       if (
         request.message &&
         request.message.text &&
@@ -137,8 +137,8 @@ function wordListMaskWordsAndReroute({
     return `
   if (request && request.ok) {
     const pubnub = require('pubnub');
-    var badWords = new RegExp(${regex}, "g")
-    var bannedChannel = new RegExp(${regexForBanned}, "g")
+    let badWords = new RegExp(${regex}, "g")
+    let bannedChannel = new RegExp(${regexForBanned}, "g");
     if (
       request.message &&
       request.message.text &&
@@ -188,12 +188,12 @@ function wordListMaskWordsAndReroute({
 function wordListBlockMessage({ regex, type }) {
   if (type === 'default') {
     return `if (request && request.ok) {
-    var badWords = new RegExp(${regex}, "g")
-    var bannedChannel = new RegExp(${regexForBanned}, "g")
+    let badWords = new RegExp(${regex}, "g");
+    let bannedChannel = new RegExp(${regexForBanned}, "g");
     if(badWords.test(request["message"]["text"]) && !bannedChannel.test(request.channels[0])) {
-       return request.abort("moderated message");
+      console.log("Blocked message with word(s) from restricted word list");
+       return request.abort("wordlist moderation blocked message");
    }
-      request.message.type = "text"
       return request.ok();
   }`;
   }
@@ -218,18 +218,22 @@ function wordListBlockMessageAndReroute({ regex, type }) {
   if (type === 'default') {
     return `if (request && request.ok) {
     const pubnub = require('pubnub');
-    var badWords = new RegExp(${regex}, "g")
-    var bannedChannel = new RegExp(${regexForBanned}, "g")
-    if(badWords.test(request["message"]["text"]) && !bannedChannel.test(request.channels[0])) {
+    let badWords = new RegExp(${regex}, "g")
+    let bannedChannel = new RegExp(${regexForBanned}, "g");
+    let message = request.message;
+    console.log("received wordlist based text moderation request: ", message);
+
+    if(badWords.test(message["text"]) && !bannedChannel.test(request.channels[0])) {
+      console.log("Found word(s) from moderation list. Publishing to banned channel");
       pubnub.publish({
       "channel": 'banned.'+request.channels[0],
-      "message": { originalMessage: request.message.text, "type":"text" }
+      "message": { originalMessage: message.text, "type":"text" }
       }).then((publishResponse) => {
         console.log(publishResponse)
       }).catch((err) => {
           console.error(err);
       });
-       return request.abort("moderated message");
+       return request.abort("wordlist moderation blocked message");
    }
       request.message.type = "text"
       return request.ok();
