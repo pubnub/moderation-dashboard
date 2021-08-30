@@ -1,24 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Typography } from '@material-ui/core';
-import { getMessagesCount } from '../../services/pubnub';
-import { useStyles } from '../../style/messages';
-import SnackBar from '../core/SnackBar';
-import { lastMidnightHours } from '../../utils/helpers';
+import React, { useEffect, useState } from "react";
+import { Typography } from "@material-ui/core";
+import { getMessagesCount } from "../../services/pubnub";
+import { useStyles } from "../../style/messages";
+import SnackBar from "../core/SnackBar";
+import { lastMidnightHours } from "../../utils/helpers";
 
 export default function MessagesCount(props) {
   const classes = useStyles();
   const [count, setCount] = useState(0);
   const [alert, setAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
   const midnightTimeToken = lastMidnightHours();
 
   useEffect(() => {
     setAlert({
       ...alert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     (async () => {
       try {
@@ -31,7 +31,7 @@ export default function MessagesCount(props) {
       } catch (e) {
         setAlert({
           ...alert,
-          success: { status: false, msg: '' },
+          success: { status: false, msg: "" },
           error: { status: true, msg: e.message },
         });
       }
@@ -41,10 +41,8 @@ export default function MessagesCount(props) {
 
   return (
     <>
-      <Typography className={classes.messagesCountFont}>
-        Today({count})
-      </Typography>
-      {alert.error.status && <SnackBar msg={alert.error.msg} status={'info'} />}
+      <Typography className={classes.messagesCountFont}>Today({count})</Typography>
+      {alert.error.status && <SnackBar msg={alert.error.msg} status={"info"} />}
     </>
   );
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Waypoint } from 'react-waypoint';
-import { Grid, CircularProgress } from '@material-ui/core';
+import React from "react";
+import { Waypoint } from "react-waypoint";
+import { Grid, CircularProgress } from "@material-ui/core";
 
 export default function MembersLoader(props) {
   return (

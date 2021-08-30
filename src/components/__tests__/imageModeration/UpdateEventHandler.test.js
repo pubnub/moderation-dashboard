@@ -1,15 +1,15 @@
-import UpdateEventHandler from '../../../components/imageModeration/UpdateEventHandler';
-import profanityFunctionForImage from '../../../utils/profanityFunctionForImage';
+import UpdateEventHandler from "../../../components/imageModeration/UpdateEventHandler";
+import profanityFunctionForImage from "../../../utils/profanityFunctionForImage";
 import {
   startPubNubFunction,
   stopPubNubFunction,
   updatePubNubEventHandler,
-} from '../../../services/pubnub';
-import { mockMaskAutomationOn } from '../../mockTest/mockTextProfanity';
-import { mockImageState } from '../../mockTest/mockImageProfanity';
+} from "../../../services/pubnub";
+import { mockMaskAutomationOn } from "../../mockTest/mockTextProfanity";
+import { mockImageState } from "../../mockTest/mockImageProfanity";
 
-profanityFunctionForImage.functionToMock = jest.fn().mockReturnValue('abc()');
-jest.mock('../../../services/pubnub', () => {
+profanityFunctionForImage.functionToMock = jest.fn().mockReturnValue("abc()");
+jest.mock("../../../services/pubnub", () => {
   return {
     startPubNubFunction: jest.fn(),
     stopPubNubFunction: jest.fn(),
@@ -17,11 +17,11 @@ jest.mock('../../../services/pubnub', () => {
   };
 });
 
-describe('check for image update event handler Function', () => {
+describe("check for image update event handler Function", () => {
   afterAll(() => {
     jest.resetAllMocks();
   });
-  test('check update image handler function call', async () => {
+  test("check update image handler function call", async () => {
     startPubNubFunction.mockImplementation(() => ({
       status: 200,
       data: { id: 1 },
@@ -38,7 +38,7 @@ describe('check for image update event handler Function', () => {
       eventHandler: [{ id: 1 }],
       blockId: 1,
       keyId: 1,
-      token: '',
+      token: "",
       state: mockImageState,
       setState: jest.fn(),
       textPnFnStatusdata: mockMaskAutomationOn,
@@ -60,7 +60,7 @@ describe('check for image update event handler Function', () => {
     const textModerationfn = await UpdateEventHandler({
       ...data,
       state: { ...mockImageState, imageModerationToggle: false },
-      uiPagecall: 'textModeration',
+      uiPagecall: "textModeration",
     });
     expect(textModerationfn).toBe(true);
 
@@ -68,20 +68,18 @@ describe('check for image update event handler Function', () => {
     const imageOnAndTextOn = await UpdateEventHandler({
       ...data,
       state: { ...mockImageState, imageModerationToggle: true },
-      uiPagecall: 'textModeration',
+      uiPagecall: "textModeration",
     });
     expect(startPubNubFunction).toHaveBeenCalledTimes(2);
     expect(imageOnAndTextOn).toBe(true);
 
-    startPubNubFunction.mockImplementation(() =>
-      Promise.reject({ status: 401 })
-    );
+    startPubNubFunction.mockImplementation(() => Promise.reject({ status: 401 }));
 
     // error handling text moderaion is on
     const errorResult = await UpdateEventHandler({
       ...data,
       state: { ...mockImageState, imageModerationToggle: true },
-      uiPagecall: 'textModeration',
+      uiPagecall: "textModeration",
     });
     expect(startPubNubFunction).toHaveBeenCalledTimes(3);
     expect(stopPubNubFunction).toHaveBeenCalledTimes(2);

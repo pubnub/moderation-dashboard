@@ -1,5 +1,5 @@
-import PubNub from 'pubnub';
-import { selectedAppFromLS, uuidFromLS } from './helpers';
+import PubNub from "pubnub";
+import { selectedAppFromLS, uuidFromLS } from "./helpers";
 
 const usePubNub = () => {
   const selectedApp = selectedAppFromLS();

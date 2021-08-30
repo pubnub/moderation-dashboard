@@ -1,20 +1,12 @@
 /**
  * Displays overview page for a selected ketset
  */
-import React, { useEffect, useState } from 'react';
-import Helmet from 'react-helmet';
-import {
-  Grid,
-  Typography,
-  Paper,
-  Avatar,
-  Box,
-  Divider,
-  IconButton,
-} from '@material-ui/core';
-import { useStyles } from '../../style/overview';
-import { capitalizeNameInitials, selectedAppFromLS } from '../../utils/helpers';
-import { RemoveRedEye, RemoveRedEyeOutlined } from '@material-ui/icons';
+import React, { useEffect, useState } from "react";
+import Helmet from "react-helmet";
+import { Grid, Typography, Paper, Avatar, Box, Divider, IconButton } from "@material-ui/core";
+import { useStyles } from "../../style/overview";
+import { capitalizeNameInitials, selectedAppFromLS } from "../../utils/helpers";
+import { RemoveRedEye, RemoveRedEyeOutlined } from "@material-ui/icons";
 
 const OverviewGrid = () => {
   const classes = useStyles();
@@ -52,18 +44,16 @@ const OverviewGrid = () => {
               <Grid justify="flex-start" container>
                 <Box mr={1}>
                   <Avatar className={classes.avatar} variant="square">
-                    {!application.name
-                      ? ''
-                      : capitalizeNameInitials(application.name)}
+                    {!application.name ? "" : capitalizeNameInitials(application.name)}
                   </Avatar>
                 </Box>
                 <Grid item sm={6} xs={12} md={6}>
                   <small className={classes.values}>
-                    {!application.name ? '' : application.name}
+                    {!application.name ? "" : application.name}
                   </small>
                   <br />
                   <small className={classes.appName}>
-                    {!application.appName ? '' : application.appName}
+                    {!application.appName ? "" : application.appName}
                   </small>
                 </Grid>
               </Grid>
@@ -72,14 +62,11 @@ const OverviewGrid = () => {
               <br />
               <Grid justify="space-between" container>
                 <Grid item xs={12} sm={6}>
-                  <Typography
-                    testid="modified_date"
-                    className={classes.headings}
-                  >
+                  <Typography testid="modified_date" className={classes.headings}>
                     Modified Date
                   </Typography>
                   <Typography className={classes.values}>
-                    {!application.modified ? '' : application.modified}
+                    {!application.modified ? "" : application.modified}
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
@@ -87,7 +74,7 @@ const OverviewGrid = () => {
                     Created on
                   </Typography>
                   <Typography className={classes.values}>
-                    {!application.created ? '' : application.created}
+                    {!application.created ? "" : application.created}
                   </Typography>
                 </Grid>
               </Grid>
@@ -103,15 +90,11 @@ const OverviewGrid = () => {
               <br />
               <Grid justify="space-between" container>
                 <Grid item xs={12} sm={6}>
-                  <Typography
-                    testid="publish_key"
-                    variant="h6"
-                    className={classes.headings}
-                  >
+                  <Typography testid="publish_key" variant="h6" className={classes.headings}>
                     Publish Key
                   </Typography>
                   <Typography className={classes.values}>
-                    {!application.publish_key ? '' : application.publish_key}
+                    {!application.publish_key ? "" : application.publish_key}
                   </Typography>
                   <br />
                   <Typography testid="secret_key" className={classes.headings}>
@@ -121,33 +104,22 @@ const OverviewGrid = () => {
                       className={classes.headings}
                       onClick={toggleSecretKeyMask}
                     >
-                      {secretKeyIsMasked ? (
-                        <RemoveRedEyeOutlined />
-                      ) : (
-                        <RemoveRedEye />
-                      )}
+                      {secretKeyIsMasked ? <RemoveRedEyeOutlined /> : <RemoveRedEye />}
                     </IconButton>
                   </Typography>
 
                   <Typography id="maskableText" className={classes.values}>
                     {secretKeyIsMasked
                       ? application.secret_key
-                      : application.secret_key &&
-                        '*'.repeat(application.secret_key.length)}
+                      : application.secret_key && "*".repeat(application.secret_key.length)}
                   </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Typography
-                    variant="h6"
-                    testid="subsciber_key"
-                    className={classes.headings}
-                  >
+                  <Typography variant="h6" testid="subsciber_key" className={classes.headings}>
                     Subscribe Key
                   </Typography>
                   <Typography className={classes.values}>
-                    {!application.subscribe_key
-                      ? ''
-                      : application.subscribe_key}
+                    {!application.subscribe_key ? "" : application.subscribe_key}
                   </Typography>
                 </Grid>
               </Grid>

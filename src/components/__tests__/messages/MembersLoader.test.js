@@ -1,8 +1,8 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import MembersLoader from '../../messages/MembersLoader';
+import React from "react";
+import { shallow } from "enzyme";
+import MembersLoader from "../../messages/MembersLoader";
 
-describe('Test Case For Members Loader', () => {
+describe("Test Case For Members Loader", () => {
   let wrapper;
   beforeAll(() => {
     wrapper = shallow(
@@ -15,7 +15,7 @@ describe('Test Case For Members Loader', () => {
     );
   });
 
-  test('Snapshot', () => {
+  test("Snapshot", () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

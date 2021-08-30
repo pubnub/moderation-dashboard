@@ -1,19 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles({
   cardRoot: {
-    cursor: 'pointer',
+    cursor: "pointer",
   },
-  checkIcon:{
-    color:"#C2C2C2"
+  checkIcon: {
+    color: "#C2C2C2",
   },
-  email:{
-    fontSize:"12px"
+  email: {
+    fontSize: "12px",
   },
-  avatarText:{
-    fontSize:"12px"
+  avatarText: {
+    fontSize: "12px",
   },
-  avatar:{
- 
-  }
+  avatar: {},
 });

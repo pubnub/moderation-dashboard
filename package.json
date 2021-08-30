@@ -63,11 +63,16 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
     "enzyme-to-json": "^3.6.2",
     "gh-pages": "^3.2.3",
-    "husky": "^7.0.1"
+    "husky": "^7.0.1",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2"
   },
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }

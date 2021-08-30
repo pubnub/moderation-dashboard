@@ -1,17 +1,7 @@
-import profanityFunctionForImage from '../../utils/profanityFunctionForImage';
+import profanityFunctionForImage from "../../utils/profanityFunctionForImage";
 
-import {
-  startPubNubFunction,
-  createPubNubEventHandler,
-} from '../../services/pubnub';
-async function CreateEventHandler({
-  blockId,
-  keyId,
-  token,
-  state,
-  setState,
-  textPnFnStatusdata,
-}) {
+import { startPubNubFunction, createPubNubEventHandler } from "../../services/pubnub";
+async function CreateEventHandler({ blockId, keyId, token, state, setState, textPnFnStatusdata }) {
   const {
     imageModerationToggle,
     channelId,
@@ -25,7 +15,7 @@ async function CreateEventHandler({
   } = state;
 
   const config = {
-    type: 'js',
+    type: "js",
     key_id: keyId,
     block_id: blockId,
     channels: channelId,
@@ -41,10 +31,10 @@ async function CreateEventHandler({
       reRouteMessages,
       textPnFnStatusdata,
     })}`,
-    event: 'js-before-publish-file',
-    log_level: 'debug',
+    event: "js-before-publish-file",
+    log_level: "debug",
     name: `BLOCK-${blockId}-IMAGE-MODERATION`,
-    output: 'output-0.5823105682419438',
+    output: "output-0.5823105682419438",
   };
   try {
     await createPubNubEventHandler(config, token);
@@ -61,7 +51,7 @@ async function CreateEventHandler({
       errorStatus: true,
       saveLoading: false,
       errorMsg: error.message,
-      successMsg: '',
+      successMsg: "",
       successStatus: false,
     }));
   }

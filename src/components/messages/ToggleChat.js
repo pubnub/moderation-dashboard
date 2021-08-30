@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from '@material-ui/core';
-import { useStyles } from '../../style/messages';
+import React from "react";
+import { Button } from "@material-ui/core";
+import { useStyles } from "../../style/messages";
 
 export default function ToggleChat(props) {
   const classes = useStyles();
@@ -9,26 +9,18 @@ export default function ToggleChat(props) {
       <Button
         id="chat"
         onClick={() => {
-          props.setToggledVal('chat');
+          props.setToggledVal("chat");
         }}
-        className={
-          props.toggledVal === 'chat'
-            ? classes.activeToggled
-            : classes.disableToggled
-        }
+        className={props.toggledVal === "chat" ? classes.activeToggled : classes.disableToggled}
       >
         Chat
       </Button>
       <Button
         id="ban"
         onClick={() => {
-          props.setToggledVal('banned');
+          props.setToggledVal("banned");
         }}
-        className={
-          props.toggledVal === 'banned'
-            ? classes.activeToggled
-            : classes.disableToggled
-        }
+        className={props.toggledVal === "banned" ? classes.activeToggled : classes.disableToggled}
       >
         Banned
       </Button>

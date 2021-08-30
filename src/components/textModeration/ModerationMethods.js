@@ -1,6 +1,6 @@
-import React from 'react';
-import WordListProfanityMethod from './wordListModeration/WordListProfanityMethod';
-import AutomaticProfanityMethod from './automaticModeration/AutomaticProfanityMethod';
+import React from "react";
+import WordListProfanityMethod from "./wordListModeration/WordListProfanityMethod";
+import AutomaticProfanityMethod from "./automaticModeration/AutomaticProfanityMethod";
 
 const ModerationMethods = ({
   handleSave,
@@ -8,9 +8,9 @@ const ModerationMethods = ({
   state,
   setState,
   profanityList,
-  setProfanityList
+  setProfanityList,
 }) => {
-  if (state.wordListProfanity === 'true') {
+  if (state.wordListProfanity === "true") {
     return (
       <WordListProfanityMethod
         handleSave={handleSave}
@@ -21,12 +21,8 @@ const ModerationMethods = ({
         setProfanityList={setProfanityList}
       />
     );
-  } else if (state.automaticProfanity === 'true') {
-    return <AutomaticProfanityMethod
-       state={state}
-       setState={setState}
-       handleSave={handleSave}
-    />;
+  } else if (state.automaticProfanity === "true") {
+    return <AutomaticProfanityMethod state={state} setState={setState} handleSave={handleSave} />;
   } else {
     return <></>;
   }

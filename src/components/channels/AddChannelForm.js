@@ -1,5 +1,5 @@
-import React from 'react';
-import { useStyles } from '../../style/createModerationModal';
+import React from "react";
+import { useStyles } from "../../style/createModerationModal";
 import {
   DialogContent,
   DialogActions,
@@ -8,7 +8,7 @@ import {
   TextField,
   CircularProgress,
   Box,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 export default function AddChannelForm(props) {
   const classes = useStyles();
@@ -44,9 +44,7 @@ export default function AddChannelForm(props) {
             autoComplete="off"
             onChange={props.formik.handleChange}
             value={props.formik.values.name}
-            error={
-              props.formik.touched.name && Boolean(props.formik.errors.name)
-            }
+            error={props.formik.touched.name && Boolean(props.formik.errors.name)}
             helperText={props.formik.touched.name && props.formik.errors.name}
           />
         </Box>
@@ -65,23 +63,13 @@ export default function AddChannelForm(props) {
             autoComplete="off"
             onChange={props.formik.handleChange}
             value={props.formik.values.description}
-            error={
-              props.formik.touched.description &&
-              Boolean(props.formik.errors.description)
-            }
-            helperText={
-              props.formik.touched.description &&
-              props.formik.errors.description
-            }
+            error={props.formik.touched.description && Boolean(props.formik.errors.description)}
+            helperText={props.formik.touched.description && props.formik.errors.description}
           />
         </Box>
       </DialogContent>
       <DialogActions>
-        <Button
-          autoFocus
-          className={classes.cancelButton}
-          onClick={props.handleClose}
-        >
+        <Button autoFocus className={classes.cancelButton} onClick={props.handleClose}>
           CANCEL
         </Button>
         <Button
@@ -96,9 +84,7 @@ export default function AddChannelForm(props) {
             ) : null
           }
         >
-          <Typography className={classes.buttonText}>
-            {props.buttonTitle}
-          </Typography>
+          <Typography className={classes.buttonText}>{props.buttonTitle}</Typography>
         </Button>
       </DialogActions>
     </form>

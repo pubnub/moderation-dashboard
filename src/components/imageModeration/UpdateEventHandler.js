@@ -1,10 +1,10 @@
-import profanityFunctionForImage from '../../utils/profanityFunctionForImage';
+import profanityFunctionForImage from "../../utils/profanityFunctionForImage";
 
 import {
   startPubNubFunction,
   stopPubNubFunction,
   updatePubNubEventHandler,
-} from '../../services/pubnub';
+} from "../../services/pubnub";
 
 /* ------
   This function is for updating the event hanlder
@@ -32,7 +32,7 @@ async function UpdateEventHandler({
   } = state;
 
   const updatedConfig = {
-    type: 'js',
+    type: "js",
     key_id: keyId,
     block_id: blockId,
     id: eventHandler[0].id,
@@ -49,17 +49,17 @@ async function UpdateEventHandler({
       reRouteMessages,
       textPnFnStatusdata,
     })}`,
-    event: 'js-before-publish-file',
-    log_level: 'debug',
+    event: "js-before-publish-file",
+    log_level: "debug",
     name: `BLOCK-${blockId}-IMAGE-MODERATION`,
-    output: 'output-0.5823105682419438',
+    output: "output-0.5823105682419438",
   };
 
   try {
     await updatePubNubEventHandler(updatedConfig, token);
     if (!imageModerationToggle) {
       await stopPubNubFunction({ key_id: keyId, block_id: blockId }, token);
-      if (uiPagecall === 'textModeration') {
+      if (uiPagecall === "textModeration") {
         return true;
       }
       return setState((previousState) => ({
@@ -67,12 +67,12 @@ async function UpdateEventHandler({
         saveLoading: false,
         successStatus: true,
         errorStatus: false,
-        errorMsg: '',
-        successMsg: 'Successfully Updated.',
+        errorMsg: "",
+        successMsg: "Successfully Updated.",
       }));
     }
     await startPubNubFunction({ key_id: keyId, block_id: blockId }, token);
-    if (uiPagecall === 'textModeration') {
+    if (uiPagecall === "textModeration") {
       return true;
     }
     setState((previous) => ({
@@ -80,11 +80,11 @@ async function UpdateEventHandler({
       saveLoading: false,
       successStatus: true,
       errorStatus: false,
-      errorMsg: '',
-      successMsg: 'Successfully Updated.',
+      errorMsg: "",
+      successMsg: "Successfully Updated.",
     }));
   } catch (error) {
-    if (uiPagecall === 'textModeration') {
+    if (uiPagecall === "textModeration") {
       return true;
     }
     setState((previousValue) => ({
@@ -92,7 +92,7 @@ async function UpdateEventHandler({
       errorStatus: true,
       saveLoading: false,
       errorMsg: error.message,
-      successMsg: '',
+      successMsg: "",
       successStatus: false,
     }));
   }

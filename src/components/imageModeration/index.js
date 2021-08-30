@@ -1,48 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { Typography, Grid, CircularProgress } from '@material-ui/core';
-import { useStyles } from '../../style/imageModeration.js';
-import SwitchButton from '../core/SwitchButton';
-import SnackBar from '../core/SnackBar';
-import FilterCard from './FilterCard';
-import AutomaticImageModeration from './automaticModeration/AutomaticImageModeration';
-import { getCookie } from '../../services/localStorage';
-import {
-  selectedAppFromLS,
-  constantBoolean,
-  pnFunctionFilterStatus,
-} from '../../utils/helpers';
+import React, { useState, useEffect } from "react";
+import { Typography, Grid, CircularProgress } from "@material-ui/core";
+import { useStyles } from "../../style/imageModeration.js";
+import SwitchButton from "../core/SwitchButton";
+import SnackBar from "../core/SnackBar";
+import FilterCard from "./FilterCard";
+import AutomaticImageModeration from "./automaticModeration/AutomaticImageModeration";
+import { getCookie } from "../../services/localStorage";
+import { selectedAppFromLS, constantBoolean, pnFunctionFilterStatus } from "../../utils/helpers";
 
 import {
   imageModerationCode,
   handleImageModerationSave,
   textModerationCode,
-} from '../../utils/imageModeration';
+} from "../../utils/imageModeration";
 
-import { fetchPubNubFunction } from '../../services/pubnub';
+import { fetchPubNubFunction } from "../../services/pubnub";
 const ImageModeration = () => {
   const classes = useStyles();
   const [state, setState] = useState({
     applyToAllChannelIds: true,
     initialLoading: true,
-    imageModerationToggle: '',
-    channelId: '*',
+    imageModerationToggle: "",
+    channelId: "*",
     channelIdError: false,
     sightengineAPIUserError: false,
     sightengineAPIKeyError: false,
     sightengineWorkflowIdError: false,
     channelOnChange: false,
-    toolForImageModeration: 'sightengine',
-    sightengineAPIUser: '',
-    sightengineAPIKey: '',
-    sightengineWorkflowId: '',
-    sightengineRiskFactorThreshold: '',
-    reRouteMessages: '',
+    toolForImageModeration: "sightengine",
+    sightengineAPIUser: "",
+    sightengineAPIKey: "",
+    sightengineWorkflowId: "",
+    sightengineRiskFactorThreshold: "",
+    reRouteMessages: "",
     error: {
       status: false,
-      msg: '',
+      msg: "",
     },
-    successMsg: '',
-    errorMsg: '',
+    successMsg: "",
+    errorMsg: "",
     successStatus: false,
     errorStatus: false,
     saveLoading: false,
@@ -58,18 +54,12 @@ const ImageModeration = () => {
 
   useEffect(() => {
     const selectedApp = selectedAppFromLS();
-    const headerToken = getCookie('token');
+    const headerToken = getCookie("token");
     (async () => {
       if (selectedApp) {
         try {
-          const fetchFunctionsResponse = await fetchPubNubFunction(
-            selectedApp.id,
-            headerToken
-          );
-          const textModeration = textModerationCode(
-            selectedApp,
-            fetchFunctionsResponse
-          );
+          const fetchFunctionsResponse = await fetchPubNubFunction(selectedApp.id, headerToken);
+          const textModeration = textModerationCode(selectedApp, fetchFunctionsResponse);
 
           const { findImageFunction, eventHandler } = imageModerationCode(
             selectedApp,
@@ -136,8 +126,8 @@ const ImageModeration = () => {
           errorStatus: true,
           saveLoading: false,
           channelIdError: true,
-          errorMsg: 'Channel name is required',
-          successMsg: '',
+          errorMsg: "Channel name is required",
+          successMsg: "",
           successStatus: false,
         }));
       } else {
@@ -145,8 +135,8 @@ const ImageModeration = () => {
           ...preValue,
           errorStatus: false,
           saveLoading: false,
-          errorMsg: '',
-          successMsg: '',
+          errorMsg: "",
+          successMsg: "",
           channelIdError: false,
           successStatus: false,
         }));
@@ -163,9 +153,9 @@ const ImageModeration = () => {
         ...state,
         errorStatus: true,
         channelIdError: true,
-        errorMsg: 'Channel Id is required.',
+        errorMsg: "Channel Id is required.",
         successStatus: false,
-        successMsg: '',
+        successMsg: "",
       });
     }
     if (!state.sightengineAPIUser.trim().length) {
@@ -190,7 +180,7 @@ const ImageModeration = () => {
       ...prevState,
       saveLoading: true,
     }));
-    const token = getCookie('token');
+    const token = getCookie("token");
     const app = selectedAppFromLS();
     if (app) {
       try {
@@ -201,7 +191,7 @@ const ImageModeration = () => {
           errorStatus: true,
           saveLoading: false,
           errorMsg: error.message,
-          successMsg: '',
+          successMsg: "",
           successStatus: false,
         });
       }
@@ -209,9 +199,7 @@ const ImageModeration = () => {
   };
   return (
     <>
-      {state.successStatus && (
-        <SnackBar status="success" msg={state.successMsg} />
-      )}
+      {state.successStatus && <SnackBar status="success" msg={state.successMsg} />}
       {state.errorStatus && <SnackBar status="error" msg={state.errorMsg} />}
       <Typography testid="title" variant="h6" className={classes.title}>
         Image Moderation
@@ -233,11 +221,7 @@ const ImageModeration = () => {
         </Grid>
       )}
       <br />
-      <AutomaticImageModeration
-        state={state}
-        handleSave={handleSave}
-        setState={setState}
-      />
+      <AutomaticImageModeration state={state} handleSave={handleSave} setState={setState} />
       <br />
     </>
   );

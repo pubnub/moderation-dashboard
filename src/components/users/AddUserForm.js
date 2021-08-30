@@ -1,5 +1,5 @@
-import React from 'react';
-import { useStyles } from '../../style/createModerationModal';
+import React from "react";
+import { useStyles } from "../../style/createModerationModal";
 import {
   DialogContent,
   DialogActions,
@@ -7,7 +7,7 @@ import {
   Typography,
   TextField,
   CircularProgress,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 export default function AddUserForm(props) {
   const classes = useStyles();
@@ -27,12 +27,8 @@ export default function AddUserForm(props) {
           autoComplete="off"
           onChange={props.formik.handleChange}
           value={props.formik.values.user_id}
-          error={
-            props.formik.touched.user_id && Boolean(props.formik.errors.user_id)
-          }
-          helperText={
-            props.formik.touched.user_id && props.formik.errors.user_id
-          }
+          error={props.formik.touched.user_id && Boolean(props.formik.errors.user_id)}
+          helperText={props.formik.touched.user_id && props.formik.errors.user_id}
         />
         <Typography testid="User_Name" className={classes.subHeadingFont}>
           User Name
@@ -61,9 +57,7 @@ export default function AddUserForm(props) {
           autoComplete="off"
           onChange={props.formik.handleChange}
           value={props.formik.values.email}
-          error={
-            props.formik.touched.email && Boolean(props.formik.errors.email)
-          }
+          error={props.formik.touched.email && Boolean(props.formik.errors.email)}
           helperText={props.formik.touched.email && props.formik.errors.email}
         />
         <Typography testid="Profile_Url" className={classes.subHeadingFont}>
@@ -78,22 +72,13 @@ export default function AddUserForm(props) {
           autoComplete="off"
           onChange={props.formik.handleChange}
           value={props.formik.values.profile_url}
-          error={
-            props.formik.touched.profile_url &&
-            Boolean(props.formik.errors.profile_url)
-          }
-          helperText={
-            props.formik.touched.profile_url && props.formik.errors.profile_url
-          }
+          error={props.formik.touched.profile_url && Boolean(props.formik.errors.profile_url)}
+          helperText={props.formik.touched.profile_url && props.formik.errors.profile_url}
         />
         <br />
       </DialogContent>
       <DialogActions>
-        <Button
-          autoFocus
-          className={classes.cancelButton}
-          onClick={props.handleClose}
-        >
+        <Button autoFocus className={classes.cancelButton} onClick={props.handleClose}>
           CANCEL
         </Button>
 
@@ -109,9 +94,7 @@ export default function AddUserForm(props) {
             ) : null
           }
         >
-          <Typography className={classes.buttonText}>
-            {props.buttonTitle}
-          </Typography>
+          <Typography className={classes.buttonText}>{props.buttonTitle}</Typography>
         </Button>
       </DialogActions>
     </form>

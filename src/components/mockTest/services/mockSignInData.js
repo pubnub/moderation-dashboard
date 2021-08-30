@@ -1,4 +1,4 @@
-import { mockPermissions } from '../mockPermissions';
+import { mockPermissions } from "../mockPermissions";
 
 export const mockSignInData = {
   data: {
@@ -6,14 +6,14 @@ export const mockSignInData = {
       created: 1627276598,
       expires: 1627634943,
       modified: 1627548543,
-      role: 'user',
+      role: "user",
       status: 1,
       storage: null,
-      token: 'dGgB0-lLGG5GmjFgtr6t2nBFqgM05Nijq_YzzYdxVUk',
+      token: "dGgB0-lLGG5GmjFgtr6t2nBFqgM05Nijq_YzzYdxVUk",
       user: {
         created: 1619760527,
         deleted: 0,
-        email: 'sourcefusepubnub@gmail.com',
+        email: "sourcefusepubnub@gmail.com",
         id: 572287,
         login_attempts: 0,
       },
@@ -27,7 +27,7 @@ export const mockSignInData = {
     },
   },
   status: 200,
-  statusText: 'OK',
+  statusText: "OK",
 };
 
 export default null;

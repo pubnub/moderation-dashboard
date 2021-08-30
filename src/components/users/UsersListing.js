@@ -1,37 +1,37 @@
-import React, { useState } from 'react';
-import Helmet from 'react-helmet';
-import { Grid, Typography, Box } from '@material-ui/core';
-import { formatDate, showError, usersFromLS } from '../../utils/helpers';
-import Search from '../core/Search';
-import UsersTable from './UsersTable';
-import AddUserMetadataModal from './AddUserMetadataModal';
-import usePubNub from '../../utils/usePubNub';
-import { deleteUserMetadata, getUserByName } from '../../services/pubnub';
-import FilterUsers from './FilterUsers';
-import SnackBar from '../core/SnackBar';
+import React, { useState } from "react";
+import Helmet from "react-helmet";
+import { Grid, Typography, Box } from "@material-ui/core";
+import { formatDate, showError, usersFromLS } from "../../utils/helpers";
+import Search from "../core/Search";
+import UsersTable from "./UsersTable";
+import AddUserMetadataModal from "./AddUserMetadataModal";
+import usePubNub from "../../utils/usePubNub";
+import { deleteUserMetadata, getUserByName } from "../../services/pubnub";
+import FilterUsers from "./FilterUsers";
+import SnackBar from "../core/SnackBar";
 
 function UsersListing() {
   const [searchResult, setSearchResult] = useState([]);
   const [dataAdded, setDataAdded] = useState([]);
   const { pubnub } = usePubNub();
-  const [searched] = useState('');
-  const [filterBy, setFilterBy] = useState('');
+  const [searched] = useState("");
+  const [filterBy, setFilterBy] = useState("");
   const [userAlert, setUserAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
 
   const requestUserSearch = (searchedVal) => {
     setUserAlert({
       ...userAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     (async () => {
       setUserAlert({
         ...userAlert,
-        success: { status: false, msg: '' },
-        error: { status: false, msg: '' },
+        success: { status: false, msg: "" },
+        error: { status: false, msg: "" },
       });
       try {
         const filteredRows = await getUserByName(pubnub, searchedVal);
@@ -40,8 +40,8 @@ function UsersListing() {
         if (!filteredRows.length) {
           setUserAlert({
             ...userAlert,
-            success: { status: false, msg: '' },
-            error: { status: true, msg: 'No users found' },
+            success: { status: false, msg: "" },
+            error: { status: true, msg: "No users found" },
           });
         }
         filteredRows.map((user, index) => {
@@ -54,8 +54,8 @@ function UsersListing() {
       } catch (e) {
         setUserAlert({
           ...userAlert,
-          success: { status: false, msg: '' },
-          error: { status: true, msg: 'Failed to filter user' },
+          success: { status: false, msg: "" },
+          error: { status: true, msg: "Failed to filter user" },
         });
       }
     })();
@@ -76,13 +76,13 @@ function UsersListing() {
           setDataAdded([]);
           setUserAlert({
             ...userAlert,
-            success: { status: true, msg: 'User deleted successfully' },
-            error: { status: false, msg: '' },
+            success: { status: true, msg: "User deleted successfully" },
+            error: { status: false, msg: "" },
           });
         } catch (e) {
           setUserAlert({
             ...userAlert,
-            success: { status: false, msg: '' },
+            success: { status: false, msg: "" },
             error: { status: true, msg: showError(e.status.errorData) },
           });
         }
@@ -95,8 +95,8 @@ function UsersListing() {
   };
 
   const handleFilterChange = (value) => {
-    let filter = '';
-    if (value !== 'all') {
+    let filter = "";
+    if (value !== "all") {
       filter = `custom.${value} == true`;
     }
     setFilterBy(filter);
@@ -120,7 +120,7 @@ function UsersListing() {
                 searched={searched}
                 requestSearch={requestUserSearch}
                 cancelSearch={cancelUserSearch}
-                placeholder={'Search for user name'}
+                placeholder={"Search for user name"}
               />
             </Box>
             <Box ml={2}>
@@ -145,12 +145,8 @@ function UsersListing() {
           />
         </Grid>
       </Grid>
-      {userAlert.error.status && (
-        <SnackBar msg={userAlert.error.msg} status={'info'} />
-      )}
-      {userAlert.success.status && (
-        <SnackBar msg={userAlert.success.msg} status={'success'} />
-      )}
+      {userAlert.error.status && <SnackBar msg={userAlert.error.msg} status={"info"} />}
+      {userAlert.success.status && <SnackBar msg={userAlert.success.msg} status={"success"} />}
     </>
   );
 }

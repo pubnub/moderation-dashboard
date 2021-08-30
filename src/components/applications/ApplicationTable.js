@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { setLocalStorage } from '../../services/localStorage';
-import { useHistory } from 'react-router-dom';
-import ListingTable from '../tables/ListingTable';
-import { appsFromLS } from '../../utils/helpers';
-import moment from 'moment';
+import React, { useState, useEffect } from "react";
+import { setLocalStorage } from "../../services/localStorage";
+import { useHistory } from "react-router-dom";
+import ListingTable from "../tables/ListingTable";
+import { appsFromLS } from "../../utils/helpers";
+import moment from "moment";
 
 export default function ApplicationTable({ searchResult }) {
   const [applications, setApplications] = useState([]);
@@ -11,14 +11,14 @@ export default function ApplicationTable({ searchResult }) {
 
   const headCells = [
     {
-      id: 'name',
-      alignment: 'left',
-      label: 'NAME',
+      id: "name",
+      alignment: "left",
+      label: "NAME",
       avatar: true,
     },
-    { id: 'publish_key', alignment: 'left', label: 'PUBLISH KEY' },
-    { id: 'subscribe_key', alignment: 'left', label: 'SUBSCRIBE KEY' },
-    { id: 'created', alignment: 'left', label: 'CREATED ON' },
+    { id: "publish_key", alignment: "left", label: "PUBLISH KEY" },
+    { id: "subscribe_key", alignment: "left", label: "SUBSCRIBE KEY" },
+    { id: "created", alignment: "left", label: "CREATED ON" },
   ];
 
   useEffect(() => {
@@ -30,11 +30,9 @@ export default function ApplicationTable({ searchResult }) {
         keyWithAppName = key;
         keyWithAppName.appName = app.name;
         keyWithAppName.created =
-          key.created &&
-          moment(new Date(key.created * 1000)).format('MMMM Do YYYY, h:mm a');
+          key.created && moment(new Date(key.created * 1000)).format("MMMM Do YYYY, h:mm a");
         keyWithAppName.modified =
-          key.modified &&
-          moment(new Date(key.modified * 1000)).format('MMMM Do YYYY, h:mm a');
+          key.modified && moment(new Date(key.modified * 1000)).format("MMMM Do YYYY, h:mm a");
         keyWithAppName.name = key.properties.name;
         keysList.push(keyWithAppName);
         return false;
@@ -42,7 +40,7 @@ export default function ApplicationTable({ searchResult }) {
       return false;
     });
     setApplications(keysList);
-    setLocalStorage('PubNubApplicationsWithKey', keysList);
+    setLocalStorage("PubNubApplicationsWithKey", keysList);
   }, []);
 
   useEffect(() => {
@@ -56,8 +54,8 @@ export default function ApplicationTable({ searchResult }) {
       const selectedApp = applications.filter(function (app) {
         return app.subscribe_key === row.subscribe_key;
       });
-      setLocalStorage('PubNubSelectedApp', selectedApp[0]);
-      history.push('/overview');
+      setLocalStorage("PubNubSelectedApp", selectedApp[0]);
+      history.push("/overview");
     } catch (n) {
       throw new Error(n);
     }
@@ -68,7 +66,7 @@ export default function ApplicationTable({ searchResult }) {
       data={applications}
       headCells={headCells}
       handleRowClick={handleRowClick}
-      message={'No data Found'}
+      message={"No data Found"}
       number={0}
     />
   );

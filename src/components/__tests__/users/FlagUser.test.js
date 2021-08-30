@@ -1,18 +1,18 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import FlagUser from '../../users/FlagUser';
+import React from "react";
+import { shallow } from "enzyme";
+import FlagUser from "../../users/FlagUser";
 
 const mockProp = {
   open: false,
   setOpen: jest.fn(),
-  uuid: '',
+  uuid: "",
   pubnub: {},
-  action: '',
+  action: "",
   //   children: ['You want to ', '', ' this user?'],
   isUpdated: jest.fn(),
 };
 
-describe('Test Cases for Flag User', () => {
+describe("Test Cases for Flag User", () => {
   let component;
   beforeAll(() => {
     component = shallow(
@@ -27,13 +27,13 @@ describe('Test Cases for Flag User', () => {
     );
   });
 
-  test('Snapshhot', () => {
+  test("Snapshhot", () => {
     expect(component).toMatchSnapshot();
   });
 
-  test('initial Values', () => {
-    expect(component.find('[testid="reason"]').text()).toBe('Reason');
-    expect(component.find('#submit').text()).toBe('Submit');
-    expect(component.find('#cancel').text()).toBe('CANCEL');
+  test("initial Values", () => {
+    expect(component.find('[testid="reason"]').text()).toBe("Reason");
+    expect(component.find("#submit").text()).toBe("Submit");
+    expect(component.find("#cancel").text()).toBe("CANCEL");
   });
 });

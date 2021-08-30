@@ -1,6 +1,6 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { isAuth } from '../services/localStorage';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { isAuth } from "../services/localStorage";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -11,7 +11,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: '/',
+            pathname: "/",
             state: { from: props.location },
           }}
         />

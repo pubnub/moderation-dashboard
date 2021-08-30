@@ -1,6 +1,6 @@
 /* eslint-disable jest/no-conditional-expect */
-import PubNub from 'pubnub';
-import axios from '../../../utils/axios';
+import PubNub from "pubnub";
+import axios from "../../../utils/axios";
 import {
   fetchAllAccounts,
   fetchAllApps,
@@ -32,15 +32,12 @@ import {
   addChannelMetadata,
   getUsers,
   getChannels,
-} from '../../../services/pubnub';
-import {
-  mockAllAccounts,
-  mockAllApps,
-} from '../../mockTest/services/mockPubnubServices';
+} from "../../../services/pubnub";
+import { mockAllAccounts, mockAllApps } from "../../mockTest/services/mockPubnubServices";
 
-const SUBSCRIBE_KEY = 'sub-c-d86a1698-889e-11ea-b883-d2d532c9a1bf';
-const PUBLISH_KEY = 'pub-c-5397272a-7664-4b57-bc91-944977fb3f25';
-const TEST_PREFIX = 'objectsV2tests';
+const SUBSCRIBE_KEY = "sub-c-d86a1698-889e-11ea-b883-d2d532c9a1bf";
+const PUBLISH_KEY = "pub-c-5397272a-7664-4b57-bc91-944977fb3f25";
+const TEST_PREFIX = "objectsV2tests";
 const UUID = `${TEST_PREFIX}-main`;
 const UUID_1 = `${TEST_PREFIX}-uuid-1`;
 const USER_NAME = `Test Name 123`;
@@ -50,7 +47,7 @@ let pubnub = new PubNub({
   subscribeKey: SUBSCRIBE_KEY,
   publishKey: PUBLISH_KEY,
 });
-jest.mock('pubnub', () =>
+jest.mock("pubnub", () =>
   jest.fn().mockImplementation(() => ({
     publish: jest.fn(),
     subscribe: jest.fn(),
@@ -71,7 +68,7 @@ jest.mock('pubnub', () =>
     },
   }))
 );
-jest.mock('axios', () => ({
+jest.mock("axios", () => ({
   create: jest.fn(() => ({
     get: jest.fn(() => Promise.resolve({ data: {} })),
     post: jest.fn(() => Promise.resolve({ data: {} })),
@@ -96,116 +93,108 @@ const addMessageActionFailedImplementation = () => {
   return pubnub.addMessageAction.mockImplementation(() => emptyPromise);
 };
 
-describe('Test Cases for Pubnub Services', () => {
+describe("Test Cases for Pubnub Services", () => {
   afterAll(() => {
     jest.resetAllMocks();
   });
 
-  test('On successfully fetching all accounts', async () => {
+  test("On successfully fetching all accounts", async () => {
     try {
       axios.get.mockResolvedValue(mockAllAccounts);
-      const result = await fetchAllAccounts(123, 'abc');
+      const result = await fetchAllAccounts(123, "abc");
       expect(result.result.accounts.length).toBe(3);
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.post).toHaveBeenCalledTimes(0);
-      expect(axios.get).toHaveBeenCalledWith('/accounts?user_id=123', {
+      expect(axios.get).toHaveBeenCalledWith("/accounts?user_id=123", {
         headers: {
-          'X-Session-Token': 'abc',
+          "X-Session-Token": "abc",
         },
       });
 
       axios.get.mockResolvedValue({ status: 201 });
-      await fetchAllAccounts(1, 'xyz');
+      await fetchAllAccounts(1, "xyz");
     } catch (error) {
-      expect(error.message).toEqual('Failed to fetch accounts');
+      expect(error.message).toEqual("Failed to fetch accounts");
     }
   });
 
-  test('On successfully fetching all apps', async () => {
+  test("On successfully fetching all apps", async () => {
     try {
       axios.get.mockResolvedValue(mockAllApps);
-      const result = await fetchAllApps(1234, 'xyz');
+      const result = await fetchAllApps(1234, "xyz");
       expect(result.result.length).toBe(4);
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.post).toHaveBeenCalledTimes(0);
       expect(axios.get).toHaveBeenCalledWith(`/apps?owner_id=1234`, {
         headers: {
-          'X-Session-Token': 'xyz',
+          "X-Session-Token": "xyz",
         },
       });
 
       axios.get.mockResolvedValue({ status: 204 });
-      await fetchAllApps(1, 'abc');
+      await fetchAllApps(1, "abc");
     } catch (e) {
-      expect(e.message).toEqual('Failed to fetch applications');
+      expect(e.message).toEqual("Failed to fetch applications");
     }
   });
 
-  test('On successfully fetching PubNub Functions', async () => {
+  test("On successfully fetching PubNub Functions", async () => {
     try {
-      const mockData = { data: { result: [] }, status: 200, statusText: 'OK' };
+      const mockData = { data: { result: [] }, status: 200, statusText: "OK" };
       axios.get.mockResolvedValue(mockData);
-      const result = await fetchPubNubFunction(2, 'sessionToken');
+      const result = await fetchPubNubFunction(2, "sessionToken");
       expect(result.result).toEqual([]);
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.post).toHaveBeenCalledTimes(0);
       expect(axios.get).toHaveBeenCalledWith(`/v1/blocks/key/2/block`, {
         headers: {
-          'X-Session-Token': 'sessionToken',
+          "X-Session-Token": "sessionToken",
         },
       });
 
       axios.get.mockResolvedValue({ status: 202 });
-      await fetchPubNubFunction(3, 'sessionToken');
+      await fetchPubNubFunction(3, "sessionToken");
     } catch (e) {
-      expect(e.message).toEqual('Failed to fetch PubNub functions');
+      expect(e.message).toEqual("Failed to fetch PubNub functions");
     }
   });
 
-  it('On successfully fetching APIs', async () => {
+  it("On successfully fetching APIs", async () => {
     const data = {
       hits: [
         {
-          objectID: '1',
-          title: 'a',
+          objectID: "1",
+          title: "a",
         },
         {
-          objectID: '2',
-          title: 'b',
+          objectID: "2",
+          title: "b",
         },
       ],
     };
     axios.post.mockImplementation(() => Promise.resolve({ status: 200, data }));
     try {
-      await expect(
-        createPubNubFunction({ key_id: '1' }, 'param2')
-      ).resolves.toEqual(data);
-      await expect(
-        startPubNubFunction({ key_id: '1', block_id: '2' }, 'param2')
-      ).resolves.toEqual(data);
-      await expect(
-        stopPubNubFunction({ key_id: '1', block_id: '2' }, 'param2')
-      ).resolves.toEqual(data);
-      await expect(
-        createPubNubEventHandler({ key_id: '1' }, 'param2')
-      ).resolves.toEqual(data);
-      axios.put.mockImplementation(() =>
-        Promise.resolve({ status: 200, data })
+      await expect(createPubNubFunction({ key_id: "1" }, "param2")).resolves.toEqual(data);
+      await expect(startPubNubFunction({ key_id: "1", block_id: "2" }, "param2")).resolves.toEqual(
+        data
       );
-      await expect(
-        updatePubNubEventHandler({ key_id: '1', id: 1 }, 'param2')
-      ).resolves.toEqual(data);
+      await expect(stopPubNubFunction({ key_id: "1", block_id: "2" }, "param2")).resolves.toEqual(
+        data
+      );
+      await expect(createPubNubEventHandler({ key_id: "1" }, "param2")).resolves.toEqual(data);
+      axios.put.mockImplementation(() => Promise.resolve({ status: 200, data }));
+      await expect(updatePubNubEventHandler({ key_id: "1", id: 1 }, "param2")).resolves.toEqual(
+        data
+      );
 
-      axios.post.mockImplementation(() =>
-        Promise.resolve({ status: 202, data: {} })
-      );
-      await createPubNubFunction({ key_id: '1' }, 'param3');
+      axios.post.mockImplementation(() => Promise.resolve({ status: 202, data: {} }));
+      await createPubNubFunction({ key_id: "1" }, "param3");
     } catch (e) {
-      expect(e.message).toEqual('Something went wrong. Please try later');
+      expect(e.message).toEqual("Something went wrong. Please try later");
     }
   });
 
-  it('To set Metadata of a user', async () => {
+  it("To set Metadata of a user", async () => {
     try {
       pubnub.objects.setUUIDMetadata.mockImplementation(() => successPromise);
       const updateUserData = await setUserMetadata(pubnub, UUID_1, {
@@ -213,22 +202,10 @@ describe('Test Cases for Pubnub Services', () => {
       });
       expect(updateUserData.id).toEqual(UUID_1);
 
-      const editUserData = await editUserMetadata(
-        pubnub,
-        USER_NAME,
-        null,
-        UUID_1,
-        null
-      );
+      const editUserData = await editUserMetadata(pubnub, USER_NAME, null, UUID_1, null);
       expect(editUserData.data.id).toEqual(UUID_1);
       try {
-        const addUserData = await addUserMetadata(
-          pubnub,
-          USER_NAME,
-          null,
-          UUID_1,
-          null
-        );
+        const addUserData = await addUserMetadata(pubnub, USER_NAME, null, UUID_1, null);
         expect(addUserData.data.id).toEqual(UUID_1);
 
         // failed
@@ -236,131 +213,109 @@ describe('Test Cases for Pubnub Services', () => {
           return Promise.resolve({
             status: 201,
             data: {},
-            message: 'Failed to set metadata of PubNub user',
+            message: "Failed to set metadata of PubNub user",
           });
         });
-        await addUserMetadata(pubnub, USER_NAME, 'email', UUID_1, null);
+        await addUserMetadata(pubnub, USER_NAME, "email", UUID_1, null);
       } catch (err) {
-        expect(err.message).toEqual('Failed to set metadata of PubNub user');
+        expect(err.message).toEqual("Failed to set metadata of PubNub user");
       }
 
       await setUserMetadata(pubnub, UUID_1, {
         name: USER_NAME,
       });
     } catch (e) {
-      expect(e.message).toEqual('Failed to set metadata of PubNub user');
+      expect(e.message).toEqual("Failed to set metadata of PubNub user");
     }
   });
 
-  it('To add edit Message action', async () => {
+  it("To add edit Message action", async () => {
     try {
       // success
       addMessageActionSuccessImplementation();
       const addEditMsgAction = await addEditMessageAction(
         pubnub,
         CHANNEL_1,
-        '16286961954085918',
-        'updatehere'
+        "16286961954085918",
+        "updatehere"
       );
       expect(addEditMsgAction.id).toEqual(UUID_1);
 
       // failed
       addMessageActionFailedImplementation();
-      await addEditMessageAction(
-        pubnub,
-        CHANNEL_1,
-        '16286961954085919',
-        'errorhere'
-      );
+      await addEditMessageAction(pubnub, CHANNEL_1, "16286961954085919", "errorhere");
     } catch (e) {
-      expect(e.message).toEqual('Failed to undo delete action');
+      expect(e.message).toEqual("Failed to undo delete action");
     }
   });
 
-  it('To undo delete action', async () => {
+  it("To undo delete action", async () => {
     try {
       // success
       pubnub.removeMessageAction.mockImplementation(() => successPromise);
       const delMsgAction = await deleteMessageAction(
         pubnub,
         CHANNEL_1,
-        '16286961954085918',
-        '162869619540859'
+        "16286961954085918",
+        "162869619540859"
       );
       expect(delMsgAction.id).toEqual(UUID_1);
 
       // failed
       pubnub.removeMessageAction.mockImplementation(() => emptyPromise);
-      await deleteMessageAction(
-        pubnub,
-        CHANNEL_1,
-        '16286961954085919',
-        '186961954085919'
-      );
+      await deleteMessageAction(pubnub, CHANNEL_1, "16286961954085919", "186961954085919");
     } catch (error) {
-      expect(error.message).toEqual('Failed to undo delete action');
+      expect(error.message).toEqual("Failed to undo delete action");
     }
   });
 
-  it('To soft delete action', async () => {
+  it("To soft delete action", async () => {
     try {
       // success
       addMessageActionSuccessImplementation();
-      const delData = await softDeleteMessage(
-        pubnub,
-        CHANNEL_1,
-        '16286961954085918'
-      );
+      const delData = await softDeleteMessage(pubnub, CHANNEL_1, "16286961954085918");
 
       expect(delData.id).toEqual(UUID_1);
       // failed
       addMessageActionFailedImplementation();
-      await softDeleteMessage(pubnub, CHANNEL_1, '16286961954085919');
+      await softDeleteMessage(pubnub, CHANNEL_1, "16286961954085919");
     } catch (e) {
-      expect(e.message).toEqual('Failed to delete the message');
+      expect(e.message).toEqual("Failed to delete the message");
     }
   });
 
-  it('To check if user ID already exists', async () => {
+  it("To check if user ID already exists", async () => {
     try {
       // success
-      pubnub.objects.getAllUUIDMetadata.mockImplementation(
-        () => successPromise2
-      );
+      pubnub.objects.getAllUUIDMetadata.mockImplementation(() => successPromise2);
       const existUpdateUserData = await checkUserIDExistence(pubnub, UUID);
       expect(existUpdateUserData.id).toEqual(UUID);
 
       const userByName = await getUserByName(pubnub, USER_NAME);
       expect(userByName.id).toEqual(UUID);
       try {
-        const userList = await getUsers(pubnub, 1, 0, '');
+        const userList = await getUsers(pubnub, 1, 0, "");
         expect(userList.data.id).toEqual(UUID);
 
         // failed
         pubnub.objects.getAllUUIDMetadata.mockImplementation(() => {
           return Promise.resolve({ status: 201 });
         });
-        await getUsers(pubnub, 2, 1, '');
+        await getUsers(pubnub, 2, 1, "");
       } catch (err) {
-        expect(err.message).toEqual('Failed to get PubNub users');
+        expect(err.message).toEqual("Failed to get PubNub users");
       }
       await checkUserIDExistence(pubnub, UUID_1);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub user');
+      expect(e.message).toEqual("Failed to get PubNub user");
     }
   });
 
-  it('To check if channel already exists', async () => {
+  it("To check if channel already exists", async () => {
     try {
       // success
-      pubnub.objects.getAllChannelMetadata.mockImplementation(
-        () => successPromise
-      );
-      const existChannel = await checkChannelExistence(
-        pubnub,
-        CHANNEL_NAME,
-        '16286961954085918'
-      );
+      pubnub.objects.getAllChannelMetadata.mockImplementation(() => successPromise);
+      const existChannel = await checkChannelExistence(pubnub, CHANNEL_NAME, "16286961954085918");
 
       expect(existChannel.id).toEqual(UUID_1);
       try {
@@ -372,20 +327,20 @@ describe('Test Cases for Pubnub Services', () => {
         });
         await getChannels(pubnub, 2, 0);
       } catch (e) {
-        expect(e.message).toEqual('Failed to get PubNub channels');
+        expect(e.message).toEqual("Failed to get PubNub channels");
       }
 
       // failed
       pubnub.objects.getAllChannelMetadata.mockImplementation(() => {
         return Promise.resolve({ status: 201 });
       });
-      await checkChannelExistence(pubnub, CHANNEL_NAME, '16286961954085919');
+      await checkChannelExistence(pubnub, CHANNEL_NAME, "16286961954085919");
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub channel');
+      expect(e.message).toEqual("Failed to get PubNub channel");
     }
   });
 
-  it('To get number of online users in a channel', async () => {
+  it("To get number of online users in a channel", async () => {
     try {
       // success
       pubnub.hereNow.mockImplementation(() => {
@@ -401,11 +356,11 @@ describe('Test Cases for Pubnub Services', () => {
       pubnub.hereNow.mockImplementation(() => emptyPromise);
       await getChannelsOccupancy(pubnub, [CHANNEL_NAME]);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get online users');
+      expect(e.message).toEqual("Failed to get online users");
     }
   });
 
-  it('To fetch Total messages count of today', async () => {
+  it("To fetch Total messages count of today", async () => {
     try {
       // success
       pubnub.messageCounts.mockImplementation(() => {
@@ -414,26 +369,20 @@ describe('Test Cases for Pubnub Services', () => {
           channels: { [CHANNEL_1]: { id: UUID_1, name: USER_NAME } },
         });
       });
-      const msgCount = await getMessagesCount(
-        pubnub,
-        CHANNEL_1,
-        '16286961954085918'
-      );
+      const msgCount = await getMessagesCount(pubnub, CHANNEL_1, "16286961954085918");
       expect(msgCount.id).toEqual(UUID_1);
       // failed
       pubnub.messageCounts.mockImplementation(() => emptyPromise);
-      await getMessagesCount(pubnub, CHANNEL_1, '16286961954085919');
+      await getMessagesCount(pubnub, CHANNEL_1, "16286961954085919");
     } catch (e) {
-      expect(e.message).toEqual('Failed to get total messages Count');
+      expect(e.message).toEqual("Failed to get total messages Count");
     }
   });
 
-  it('To fetch a channel detail', async () => {
+  it("To fetch a channel detail", async () => {
     try {
       // success
-      pubnub.objects.getChannelMetadata.mockImplementation(
-        () => successPromise2
-      );
+      pubnub.objects.getChannelMetadata.mockImplementation(() => successPromise2);
       const fetChMetadata = await fetchChannelMetadata(pubnub, CHANNEL_1);
 
       expect(fetChMetadata.id).toEqual(UUID);
@@ -443,11 +392,11 @@ describe('Test Cases for Pubnub Services', () => {
       });
       await fetchChannelMetadata(pubnub, CHANNEL_NAME);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub channel');
+      expect(e.message).toEqual("Failed to get PubNub channel");
     }
   });
 
-  it('To fetch online channel Members', async () => {
+  it("To fetch online channel Members", async () => {
     try {
       // success
       pubnub.hereNow.mockImplementation(() => {
@@ -465,16 +414,14 @@ describe('Test Cases for Pubnub Services', () => {
       pubnub.hereNow.mockImplementation(() => emptyPromise);
       await getOnlineMembers(pubnub, CHANNEL_NAME);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub online members');
+      expect(e.message).toEqual("Failed to get PubNub online members");
     }
   });
 
-  it('To fetch channel By name', async () => {
+  it("To fetch channel By name", async () => {
     try {
       // success
-      pubnub.objects.getAllChannelMetadata.mockImplementation(
-        () => successPromise2
-      );
+      pubnub.objects.getAllChannelMetadata.mockImplementation(() => successPromise2);
       const updateUserData = await getChannelByName(pubnub, CHANNEL_1);
 
       expect(updateUserData.id).toEqual(UUID);
@@ -484,16 +431,14 @@ describe('Test Cases for Pubnub Services', () => {
       });
       await getChannelByName(pubnub, CHANNEL_NAME);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub users');
+      expect(e.message).toEqual("Failed to get PubNub users");
     }
   });
 
-  it('To fetch channel Members', async () => {
+  it("To fetch channel Members", async () => {
     try {
       // success
-      pubnub.objects.getChannelMembers.mockImplementation(
-        () => successPromise2
-      );
+      pubnub.objects.getChannelMembers.mockImplementation(() => successPromise2);
       const updateUserData = await getChannelMembers(pubnub, CHANNEL_1, 0);
 
       expect(updateUserData.data.id).toEqual(UUID);
@@ -503,11 +448,11 @@ describe('Test Cases for Pubnub Services', () => {
       });
       await getChannelMembers(pubnub, CHANNEL_NAME, 1);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get PubNub channel memebers');
+      expect(e.message).toEqual("Failed to get PubNub channel memebers");
     }
   });
 
-  it('To fetch Messages', async () => {
+  it("To fetch Messages", async () => {
     try {
       // success
       pubnub.fetchMessages.mockImplementation(() => {
@@ -523,28 +468,21 @@ describe('Test Cases for Pubnub Services', () => {
       pubnub.fetchMessages.mockImplementation(() => emptyPromise);
       await fetchMessages(pubnub, CHANNEL_1);
     } catch (e) {
-      expect(e.message).toEqual('Failed to get messages');
+      expect(e.message).toEqual("Failed to get messages");
     }
   });
 
-  it('To edit channel metadata', async () => {
+  it("To edit channel metadata", async () => {
     try {
       // success
-      pubnub.objects.setChannelMetadata.mockImplementation(
-        () => successPromise
-      );
+      pubnub.objects.setChannelMetadata.mockImplementation(() => successPromise);
       const editChMetaData = await editChannelMetadata(pubnub, UUID_1, {
         name: USER_NAME,
       });
 
       expect(editChMetaData.data.id).toEqual(UUID_1);
       try {
-        const addChMetaData = await addChannelMetadata(
-          pubnub,
-          CHANNEL_NAME,
-          USER_NAME,
-          CHANNEL_1
-        );
+        const addChMetaData = await addChannelMetadata(pubnub, CHANNEL_NAME, USER_NAME, CHANNEL_1);
 
         expect(addChMetaData.data.id).toEqual(UUID_1);
         // failed
@@ -553,7 +491,7 @@ describe('Test Cases for Pubnub Services', () => {
         });
         await addChannelMetadata(pubnub, CHANNEL_1, USER_NAME, CHANNEL_NAME);
       } catch (err) {
-        expect(err.message).toEqual('Failed to add channel metadata');
+        expect(err.message).toEqual("Failed to add channel metadata");
       }
       pubnub.objects.setChannelMetadata.mockImplementationOnce(() => {
         return Promise.resolve({ status: 202 });
@@ -562,16 +500,14 @@ describe('Test Cases for Pubnub Services', () => {
         name: USER_NAME,
       });
     } catch (e) {
-      expect(e.message).toEqual('Failed to add channel metadata');
+      expect(e.message).toEqual("Failed to add channel metadata");
     }
   });
 
-  it('To delete user metadata', async () => {
+  it("To delete user metadata", async () => {
     try {
       // success
-      pubnub.objects.removeUUIDMetadata.mockImplementation(
-        () => successPromise
-      );
+      pubnub.objects.removeUUIDMetadata.mockImplementation(() => successPromise);
       const editChMetaData = await deleteUserMetadata(pubnub, UUID_1);
       expect(editChMetaData.data.id).toEqual(UUID_1);
 
@@ -583,16 +519,14 @@ describe('Test Cases for Pubnub Services', () => {
         name: USER_NAME,
       });
     } catch (e) {
-      expect(e.message).toEqual('Failed to add user metadata');
+      expect(e.message).toEqual("Failed to add user metadata");
     }
   });
 
-  it('To delete channel metadata', async () => {
+  it("To delete channel metadata", async () => {
     try {
       // success
-      pubnub.objects.removeChannelMetadata.mockImplementation(
-        () => successPromise
-      );
+      pubnub.objects.removeChannelMetadata.mockImplementation(() => successPromise);
       const editChMetaData = await deleteChannelMetadata(pubnub, CHANNEL_NAME);
       expect(editChMetaData.data.id).toEqual(UUID_1);
 
@@ -602,7 +536,7 @@ describe('Test Cases for Pubnub Services', () => {
       });
       await deleteChannelMetadata(pubnub, CHANNEL_1);
     } catch (e) {
-      expect(e.message).toEqual('Failed to add user metadata');
+      expect(e.message).toEqual("Failed to add user metadata");
     }
   });
 });

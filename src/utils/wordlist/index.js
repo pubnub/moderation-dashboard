@@ -1,14 +1,17 @@
-import { combineLanguageWords, constantBoolean } from '../helpers';
+import { combineLanguageWords, constantBoolean } from "../helpers";
 
-const regexForBanned = `"\\b(banned)\\b"`.replace(/\\/g, '\\\\');
+const regexForBanned = `"\\b(banned)\\b"`.replace(/\\/g, "\\\\");
 
-export function FilterConditionForWordList(
-  textPnFnStatusdata,
-  type = 'default'
-) {
-  let  wordListCharacterToMaskWith, wordListModType,wordListReRouteMessages,
-  englishProfanity,hindiProfanity,frenchProfanity,spanishProfanity,portugeseProfanity;
-  if (type === 'default'){
+export function FilterConditionForWordList(textPnFnStatusdata, type = "default") {
+  let wordListCharacterToMaskWith,
+    wordListModType,
+    wordListReRouteMessages,
+    englishProfanity,
+    hindiProfanity,
+    frenchProfanity,
+    spanishProfanity,
+    portugeseProfanity;
+  if (type === "default") {
     ({
       wordListCharacterToMaskWith,
       wordListModType,
@@ -19,7 +22,7 @@ export function FilterConditionForWordList(
       spanishProfanity,
       portugeseProfanity,
     } = textPnFnStatusdata);
-  }else {
+  } else {
     ({
       wordListCharacterToMaskWith,
       wordListModType,
@@ -31,32 +34,25 @@ export function FilterConditionForWordList(
       portugeseProfanity,
     } = textPnFnStatusdata.wordList);
   }
-  
 
-  const checkForWordListMaskWord = wordListModType === 'Mask-word';
-  const checkForWordListBlockMessage = wordListModType === 'Block-message';
-  const checkForWordListReRouteMessages = constantBoolean(
-    wordListReRouteMessages
-  );
+  const checkForWordListMaskWord = wordListModType === "Mask-word";
+  const checkForWordListBlockMessage = wordListModType === "Block-message";
+  const checkForWordListReRouteMessages = constantBoolean(wordListReRouteMessages);
   let profanityList = {};
   if (textPnFnStatusdata.profanityList) {
     profanityList = textPnFnStatusdata.profanityList;
-  }else{
+  } else {
     profanityList = {
-      English: englishProfanity.split('|').join(','),
-      Hindi: hindiProfanity.split('|').join(','),
-      Portugese: portugeseProfanity.split('|').join(','),
-      French: frenchProfanity.split('|').join(','),
-      Spanish: spanishProfanity.split('|').join(','),
+      English: englishProfanity.split("|").join(","),
+      Hindi: hindiProfanity.split("|").join(","),
+      Portugese: portugeseProfanity.split("|").join(","),
+      French: frenchProfanity.split("|").join(","),
+      Spanish: spanishProfanity.split("|").join(","),
     };
   }
- 
 
-  let swearWords = combineLanguageWords(profanityList).replace(
-    /(\r\n|\n|\r)/gm,
-    ''
-  );
-  let regex = `"\\b(${swearWords})\\b"`.replace(/\\/g, '\\\\');
+  let swearWords = combineLanguageWords(profanityList).replace(/(\r\n|\n|\r)/gm, "");
+  let regex = `"\\b(${swearWords})\\b"`.replace(/\\/g, "\\\\");
 
   if (checkForWordListMaskWord) {
     if (checkForWordListReRouteMessages) {
@@ -76,7 +72,7 @@ export function FilterConditionForWordList(
     return wordListBlockMessage({ regex, type });
   }
 
-  if (type === 'default') {
+  if (type === "default") {
     return `if(request && request.ok){
         return request.ok();
       }`;
@@ -86,7 +82,7 @@ export function FilterConditionForWordList(
 }
 
 function wordListMaskWords({ regex, wordListCharacterToMaskWith, type }) {
-  if (type === 'default') {
+  if (type === "default") {
     return `if (request && request.ok) {
       var badWords = new RegExp(${regex}, "g")
       var bannedChannel = new RegExp(${regexForBanned}, "g");
@@ -97,9 +93,7 @@ function wordListMaskWords({ regex, wordListCharacterToMaskWith, type }) {
         !bannedChannel.test(request.channels[0])
       ) {
         var newString = request.message.text;
-        newString = newString.replace(badWords, '${wordListCharacterToMaskWith.repeat(
-          3
-        )}');
+        newString = newString.replace(badWords, '${wordListCharacterToMaskWith.repeat(3)}');
         request.message.text = newString;
         return request.ok();
       }
@@ -117,9 +111,7 @@ function wordListMaskWords({ regex, wordListCharacterToMaskWith, type }) {
       badWords.test(message.text)
     ) {
       let newString = message.text;
-      newString = newString.replace(badWords, '${wordListCharacterToMaskWith.repeat(
-        3
-      )}');
+      newString = newString.replace(badWords, '${wordListCharacterToMaskWith.repeat(3)}');
       message.text = newString;
       return resolve(true)
     }
@@ -128,12 +120,8 @@ function wordListMaskWords({ regex, wordListCharacterToMaskWith, type }) {
    })`;
 }
 
-function wordListMaskWordsAndReroute({
-  regex,
-  wordListCharacterToMaskWith,
-  type,
-}) {
-  if (type === 'default') {
+function wordListMaskWordsAndReroute({ regex, wordListCharacterToMaskWith, type }) {
+  if (type === "default") {
     return `
   if (request && request.ok) {
     const pubnub = require('pubnub');
@@ -186,7 +174,7 @@ function wordListMaskWordsAndReroute({
 }
 
 function wordListBlockMessage({ regex, type }) {
-  if (type === 'default') {
+  if (type === "default") {
     return `if (request && request.ok) {
     let badWords = new RegExp(${regex}, "g");
     let bannedChannel = new RegExp(${regexForBanned}, "g");
@@ -215,7 +203,7 @@ function wordListBlockMessage({ regex, type }) {
 }
 
 function wordListBlockMessageAndReroute({ regex, type }) {
-  if (type === 'default') {
+  if (type === "default") {
     return `if (request && request.ok) {
     const pubnub = require('pubnub');
     let badWords = new RegExp(${regex}, "g")

@@ -1,11 +1,11 @@
-import React from 'react';
-import { create } from 'jss';
-import { StylesProvider, jssPreset } from '@material-ui/core/styles';
+import React from "react";
+import { create } from "jss";
+import { StylesProvider, jssPreset } from "@material-ui/core/styles";
 
-import Routes from './routes/Routes';
+import Routes from "./routes/Routes";
 const jss = create({
   ...jssPreset(),
-  insertionPoint: document.getElementById('jss-insertion-point'),
+  insertionPoint: document.getElementById("jss-insertion-point"),
 });
 
 const App = () => {

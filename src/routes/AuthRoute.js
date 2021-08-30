@@ -1,6 +1,6 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { isAuth } from '../services/localStorage';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import { isAuth } from "../services/localStorage";
 
 const AuthRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -9,7 +9,7 @@ const AuthRoute = ({ component: Component, ...rest }) => (
       isAuth() ? (
         <Redirect
           to={{
-            pathname: '/dashboard',
+            pathname: "/dashboard",
             state: { from: props.location },
           }}
         />

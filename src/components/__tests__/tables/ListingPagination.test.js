@@ -1,10 +1,10 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ListingPagination from '../../tables/ListingPagination';
-import { mockPubNubApplications } from '../../mockTest/mockPubnubAccounts';
+import React from "react";
+import { shallow } from "enzyme";
+import ListingPagination from "../../tables/ListingPagination";
+import { mockPubNubApplications } from "../../mockTest/mockPubnubAccounts";
 
-describe('Test Cases for Listing Pagination', () => {
-  test('Snapshot', () => {
+describe("Test Cases for Listing Pagination", () => {
+  test("Snapshot", () => {
     const wrapper = shallow(
       <ListingPagination
         handleChangePage={jest.fn()}

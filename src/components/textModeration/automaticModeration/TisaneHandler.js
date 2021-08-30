@@ -1,7 +1,7 @@
 export const handleTisaneChange =
   ({ setState, state, name }) =>
   (e, value) => {
-    if (e.target.name === 'tisaneApiKey') {
+    if (e.target.name === "tisaneApiKey") {
       setState({
         ...state,
         automaticDetection: {
@@ -9,7 +9,7 @@ export const handleTisaneChange =
           tisaneApiKey: e.target.value,
         },
       });
-    } else if (e.target.name === 'tisaneLanguage') {
+    } else if (e.target.name === "tisaneLanguage") {
       setState({
         ...state,
         automaticDetection: {
@@ -17,7 +17,7 @@ export const handleTisaneChange =
           tisaneLanguage: e.target.value,
         },
       });
-    } else if (name === 'riskFactorThresholdForBigotry') {
+    } else if (name === "riskFactorThresholdForBigotry") {
       setState({
         ...state,
         channelOnChange: true,
@@ -26,7 +26,7 @@ export const handleTisaneChange =
           tisaneRiskFactorThresholdBigotry: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForCyberBullying') {
+    } else if (name === "riskFactorThresholdForCyberBullying") {
       setState({
         ...state,
         automaticDetection: {
@@ -34,7 +34,7 @@ export const handleTisaneChange =
           tisaneRiskFactorThresholdCyberBullying: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForCriminalActivity') {
+    } else if (name === "riskFactorThresholdForCriminalActivity") {
       setState({
         ...state,
         automaticDetection: {
@@ -42,7 +42,7 @@ export const handleTisaneChange =
           tisaneRiskFactorThresholdCriminalActivity: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForSexualAdvances') {
+    } else if (name === "riskFactorThresholdForSexualAdvances") {
       setState({
         ...state,
         automaticDetection: {
@@ -50,7 +50,7 @@ export const handleTisaneChange =
           tisaneRiskFactorThresholdSexualAdvances: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForProfanity') {
+    } else if (name === "riskFactorThresholdForProfanity") {
       setState({
         ...state,
         automaticDetection: {

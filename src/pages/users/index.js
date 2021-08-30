@@ -1,6 +1,6 @@
-import React from 'react';
-import UsersListing from '../../components/users/UsersListing';
-import DashboardLayout from '../../layouts/Dashboard';
+import React from "react";
+import UsersListing from "../../components/users/UsersListing";
+import DashboardLayout from "../../layouts/Dashboard";
 
 const Users = () => {
   return (

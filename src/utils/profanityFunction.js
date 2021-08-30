@@ -1,12 +1,7 @@
+import { groupLanguageWords, constantBoolean } from "./helpers";
 
-import {
-  groupLanguageWords,
-  constantBoolean,
-} from './helpers';
-
-import { FilterConditionForWordList } from './wordlist/index';
-import { FilterConditionForAutomatic } from './automaticTextModeration/filterConditionForAutomatic';
-
+import { FilterConditionForWordList } from "./wordlist/index";
+import { FilterConditionForAutomatic } from "./automaticTextModeration/filterConditionForAutomatic";
 
 export default function profanityFunction(data) {
   const {
@@ -37,12 +32,11 @@ export default function profanityFunction(data) {
     tisaneLanguage,
   } = data;
 
-  let english = data.profanityList['English'];
-  let hindi = data.profanityList['Hindi'];
-  let spanish = data.profanityList['Spanish'];
-  let french = data.profanityList['French'];
-  let portugese = data.profanityList['Portugese'];
-
+  let english = data.profanityList["English"];
+  let hindi = data.profanityList["Hindi"];
+  let spanish = data.profanityList["Spanish"];
+  let french = data.profanityList["French"];
+  let portugese = data.profanityList["Portugese"];
 
   function noProfanityFilterSelected() {
     return `if(request && request.ok){
@@ -54,9 +48,7 @@ export default function profanityFunction(data) {
     constantBoolean(wordListProfanity) && constantBoolean(textModerationToggle);
 
   const checkForAutomaticProfanity =
-    constantBoolean(automaticProfanity) &&
-    constantBoolean(textModerationToggle);
-  
+    constantBoolean(automaticProfanity) && constantBoolean(textModerationToggle);
 
   const filterConditions = () => {
     if (checkForWordListProfanity) {

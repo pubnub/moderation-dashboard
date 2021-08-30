@@ -5,29 +5,20 @@ import {
   filterFunction,
   filterEventHandler,
   constantBoolean,
-} from '../helpers';
-import CreateEventHandler from '../../components/imageModeration/CreateEventHandler';
-import UpdateEventHandler from '../../components/imageModeration/UpdateEventHandler';
-import {
-  fetchPubNubFunction,
-  createPubNubFunction,
-} from '../../services/pubnub';
+} from "../helpers";
+import CreateEventHandler from "../../components/imageModeration/CreateEventHandler";
+import UpdateEventHandler from "../../components/imageModeration/UpdateEventHandler";
+import { fetchPubNubFunction, createPubNubFunction } from "../../services/pubnub";
 
 export const textModerationCode = (selectedApp, fetchFunctionsResponse) => {
-  const findTextModerationFunction = filterFunction(
-    fetchFunctionsResponse,
-    selectedApp
-  );
+  const findTextModerationFunction = filterFunction(fetchFunctionsResponse, selectedApp);
   let blockId;
   let eventHandlerList;
   let eventHandler = [];
   if (findTextModerationFunction.length) {
     blockId = findTextModerationFunction[0].id;
     eventHandlerList = findTextModerationFunction[0].event_handlers;
-    eventHandler = filterEventHandler(
-      eventHandlerList,
-      findTextModerationFunction
-    );
+    eventHandler = filterEventHandler(eventHandlerList, findTextModerationFunction);
   }
   let textPnFnStatusdata = [];
   let wordListProfanity = false;
@@ -36,8 +27,7 @@ export const textModerationCode = (selectedApp, fetchFunctionsResponse) => {
   let textChannelId;
   if (eventHandler.length) {
     textPnFnStatusdata = pnFunctionFilterStatus(eventHandler[0].code);
-    ({ wordListProfanity, automaticProfanity, textModerationToggle } =
-      textPnFnStatusdata);
+    ({ wordListProfanity, automaticProfanity, textModerationToggle } = textPnFnStatusdata);
     textChannelId = eventHandler[0].channels;
   }
   return {
@@ -89,17 +79,19 @@ const handleEventHandler = ({
 export const handleImageModerationSave = async (
   app,
   token,
-  { state, setState, uiPagecall = 'imageModeration' }
+  { state, setState, uiPagecall = "imageModeration" }
 ) => {
   const fetchFunctionsResponse = await fetchPubNubFunction(app.id, token);
   const { findImageFunction, eventHandler, blockId } = imageModerationCode(
     app,
     fetchFunctionsResponse
   );
-  const { textPnFnStatusdata, textChannelId, textModerationToggle } =
-    textModerationCode(app, fetchFunctionsResponse);
+  const { textPnFnStatusdata, textChannelId, textModerationToggle } = textModerationCode(
+    app,
+    fetchFunctionsResponse
+  );
 
-  if (uiPagecall === 'textModeration') {
+  if (uiPagecall === "textModeration") {
     if (eventHandler.length) {
       const data = pnFunctionFilterStatus(eventHandler[0].code);
       if (!data.imageModerationToggle) {
@@ -119,18 +111,14 @@ export const handleImageModerationSave = async (
       });
     }
   } else {
-    if (
-      textModerationToggle &&
-      textChannelId &&
-      textChannelId !== state.channelId
-    ) {
+    if (textModerationToggle && textChannelId && textChannelId !== state.channelId) {
       return setState((previousState) => ({
         ...previousState,
         saveLoading: false,
         successStatus: false,
         errorStatus: true,
-        errorMsg: 'Channel ID is not same as Text moderation',
-        successMsg: '',
+        errorMsg: "Channel ID is not same as Text moderation",
+        successMsg: "",
       }));
     }
     const keyId = app.id;
@@ -149,7 +137,7 @@ export const handleImageModerationSave = async (
       const config = {
         key_id: app.id,
         name: `KEY-${app.id}-IMAGE-MODERATION`,
-        description: 'Image moderation function',
+        description: "Image moderation function",
       };
       await createPubNubFunction(config, token);
       const fetchFunctions = await fetchPubNubFunction(app.id, token);
@@ -167,10 +155,7 @@ export const handleImageModerationSave = async (
 };
 
 export const imageModerationCode = (selectedApp, fetchFunctionsResponse) => {
-  const findImageFunction = filterImageFunction(
-    fetchFunctionsResponse,
-    selectedApp
-  );
+  const findImageFunction = filterImageFunction(fetchFunctionsResponse, selectedApp);
   let blockId;
   let eventHandlerList;
   let eventHandler = [];

@@ -1,30 +1,30 @@
-import React, { useState } from 'react';
-import Helmet from 'react-helmet';
-import { Grid, Typography, Box } from '@material-ui/core';
-import ChannelsTable from './ChannelsTable';
-import { JoinChannelModal } from './JoinChannelModal';
-import { channelsFromLS, formatDate, showError } from '../../utils/helpers';
-import Search from '../core/Search';
-import AddChannelMetadataModal from './AddChannelMetadataModal';
-import usePubNub from '../../utils/usePubNub';
-import { deleteChannelMetadata, getChannelByName } from '../../services/pubnub';
-import SnackBar from '../core/SnackBar';
+import React, { useState } from "react";
+import Helmet from "react-helmet";
+import { Grid, Typography, Box } from "@material-ui/core";
+import ChannelsTable from "./ChannelsTable";
+import { JoinChannelModal } from "./JoinChannelModal";
+import { channelsFromLS, formatDate, showError } from "../../utils/helpers";
+import Search from "../core/Search";
+import AddChannelMetadataModal from "./AddChannelMetadataModal";
+import usePubNub from "../../utils/usePubNub";
+import { deleteChannelMetadata, getChannelByName } from "../../services/pubnub";
+import SnackBar from "../core/SnackBar";
 
 function ChannelsListing() {
   const [searchResult, setSearchResult] = useState([]);
   const [updatedData, setupdatedData] = useState([]);
-  const [searched] = useState('');
+  const [searched] = useState("");
   const [channelAlert, setChannelAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
   const { pubnub } = usePubNub();
 
   const requestChannelSearch = (searchedVal) => {
     setChannelAlert({
       ...channelAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     (async () => {
       try {
@@ -34,8 +34,8 @@ function ChannelsListing() {
         if (!filteredRows.length) {
           setChannelAlert({
             ...channelAlert,
-            success: { status: false, msg: '' },
-            error: { status: true, msg: 'No channels found' },
+            success: { status: false, msg: "" },
+            error: { status: true, msg: "No channels found" },
           });
         }
         filteredRows.map((user, index) => {
@@ -48,8 +48,8 @@ function ChannelsListing() {
       } catch (e) {
         setChannelAlert({
           ...channelAlert,
-          success: { status: false, msg: '' },
-          error: { status: true, msg: 'Failed to filter channel' },
+          success: { status: false, msg: "" },
+          error: { status: true, msg: "Failed to filter channel" },
         });
       }
     })();
@@ -74,14 +74,14 @@ function ChannelsListing() {
           setupdatedData([]);
           setChannelAlert({
             ...channelAlert,
-            success: { status: true, msg: 'Channel deleted successfully' },
-            error: { status: false, msg: '' },
+            success: { status: true, msg: "Channel deleted successfully" },
+            error: { status: false, msg: "" },
           });
         } catch (e) {
           setChannelAlert({
             ...channelAlert,
             success: { status: true, msg: showError(e.status.errorData) },
-            error: { status: false, msg: '' },
+            error: { status: false, msg: "" },
           });
         }
       })();
@@ -107,14 +107,11 @@ function ChannelsListing() {
                 searched={searched}
                 requestSearch={requestChannelSearch}
                 cancelSearch={cancelChannelSearch}
-                placeholder={'Search for channel name'}
+                placeholder={"Search for channel name"}
               />
             </Box>
             <Box ml={2}>
-              <AddChannelMetadataModal
-                pubnubObject={pubnub}
-                isAdded={channelUpdated}
-              />
+              <AddChannelMetadataModal pubnubObject={pubnub} isAdded={channelUpdated} />
             </Box>
             <Box ml={2}>
               <JoinChannelModal />
@@ -134,11 +131,9 @@ function ChannelsListing() {
           />
         </Grid>
       </Grid>
-      {channelAlert.error.status && (
-        <SnackBar msg={channelAlert.error.msg} status={'info'} />
-      )}
+      {channelAlert.error.status && <SnackBar msg={channelAlert.error.msg} status={"info"} />}
       {channelAlert.success.status && (
-        <SnackBar msg={channelAlert.success.msg} status={'success'} />
+        <SnackBar msg={channelAlert.success.msg} status={"success"} />
       )}
     </>
   );

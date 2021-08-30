@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   DialogTitle,
   Dialog,
@@ -6,17 +6,17 @@ import {
   DialogActions,
   Button,
   DialogContent,
-} from '@material-ui/core';
-import { useStyles } from '../../style/confirmDialog';
-import SnackBar from '../core/SnackBar';
-import { capitalizeFirstLetter, showError } from '../../utils/helpers';
-import { setUserMetadata } from '../../services/pubnub';
+} from "@material-ui/core";
+import { useStyles } from "../../style/confirmDialog";
+import SnackBar from "../core/SnackBar";
+import { capitalizeFirstLetter, showError } from "../../utils/helpers";
+import { setUserMetadata } from "../../services/pubnub";
 export default function BanUser(props) {
   const { pubnubObject, open, setOpen, uuid, action } = props;
-  const [UUID, setUUID] = useState('');
+  const [UUID, setUUID] = useState("");
   const [banAlert, setBanAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
   const classes = useStyles();
   const customMetaData = uuid.custom || {};
@@ -29,7 +29,7 @@ export default function BanUser(props) {
     setOpen(false);
   };
 
-  customMetaData.ban = action === 'ban' ? true : false;
+  customMetaData.ban = action === "ban" ? true : false;
   delete customMetaData.flag;
   delete customMetaData.flaggedBy;
   delete customMetaData.flaggedAt;
@@ -38,8 +38,8 @@ export default function BanUser(props) {
   const handleBanClick = (values) => {
     setBanAlert({
       ...banAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     (async () => {
       try {
@@ -51,13 +51,13 @@ export default function BanUser(props) {
             status: true,
             msg: `User ${capitalizeFirstLetter(action)}ned successfully`,
           },
-          error: { status: false, msg: '' },
+          error: { status: false, msg: "" },
         });
       } catch (e) {
         handleClose();
         setBanAlert({
           ...banAlert,
-          success: { status: false, msg: '' },
+          success: { status: false, msg: "" },
           error: { status: true, msg: showError(e.status.errorData) },
         });
       }
@@ -97,12 +97,8 @@ export default function BanUser(props) {
           </Button>
         </DialogActions>
       </Dialog>
-      {banAlert.error.status && (
-        <SnackBar msg={banAlert.error.msg} status={'info'} />
-      )}
-      {banAlert.success.status && (
-        <SnackBar msg={banAlert.success.msg} status={'success'} />
-      )}
+      {banAlert.error.status && <SnackBar msg={banAlert.error.msg} status={"info"} />}
+      {banAlert.success.status && <SnackBar msg={banAlert.success.msg} status={"success"} />}
     </>
   );
 }

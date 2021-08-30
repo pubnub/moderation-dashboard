@@ -1,4 +1,4 @@
-import cookie from 'js-cookie';
+import cookie from "js-cookie";
 
 export const setCookie = (key, value) => {
   cookie.set(key, value, {
@@ -25,8 +25,8 @@ export const removeLocalStorage = (key) => {
 };
 
 export const authenticate = (data, next) => {
-  setCookie('token', data.token);
-  setLocalStorage('user', data.user);
+  setCookie("token", data.token);
+  setLocalStorage("user", data.user);
   next();
 };
 
@@ -36,10 +36,10 @@ export const signout = (next) => {
 };
 
 export const isAuth = () => {
-  const cookieChecked = getCookie('token');
+  const cookieChecked = getCookie("token");
   if (cookieChecked) {
-    if (localStorage.getItem('user')) {
-      return JSON.parse(localStorage.getItem('user'));
+    if (localStorage.getItem("user")) {
+      return JSON.parse(localStorage.getItem("user"));
     } else {
       return false;
     }

@@ -1,5 +1,5 @@
-import Switch from '@material-ui/core/Switch';
-import SwitchButtonStyle from '../../style/switchButton';
+import Switch from "@material-ui/core/Switch";
+import SwitchButtonStyle from "../../style/switchButton";
 
 const SwitchButton = SwitchButtonStyle(({ classes, ...props }) => {
   return (

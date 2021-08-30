@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import { useStyles } from '../../style/confirmDialog';
-import { Typography } from '@material-ui/core';
-import { setUserMetadata } from '../../services/pubnub';
-import SnackBar from '../core/SnackBar';
-import {
-  capitalizeFirstLetter,
-  selectedChannelFromLS,
-} from '../../utils/helpers';
+import React, { useState } from "react";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import { useStyles } from "../../style/confirmDialog";
+import { Typography } from "@material-ui/core";
+import { setUserMetadata } from "../../services/pubnub";
+import SnackBar from "../core/SnackBar";
+import { capitalizeFirstLetter, selectedChannelFromLS } from "../../utils/helpers";
 
 const UserAction = (props) => {
   const classes = useStyles();
   const [muteAlert, setMuteAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
   const selectedChannel = selectedChannelFromLS();
   const customMetaData = props.user.custom || {};
@@ -28,10 +25,10 @@ const UserAction = (props) => {
     if (!mutedChannels) {
       mutedChannels = selectedChannel;
     } else {
-      let channels = mutedChannels.split(',');
-      if (props.action === 'mute') channels.push(selectedChannel);
+      let channels = mutedChannels.split(",");
+      if (props.action === "mute") channels.push(selectedChannel);
       else channels = channels.filter((item) => item !== selectedChannel);
-      mutedChannels = channels.join(',');
+      mutedChannels = channels.join(",");
     }
     return mutedChannels;
   };
@@ -40,10 +37,10 @@ const UserAction = (props) => {
     if (!blockedChannels) {
       blockedChannels = selectedChannel;
     } else {
-      let channels = blockedChannels.split(',');
-      if (props.action === 'block') channels.push(selectedChannel);
+      let channels = blockedChannels.split(",");
+      if (props.action === "block") channels.push(selectedChannel);
       else channels = channels.filter((item) => item !== selectedChannel);
-      blockedChannels = channels.join(',');
+      blockedChannels = channels.join(",");
     }
     return blockedChannels;
   };
@@ -51,38 +48,34 @@ const UserAction = (props) => {
   const handleMuteClick = () => {
     setMuteAlert({
       ...muteAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
-    if (props.action === 'mute' || props.action === 'unmute') {
+    if (props.action === "mute" || props.action === "unmute") {
       let channels = getMutedChannels();
       customMetaData.mutedChannels = channels;
     }
-    if (props.action === 'block' || props.action === 'unblock') {
+    if (props.action === "block" || props.action === "unblock") {
       let channels = getBlockedChannels();
       customMetaData.blockedChannels = channels;
     }
     (async () => {
       try {
-        const response = await setUserMetadata(
-          props.pubnub,
-          props.user.id,
-          customMetaData
-        );
+        const response = await setUserMetadata(props.pubnub, props.user.id, customMetaData);
         props.updated(response, props.action);
         setMuteAlert({
           ...muteAlert,
           success: {
             status: true,
-            msg: 'Successfully updated',
+            msg: "Successfully updated",
           },
-          error: { status: false, msg: '' },
+          error: { status: false, msg: "" },
         });
       } catch (e) {
         setMuteAlert({
           ...muteAlert,
-          success: { status: false, msg: '' },
-          error: { status: true, msg: 'Failed to add metadata' },
+          success: { status: false, msg: "" },
+          error: { status: true, msg: "Failed to add metadata" },
         });
       }
     })();
@@ -90,7 +83,8 @@ const UserAction = (props) => {
 
   return (
     <>
-      <Dialog testid="DialogId"
+      <Dialog
+        testid="DialogId"
         open={props.open}
         onClose={() => props.setOpen(false)}
         aria-labelledby="confirm-dialog"
@@ -108,9 +102,7 @@ const UserAction = (props) => {
             }}
             className={classes.confirmButton}
           >
-            <Typography>
-              Yes, {capitalizeFirstLetter(props.action)} them
-            </Typography>
+            <Typography>Yes, {capitalizeFirstLetter(props.action)} them</Typography>
           </Button>
 
           <Button
@@ -122,12 +114,8 @@ const UserAction = (props) => {
           </Button>
         </DialogActions>
       </Dialog>
-      {muteAlert.error.status && (
-        <SnackBar msg={muteAlert.error.msg} status={'info'} />
-      )}
-      {muteAlert.success.status && (
-        <SnackBar msg={muteAlert.success.msg} status={'success'} />
-      )}
+      {muteAlert.error.status && <SnackBar msg={muteAlert.error.msg} status={"info"} />}
+      {muteAlert.success.status && <SnackBar msg={muteAlert.success.msg} status={"success"} />}
     </>
   );
 };

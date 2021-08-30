@@ -1,15 +1,15 @@
 /**
  * Displays paginated table containg channel metadata
  */
-import React, { useState, useEffect } from 'react';
-import { getChannels, getChannelsOccupancy } from '../../services/pubnub';
-import ListingTable from '../tables/ListingTable';
-import { setLocalStorage } from '../../services/localStorage';
-import { CircularProgress, Grid } from '@material-ui/core';
-import { formatDate } from '../../utils/helpers';
-import ConfirmDialog from '../core/ConfirmDialog';
-import UpdateChannelMetadataModal from './UpdateChannelMetadataModal';
-import { useHistory } from 'react-router';
+import React, { useState, useEffect } from "react";
+import { getChannels, getChannelsOccupancy } from "../../services/pubnub";
+import ListingTable from "../tables/ListingTable";
+import { setLocalStorage } from "../../services/localStorage";
+import { CircularProgress, Grid } from "@material-ui/core";
+import { formatDate } from "../../utils/helpers";
+import ConfirmDialog from "../core/ConfirmDialog";
+import UpdateChannelMetadataModal from "./UpdateChannelMetadataModal";
+import { useHistory } from "react-router";
 
 export default function ChannelsTable({
   searchResult,
@@ -19,16 +19,16 @@ export default function ChannelsTable({
   pubnub,
 }) {
   const [channels, setChannels] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [channelData, setChannelData] = useState([]);
-  const [channelID, setChannelID] = useState('');
+  const [channelID, setChannelID] = useState("");
   const [updatedChannel, setUpdatedChannel] = useState([]);
   const [tableCount, settableCount] = useState(0);
-  const [nextpage, setNextPage] = useState('');
-  const [previousPage, setpreviousPage] = useState('');
+  const [nextpage, setNextPage] = useState("");
+  const [previousPage, setpreviousPage] = useState("");
   const [pageNumber, setPageNumber] = useState(0);
   const history = useHistory();
 
@@ -36,15 +36,15 @@ export default function ChannelsTable({
    * Defines Table headcells on channels page
    */
   const headCells = [
-    { id: 'id', alignment: 'left', label: 'CHANNEL', avatar: true },
-    { id: 'description', alignment: 'left', label: 'DESCRIPTION' },
-    { id: 'occupancy', alignment: 'left', label: 'OCCUPANCY' },
-    { id: 'icons', alignment: 'left', icons: true, user: false },
+    { id: "id", alignment: "left", label: "CHANNEL", avatar: true },
+    { id: "description", alignment: "left", label: "DESCRIPTION" },
+    { id: "occupancy", alignment: "left", label: "OCCUPANCY" },
+    { id: "icons", alignment: "left", icons: true, user: false },
   ];
 
   useEffect(() => {
     setPageNumber(0);
-    fetchChannels(pubnub, '', '');
+    fetchChannels(pubnub, "", "");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, updatedChannel]);
 
@@ -70,7 +70,7 @@ export default function ChannelsTable({
         const applicationChannels = await getChannels(pubnubObject, next, prev);
         if (!applicationChannels.data.length) {
           setLoading(false);
-          setMessage('No Channel Metadata Found');
+          setMessage("No Channel Metadata Found");
         }
         settableCount(applicationChannels.totalCount);
         setpreviousPage(applicationChannels.prev);
@@ -85,21 +85,18 @@ export default function ChannelsTable({
           channelsIDs.push(selectedChannel.id);
           return false;
         });
-        const channelsOccupancy = await getChannelsOccupancy(
-          pubnub,
-          channelsIDs
-        );
+        const channelsOccupancy = await getChannelsOccupancy(pubnub, channelsIDs);
         channelsIDs.forEach((id, channelIndex) => {
-          channelsList[channelIndex]['occupancy'] =
+          channelsList[channelIndex]["occupancy"] =
             channelsOccupancy[id] && channelsOccupancy[id].occupancy;
         });
         setChannels(channelsList);
-        setLocalStorage('PubNubChannels', channelsList);
+        setLocalStorage("PubNubChannels", channelsList);
         setLoading(false);
       } catch (e) {
         setLoading(false);
-        setMessage('No Channel Metadata Found');
-        setLocalStorage('PubNubChannels', []);
+        setMessage("No Channel Metadata Found");
+        setLocalStorage("PubNubChannels", []);
       }
     })();
   };
@@ -124,7 +121,7 @@ export default function ChannelsTable({
    */
   const viewRow = (event, channelName) => {
     history.push({
-      pathname: '/channels/messages',
+      pathname: "/channels/messages",
       state: { channel: channelName },
     });
   };
@@ -157,10 +154,10 @@ export default function ChannelsTable({
   const getNewPage = (i) => {
     if (pageNumber < i) {
       setPageNumber(i);
-      fetchChannels(pubnub, nextpage, '');
+      fetchChannels(pubnub, nextpage, "");
     } else {
       setPageNumber(pageNumber - 1);
-      fetchChannels(pubnub, '', previousPage);
+      fetchChannels(pubnub, "", previousPage);
     }
   };
 
@@ -189,7 +186,7 @@ export default function ChannelsTable({
         open={confirmOpen}
         setOpen={setConfirmOpen}
         onConfirm={confirmDelete}
-        actionMessage={'Yes, Delete it'}
+        actionMessage={"Yes, Delete it"}
       >
         You want to delete this channel?
       </ConfirmDialog>

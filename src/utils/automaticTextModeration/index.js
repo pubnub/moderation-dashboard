@@ -1,5 +1,5 @@
 export const getSelectedDetectionTool = (data) => {
-  if (data.toolForAutomaticDetection === 'tisane') {
+  if (data.toolForAutomaticDetection === "tisane") {
     const selectedLanguage = getSelectedLanguage(data.tisaneLanguage);
     return `const apiKey = '${data.tisaneApiKey}';
       const abuseTypes = ['bigotry', 'personal_attack', 'criminal_activity', 'sexual_advances', 'profanity'];
@@ -94,10 +94,10 @@ export const getSelectedDetectionTool = (data) => {
 
 const getSelectedLanguage = (language) => {
   const languages = {
-    English: 'en',
-    Spanish: 'es',
-    Portugese: 'pt',
-    French: 'fr',
+    English: "en",
+    Spanish: "es",
+    Portugese: "pt",
+    French: "fr",
   };
   return languages[language];
 };

@@ -1,17 +1,13 @@
 /**
  * Fetches Messages and channel members of selected channel
  */
-import React, { useEffect, useState, useRef } from 'react';
-import Helmet from 'react-helmet';
-import { Avatar, Box, Button, Grid } from '@material-ui/core';
-import { useStyles } from '../../style/messages';
-import {
-  fetchMessages,
-  getChannelMembers,
-  fetchChannelMetadata,
-} from '../../services/pubnub';
-import { useLocation } from 'react-router';
-import usePubNub from '../../utils/usePubNub';
+import React, { useEffect, useState, useRef } from "react";
+import Helmet from "react-helmet";
+import { Avatar, Box, Button, Grid } from "@material-ui/core";
+import { useStyles } from "../../style/messages";
+import { fetchMessages, getChannelMembers, fetchChannelMetadata } from "../../services/pubnub";
+import { useLocation } from "react-router";
+import usePubNub from "../../utils/usePubNub";
 import {
   capitalizeFirstLetter,
   capitalizeNameInitials,
@@ -22,13 +18,13 @@ import {
   membersFromLS,
   truncateChannelDescription,
   getMessageText,
-} from '../../utils/helpers';
-import Members from './Members';
-import MemberDetail from './MemberDetail';
-import Chat from './Chat';
-import { setLocalStorage } from '../../services/localStorage';
-import MessagesCount from './MessagesCount';
-import ToggleChat from './ToggleChat';
+} from "../../utils/helpers";
+import Members from "./Members";
+import MemberDetail from "./MemberDetail";
+import Chat from "./Chat";
+import { setLocalStorage } from "../../services/localStorage";
+import MessagesCount from "./MessagesCount";
+import ToggleChat from "./ToggleChat";
 
 const Messages = () => {
   const firstUpdate = useRef(true);
@@ -42,21 +38,18 @@ const Messages = () => {
   const [memberDetails, setMemberDetails] = useState();
   const [toggleMemberDetails, setToggleMemberDetails] = useState(false);
   const [messageToEdit, setMessageToEdit] = useState([]);
-  const [toggledVal, setToggledVal] = useState('chat');
-  const [channelID, setChannelID] = useState('');
+  const [toggledVal, setToggledVal] = useState("chat");
+  const [channelID, setChannelID] = useState("");
   const [totalCount, setTotalCount] = useState(0);
-  const [page, setPage] = useState('');
+  const [page, setPage] = useState("");
 
   useEffect(() => {
     fetchChannelMembers();
-    setLocalStorage('PubNubSelectedChannel', location.state.channel);
+    setLocalStorage("PubNubSelectedChannel", location.state.channel);
     setChannelID(location.state.channel);
     (async () => {
       try {
-        const channelResponse = await fetchChannelMetadata(
-          pubnub,
-          location.state.channel
-        );
+        const channelResponse = await fetchChannelMetadata(pubnub, location.state.channel);
         setChannel(channelResponse);
       } catch (e) {}
     })();
@@ -64,10 +57,10 @@ const Messages = () => {
   }, []);
 
   useEffect(() => {
-    if (toggledVal === 'chat') {
+    if (toggledVal === "chat") {
       setChannelID(location.state.channel);
-    } else if (toggledVal === 'banned') {
-      setChannelID('banned.' + location.state.channel);
+    } else if (toggledVal === "banned") {
+      setChannelID("banned." + location.state.channel);
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -95,11 +88,8 @@ const Messages = () => {
     setLoading(true);
     (async () => {
       try {
-        const channelMembers = await getChannelMembers(
-          pubnub,
-          location.state.channel
-        );
-        setLocalStorage('PubNubChannelMembers', channelMembers.data);
+        const channelMembers = await getChannelMembers(pubnub, location.state.channel);
+        setLocalStorage("PubNubChannelMembers", channelMembers.data);
         setMembers(channelMembers.data);
         setTotalCount(channelMembers.totalCount);
         setPage(channelMembers.next);
@@ -131,25 +121,15 @@ const Messages = () => {
               messageObject.actionToken =
                 channelMessage.actions &&
                 channelMessage.actions.deleted &&
-                channelMessage.actions.deleted['.'][0].actionTimetoken;
-              messageObject.text = getMessageText(
-                channelMessage,
-                messageObject
-              );
+                channelMessage.actions.deleted["."][0].actionTimetoken;
+              messageObject.text = getMessageText(channelMessage, messageObject);
               let channelMember = checkChannelMember(members[index]);
               if (channelMember === channelMessage.uuid) {
-                messageObject.name = capitalizeFirstLetter(
-                  members[index].uuid.name
-                );
+                messageObject.name = capitalizeFirstLetter(members[index].uuid.name);
                 messageObject.profileUrl = members[index].uuid.profileUrl;
               }
               formatBannedMessage(messageObject);
-              messagesSet = getMessageFileUrl(
-                messageObject,
-                channelMessage,
-                pubnub,
-                channelID
-              );
+              messagesSet = getMessageFileUrl(messageObject, channelMessage, pubnub, channelID);
               messagesList.push(messagesSet);
               return false;
             });
@@ -167,28 +147,21 @@ const Messages = () => {
   /**
    * Handles message updates action (edit, delte, undo delete)
    */
-  const messageUpdate = (
-    messageToken,
-    actionToken,
-    action,
-    updatedResponse
-  ) => {
-    let filteredArray = messages.filter(
-      (item) => item.timetoken !== messageToken
-    );
+  const messageUpdate = (messageToken, actionToken, action, updatedResponse) => {
+    let filteredArray = messages.filter((item) => item.timetoken !== messageToken);
     let filteredMessage = messages.filter((row) => {
       return row.timetoken.includes(messageToken);
     });
     if (action) {
-      if (action === 'undo') filteredMessage[0].actions = '';
-      if (action === 'updated' && updatedResponse) {
+      if (action === "undo") filteredMessage[0].actions = "";
+      if (action === "updated" && updatedResponse) {
         setMessageToEdit([]);
         filteredMessage[0].text = updatedResponse.value;
-      } else if (action === 'updated') {
+      } else if (action === "updated") {
         setMessageToEdit([]);
       }
     } else {
-      filteredMessage[0].actions = 'deleted';
+      filteredMessage[0].actions = "deleted";
       filteredMessage[0].actionToken = actionToken;
     }
     const messageIndex = messages.findIndex((row) => {
@@ -205,10 +178,7 @@ const Messages = () => {
         message: ({ ...receivedMessage }) => {
           let messageObject = {};
           let filterMember =
-            members &&
-            members.filter(
-              (member) => member.uuid.id === receivedMessage.publisher
-            );
+            members && members.filter((member) => member.uuid.id === receivedMessage.publisher);
           messageObject = receivedMessage.message;
           if (filterMember.length) {
             messageObject.name = filterMember[0].uuid.name;
@@ -257,12 +227,12 @@ const Messages = () => {
                   </Avatar>
                 </Box>
                 <Grid item sm={8} xs={12} md={8}>
-                  {toggledVal === 'chat' && (
+                  {toggledVal === "chat" && (
                     <small className={classes.values}>
                       {location.state.channel} ({channel.name})
                     </small>
                   )}
-                  {toggledVal === 'banned' && (
+                  {toggledVal === "banned" && (
                     <small className={classes.values}>
                       {location.state.channel} - Banned ({channel.name})
                     </small>
@@ -277,23 +247,17 @@ const Messages = () => {
                     <Grid item />
                     <Grid item>
                       <Box mt={1}>
-                        <ToggleChat
-                          toggledVal={toggledVal}
-                          setToggledVal={setToggledVal}
-                        />
+                        <ToggleChat toggledVal={toggledVal} setToggledVal={setToggledVal} />
                       </Box>
                     </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-              {toggledVal === 'chat' && (
+              {toggledVal === "chat" && (
                 <Box mt={1}>
                   <Grid justify="center" container>
                     <Button disabled className={classes.messagesCount}>
-                      <MessagesCount
-                        channelName={location.state.channel}
-                        pubnub={pubnub}
-                      />
+                      <MessagesCount channelName={location.state.channel} pubnub={pubnub} />
                     </Button>
                   </Grid>
                 </Box>
@@ -326,9 +290,7 @@ const Messages = () => {
           )}
           {toggleMemberDetails && (
             <MemberDetail
-              toggleMemberDetails={(toggleValue) =>
-                setToggleMemberDetails(toggleValue)
-              }
+              toggleMemberDetails={(toggleValue) => setToggleMemberDetails(toggleValue)}
               member={memberDetails}
               pubnub={pubnub}
             />

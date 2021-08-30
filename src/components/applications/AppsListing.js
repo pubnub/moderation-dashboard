@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import Helmet from 'react-helmet';
-import { Grid, Typography, Box } from '@material-ui/core';
-import ApplicationTable from './ApplicationTable';
-import { applicationsWithKeyFromLS } from '../../utils/helpers';
-import Search from '../core/Search';
-import SnackBar from '../core/SnackBar';
+import React, { useState, useEffect } from "react";
+import Helmet from "react-helmet";
+import { Grid, Typography, Box } from "@material-ui/core";
+import ApplicationTable from "./ApplicationTable";
+import { applicationsWithKeyFromLS } from "../../utils/helpers";
+import Search from "../core/Search";
+import SnackBar from "../core/SnackBar";
 
 function AppsListing() {
   const [searchResult, setSearchResult] = useState([]);
-  const [searched, setSearched] = useState('');
+  const [searched, setSearched] = useState("");
   const [appsAlert, setAppsAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
   });
 
   const requestKeySearch = (searchedVal) => {
     setAppsAlert({
       ...appsAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
     });
     const filteredRows = applicationsWithKeyFromLS().filter((row) => {
       return (
@@ -29,14 +29,14 @@ function AppsListing() {
     if (!filteredRows.length) {
       setAppsAlert({
         ...appsAlert,
-        success: { status: false, msg: '' },
-        error: { status: true, msg: 'No applications found' },
+        success: { status: false, msg: "" },
+        error: { status: true, msg: "No applications found" },
       });
     }
     setSearchResult(filteredRows);
   };
   const cancelKeySearch = () => {
-    setSearched('');
+    setSearched("");
     requestKeySearch(searched);
   };
 
@@ -64,7 +64,7 @@ function AppsListing() {
                   searched={searched}
                   requestSearch={requestKeySearch}
                   cancelSearch={cancelKeySearch}
-                  placeholder={'Search for publish or subscribe key'}
+                  placeholder={"Search for publish or subscribe key"}
                 />
               </Box>
             </Grid>
@@ -77,12 +77,8 @@ function AppsListing() {
           <ApplicationTable searchResult={searchResult} />
         </Grid>
       </Grid>
-      {appsAlert.error.status && (
-        <SnackBar msg={appsAlert.error.msg} status={'info'} />
-      )}
-      {appsAlert.success.status && (
-        <SnackBar msg={appsAlert.success.msg} status={'success'} />
-      )}
+      {appsAlert.error.status && <SnackBar msg={appsAlert.error.msg} status={"info"} />}
+      {appsAlert.success.status && <SnackBar msg={appsAlert.success.msg} status={"success"} />}
     </React.Fragment>
   );
 }

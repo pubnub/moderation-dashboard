@@ -1,7 +1,7 @@
 export const handleChange =
   ({ setState, state, name }) =>
   (e, value) => {
-    if (e.target.name === 'toolForAutomaticDetection') {
+    if (e.target.name === "toolForAutomaticDetection") {
       setState({
         ...state,
         automaticDetection: {
@@ -9,7 +9,7 @@ export const handleChange =
           toolForAutomaticDetection: e.target.value,
         },
       });
-    } else if (e.target.name === 'automaticDetectionChannel') {
+    } else if (e.target.name === "automaticDetectionChannel") {
       setState({
         ...state,
         channelOnChange: true,
@@ -18,7 +18,7 @@ export const handleChange =
           automaticDetectionChannel: e.target.value,
         },
       });
-    } else if (e.target.name === 'automaticDetectionReRouteMessages') {
+    } else if (e.target.name === "automaticDetectionReRouteMessages") {
       setState({
         ...state,
         automaticDetection: {
@@ -26,7 +26,7 @@ export const handleChange =
           automaticDetectionReRouteMessages: e.target.checked,
         },
       });
-    } else if (e.target.name === 'automaticDetectionModType') {
+    } else if (e.target.name === "automaticDetectionModType") {
       setState({
         ...state,
         automaticDetection: {
@@ -34,7 +34,7 @@ export const handleChange =
           automaticDetectionModType: e.target.value,
         },
       });
-    } else if (name === 'riskFactorThresholdForVulgar') {
+    } else if (name === "riskFactorThresholdForVulgar") {
       setState({
         ...state,
         automaticDetection: {
@@ -42,7 +42,7 @@ export const handleChange =
           siftNinjaRiskFactorThresholdVulgar: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForSexting') {
+    } else if (name === "riskFactorThresholdForSexting") {
       setState({
         ...state,
         automaticDetection: {
@@ -50,7 +50,7 @@ export const handleChange =
           siftNinjaRiskFactorThresholdSexting: value,
         },
       });
-    } else if (name === 'riskFactorThresholdForRacism') {
+    } else if (name === "riskFactorThresholdForRacism") {
       setState({
         ...state,
         automaticDetection: {
@@ -58,7 +58,7 @@ export const handleChange =
           siftNinjaRiskFactorThresholdRacism: value,
         },
       });
-    } else if (e.target.name === 'siftNinjaAccountName') {
+    } else if (e.target.name === "siftNinjaAccountName") {
       setState({
         ...state,
         automaticDetection: {
@@ -66,7 +66,7 @@ export const handleChange =
           siftNinjaAccountName: e.target.value,
         },
       });
-    } else if (e.target.name === 'siftNinjaChannelName') {
+    } else if (e.target.name === "siftNinjaChannelName") {
       setState({
         ...state,
         automaticDetection: {
@@ -74,7 +74,7 @@ export const handleChange =
           siftNinjaChannelName: e.target.value,
         },
       });
-    } else if (e.target.name === 'siftNinjaApiKey') {
+    } else if (e.target.name === "siftNinjaApiKey") {
       setState({
         ...state,
         automaticDetection: {
@@ -82,7 +82,7 @@ export const handleChange =
           siftNinjaApiKey: e.target.value,
         },
       });
-    } else if (e.target.name === 'automaticDetectionCharacterToMaskWith') {
+    } else if (e.target.name === "automaticDetectionCharacterToMaskWith") {
       setState({
         ...state,
         automaticDetection: {
@@ -90,13 +90,13 @@ export const handleChange =
           automaticDetectionCharacterToMaskWith: e.target.value,
         },
       });
-    } else if (name === 'applyToAllChannelIdsAutomatic') {
+    } else if (name === "applyToAllChannelIdsAutomatic") {
       if (e.target.checked) {
         setState({
           ...state,
           automaticDetection: {
             ...state.automaticDetection,
-            automaticDetectionChannel: '*',
+            automaticDetectionChannel: "*",
             applyToAllChannelIdsAutomatic: e.target.checked,
           },
         });

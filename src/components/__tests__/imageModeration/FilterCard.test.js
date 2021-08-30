@@ -1,6 +1,6 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import FilterCard from '../../imageModeration/FilterCard';
+import React from "react";
+import { shallow } from "enzyme";
+import FilterCard from "../../imageModeration/FilterCard";
 
 const mockProps = {
   state: {
@@ -8,16 +8,14 @@ const mockProps = {
   },
 };
 
-describe('Test Case for Filter Card', () => {
-  test('Snapshot', () => {
+describe("Test Case for Filter Card", () => {
+  test("Snapshot", () => {
     const wrapper = shallow(<FilterCard state={mockProps} />);
     expect(wrapper).toMatchSnapshot();
   });
 
-  test('check text', () => {
+  test("check text", () => {
     const wrapper = shallow(<FilterCard state={mockProps} />);
-    expect(wrapper.find('[testid="autoDetection"]').text()).toBe(
-      'Automatic Detection'
-    );
+    expect(wrapper.find('[testid="autoDetection"]').text()).toBe("Automatic Detection");
   });
 });

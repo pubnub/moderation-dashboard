@@ -1,22 +1,16 @@
 /**
  * Displays Messages in a selected channel
  */
-import React, { useState, useEffect, useRef } from 'react';
-import {
-  Avatar,
-  Box,
-  Grid,
-  Typography,
-  CircularProgress,
-} from '@material-ui/core';
-import { useStyles } from '../../style/messages';
-import Alert from '@material-ui/lab/Alert';
-import { formatUserName, formatProfileImageUrl } from '../../utils/helpers';
-import ConfirmDialog from '../core/ConfirmDialog';
-import { softDeleteMessage } from '../../services/pubnub';
-import UndoDelete from './UndoDelete';
-import EditMessage from './EditMessage';
-import MessageContent from './MessageContent';
+import React, { useState, useEffect, useRef } from "react";
+import { Avatar, Box, Grid, Typography, CircularProgress } from "@material-ui/core";
+import { useStyles } from "../../style/messages";
+import Alert from "@material-ui/lab/Alert";
+import { formatUserName, formatProfileImageUrl } from "../../utils/helpers";
+import ConfirmDialog from "../core/ConfirmDialog";
+import { softDeleteMessage } from "../../services/pubnub";
+import UndoDelete from "./UndoDelete";
+import EditMessage from "./EditMessage";
+import MessageContent from "./MessageContent";
 
 export default function Chat(props) {
   const classes = useStyles();
@@ -79,14 +73,11 @@ export default function Chat(props) {
           {messages.map((message, n) => {
             return (
               <div key={n}>
-                {props.toggledVal === 'chat' && (
+                {props.toggledVal === "chat" && (
                   <>
                     <Grid container>
                       <Box>
-                        <Avatar
-                          variant="square"
-                          src={formatProfileImageUrl(message.profileUrl)}
-                        />
+                        <Avatar variant="square" src={formatProfileImageUrl(message.profileUrl)} />
                       </Box>
                       <Typography className={classes.user}>
                         {formatUserName(message.name)}
@@ -101,32 +92,21 @@ export default function Chat(props) {
                       index={n}
                       toggledVal={props.toggledVal}
                     />
-                    <Typography className={classes.timeField}>
-                      {message.time}
-                    </Typography>
+                    <Typography className={classes.timeField}>{message.time}</Typography>
                   </>
                 )}
-                {props.toggledVal === 'banned' && (
+                {props.toggledVal === "banned" && (
                   <>
                     <Grid container>
                       <Box>
-                        <Avatar
-                          variant="square"
-                          src={formatProfileImageUrl(message.profileUrl)}
-                        />
+                        <Avatar variant="square" src={formatProfileImageUrl(message.profileUrl)} />
                       </Box>
                       <Typography className={classes.user}>
                         {formatUserName(message.name)}
                       </Typography>
                     </Grid>
-                    <MessageContent
-                      message={message}
-                      toggledVal={props.toggledVal}
-                      index={n}
-                    />
-                    <Typography className={classes.timeField}>
-                      {message.time}
-                    </Typography>
+                    <MessageContent message={message} toggledVal={props.toggledVal} index={n} />
+                    <Typography className={classes.timeField}>{message.time}</Typography>
                   </>
                 )}
               </div>
@@ -135,7 +115,7 @@ export default function Chat(props) {
           <div ref={messagesEndRef} />
         </Grid>
       ) : (
-        <Alert severity={'info'} className={classes.alertMessage}>
+        <Alert severity={"info"} className={classes.alertMessage}>
           No recent messages found
         </Alert>
       )}
@@ -146,7 +126,7 @@ export default function Chat(props) {
         open={confirmOpen}
         setOpen={setConfirmOpen}
         onConfirm={deleteMessage}
-        actionMessage={'Yes, Delete it'}
+        actionMessage={"Yes, Delete it"}
       >
         You can always undo this action
       </ConfirmDialog>

@@ -1,23 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { DialogTitle, Dialog, Typography, IconButton } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import { useStyles } from '../../style/createModerationModal';
-import { editUserMetadata } from '../../services/pubnub';
-import SnackBar from '../core/SnackBar';
-import { showError } from '../../utils/helpers';
-import { useFormik } from 'formik';
-import AddUserForm from './AddUserForm';
-import { userValidationSchema } from './AddUserMetadataModal';
+import React, { useState, useEffect } from "react";
+import { DialogTitle, Dialog, Typography, IconButton } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import { useStyles } from "../../style/createModerationModal";
+import { editUserMetadata } from "../../services/pubnub";
+import SnackBar from "../core/SnackBar";
+import { showError } from "../../utils/helpers";
+import { useFormik } from "formik";
+import AddUserForm from "./AddUserForm";
+import { userValidationSchema } from "./AddUserMetadataModal";
 
 export default function UpdateUserMetadataModal(props) {
   const { pubnubObject, open, setOpen, data, isUpdated } = props;
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState("");
   const [email, setEmail] = useState(null);
-  const [UUID, setUUID] = useState('');
+  const [UUID, setUUID] = useState("");
   const [profileUrl, setProfileUrl] = useState(null);
   const [updateUserAlert, setUpdateUserAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
     loading: false,
   });
   const classes = useStyles();
@@ -35,10 +35,10 @@ export default function UpdateUserMetadataModal(props) {
 
   const formik = useFormik({
     initialValues: {
-      email: !email ? '' : email,
+      email: !email ? "" : email,
       name: userName,
       user_id: UUID,
-      profile_url: !profileUrl ? '' : profileUrl,
+      profile_url: !profileUrl ? "" : profileUrl,
     },
     enableReinitialize: true,
     validationSchema: userValidationSchema,
@@ -50,8 +50,8 @@ export default function UpdateUserMetadataModal(props) {
   const updateUserMetadata = (values) => {
     setUpdateUserAlert({
       ...updateUserAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
       loading: true,
     });
     (async () => {
@@ -66,8 +66,8 @@ export default function UpdateUserMetadataModal(props) {
         handleClose();
         setUpdateUserAlert({
           ...updateUserAlert,
-          success: { status: true, msg: 'User updated successfully' },
-          error: { status: false, msg: '' },
+          success: { status: true, msg: "User updated successfully" },
+          error: { status: false, msg: "" },
           loading: false,
         });
         isUpdated(userResponse);
@@ -75,7 +75,7 @@ export default function UpdateUserMetadataModal(props) {
         handleClose();
         setUpdateUserAlert({
           ...updateUserAlert,
-          success: { status: false, msg: '' },
+          success: { status: false, msg: "" },
           error: { status: true, msg: showError(e.status.errorData) },
           loading: false,
         });
@@ -92,20 +92,12 @@ export default function UpdateUserMetadataModal(props) {
         open={open}
         className={classes.modalLayout}
       >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          disableTypography
-        >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} disableTypography>
           <Typography variant="h6" className={classes.headingFont}>
             Update User Metadata
           </Typography>
           {open ? (
-            <IconButton
-              aria-label="close"
-              onClick={handleClose}
-              className={classes.closeButton}
-            >
+            <IconButton aria-label="close" onClick={handleClose} className={classes.closeButton}>
               <CloseIcon />
             </IconButton>
           ) : null}
@@ -114,15 +106,13 @@ export default function UpdateUserMetadataModal(props) {
           formik={formik}
           userAlert={updateUserAlert}
           handleClose={handleClose}
-          buttonTitle={'UPDATE'}
+          buttonTitle={"UPDATE"}
           disabled={true}
         />
       </Dialog>
-      {updateUserAlert.error.status && (
-        <SnackBar msg={updateUserAlert.error.msg} status={'info'} />
-      )}
+      {updateUserAlert.error.status && <SnackBar msg={updateUserAlert.error.msg} status={"info"} />}
       {updateUserAlert.success.status && (
-        <SnackBar msg={updateUserAlert.success.msg} status={'success'} />
+        <SnackBar msg={updateUserAlert.success.msg} status={"success"} />
       )}
     </div>
   );

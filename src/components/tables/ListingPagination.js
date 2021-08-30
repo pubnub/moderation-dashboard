@@ -1,13 +1,11 @@
-import React from 'react';
-import { TablePagination } from '@material-ui/core';
-import { useStyles } from '../../style/listingTable';
+import React from "react";
+import { TablePagination } from "@material-ui/core";
+import { useStyles } from "../../style/listingTable";
 
 export default function ListingPagination(props) {
   const classes = useStyles();
   const tableCount =
-    props.tableCount > props.rowsPerPage
-      ? props.tableCount
-      : props.tableData.length;
+    props.tableCount > props.rowsPerPage ? props.tableCount : props.tableData.length;
 
   return props.tableData.length ? (
     <TablePagination
@@ -20,10 +18,10 @@ export default function ListingPagination(props) {
       onChangePage={props.handleChangePage}
       labelDisplayedRows={({ from, to, count }) => `${from}-${to} of ${count}`}
       backIconButtonProps={{
-        color: 'primary',
+        color: "primary",
       }}
       nextIconButtonProps={{
-        color: 'primary',
+        color: "primary",
       }}
     />
   ) : null;

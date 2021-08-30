@@ -33,7 +33,7 @@ export default function profanityFunctionForImage(data) {
     }
     return `console.log("skipping text moderation it has never been enabled");
     return true;`;
-};
+  };
   /* -------
    This PubNub function is use when admin turn on the image moderation.
    This function will only block the image from the main channel if it passes the sightengine reject_prob value.

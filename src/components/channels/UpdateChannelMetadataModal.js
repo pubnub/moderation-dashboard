@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import { DialogTitle, Dialog, Typography, IconButton } from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
-import { useStyles } from '../../style/createModerationModal';
-import { editChannelMetadata } from '../../services/pubnub';
-import SnackBar from '../core/SnackBar';
-import { showError } from '../../utils/helpers';
-import { useFormik } from 'formik';
-import AddChannelForm from './AddChannelForm';
-import { channelValidationSchema } from './AddChannelMetadataModal';
+import React, { useState, useEffect } from "react";
+import { DialogTitle, Dialog, Typography, IconButton } from "@material-ui/core";
+import CloseIcon from "@material-ui/icons/Close";
+import { useStyles } from "../../style/createModerationModal";
+import { editChannelMetadata } from "../../services/pubnub";
+import SnackBar from "../core/SnackBar";
+import { showError } from "../../utils/helpers";
+import { useFormik } from "formik";
+import AddChannelForm from "./AddChannelForm";
+import { channelValidationSchema } from "./AddChannelMetadataModal";
 
 export default function UpdateChannelMetadataModal(props) {
   const { pubnubObject, open, setOpen, data, channelUpdated } = props;
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [description, setDescription] = useState(null);
-  const [channelID, setChannelID] = useState('');
+  const [channelID, setChannelID] = useState("");
   const [updateChannelAlert, setUpdateChannelAlert] = useState({
-    success: { status: false, msg: '' },
-    error: { status: false, msg: '' },
+    success: { status: false, msg: "" },
+    error: { status: false, msg: "" },
     loading: false,
   });
 
@@ -34,7 +34,7 @@ export default function UpdateChannelMetadataModal(props) {
 
   const formik = useFormik({
     initialValues: {
-      description: !description ? '' : description,
+      description: !description ? "" : description,
       name: name,
       id: channelID,
     },
@@ -48,8 +48,8 @@ export default function UpdateChannelMetadataModal(props) {
   const updateChannelMetadata = (values) => {
     setUpdateChannelAlert({
       ...updateChannelAlert,
-      success: { status: false, msg: '' },
-      error: { status: false, msg: '' },
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
       loading: true,
     });
     (async () => {
@@ -63,8 +63,8 @@ export default function UpdateChannelMetadataModal(props) {
         handleClose();
         setUpdateChannelAlert({
           ...updateChannelAlert,
-          success: { status: true, msg: 'Channel updated successfully.' },
-          error: { status: false, msg: '' },
+          success: { status: true, msg: "Channel updated successfully." },
+          error: { status: false, msg: "" },
           loading: false,
         });
         channelUpdated(channelResponse);
@@ -72,7 +72,7 @@ export default function UpdateChannelMetadataModal(props) {
         handleClose();
         setUpdateChannelAlert({
           ...updateChannelAlert,
-          success: { status: false, msg: '' },
+          success: { status: false, msg: "" },
           error: { status: true, msg: showError(e.status.errorData) },
           loading: false,
         });
@@ -89,16 +89,8 @@ export default function UpdateChannelMetadataModal(props) {
         open={open}
         className={classes.modalLayout}
       >
-        <DialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-          disableTypography
-        >
-          <Typography
-            testid="UpdateChannel"
-            variant="h6"
-            className={classes.headingFont}
-          >
+        <DialogTitle id="customized-dialog-title" onClose={handleClose} disableTypography>
+          <Typography testid="UpdateChannel" variant="h6" className={classes.headingFont}>
             Update Channel Metadata
           </Typography>
           {open ? (
@@ -116,15 +108,15 @@ export default function UpdateChannelMetadataModal(props) {
           formik={formik}
           channelAlert={updateChannelAlert}
           handleClose={handleClose}
-          buttonTitle={'UPDATE'}
+          buttonTitle={"UPDATE"}
           disabled={true}
         />
       </Dialog>
       {updateChannelAlert.error.status && (
-        <SnackBar msg={updateChannelAlert.error.msg} status={'info'} />
+        <SnackBar msg={updateChannelAlert.error.msg} status={"info"} />
       )}
       {updateChannelAlert.success.status && (
-        <SnackBar msg={updateChannelAlert.success.msg} status={'success'} />
+        <SnackBar msg={updateChannelAlert.success.msg} status={"success"} />
       )}
     </div>
   );
