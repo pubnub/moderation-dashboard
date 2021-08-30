@@ -1,4 +1,5 @@
 import axios from '../utils/axios';
+import beautify from 'js-beautify';
 
 // To fetch all the PubNub accounts
 export async function fetchAllAccounts(id, token) {
@@ -207,6 +208,11 @@ export async function fetchPubNubFunction(keyId, token) {
 
 // Start a PubNub function.
 export async function createPubNubFunction(credentials, token) {
+  if (typeof credentials.code == 'string') {
+    // Clean up indentation of function logic before sending to PubNub
+    credentials.code = beautify(credentials.code, { indent_size: 4, space_in_empty_paren: true });
+  }
+
   const response = await axios.post(
     `/v1/blocks/key/${credentials.key_id}/block`,
     credentials,
@@ -272,10 +278,19 @@ export async function createPubNubEventHandler(credentials, token) {
   if (response.status === 200) {
     return response.data;
   }
-  throw new Error(response.data.message);
+  if (response.data.message) {
+    throw new Error(response.data.message);
+  } else {
+    throw new Error(`PubNub create function request failed with code: ${response.status}`)
+  }
 }
 
 export async function updatePubNubEventHandler(credentials, token) {
+  if (typeof credentials.code == 'string') {
+    // Clean up indentation of function logic before sending to PubNub
+    credentials.code = beautify(credentials.code, { indent_size: 4, space_in_empty_paren: true });
+  }
+
   const response = await axios.put(
     `/v1/blocks/key/${credentials.key_id}/event_handler/${credentials.id}`,
     credentials,
@@ -288,7 +303,13 @@ export async function updatePubNubEventHandler(credentials, token) {
   if (response.status === 200) {
     return response.data;
   }
-  throw new Error(response.data.message);
+  if (typeof response.data.message == 'string') {
+    throw new Error(response.data.message);
+  } else if (typeof response.data.message.text == 'string') { 
+    throw new Error(response.data.message.text);
+  } else {
+    throw new Error(`PubNub update function request failed with code: ${response.status}`)
+  }
 }
 
 //To fetch user By name

@@ -73,23 +73,30 @@ function automaticMaskMessage({
 }) {
   if (type === "default") {
     return `if(request && request.ok){
-    const xhr = require("xhr");
-    const console = require('console');
-    var bannedChannel = new RegExp(${regexForBanned}, "g")
-    let message = request.message;
+      const bannedChannel = new RegExp(${regexForBanned}, "g");
+      const console = require('console');
+      const xhr = require("xhr");
+      const pubnub = require('pubnub');
+      let message = request.message;
 
-    if(bannedChannel.test(request.channels[0])){
-       request.message.type = "text";
-       console.log('Skipping moderation on message sent to banned channel: ' + request.channels[0]);
-       return request.ok(message);
-     }
+      if (!message.text) {
+        return request.ok();
+      }
 
-     ${selectedDetectionTool}
+      if(bannedChannel.test(request.channels[0])){
+        console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
+        return request.ok();
+      }
+
+      console.log("received text moderation request: ", message);
+
+      ${selectedDetectionTool}
     if(checkThresholdForThirdParty){
                message.text = message.text.replace(/[a-z-A-Z-!]/g, '${automaticDetectionCharacterToMaskWith}');
+               console.log("Replacing original text with a masked version of the message.");
               return request.ok(message);
           }
-         request.message.type = "text"
+         request.message.type = "text";
          return request.ok(message);
 
      }).catch(err => {
@@ -124,23 +131,28 @@ function automaticMaskMessageAndReroute({
   type,
 }) {
   if (type === "default") {
-    return `if(request && request.ok){
-    const pubnub = require('pubnub');
-    const bannedChannel = new RegExp(${regexForBanned}, "g")
-    const console = require('console');
-    let message = request.message;
+    return `if(request && request.ok) {
+      const bannedChannel = new RegExp(${regexForBanned}, "g");
+      const console = require('console');
+      const xhr = require("xhr");
+      const pubnub = require('pubnub');
+      let message = request.message;
 
-    if(bannedChannel.test(request.channels[0])){
-       console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
-       return request.ok(message);
-    }
+      if (!message.text) {
+        return request.ok();
+      }
 
-    const xhr = require("xhr");
-    ${selectedDetectionTool}
-    if(checkThresholdForThirdParty){
+      if(bannedChannel.test(request.channels[0])){
+        console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
+        return request.ok();
+      }
 
-             var originalMessage = request.message.text;
-             const moderatedMessage = message.text.replace(/[a-z-A-Z-!]/g, '${automaticDetectionCharacterToMaskWith}');
+      console.log("received text moderation request: ", message);
+      const originalMessage = message.text;
+
+      ${selectedDetectionTool}
+      if(checkThresholdForThirdParty){
+             const moderatedMessage = originalMessage.replace(/[a-z-A-Z-!]/g, '${automaticDetectionCharacterToMaskWith}');
              let payload = {"type":"text", originalMessage, moderatedMessage};
              if (reasons && reasons.length) {
                payload.reason = reasons.join(", ");
@@ -150,7 +162,7 @@ function automaticMaskMessageAndReroute({
               "message": payload
               }).then((publishResponse) => {
                 console.log('Sending original message to banned.' + request.channels[0]);
-                console.log(publishResponse)
+                console.log(publishResponse);
               }).catch((err) => {
                   console.error(err);
               });
@@ -197,18 +209,28 @@ function automaticMaskMessageAndReroute({
 function automaticBlockMessage({ selectedDetectionTool, type }) {
   if (type === "default") {
     return `if(request && request.ok){
-    var bannedChannel = new RegExp(${regexForBanned}, "g");
-    let message = request.message;
+    const bannedChannel = new RegExp(${regexForBanned}, "g");
     const console = require('console');
-
-  if(bannedChannel.test(request.channels[0])){
-     console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
-     return request.ok(message);
-  }
     const xhr = require("xhr");
+    const pubnub = require('pubnub');
+    let message = request.message;
+
+    if (!message.text) {
+      return request.ok()
+    }
+
+    if(bannedChannel.test(request.channels[0])){
+      console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
+      return request.ok();
+    }
+
+    const originalMessage = message.text;
+    console.log("received text moderation request: ", message);
+
     ${selectedDetectionTool}
     if(checkThresholdForThirdParty){
-          return request.abort("moderated message");
+      console.log("automatic text moderation blocked message");  
+      return request.abort();  
     }
   return request.ok(message);
 
@@ -242,16 +264,25 @@ function automaticBlockMessage({ selectedDetectionTool, type }) {
 function automaticBlockMessageAndReroute({ selectedDetectionTool, type }) {
   if (type === "default") {
     return `if(request && request.ok){
-    const pubnub = require('pubnub');
-    var bannedChannel = new RegExp(${regexForBanned}, "g")
-    let message = request.message;
+    const xhr = require("xhr");
     const console = require('console');
+    const pubnub = require('pubnub');
+    const bannedChannel = new RegExp(${regexForBanned}, "g");
+
+    let message = request.message;
+
+    if (!message.text) {
+      return request.ok()
+    }
 
     if(bannedChannel.test(request.channels[0])){
-       console.log('Skipping moderation on message sent to banned channel: ' + request.channels[0]);
-       return request.ok(message);
+      console.log('Skipping moderation on message sent to banned channel: '  + request.channels[0]);
+      return request.ok();
     }
-    const xhr = require("xhr");
+
+    const originalMessage = message.text;
+    console.log("received text moderation request: ", message);
+
     ${selectedDetectionTool}
 
          if(checkThresholdForThirdParty){
@@ -259,16 +290,17 @@ function automaticBlockMessageAndReroute({ selectedDetectionTool, type }) {
               if (reasons && reasons.length) {
                 payload.reason = reasons.join(", ");
               }
-               pubnub.publish({
+              console.log('Sending original message to banned.' + request.channels[0]);
+              pubnub.publish({
                "channel": 'banned.'+request.channels[0],
                "message": payload
                }).then((publishResponse) => {
-                 console.log('Sending original message to banned.' + request.channels[0]);
-                 console.log(publishResponse)
+                 console.log(publishResponse);
                }).catch((err) => {
                    console.error(err);
                });
-               return request.abort("moderated message");
+               console.log("automatic text moderation blocked message");  
+               return request.abort();  
          }
 
         console.log('Sending moderated message to channel: ' + request.channels[0]);

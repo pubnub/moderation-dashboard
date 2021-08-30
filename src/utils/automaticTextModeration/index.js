@@ -4,9 +4,9 @@ export const getSelectedDetectionTool = (data) => {
     return `const apiKey = '${data.tisaneApiKey}';
       const abuseTypes = ['bigotry', 'personal_attack', 'criminal_activity', 'sexual_advances', 'profanity'];
       const serverityTypeObject = {
-        extreme:.25,
-        high:.50,
-        medium:.75,
+        extreme:0.25,
+        high:0.50,
+        medium:0.75,
         low:1,
         none:0
       };
@@ -16,15 +16,12 @@ export const getSelectedDetectionTool = (data) => {
         sexual_advances:${data.tisaneRiskFactorThresholdSexualAdvances},
         personal_attack:${data.tisaneRiskFactorThresholdCyberBullying},
         profanity:${data.tisaneRiskFactorThresholdProfanity}
-      }
-      if (!message.text) {
-        return request.ok()
-      }
+      };
       const url = "https://api.tisane.ai/parse";
       const http_options = {
         "method": "POST",
         "headers": {
-                    "Ocp-Apim-Subscription-Key": apiKey
+          "Ocp-Apim-Subscription-Key": apiKey
         },
         "body": JSON.stringify({
           "language": "${selectedLanguage}", // or whatever language you use
@@ -36,21 +33,25 @@ export const getSelectedDetectionTool = (data) => {
   
     return xhr.fetch(url, http_options).then(response => {
   
-      var body = JSON.parse(response.body);
-      var thirdPartyResponse = (response.status === 200 ? body : { error: body });
-      console.log('Response from tisane:');
-      console.log(thirdPartyResponse);
+      const body = JSON.parse(response.body);
+      const thirdPartyResponse = (response.status === 200 ? body : { error: body });
       let checkThresholdForThirdParty = false;
       const reasons = [];
       const serverityTypes = [];
+
+      // Check each abuse type returned against the threshold
       if (thirdPartyResponse.abuse && Array.isArray(thirdPartyResponse.abuse) && thirdPartyResponse.abuse.length) {
+        console.log('text moderation abuse analysis: ', thirdPartyResponse.abuse);
         thirdPartyResponse.abuse.forEach((element)=>{
           serverityTypes.push(element.severity);
           if (abuseTypeObject[element.type] !== 0) {
             if (abuseTypes.includes(element.type) && abuseTypeObject[element.type] >= serverityTypeObject[element.severity]) {
               const abuse = element.type.replace(/_/g, ' ');
               reasons.push(abuse+'; '+ element.severity);
-              checkThresholdForThirdParty = true;
+              if (!checkThresholdForThirdParty) {
+                console.log("Message was flagged by automatic text moderation.");
+                checkThresholdForThirdParty = true;
+              }
             }
           }
         });
