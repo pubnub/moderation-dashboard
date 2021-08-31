@@ -143,7 +143,7 @@ export const handleImageModerationSave = async (
       const fetchFunctions = await fetchPubNubFunction(app.id, token);
       const blockIdForImage = filterImageFunction(fetchFunctions, app)[0].id;
       await CreateEventHandler({
-        blockIdForImage,
+        blockId: blockIdForImage,
         token,
         state,
         setState,
