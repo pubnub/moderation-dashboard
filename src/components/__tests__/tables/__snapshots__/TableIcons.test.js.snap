@@ -9,7 +9,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
           }
         }
         title="View"
@@ -21,7 +21,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
@@ -222,7 +222,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
           }
         }
         title="Edit"
@@ -234,7 +234,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
@@ -434,7 +434,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-11",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
           }
         }
         title="Delete"
@@ -446,7 +446,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-11",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",

@@ -126,12 +126,12 @@ export const formatDate = (date) => {
 };
 
 export const truncateString = (string, index) => {
-  if (
-    (string && string.length > 20 && index === "id") ||
-    (string && string.length > 20 && index === "description")
-  ) {
-    return string.substring(0, 18) + "...";
-  }
+  // if (
+  //   (string && string.length > 20 && index === "id") ||
+  //   (string && string.length > 20 && index === "description")
+  // ) {
+  //   return string.substring(0, 18) + "...";
+  // }
   if (string && string.length > 50) {
     return string.substring(0, 48) + "...";
   }

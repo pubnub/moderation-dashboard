@@ -66,12 +66,11 @@ exports[`Test Cases for Listing Table Snapshot 1`] = `
       ]
     }
   />
-  <WithStyles(ForwardRef(TableContainer))
-    className="makeStyles-table-7"
-  >
+  <WithStyles(ForwardRef(TableContainer))>
     <WithStyles(ForwardRef(Table))
       aria-label="enhanced table"
       aria-labelledby="tableTitle"
+      className="makeStyles-table-8"
       size="medium"
     >
       <EnhancedTableHead

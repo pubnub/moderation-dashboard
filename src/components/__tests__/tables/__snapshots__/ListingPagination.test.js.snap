@@ -7,7 +7,7 @@ exports[`Test Cases for Listing Pagination Snapshot 1`] = `
       "color": "primary",
     }
   }
-  className="makeStyles-tablePagination-10"
+  className="makeStyles-tablePagination-11"
   component="div"
   count={1}
   labelDisplayedRows={[Function]}

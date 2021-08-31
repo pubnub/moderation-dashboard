@@ -282,7 +282,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
               "color": "primary",
             }
           }
-          className="makeStyles-tablePagination-10"
+          className="makeStyles-tablePagination-11"
           component="div"
           count={1}
           labelDisplayedRows={[Function]}
@@ -306,7 +306,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                 "color": "primary",
               }
             }
-            className="makeStyles-tablePagination-10"
+            className="makeStyles-tablePagination-11"
             classes={
               Object {
                 "actions": "MuiTablePagination-actions",
@@ -339,7 +339,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
             }
           >
             <div
-              className="MuiTablePagination-root makeStyles-tablePagination-10"
+              className="MuiTablePagination-root makeStyles-tablePagination-11"
             >
               <WithStyles(ForwardRef(Toolbar))
                 className="MuiTablePagination-toolbar"
@@ -667,11 +667,8 @@ exports[`Test Case For Application Table Snapshot 1`] = `
           </ForwardRef(TablePagination)>
         </WithStyles(ForwardRef(TablePagination))>
       </ListingPagination>
-      <WithStyles(ForwardRef(TableContainer))
-        className="makeStyles-table-7"
-      >
+      <WithStyles(ForwardRef(TableContainer))>
         <ForwardRef(TableContainer)
-          className="makeStyles-table-7"
           classes={
             Object {
               "root": "MuiTableContainer-root",
@@ -679,16 +676,18 @@ exports[`Test Case For Application Table Snapshot 1`] = `
           }
         >
           <div
-            className="MuiTableContainer-root makeStyles-table-7"
+            className="MuiTableContainer-root"
           >
             <WithStyles(ForwardRef(Table))
               aria-label="enhanced table"
               aria-labelledby="tableTitle"
+              className="makeStyles-table-8"
               size="medium"
             >
               <ForwardRef(Table)
                 aria-label="enhanced table"
                 aria-labelledby="tableTitle"
+                className="makeStyles-table-8"
                 classes={
                   Object {
                     "root": "MuiTable-root",
@@ -700,7 +699,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                 <table
                   aria-label="enhanced table"
                   aria-labelledby="tableTitle"
-                  className="MuiTable-root"
+                  className="MuiTable-root makeStyles-table-8"
                   role={null}
                 >
                   <EnhancedTableHead
@@ -1472,7 +1471,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             mr={1}
                                           >
                                             <div
-                                              className="MuiBox-root MuiBox-root-11"
+                                              className="MuiBox-root MuiBox-root-12"
                                             >
                                               <WithStyles(ForwardRef(Avatar))
                                                 style={
@@ -1522,7 +1521,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           </Styled(MuiBox)>
                                           <Styled(MuiBox)>
                                             <div
-                                              className="MuiBox-root MuiBox-root-12"
+                                              className="MuiBox-root MuiBox-root-13"
                                             >
                                               <small
                                                 className="makeStyles-keyName-4"
@@ -1540,7 +1539,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             pt={1}
                                           >
                                             <div
-                                              className="MuiBox-root MuiBox-root-13"
+                                              className="MuiBox-root MuiBox-root-14"
                                             >
                                               <Markers
                                                 row={

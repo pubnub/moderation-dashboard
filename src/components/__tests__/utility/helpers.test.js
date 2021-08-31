@@ -266,15 +266,6 @@ describe("Test Cases For Helper", () => {
   });
 
   test("check for truncate String function", () => {
-    const truncateIdStr = truncateString(`091Abc6abj212345555addd`, "id");
-    expect(truncateIdStr).toEqual("091Abc6abj21234555...");
-
-    const truncateDesStr = truncateString(
-      `Lorem ipsum dolor sit amet, consectetuer adipiscing elit`,
-      "description"
-    );
-    expect(truncateDesStr).toEqual("Lorem ipsum dolor ...");
-
     const truncateStr = truncateString(`Lorem`, "description");
     expect(truncateStr).toEqual("Lorem");
 

@@ -5,18 +5,16 @@ export const useStyles = makeStyles({
     background: "#FFFFFF 0% 0% no-repeat padding-box",
     cursor: "pointer",
     margin: "10px",
-    // boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)",
-    border: "15px solid #fafafa",
+    boxShadow: "0px 1px 3px 0px rgb(0 0 0 / 8%)",
     opacity: 1,
     "& button": {
-      display: "none",
+      visibility: "hidden",
     },
     "&:hover": {
       "& button": {
-        display: "inline-block",
+        visibility: "visible",
       },
     },
-    minHeight: "80px",
   },
   tablehead: {
     "& .MuiTableHead-root": {
@@ -56,16 +54,21 @@ export const useStyles = makeStyles({
   icons: {
     padding: "0px",
   },
-  table: {
+  tableConatiner: {
     scrollbarWidth: "none",
     overflow: "auto",
     overflowX: "hidden",
+  },
+  table: {
+    borderCollapse: "separate",
+    borderSpacing: "0 10px",
   },
   alertMessage: {
     background: "transparent",
   },
   tableCellIcon: {
-    width: "220px",
+    width: "1px",
+    whiteSpace: "nowrap",
   },
   tablePagination: {
     "& .MuiTablePagination-actions": {

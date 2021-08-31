@@ -78,11 +78,8 @@ exports[`User table meta data Modal Snapshot 1`] = `
         tableCount={0}
         tableData={Array []}
       />
-      <WithStyles(ForwardRef(TableContainer))
-        className="makeStyles-table-7"
-      >
+      <WithStyles(ForwardRef(TableContainer))>
         <ForwardRef(TableContainer)
-          className="makeStyles-table-7"
           classes={
             Object {
               "root": "MuiTableContainer-root",
@@ -90,16 +87,18 @@ exports[`User table meta data Modal Snapshot 1`] = `
           }
         >
           <div
-            className="MuiTableContainer-root makeStyles-table-7"
+            className="MuiTableContainer-root"
           >
             <WithStyles(ForwardRef(Table))
               aria-label="enhanced table"
               aria-labelledby="tableTitle"
+              className="makeStyles-table-8"
               size="medium"
             >
               <ForwardRef(Table)
                 aria-label="enhanced table"
                 aria-labelledby="tableTitle"
+                className="makeStyles-table-8"
                 classes={
                   Object {
                     "root": "MuiTable-root",
@@ -111,7 +110,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                 <table
                   aria-label="enhanced table"
                   aria-labelledby="tableTitle"
-                  className="MuiTable-root"
+                  className="MuiTable-root makeStyles-table-8"
                   role={null}
                 >
                   <EnhancedTableHead
@@ -745,11 +744,11 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     className="MuiTableCell-root MuiTableCell-body"
                                   >
                                     <WithStyles(ForwardRef(Alert))
-                                      className="makeStyles-alertMessage-8"
+                                      className="makeStyles-alertMessage-9"
                                       severity="info"
                                     >
                                       <ForwardRef(Alert)
-                                        className="makeStyles-alertMessage-8"
+                                        className="makeStyles-alertMessage-9"
                                         classes={
                                           Object {
                                             "action": "MuiAlert-action",
@@ -773,13 +772,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                         severity="info"
                                       >
                                         <WithStyles(ForwardRef(Paper))
-                                          className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-8"
+                                          className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9"
                                           elevation={0}
                                           role="alert"
                                           square={true}
                                         >
                                           <ForwardRef(Paper)
-                                            className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-8"
+                                            className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9"
                                             classes={
                                               Object {
                                                 "elevation0": "MuiPaper-elevation0",
@@ -817,7 +816,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             square={true}
                                           >
                                             <div
-                                              className="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-8 MuiPaper-elevation0"
+                                              className="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9 MuiPaper-elevation0"
                                               role="alert"
                                             >
                                               <div
@@ -895,7 +894,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="confirm-dialog"
-      className="makeStyles-confirmDialog-13"
+      className="makeStyles-confirmDialog-14"
       fullWidth={true}
       id="dialog"
       maxWidth="xs"
@@ -904,7 +903,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
     >
       <ForwardRef(Dialog)
         aria-labelledby="confirm-dialog"
-        className="makeStyles-confirmDialog-13"
+        className="makeStyles-confirmDialog-14"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -1253,7 +1252,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-confirmDialog-13"
+          className="MuiDialog-root makeStyles-confirmDialog-14"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}
@@ -1273,14 +1272,14 @@ exports[`User table meta data Modal Snapshot 1`] = `
     <div>
       <WithStyles(ForwardRef(Dialog))
         aria-labelledby="customized-dialog-title"
-        className="makeStyles-modalLayout-21"
+        className="makeStyles-modalLayout-22"
         fullWidth={true}
         onClose={[Function]}
         open={false}
       >
         <ForwardRef(Dialog)
           aria-labelledby="customized-dialog-title"
-          className="makeStyles-modalLayout-21"
+          className="makeStyles-modalLayout-22"
           classes={
             Object {
               "container": "MuiDialog-container",
@@ -1627,7 +1626,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                 },
               }
             }
-            className="MuiDialog-root makeStyles-modalLayout-21"
+            className="MuiDialog-root makeStyles-modalLayout-22"
             closeAfterTransition={true}
             disableBackdropClick={false}
             disableEscapeKeyDown={false}
@@ -1648,7 +1647,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="confirm-dialog"
-      className="makeStyles-confirmDialog-13"
+      className="makeStyles-confirmDialog-14"
       fullWidth={true}
       maxWidth="xs"
       onClose={[Function]}
@@ -1657,7 +1656,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
     >
       <ForwardRef(Dialog)
         aria-labelledby="confirm-dialog"
-        className="makeStyles-confirmDialog-13"
+        className="makeStyles-confirmDialog-14"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -2006,7 +2005,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-confirmDialog-13"
+          className="MuiDialog-root makeStyles-confirmDialog-14"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}
@@ -2026,14 +2025,14 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="customized-dialog-title"
-      className="makeStyles-modalLayout-21"
+      className="makeStyles-modalLayout-22"
       fullWidth={true}
       onClose={[Function]}
       open={false}
     >
       <ForwardRef(Dialog)
         aria-labelledby="customized-dialog-title"
-        className="makeStyles-modalLayout-21"
+        className="makeStyles-modalLayout-22"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -2380,7 +2379,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-modalLayout-21"
+          className="MuiDialog-root makeStyles-modalLayout-22"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}

@@ -141,8 +141,13 @@ export default function ListingTable(props) {
         tableData={tableData}
         rowsPerPage={rowsPerPage}
       />
-      <TableContainer className={classes.table}>
-        <Table aria-labelledby="tableTitle" size={"medium"} aria-label="enhanced table">
+      <TableContainer className={classes.tableContainer}>
+        <Table
+          aria-labelledby="tableTitle"
+          size={"medium"}
+          aria-label="enhanced table"
+          className={classes.table}
+        >
           <EnhancedTableHead
             headOrder={order}
             headOrderBy={orderBy}
