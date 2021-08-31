@@ -240,6 +240,14 @@ export async function stopPubNubFunction(credentials, token) {
 
 // Create a event handler
 export async function createPubNubEventHandler(credentials, token) {
+  if (typeof credentials.code == "string") {
+    // Clean up indentation of function logic before sending to PubNub
+    credentials.code = beautify(credentials.code, {
+      indent_size: 4,
+      space_in_empty_paren: true,
+    });
+  }
+
   const response = await axios.post(
     `v1/blocks/key/${credentials.key_id}/event_handler`,
     credentials,
