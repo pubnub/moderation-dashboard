@@ -11,7 +11,6 @@ import usePubNub from "../../utils/usePubNub";
 import {
   capitalizeFirstLetter,
   capitalizeNameInitials,
-  checkChannelMember,
   formatTimeToken,
   formatBannedMessage,
   getMessageFileUrl,
@@ -107,33 +106,38 @@ const Messages = () => {
         const channelMessages = await fetchMessages(pubnub, channelID);
         const messagesList = [];
         let messageObject = {};
-        let index = 0;
         let messagesSet = [];
         if (channelMessages) {
-          while (index <= members.length) {
-            index++;
-            // eslint-disable-next-line no-loop-func
-            channelMessages.map((channelMessage, j) => {
-              messageObject = channelMessage.message;
-              messageObject.time = formatTimeToken(channelMessage.timetoken);
-              messageObject.timetoken = channelMessage.timetoken;
-              messageObject.actions = channelMessage.actions;
-              messageObject.actionToken =
-                channelMessage.actions &&
-                channelMessage.actions.deleted &&
-                channelMessage.actions.deleted["."][0].actionTimetoken;
-              messageObject.text = getMessageText(channelMessage, messageObject);
-              let channelMember = checkChannelMember(members[index]);
-              if (channelMember === channelMessage.uuid) {
-                messageObject.name = capitalizeFirstLetter(members[index].uuid.name);
-                messageObject.profileUrl = members[index].uuid.profileUrl;
-              }
-              formatBannedMessage(messageObject);
-              messagesSet = getMessageFileUrl(messageObject, channelMessage, pubnub, channelID);
-              messagesList.push(messagesSet);
-              return false;
-            });
-          }
+          channelMessages.map((channelMessage, j) => {
+            messageObject = channelMessage.message;
+            messageObject.time = formatTimeToken(channelMessage.timetoken);
+            messageObject.timetoken = channelMessage.timetoken;
+            messageObject.actions = channelMessage.actions;
+            messageObject.actionToken =
+              channelMessage.actions &&
+              channelMessage.actions.deleted &&
+              channelMessage.actions.deleted["."][0].actionTimetoken;
+            messageObject.text = getMessageText(channelMessage, messageObject);
+            // Get the original senders uuid from the user's publish or
+            // if message was sent to banned channel by a function, find it in the message payload
+            let senderUuid = channelMessage.uuid || channelMessage.message.senderUuid;
+            // Use the sender's uuid to add the name/avatar info to the message
+            let filterMember =
+              senderUuid && members && members.filter((member) => member.uuid.id === senderUuid);
+            if (filterMember && filterMember.length) {
+              messageObject.name = capitalizeFirstLetter(
+                filterMember[0].uuid.name || filterMember[0].uuid.id
+              );
+              messageObject.profileUrl = filterMember[0].uuid.profileUrl;
+            } else if (senderUuid) {
+              // Display uuid even if there is no name metadata
+              messageObject.name = senderUuid;
+            }
+            formatBannedMessage(messageObject);
+            messagesSet = getMessageFileUrl(messageObject, channelMessage, pubnub, channelID);
+            messagesList.push(messagesSet);
+            return false;
+          });
         }
 
         setMessages([...new Set(messagesList)]);
@@ -171,42 +175,58 @@ const Messages = () => {
     setMessages(filteredArray);
   };
 
+  const handleMessage = (message) => {
+    let messageObject = {};
+    // messages sent to banned channel by moderation include a senderUuid field
+    let senderUuid = message.publisher || (message.message && message.message.senderUuid);
+    let filterMember =
+      senderUuid && members && members.filter((member) => member.uuid.id === senderUuid);
+    messageObject = message.message || message;
+    if (filterMember && filterMember.length) {
+      messageObject.name = filterMember[0].uuid.name || filterMember[0].uuid.id;
+      messageObject.profileUrl = filterMember[0].uuid.profileUrl;
+    } else if (senderUuid) {
+      // Display uuid even if there is no name metadata
+      messageObject.name = senderUuid;
+    }
+    if (
+      message &&
+      message.file &&
+      message.file.id &&
+      message.file.name &&
+      messageObject.message.file.url
+    ) {
+      const url = pubnub.getFileUrl({
+        channel: channelID,
+        id: message.file.id,
+        name: message.file.name,
+      });
+      messageObject.file.url = url;
+    }
+    messageObject.time = formatTimeToken(message.timetoken);
+    messageObject.timetoken = message.timetoken;
+    formatBannedMessage(messageObject);
+    setMessages((oldArray) => [...oldArray, messageObject]);
+  };
+
+  const pubnubListener = {
+    message: handleMessage,
+    file: handleMessage,
+  };
+
+  const leaveChannel = () => {
+    pubnub.removeListener(pubnubListener);
+    pubnub.unsubscribeAll();
+  };
+
   useEffect(() => {
     if (channelID) {
-      pubnub.unsubscribeAll();
-      pubnub.addListener({
-        message: ({ ...receivedMessage }) => {
-          let messageObject = {};
-          let filterMember =
-            members && members.filter((member) => member.uuid.id === receivedMessage.publisher);
-          messageObject = receivedMessage.message;
-          if (filterMember.length) {
-            messageObject.name = filterMember[0].uuid.name;
-            messageObject.profileUrl = filterMember[0].uuid.profileUrl;
-          }
-          if (
-            messageObject.message &&
-            messageObject.message.file &&
-            messageObject.message.file.id &&
-            messageObject.message.file.name &&
-            !messageObject.message.file.url
-          ) {
-            const url = pubnub.getFileUrl({
-              channel: channelID,
-              id: messageObject.message.file.id,
-              name: messageObject.message.file.name,
-            });
-            messageObject.file.url = url;
-          }
-          messageObject.time = formatTimeToken(receivedMessage.timetoken);
-          messageObject.timetoken = receivedMessage.timetoken;
-          setMessages((oldArray) => [...oldArray, messageObject]);
-        },
-      });
+      pubnub.addListener(pubnubListener);
       pubnub.subscribe({ channels: [channelID] });
+      return leaveChannel;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [members]);
+  }, [members, channelID]);
 
   const handleMemberDetails = (memberData) => {
     setMemberDetails(memberData);

@@ -133,14 +133,15 @@ function wordListMaskWordsAndReroute({ regex, wordListCharacterToMaskWith, type 
       badWords.test(request.message.text) &&
       !bannedChannel.test(request.channels[0])
     ) {
-      var originalMessage = request.message.text
+      const originalMessage = request.message.text;
+      const senderUuid = request.params.uuid;
       const moderatedMessage = originalMessage.replace(badWords, '${wordListCharacterToMaskWith.repeat(
         3
       )}');
       request.message.text = moderatedMessage;
       pubnub.publish({
       "channel": 'banned.'+request.channels[0],
-      "message":{ "type":"text", originalMessage, moderatedMessage }
+      "message":{ "type":"text", originalMessage, moderatedMessage, senderUuid }
       }).then((publishResponse) => {
         console.log(publishResponse)
       }).catch((err) => {
@@ -215,7 +216,11 @@ function wordListBlockMessageAndReroute({ regex, type }) {
       console.log("Found word(s) from moderation list. Publishing to banned channel");
       pubnub.publish({
       "channel": 'banned.'+request.channels[0],
-      "message": { originalMessage: message.text, "type":"text" }
+      "message": { 
+        type: "text", 
+        originalMessage: message.text, 
+        senderUuid: request.params.uuid
+      }
       }).then((publishResponse) => {
         console.log(publishResponse)
       }).catch((err) => {
