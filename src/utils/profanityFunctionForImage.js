@@ -162,8 +162,8 @@ export default function profanityFunctionForImage(data) {
 
           // this block handles re-routing
           if (payload.file || payload.message) {
-            return pubnub
-            .publish({
+            payload.senderUuid = request.params.uuid;
+            return pubnub.publish({
               channel: "banned." + request.channels[0],
               message: payload,
             })
@@ -260,6 +260,6 @@ export default function profanityFunctionForImage(data) {
           sightengineRiskFactorThreshold: '${sightengineRiskFactorThreshold}',
           reRouteMessages: '${reRouteMessages}',
           applyToAllChannelIds: '${applyToAllChannelIds}'
-        }
+        };
     }`;
 }

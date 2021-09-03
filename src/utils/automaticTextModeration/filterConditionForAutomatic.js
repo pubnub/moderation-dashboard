@@ -149,11 +149,12 @@ function automaticMaskMessageAndReroute({
 
       console.log("received text moderation request: ", message);
       const originalMessage = message.text;
+      const senderUuid = request.params.uuid;
 
       ${selectedDetectionTool}
       if(checkThresholdForThirdParty){
              const moderatedMessage = originalMessage.replace(/[a-z-A-Z-!]/g, '${automaticDetectionCharacterToMaskWith}');
-             let payload = {"type":"text", originalMessage, moderatedMessage};
+             let payload = {"type":"text", originalMessage, moderatedMessage, senderUuid};
              if (reasons && reasons.length) {
                payload.reason = reasons.join(", ");
              }
@@ -281,12 +282,13 @@ function automaticBlockMessageAndReroute({ selectedDetectionTool, type }) {
     }
 
     const originalMessage = message.text;
+    const senderUuid = request.params.uuid;
     console.log("received text moderation request: ", message);
 
     ${selectedDetectionTool}
 
          if(checkThresholdForThirdParty){
-              let payload = {"type":"text", originalMessage: request.message.text};
+              let payload = {"type":"text", originalMessage, senderUuid};
               if (reasons && reasons.length) {
                 payload.reason = reasons.join(", ");
               }
