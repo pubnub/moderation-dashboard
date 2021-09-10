@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   ClickAwayListener,
@@ -22,6 +23,7 @@ export default function MyAccountDropdown({ accounts }) {
   const [open, setOpen] = useState(false);
   const prevOpen = useRef(open);
   const anchorRef = useRef(null);
+  const history = useHistory();
 
   const handleToggle = () => {
     setOpen((prevOpenState) => !prevOpenState);
@@ -86,11 +88,7 @@ export default function MyAccountDropdown({ accounts }) {
                     <Box pl={2} pr={2}>
                       <Divider />
                     </Box>
-                    <MenuItem
-                      onClick={() =>
-                        signout(() => (window.location.href = "/moderation-dashboard"))
-                      }
-                    >
+                    <MenuItem onClick={() => signout(() => history.push("/"))}>
                       <img src={process.env.PUBLIC_URL + "/images/sign-out.svg"} alt="Signout" />
                       <Box pl={1}>
                         <small>Logout</small>

@@ -2,16 +2,18 @@ import React from "react";
 import AccountCard from "./AccountCard";
 import { fetchAllApps } from "../../services/pubnub";
 import { getCookie, setLocalStorage } from "../../services/localStorage";
+import { useHistory } from "react-router-dom";
 
 const AccountList = ({ accounts }) => {
   const token = getCookie("token");
+  const history = useHistory();
 
   const handleClick = async (selectedAccount) => {
     try {
       let apps = await fetchAllApps(selectedAccount.id, token);
       setLocalStorage("PubNubSelectedAccount", selectedAccount);
       setLocalStorage("PubNubApplications", apps);
-      window.location.href = "/dashboard";
+      history.push("/dashboard");
     } catch (e) {
       throw new Error(e);
     }

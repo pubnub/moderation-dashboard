@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link as RouterLink } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -49,15 +49,15 @@ export default function Header() {
     } else if (history.location.pathname === "/channels/messages") {
       return (
         <Breadcrumbs separator={<NavigateNext fontSize="small" />} aria-label="breadcrumb">
-          <Link color="primary" href="/dashboard">
+          <Link color="primary" component={RouterLink} to="/dashboard">
             <Typography variant="body2">Applications</Typography>
           </Link>
-          <Link color="primary" href="/overview">
+          <Link color="primary" component={RouterLink} to="/overview">
             <Typography color="primary" variant="body2">
               {keySet && keySet.name}
             </Typography>
           </Link>
-          <Link color="primary" href="/channels">
+          <Link color="primary" component={RouterLink} to="/channels">
             <Typography color="primary" variant="body2">
               Channels
             </Typography>
