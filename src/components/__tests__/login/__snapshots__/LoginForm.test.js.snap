@@ -44,7 +44,7 @@ exports[`This suit will test the login functionality Snapshot of the LoginForm 1
                   <p
                     class="MuiTypography-root makeStyles-logSubtitle-8 MuiTypography-body1 MuiTypography-alignCenter"
                   >
-                    Enter to continue and explore within your grasp
+                    Login with your PubNub account to continue
                   </p>
                 </div>
               </div>

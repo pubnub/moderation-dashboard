@@ -108,7 +108,7 @@ const LoginForm = () => {
                     </Grid>
                     <Grid item sm={12} md={12} xs={12}>
                       <Typography className={classes.logSubtitle} align="center">
-                        Enter to continue and explore within your grasp
+                        Login with your PubNub account to continue
                       </Typography>
                     </Grid>
                   </Grid>
