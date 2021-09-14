@@ -25,6 +25,7 @@ export default function Search(props) {
         </>
       }
       disabled={props.disabled}
+      autoComplete="off"
     />
   );
 }

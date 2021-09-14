@@ -5,7 +5,6 @@ import {
   Toolbar,
   IconButton,
   Grid,
-  Button,
   Breadcrumbs,
   Typography,
   Link,
@@ -87,12 +86,6 @@ export default function Header() {
           <div className={classes.verticalLine} />
           {showBreadcrumbs()}
           <div className={classes.grow} />
-          <Grid item>
-            <Button className={classes.button}>Docs</Button>
-          </Grid>
-          <Grid item>
-            <div className={classes.verticalLine} />
-          </Grid>
           <Grid item className={classes.headerMenu}>
             <MyAccountDropdown accounts={accounts} />
           </Grid>

@@ -2,6 +2,7 @@
 
 exports[`Search Test Cases Snapshot 1`] = `
 <WithStyles(ForwardRef)
+  autoComplete="off"
   className="makeStyles-searchInput-7"
   id="searchBar"
   onCancelSearch={[Function]}
