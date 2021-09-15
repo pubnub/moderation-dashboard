@@ -40,16 +40,17 @@ developers building a new chat application.
 
    - Ban User: A banned user should not have any access to any channel in a chat application. Chat
      applications that enforce banned users via metadata should inspect a user’s metadata after they
-     “log in” to the chat app. If the metadata includes a “ban: true” field, the application should
-     log the user out, or otherwise prevent them from viewing or sending messages to any channels.
-     Developers whose chat apps use PAM may wish to update the code in BanUser.js, replacing (or
-     adding to) the call to setUserMetaData, with a call to the backend service that manages the PAM
-     tokens, ie: https:/mypamservice.acme.com/blockUser?uuid=UUID. This interface should implement a
-     pubnub.grant() call that sets the user's read and write permissions to false for all channels.
+     “log in” to the chat app. If the metadata includes a `“ban: true”` field, the application
+     should log the user out, or otherwise prevent them from viewing or sending messages to any
+     channels. Developers whose chat apps use PAM may wish to update the code in BanUser.js,
+     replacing (or adding to) the call to setUserMetaData, with a call to the backend service that
+     manages the PAM tokens, ie: https:/mypamservice.acme.com/blockUser?uuid=UUID. This interface
+     should implement a pubnub.grant() call that sets the user's read and write permissions to false
+     for all channels.
 
    - Mute User: A muted user should be allowed to see the messages in a channel, but should not be
      allowed to publish them. To enforce a muted user on a particular channel using the user’s
-     metadata, inspect the mutedChannels property of the user’s metadata. If the comma separated
+     metadata, inspect the `mutedChannels` property of the user’s metadata. If the comma separated
      list in the value includes the current channel, the application should provide some type of GUI
      that informs the user they are muted on the channel and does not allow them to publish to that
      channel. Developers whose chat apps use PAM may wish to update the code in UserAction.js,
@@ -60,15 +61,26 @@ developers building a new chat application.
 
    - Block User: A blocked users should not be allowed to see messages or create new messages to any
      channels that they are blocked from. To enforce a blocked user on a particular channel using
-     the user’s metadata, inspect the blockedChannels property of the user’s metadata. If the comma
-     separated list in the value includes the current channel, the application should provide some
-     type of GUI that informs the user they are blocked from the channel and does not allow them to
-     subscribe or publish to that channel. Developers whose chat apps use PAM may wish to update the
-     code in UserAction.js, replacing (or adding to) the call to handleMuteClick, with a call to the
-     backend service that manages the PAM tokens, ie:
+     the user’s metadata, inspect the `blockedChannels` property of the user’s metadata. If the
+     comma separated list in the value includes the current channel, the application should provide
+     some type of GUI that informs the user they are blocked from the channel and does not allow
+     them to subscribe or publish to that channel. Developers whose chat apps use PAM may wish to
+     update the code in UserAction.js, replacing (or adding to) the call to handleMuteClick, with a
+     call to the backend service that manages the PAM tokens, ie:
      https:/mypamservice.acme.com/blockUser?uuid=UUID&channel=CHANNELID. This interface should
      implement a pubnub.grant() call that sets the user's read and write permissions to false for
      the channel
+
+   - Flag User: Moderated chat apps may wish to implement the ability for one user to flag another
+     user. Apps that implement this functionality should update the flagged user's metadata with the
+     following key/values:
+
+     ```json
+     flag: true,
+     flaggedAt: "2021-09-10T07:40:15.538Z", // ISO timestamp when flagging occured
+     flaggedBy: "uuid - userName", // flagging user's uuid and name
+     reason: "reason for flagged"  // optional reason collected in flagging UI
+     ```
 
 2. Channels
 
@@ -79,9 +91,13 @@ developers building a new chat application.
 
    Here is an example of a fully populated channel object that can be interpreted by the dashboard.
 
-   ```bash
+   ```json
    custom: {
-   "id": "space_bc03548bcb11eb8dcd0242c130", "name": "Besties", "description": "", "updated": "2021-08-05T07:05:30.480949Z"}
+     "id": "space_bc03548bcb11eb8dcd0242c130",
+     "name": "Besties",
+     "description": "",
+     "updated": "2021-08-05T07:05:30.480949Z"
+   }
    ```
 
    Note: It is a best practice/encouraged that moderated channels follow a channel ID naming pattern
