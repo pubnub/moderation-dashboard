@@ -78,7 +78,7 @@ developers building a new chat application.
      ```json
      flag: true,
      flaggedAt: "2021-09-10T07:40:15.538Z", // ISO timestamp when flagging occured
-     flaggedBy: "uuid - userName", // flagging user's uuid and name
+     flaggedBy: uuid, // flagging user's uuid
      reason: "reason for flagged"  // optional reason collected in flagging UI
      ```
 
