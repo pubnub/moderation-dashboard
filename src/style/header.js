@@ -18,8 +18,8 @@ export const useStyles = makeStyles({
     fontSize: "15px",
   },
   verticalLine: {
-    marginLeft: "15px",
-    marginRight: "15px",
+    marginLeft: "10px",
+    marginRight: "20px",
     borderLeft: "2px solid lightgrey",
     height: "20px",
   },

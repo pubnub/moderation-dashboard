@@ -4,7 +4,6 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Button,
   Grid,
   Breadcrumbs,
   Typography,
@@ -22,7 +21,6 @@ export default function Header() {
   const [accounts, setAccounts] = useState([]);
   const keySet = selectedAppFromLS();
   const channelName = selectedChannelFromLS();
-  const appLink = `https://pubnub.github.io/react-chat-components/samples/#/moderated-chat?subkey=${keySet.subscribe_key}&pubkey=${keySet.publish_key}`;
 
   useEffect(() => {
     setAccounts(accountsFromLS());
@@ -88,16 +86,6 @@ export default function Header() {
           <div className={classes.verticalLine} />
           {showBreadcrumbs()}
           <div className={classes.grow} />
-          {keySet && (
-            <Grid item>
-              <Button className={classes.button} target="_blank" href={appLink}>
-                Moderated Chat
-              </Button>
-            </Grid>
-          )}
-          <Grid item>
-            <div className={classes.verticalLine} />
-          </Grid>
           <Grid item className={classes.headerMenu}>
             <MyAccountDropdown accounts={accounts} />
           </Grid>

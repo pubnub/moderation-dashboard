@@ -32,13 +32,6 @@ exports[`Test Cases for Header Snapshot 1`] = `
         className="makeStyles-grow-1"
       />
       <WithStyles(ForwardRef(Grid))
-        item={true}
-      >
-        <div
-          className="makeStyles-verticalLine-5"
-        />
-      </WithStyles(ForwardRef(Grid))>
-      <WithStyles(ForwardRef(Grid))
         className="makeStyles-headerMenu-3"
         item={true}
       >
