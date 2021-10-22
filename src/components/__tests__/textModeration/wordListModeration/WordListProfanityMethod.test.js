@@ -70,7 +70,7 @@ describe("Word List Text Moderation", () => {
 
     expect(wrapper.find("#channelId").getElement().props.placeholder).toBe("Channel");
     expect(wrapper.find("#defaultWordsBox").getElement().props.placeholder).toBe(
-      "Type @ to select parameters"
+      "comma,separated,list,of,words"
     );
 
     expect(wrapper.find("#maskChar").getElement().props.placeholder).toBe("Set");
