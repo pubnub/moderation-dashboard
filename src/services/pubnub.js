@@ -300,7 +300,7 @@ export async function updatePubNubEventHandler(credentials, token) {
 //To fetch user By name
 export async function getUserByName(pubnub, userName) {
   const usersResponse = await pubnub.objects.getAllUUIDMetadata({
-    filter: "name LIKE '" + userName + "*'",
+    filter: `name LIKE '*${userName}*'`,
   });
   if (usersResponse.status === 200) {
     return usersResponse.data;
@@ -311,7 +311,7 @@ export async function getUserByName(pubnub, userName) {
 //To fetch channel By name
 export async function getChannelByName(pubnub, channelName) {
   const usersResponse = await pubnub.objects.getAllChannelMetadata({
-    filter: "name LIKE '" + channelName + "*'",
+    filter: `name LIKE '*${channelName}*'`,
   });
   if (usersResponse.status === 200) {
     return usersResponse.data;
