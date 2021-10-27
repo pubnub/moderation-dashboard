@@ -181,7 +181,7 @@ const WordListProfanityMethod = ({
         <Box pt={1} mb={2}>
           <TextField
             id="defaultWordsBox"
-            placeholder="Type @ to select parameters"
+            placeholder="comma,separated,list,of,words"
             className={classes.languageWords}
             multiline
             error={wordsListPatternError}
