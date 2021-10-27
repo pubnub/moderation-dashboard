@@ -31,10 +31,6 @@ export default function BanUser(props) {
 
   const handleBanClick = (values) => {
     customMetaData.ban = action === "ban" ? true : false;
-    delete customMetaData.flag;
-    delete customMetaData.flaggedBy;
-    delete customMetaData.flaggedAt;
-    delete customMetaData.reason;
 
     setBanAlert({
       ...banAlert,
