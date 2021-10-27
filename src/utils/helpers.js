@@ -202,7 +202,7 @@ export const sliceTableArray = (tableData, page, rowsPerPage) => {
 };
 
 export const formatTimeToken = (timeToken) => {
-  if (timeToken) return moment.unix(timeToken / 10000000).format("hh:mm");
+  if (timeToken) return moment.unix(timeToken / 10000000).format("LT");
   return null;
 };
 

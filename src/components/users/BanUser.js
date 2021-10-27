@@ -29,9 +29,9 @@ export default function BanUser(props) {
     setOpen(false);
   };
 
-  customMetaData.ban = action === "ban" ? true : false;
-
   const handleBanClick = (values) => {
+    customMetaData.ban = action === "ban" ? true : false;
+
     setBanAlert({
       ...banAlert,
       success: { status: false, msg: "" },
