@@ -29,13 +29,13 @@ export default function BanUser(props) {
     setOpen(false);
   };
 
-  customMetaData.ban = action === "ban" ? true : false;
-  delete customMetaData.flag;
-  delete customMetaData.flaggedBy;
-  delete customMetaData.flaggedAt;
-  delete customMetaData.reason;
-
   const handleBanClick = (values) => {
+    customMetaData.ban = action === "ban" ? true : false;
+    delete customMetaData.flag;
+    delete customMetaData.flaggedBy;
+    delete customMetaData.flaggedAt;
+    delete customMetaData.reason;
+
     setBanAlert({
       ...banAlert,
       success: { status: false, msg: "" },
