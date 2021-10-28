@@ -29,15 +29,15 @@ export default function FilterUsers(props) {
     setOpen(false);
   };
 
-  const handleChange = (e) => {
-    if (e.target.checked && e.target.value === "ban") {
+  const handleChange = (action) => {
+    if (action === "ban" && !isBanChecked) {
       setIsFlagChecked(false);
       setIsBanChecked(true);
-      props.isFiltered(e.target.value);
-    } else if (e.target.checked && e.target.value === "flag") {
+      props.isFiltered(action);
+    } else if (action === "flag" && !isFlagChecked) {
       setIsBanChecked(false);
       setIsFlagChecked(true);
-      props.isFiltered(e.target.value);
+      props.isFiltered(action);
     } else {
       props.isFiltered("all");
       setIsBanChecked(false);
@@ -72,11 +72,10 @@ export default function FilterUsers(props) {
             </Typography>
           </Box>
           <List>
-            <ListItem>
+            <ListItem button onClick={() => handleChange("ban")} testid="banButton">
               <ListItemIcon>
                 <Checkbox
                   id="banCheck"
-                  onChange={handleChange}
                   name="banned_users"
                   value="ban"
                   color="primary"
@@ -89,11 +88,10 @@ export default function FilterUsers(props) {
                 </Typography>
               </ListItemText>
             </ListItem>
-            <ListItem>
+            <ListItem button onClick={() => handleChange("flag")} testid="flagButton">
               <ListItemIcon>
                 <Checkbox
                   id="flagCheck"
-                  onChange={handleChange}
                   name="flagged_users"
                   value="flag"
                   color="primary"

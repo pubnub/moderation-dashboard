@@ -68,14 +68,17 @@ exports[`Filter User meta data Modal Snapshhot 1`] = `
         </WithStyles(ForwardRef(Typography))>
       </Styled(MuiBox)>
       <WithStyles(ForwardRef(List))>
-        <WithStyles(ForwardRef(ListItem))>
+        <WithStyles(ForwardRef(ListItem))
+          button={true}
+          onClick={[Function]}
+          testid="banButton"
+        >
           <WithStyles(ForwardRef(ListItemIcon))>
             <WithStyles(ForwardRef(Checkbox))
               checked={false}
               color="primary"
               id="banCheck"
               name="banned_users"
-              onChange={[Function]}
               value="ban"
             />
           </WithStyles(ForwardRef(ListItemIcon))>
@@ -88,14 +91,17 @@ exports[`Filter User meta data Modal Snapshhot 1`] = `
             </WithStyles(ForwardRef(Typography))>
           </WithStyles(ForwardRef(ListItemText))>
         </WithStyles(ForwardRef(ListItem))>
-        <WithStyles(ForwardRef(ListItem))>
+        <WithStyles(ForwardRef(ListItem))
+          button={true}
+          onClick={[Function]}
+          testid="flagButton"
+        >
           <WithStyles(ForwardRef(ListItemIcon))>
             <WithStyles(ForwardRef(Checkbox))
               checked={false}
               color="primary"
               id="flagCheck"
               name="flagged_users"
-              onChange={[Function]}
               value="flag"
             />
           </WithStyles(ForwardRef(ListItemIcon))>
