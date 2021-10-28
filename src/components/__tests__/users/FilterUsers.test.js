@@ -33,15 +33,15 @@ describe("Filter User meta data Modal", () => {
   });
 
   test("check handleChange Function", () => {
-    component.find("#banCheck").simulate("change", { target: { checked: true, value: "ban" } });
+    component.find('[testid="banButton"]').simulate("click");
     expect(component.find("#banCheck").getElement().props.checked).toBe(true);
     expect(component.find("#flagCheck").getElement().props.checked).toBe(false);
 
-    component.find("#flagCheck").simulate("change", { target: { checked: true, value: "flag" } });
+    component.find('[testid="flagButton"]').simulate("click");
     expect(component.find("#flagCheck").getElement().props.checked).toBe(true);
     expect(component.find("#banCheck").getElement().props.checked).toBe(false);
 
-    component.find("#flagCheck").simulate("change", { target: { checked: false, value: "flag" } });
+    component.find('[testid="flagButton"]').simulate("click");
     expect(component.find("#flagCheck").getElement().props.checked).toBe(false);
     expect(component.find("#banCheck").getElement().props.checked).toBe(false);
   });
