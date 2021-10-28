@@ -55,20 +55,12 @@ export const useStyles = makeStyles((theme) => ({
   loaderLoading: {
     marginRight: "5px",
   },
-  rerouteBtn: {
+  reroute: {
     textTransform: "none",
-    marginLeft: "10px",
+    marginLeft: "8px",
     backgroundColor: "#FCF0EF",
     color: "#FB6340",
-    "&:hover": {
-      textTransform: "none",
-      marginLeft: "10px",
-      backgroundColor: "#FCF0EF",
-      color: "#FB6340",
-    },
-  },
-  rerouteIcon: {
-    marginRight: "5px",
+    marginTop: "5px",
   },
   infoIcon: {
     padding: "3px 0px 0px 5px",

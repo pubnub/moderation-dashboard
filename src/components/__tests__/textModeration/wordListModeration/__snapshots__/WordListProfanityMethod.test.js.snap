@@ -22,7 +22,7 @@ exports[`Word List Text Moderation Snapshot 1`] = `
         item={true}
       >
         <Styled(MuiBox)
-          className="makeStyles-infoIcon-21"
+          className="makeStyles-infoIcon-20"
         >
           <WithStyles(WithStyles(ForwardRef(Tooltip)))
             title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled."
@@ -189,7 +189,7 @@ exports[`Word List Text Moderation Snapshot 1`] = `
             item={true}
           >
             <Styled(MuiBox)
-              className="makeStyles-infoIcon-21"
+              className="makeStyles-infoIcon-20"
             >
               <WithStyles(WithStyles(ForwardRef(Tooltip)))
                 title="Note: Please add comma after a every word. No spaces are allowed"
@@ -315,7 +315,7 @@ exports[`Word List Text Moderation Snapshot 1`] = `
             item={true}
           >
             <Styled(MuiBox)
-              className="makeStyles-infoIcon-21"
+              className="makeStyles-infoIcon-20"
             >
               <WithStyles(WithStyles(ForwardRef(Tooltip)))
                 title="Note: Default value will be *"
@@ -391,17 +391,10 @@ exports[`Word List Text Moderation Snapshot 1`] = `
         item={true}
       >
         <Styled(MuiBox)>
-          <WithStyles(ForwardRef(Button))
+          <WithStyles(ForwardRef(Chip))
             className="makeStyles-reroute-18"
-          >
-            <img
-              alt="reroute"
-              className="makeStyles-rerouteIcon-19"
-              src="/images/reroute.svg"
-            />
-             
-            banned.initialText
-          </WithStyles(ForwardRef(Button))>
+            label="banned.initialText"
+          />
         </Styled(MuiBox)>
       </WithStyles(ForwardRef(Grid))>
     </WithStyles(ForwardRef(Grid))>
@@ -417,13 +410,6 @@ exports[`Word List Text Moderation Snapshot 1`] = `
       <WithStyles(ForwardRef(Grid))
         item={true}
       >
-        <WithStyles(ForwardRef(Button))
-          className="makeStyles-cancelButton-12"
-          id="cancel"
-          variant="contained"
-        >
-          Cancel
-        </WithStyles(ForwardRef(Button))>
         <WithStyles(ForwardRef(Button))
           className="makeStyles-saveButton-13"
           disabled={false}

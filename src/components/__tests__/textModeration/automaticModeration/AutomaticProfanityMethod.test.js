@@ -108,8 +108,7 @@ describe("Automatic Text Moderation", () => {
     expect(wrapper.find("#reRoute").getElement().props.checked).toBe(false);
   });
 
-  test("Check Cancel and Save Button", () => {
-    expect(wrapper.find("#cancel").text()).toBe("Cancel");
+  test("Check Save Button", () => {
     expect(wrapper.find("#save").text()).toBe("Save");
   });
 

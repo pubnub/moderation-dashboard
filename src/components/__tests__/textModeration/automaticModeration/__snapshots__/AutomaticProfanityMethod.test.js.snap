@@ -23,7 +23,7 @@ exports[`Automatic Text Moderation Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled."
@@ -162,7 +162,7 @@ exports[`Automatic Text Moderation Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               interactive={true}
@@ -529,7 +529,7 @@ exports[`Automatic Text Moderation Snapshot 1`] = `
             item={true}
           >
             <Styled(MuiBox)
-              className="makeStyles-infoIcon-10"
+              className="makeStyles-infoIcon-9"
             >
               <WithStyles(WithStyles(ForwardRef(Tooltip)))
                 title="Note: Default value will be *"
@@ -606,16 +606,10 @@ exports[`Automatic Text Moderation Snapshot 1`] = `
         item={true}
       >
         <Styled(MuiBox)>
-          <WithStyles(ForwardRef(Button))
-            className="makeStyles-rerouteBtn-8"
-          >
-            <img
-              alt="reroute"
-              className="makeStyles-rerouteIconStyle-9"
-              src="/images/reroute.svg"
-            />
-            banned.*
-          </WithStyles(ForwardRef(Button))>
+          <WithStyles(ForwardRef(Chip))
+            className="makeStyles-reroute-8"
+            label="banned.*"
+          />
         </Styled(MuiBox)>
       </WithStyles(ForwardRef(Grid))>
     </WithStyles(ForwardRef(Grid))>
@@ -631,13 +625,6 @@ exports[`Automatic Text Moderation Snapshot 1`] = `
       <WithStyles(ForwardRef(Grid))
         item={true}
       >
-        <WithStyles(ForwardRef(Button))
-          className="makeStyles-cancelButtonStyle-4"
-          id="cancel"
-          variant="contained"
-        >
-          Cancel
-        </WithStyles(ForwardRef(Button))>
         <WithStyles(ForwardRef(Button))
           className="makeStyles-saveButtonStyle-5"
           disabled={false}
