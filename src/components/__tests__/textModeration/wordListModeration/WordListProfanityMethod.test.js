@@ -123,8 +123,7 @@ describe("Word List Text Moderation", () => {
     expect(AllChannelFalse).toBeTruthy();
   });
 
-  test("Check Cancel and Save Button", () => {
-    expect(wrapper.find("#cancel").text()).toBe("Cancel");
+  test("Check Save Button", () => {
     expect(wrapper.find("#save").text()).toBe("Save");
   });
 });

@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   Card,
+  Chip,
   Typography,
   TextField,
   Select,
@@ -274,14 +275,7 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
             </Grid>
             <Grid item>
               <Box>
-                <Button className={classes.rerouteBtn}>
-                  <img
-                    src={process.env.PUBLIC_URL + "/images/reroute.svg"}
-                    className={classes.rerouteIcon}
-                    alt="reroute"
-                  />
-                  {"banned." + state.channelId}
-                </Button>
+                <Chip className={classes.reroute} label={"banned." + state.channelId} />
               </Box>
             </Grid>
           </Grid>
@@ -289,9 +283,6 @@ const AutomaticImageModeration = ({ state, setState, handleSave }) => {
           <Grid container justify="space-between" spacing={3}>
             <Grid item></Grid>
             <Grid item>
-              <Button id="cancel" className={classes.cancel} variant="contained">
-                Cancel
-              </Button>
               <Button
                 id="save"
                 className={classes.save}

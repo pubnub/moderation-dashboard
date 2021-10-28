@@ -145,18 +145,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   reroute: {
     textTransform: "none",
-    marginLeft: "10px",
+    marginLeft: "8px",
     backgroundColor: "#FCF0EF",
     color: "#FB6340",
-    "&:hover": {
-      textTransform: "none",
-      marginLeft: "10px",
-      backgroundColor: "#FCF0EF",
-      color: "#FB6340",
-    },
-  },
-  rerouteIcon: {
-    marginRight: "5px",
+    marginTop: "5px",
   },
   subTitle: {
     font: "var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-18)/var(--unnamed-line-spacing-23) var(--unnamed-font-family-proxima-nova)",
