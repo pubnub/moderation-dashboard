@@ -161,12 +161,17 @@ export default function ListingTable(props) {
                   {stableSort(tableSlice, getComparator(order, orderBy)).map((row, index) => {
                     return (
                       <TableRow
-                        hover
-                        className={classes.tableRow}
+                        hover={!!props.handleRowClick}
+                        className={`
+                          ${classes.tableRow}
+                          ${!!props.handleRowClick ? classes.tableRowClickable : ""}
+                        `}
                         role="checkbox"
                         tabIndex={-1}
                         key={`${row.id}-${index}`}
-                        onClick={(event) => props.handleRowClick(event, row, over)}
+                        onClick={(event) =>
+                          props.handleRowClick && props.handleRowClick(event, row, over)
+                        }
                       >
                         {headCells.map((headcell, n) => {
                           if (headcell.avatar) {

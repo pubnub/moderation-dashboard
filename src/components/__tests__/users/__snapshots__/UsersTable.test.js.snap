@@ -36,7 +36,6 @@ exports[`User table meta data Modal Snapshot 1`] = `
     editRow={[Function]}
     flagUser={[Function]}
     getNewPage={[Function]}
-    handleRowClick={[Function]}
     headCells={
       Array [
         Object {
@@ -92,13 +91,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
             <WithStyles(ForwardRef(Table))
               aria-label="enhanced table"
               aria-labelledby="tableTitle"
-              className="makeStyles-table-8"
+              className="makeStyles-table-9"
               size="medium"
             >
               <ForwardRef(Table)
                 aria-label="enhanced table"
                 aria-labelledby="tableTitle"
-                className="makeStyles-table-8"
+                className="makeStyles-table-9"
                 classes={
                   Object {
                     "root": "MuiTable-root",
@@ -110,7 +109,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                 <table
                   aria-label="enhanced table"
                   aria-labelledby="tableTitle"
-                  className="MuiTable-root makeStyles-table-8"
+                  className="MuiTable-root makeStyles-table-9"
                   role={null}
                 >
                   <EnhancedTableHead
@@ -120,10 +119,10 @@ exports[`User table meta data Modal Snapshot 1`] = `
                     rowCount={0}
                   >
                     <WithStyles(ForwardRef(TableHead))
-                      className="makeStyles-tablehead-2"
+                      className="makeStyles-tablehead-3"
                     >
                       <ForwardRef(TableHead)
-                        className="makeStyles-tablehead-2"
+                        className="makeStyles-tablehead-3"
                         classes={
                           Object {
                             "root": "MuiTableHead-root",
@@ -131,7 +130,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                         }
                       >
                         <thead
-                          className="MuiTableHead-root makeStyles-tablehead-2"
+                          className="MuiTableHead-root makeStyles-tablehead-3"
                           role={null}
                         >
                           <WithStyles(ForwardRef(TableRow))>
@@ -184,13 +183,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -204,13 +203,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -224,7 +223,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -318,13 +317,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -338,13 +337,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -358,7 +357,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -452,13 +451,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -472,13 +471,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -492,7 +491,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -586,13 +585,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -606,13 +605,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -626,7 +625,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -744,11 +743,11 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                     className="MuiTableCell-root MuiTableCell-body"
                                   >
                                     <WithStyles(ForwardRef(Alert))
-                                      className="makeStyles-alertMessage-9"
+                                      className="makeStyles-alertMessage-10"
                                       severity="info"
                                     >
                                       <ForwardRef(Alert)
-                                        className="makeStyles-alertMessage-9"
+                                        className="makeStyles-alertMessage-10"
                                         classes={
                                           Object {
                                             "action": "MuiAlert-action",
@@ -772,13 +771,13 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                         severity="info"
                                       >
                                         <WithStyles(ForwardRef(Paper))
-                                          className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9"
+                                          className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-10"
                                           elevation={0}
                                           role="alert"
                                           square={true}
                                         >
                                           <ForwardRef(Paper)
-                                            className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9"
+                                            className="MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-10"
                                             classes={
                                               Object {
                                                 "elevation0": "MuiPaper-elevation0",
@@ -816,7 +815,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                                             square={true}
                                           >
                                             <div
-                                              className="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-9 MuiPaper-elevation0"
+                                              className="MuiPaper-root MuiAlert-root MuiAlert-standardInfo makeStyles-alertMessage-10 MuiPaper-elevation0"
                                               role="alert"
                                             >
                                               <div
@@ -894,7 +893,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="confirm-dialog"
-      className="makeStyles-confirmDialog-14"
+      className="makeStyles-confirmDialog-15"
       fullWidth={true}
       id="dialog"
       maxWidth="xs"
@@ -903,7 +902,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
     >
       <ForwardRef(Dialog)
         aria-labelledby="confirm-dialog"
-        className="makeStyles-confirmDialog-14"
+        className="makeStyles-confirmDialog-15"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -1252,7 +1251,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-confirmDialog-14"
+          className="MuiDialog-root makeStyles-confirmDialog-15"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}
@@ -1272,14 +1271,14 @@ exports[`User table meta data Modal Snapshot 1`] = `
     <div>
       <WithStyles(ForwardRef(Dialog))
         aria-labelledby="customized-dialog-title"
-        className="makeStyles-modalLayout-22"
+        className="makeStyles-modalLayout-23"
         fullWidth={true}
         onClose={[Function]}
         open={false}
       >
         <ForwardRef(Dialog)
           aria-labelledby="customized-dialog-title"
-          className="makeStyles-modalLayout-22"
+          className="makeStyles-modalLayout-23"
           classes={
             Object {
               "container": "MuiDialog-container",
@@ -1626,7 +1625,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
                 },
               }
             }
-            className="MuiDialog-root makeStyles-modalLayout-22"
+            className="MuiDialog-root makeStyles-modalLayout-23"
             closeAfterTransition={true}
             disableBackdropClick={false}
             disableEscapeKeyDown={false}
@@ -1647,7 +1646,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="confirm-dialog"
-      className="makeStyles-confirmDialog-14"
+      className="makeStyles-confirmDialog-15"
       fullWidth={true}
       maxWidth="xs"
       onClose={[Function]}
@@ -1656,7 +1655,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
     >
       <ForwardRef(Dialog)
         aria-labelledby="confirm-dialog"
-        className="makeStyles-confirmDialog-14"
+        className="makeStyles-confirmDialog-15"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -2005,7 +2004,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-confirmDialog-14"
+          className="MuiDialog-root makeStyles-confirmDialog-15"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}
@@ -2025,14 +2024,14 @@ exports[`User table meta data Modal Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Dialog))
       aria-labelledby="customized-dialog-title"
-      className="makeStyles-modalLayout-22"
+      className="makeStyles-modalLayout-23"
       fullWidth={true}
       onClose={[Function]}
       open={false}
     >
       <ForwardRef(Dialog)
         aria-labelledby="customized-dialog-title"
-        className="makeStyles-modalLayout-22"
+        className="makeStyles-modalLayout-23"
         classes={
           Object {
             "container": "MuiDialog-container",
@@ -2379,7 +2378,7 @@ exports[`User table meta data Modal Snapshot 1`] = `
               },
             }
           }
-          className="MuiDialog-root makeStyles-modalLayout-22"
+          className="MuiDialog-root makeStyles-modalLayout-23"
           closeAfterTransition={true}
           disableBackdropClick={false}
           disableEscapeKeyDown={false}
