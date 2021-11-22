@@ -44,7 +44,9 @@ const MessageContent = (props) => {
                   backgroundColor: index % 2 !== 0 ? "#FFFFFF" : "#EEF3FF",
                 }}
               >
-                <Typography className={classes.chatText}>{message.text}</Typography>
+                {message.text && (
+                  <Typography className={classes.chatText}>{message.text}</Typography>
+                )}
                 {message.file && message.file.url && (
                   <>
                     <Avatar src={message.file.url} className={classes.image} />
