@@ -30,9 +30,9 @@ export const getSelectedDetectionTool = (data) => {
         }),
         "timeout" : 5000
     };
-  
+
     return xhr.fetch(url, http_options).then(response => {
-  
+
       const body = JSON.parse(response.body);
       const thirdPartyResponse = (response.status === 200 ? body : { error: body });
       let checkThresholdForThirdParty = false;
@@ -94,6 +94,7 @@ export const getSelectedDetectionTool = (data) => {
 
 const getSelectedLanguage = (language) => {
   const languages = {
+    Autodetect: "*",
     English: "en",
     Spanish: "es",
     Portugese: "pt",

@@ -64,7 +64,7 @@ const TextModeration = () => {
       tisaneRiskFactorThresholdSexualAdvances: 0,
       tisaneRiskFactorThresholdProfanity: 0,
       tisaneApiKey: "",
-      tisaneLanguage: "English",
+      tisaneLanguage: "Autodetect",
       automaticDetectionChannel: "*",
       automaticChannelError: false,
       automaticMaskCharError: false,

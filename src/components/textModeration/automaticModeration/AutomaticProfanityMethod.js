@@ -69,7 +69,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
     </>
   );
 
-  const languageList = ["English", "Spanish", "Portugese", "French"];
+  const languageList = ["Autodetect", "English", "Spanish", "Portugese", "French"];
 
   return (
     <>
