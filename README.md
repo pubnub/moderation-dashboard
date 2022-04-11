@@ -34,7 +34,7 @@ A web browser should automatically open [http://localhost:3000](http://localhost
 
 PubNub developers who are building or have built a PubNub-powered chat app.
 
-For details on how to build a chat app that works with Moderation Dashboard, see the [Required Configuration](/docs/chat/moderation-dashboard/required-configuration) document.
+For details on how to build a chat app that works with Moderation Dashboard, see the [Required Configuration](https://www.pubnub.com/docs/chat/moderation-dashboard/required-configuration) document.
 
 ## Capabilities
 
