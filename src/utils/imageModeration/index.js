@@ -81,7 +81,7 @@ export const handleImageModerationSave = async (
   token,
   { state, setState, uiPagecall = "imageModeration" }
 ) => {
-  const fetchFunctionsResponse = await fetchPubNubFunction(app.id, token);
+  const fetchFunctionsResponse = await fetchPubNubFunction(app.id, token, true);
   const { findImageFunction, eventHandler, blockId } = imageModerationCode(
     app,
     fetchFunctionsResponse

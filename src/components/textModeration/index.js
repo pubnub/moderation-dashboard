@@ -266,7 +266,11 @@ const TextModeration = () => {
     (async () => {
       if (selectedApp) {
         try {
-          const fetchFunctionsResponse = await fetchPubNubFunction(selectedApp.id, headerToken);
+          const fetchFunctionsResponse = await fetchPubNubFunction(
+            selectedApp.id,
+            headerToken,
+            true
+          );
 
           if (filterFunction(fetchFunctionsResponse, selectedApp).length) {
             const eventHandlers = filterFunction(fetchFunctionsResponse, selectedApp)[0]

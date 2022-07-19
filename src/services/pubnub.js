@@ -171,14 +171,31 @@ export async function fetchMessages(pubnub, channelName) {
 
 // --------- PubNub function -----------
 // To fetch all the PubNub functions of an Application.
-export async function fetchPubNubFunction(keyId, token) {
+export async function fetchPubNubFunction(keyId, token, fetchHandlerCode = false) {
   const functionResponse = await axios.get(`/v1/blocks/key/${keyId}/block`, {
     headers: {
       "X-Session-Token": `${token}`,
     },
   });
   if (functionResponse.status === 200) {
-    return functionResponse.data;
+    const data = functionResponse.data;
+
+    if (fetchHandlerCode) {
+      // PubNub Portal API no longer returns event handler's code, until you ask for a specific block
+      for (let block of data.payload) {
+        const blockId = block.id;
+        const blockResponse = await axios.get(`/v1/blocks/key/${keyId}/block/${blockId}`, {
+          headers: {
+            "X-Session-Token": `${token}`,
+          },
+        });
+        block.event_handlers = blockResponse.data.payload.find(
+          (p) => p.id === blockId
+        ).event_handlers;
+      }
+    }
+
+    return data;
   }
   throw new Error("Failed to fetch PubNub functions");
 }

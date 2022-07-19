@@ -58,7 +58,11 @@ const ImageModeration = () => {
     (async () => {
       if (selectedApp) {
         try {
-          const fetchFunctionsResponse = await fetchPubNubFunction(selectedApp.id, headerToken);
+          const fetchFunctionsResponse = await fetchPubNubFunction(
+            selectedApp.id,
+            headerToken,
+            true
+          );
           const textModeration = textModerationCode(selectedApp, fetchFunctionsResponse);
 
           const { findImageFunction, eventHandler } = imageModerationCode(
