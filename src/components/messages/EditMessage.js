@@ -15,7 +15,7 @@ import SnackBar from "../core/SnackBar";
 const EditMessage = (props) => {
   const { pubnub, channel, message } = props;
   const [text, setText] = useState("");
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
   const [displayBox, setDisplayBox] = useState(false);
   const [actionToken, setActionToken] = useState("");
   const classes = useStyles();
@@ -37,6 +37,12 @@ const EditMessage = (props) => {
     }
   }, [message]);
 
+  const createOrUpdateMessage = () => {
+    // if actionToken then edit message, else create (send) new message
+    actionToken === null || actionToken.length === 0 ? createMessage() : updateMessage();
+    // updateMessage();
+  };
+
   const updateMessage = () => {
     setAlertMessage({
       ...alertMessage,
@@ -50,7 +56,7 @@ const EditMessage = (props) => {
         }
         const response = await addEditMessageAction(pubnub, channel, message.timetoken, text);
         setText("");
-        setDisabled(true);
+        // setDisabled(true);
         setDisplayBox(false);
         props.updated(message.timetoken, message.actionToken, "updated", response);
       } catch (e) {
@@ -63,13 +69,32 @@ const EditMessage = (props) => {
     })();
   };
 
+  async function createMessage() {
+    setAlertMessage({
+      ...alertMessage,
+      success: { status: false, msg: "" },
+      error: { status: false, msg: "" },
+    });
+    const response = await pubnub.publish({ channel, message: { text: text } });
+    if (response) {
+      setText("");
+      return response.data;
+    }
+
+    setAlertMessage({
+      ...alertMessage,
+      success: { status: false, msg: "" },
+      error: { status: true, msg: "Failed to send message" },
+    });
+  }
+
   const handleInputChange = (e) => {
     setText(e.target.value);
   };
 
   const closeEditing = () => {
     setDisplayBox(false);
-    setDisabled(true);
+    // setDisabled(true);
     setText("");
     props.updated(message.timetoken, message.actionToken, "updated", "");
   };
@@ -90,28 +115,28 @@ const EditMessage = (props) => {
           </Grid>
         </Box>
       ) : null}
-      {props.messagesLength ? (
-        <TextField
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="end">
-                <Button onClick={updateMessage}>
-                  <img src={process.env.PUBLIC_URL + "/images/send-button.svg"} alt="edit" />
-                </Button>
-              </InputAdornment>
-            ),
-          }}
-          id="message"
-          name="message"
-          placeholder="Enter your message here"
-          variant="outlined"
-          fullWidth
-          value={text}
-          onChange={handleInputChange}
-          autoComplete="off"
-          disabled={disabled}
-        />
-      ) : null}
+      {/* {props.messagesLength ? ( */}
+      <TextField
+        InputProps={{
+          endAdornment: (
+            <InputAdornment position="end">
+              <Button onClick={createOrUpdateMessage}>
+                <img src={process.env.PUBLIC_URL + "/images/send-button.svg"} alt="edit" />
+              </Button>
+            </InputAdornment>
+          ),
+        }}
+        id="message"
+        name="message"
+        placeholder="Enter your message here"
+        variant="outlined"
+        fullWidth
+        value={text}
+        onChange={handleInputChange}
+        autoComplete="off"
+        disabled={disabled}
+      />
+      {/* ) : null} */}
       {alertMessage.error.status && <SnackBar msg={alertMessage.error.msg} status={"info"} />}
     </>
   );
