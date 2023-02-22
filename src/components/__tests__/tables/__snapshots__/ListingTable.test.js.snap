@@ -70,7 +70,7 @@ exports[`Test Cases for Listing Table Snapshot 1`] = `
     <WithStyles(ForwardRef(Table))
       aria-label="enhanced table"
       aria-labelledby="tableTitle"
-      className="makeStyles-table-8"
+      className="makeStyles-table-9"
       size="medium"
     >
       <EnhancedTableHead
@@ -81,7 +81,10 @@ exports[`Test Cases for Listing Table Snapshot 1`] = `
       />
       <WithStyles(ForwardRef(TableBody))>
         <WithStyles(ForwardRef(TableRow))
-          className="makeStyles-tableRow-1"
+          className="
+                          makeStyles-tableRow-1
+                          makeStyles-tableRowClickable-2
+                        "
           hover={true}
           key="1033619-0"
           onClick={[Function]}
@@ -111,11 +114,11 @@ exports[`Test Cases for Listing Table Snapshot 1`] = `
               </Styled(MuiBox)>
               <Styled(MuiBox)>
                 <small
-                  className="makeStyles-keyName-4"
+                  className="makeStyles-keyName-5"
                 />
                 <br />
                 <small
-                  className="makeStyles-appName-5"
+                  className="makeStyles-appName-6"
                 >
                   1033619
                 </small>

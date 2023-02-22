@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   Card,
+  Chip,
   Typography,
   TextField,
   Select,
@@ -68,7 +69,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
     </>
   );
 
-  const languageList = ["English", "Spanish", "Portugese", "French"];
+  const languageList = ["Autodetect", "English", "Spanish", "Portugese", "French"];
 
   return (
     <>
@@ -582,14 +583,7 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
           </Grid>
           <Grid item>
             <Box>
-              <Button className={classes.rerouteBtn}>
-                <img
-                  src={process.env.PUBLIC_URL + "/images/reroute.svg"}
-                  className={classes.rerouteIconStyle}
-                  alt="reroute"
-                />
-                {"banned." + automaticDetectionChannel}
-              </Button>
+              <Chip className={classes.reroute} label={"banned." + automaticDetectionChannel} />
             </Box>
           </Grid>
         </Grid>
@@ -597,9 +591,6 @@ const AutomaticProfanityMethod = ({ state, setState, handleSave }) => {
         <Grid container justify="space-between" spacing={3}>
           <Grid item></Grid>
           <Grid item>
-            <Button id="cancel" className={classes.cancelButtonStyle} variant="contained">
-              Cancel
-            </Button>
             <Button
               id="save"
               disabled={state.saveLoading}

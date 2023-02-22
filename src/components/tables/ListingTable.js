@@ -18,11 +18,11 @@ import TableIcons from "./TableIcons";
 import ListingPagination from "./ListingPagination";
 import Markers from "./Markers";
 
-function descendingComparator(a, b, orderBy) {
-  if (b[orderBy] < a[orderBy]) {
+function compare(a, b) {
+  if ((!!a && !b) || a > b) {
     return -1;
   }
-  if (b[orderBy] > a[orderBy]) {
+  if ((!!b && !a) || b > a) {
     return 1;
   }
   return 0;
@@ -30,8 +30,8 @@ function descendingComparator(a, b, orderBy) {
 
 function getComparator(order, orderBy) {
   return order === "desc"
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
+    ? (a, b) => compare(a[orderBy], b[orderBy])
+    : (a, b) => -compare(a[orderBy], b[orderBy]);
 }
 
 function stableSort(array, comparator) {
@@ -161,12 +161,17 @@ export default function ListingTable(props) {
                   {stableSort(tableSlice, getComparator(order, orderBy)).map((row, index) => {
                     return (
                       <TableRow
-                        hover
-                        className={classes.tableRow}
+                        hover={!!props.handleRowClick}
+                        className={`
+                          ${classes.tableRow}
+                          ${!!props.handleRowClick ? classes.tableRowClickable : ""}
+                        `}
                         role="checkbox"
                         tabIndex={-1}
                         key={`${row.id}-${index}`}
-                        onClick={(event) => props.handleRowClick(event, row, over)}
+                        onClick={(event) =>
+                          props.handleRowClick && props.handleRowClick(event, row, over)
+                        }
                       >
                         {headCells.map((headcell, n) => {
                           if (headcell.avatar) {

@@ -12,7 +12,20 @@ exports[`Test Cases for Breadcrumb Snapshot 1`] = `
   >
     <WithStyles(ForwardRef(Link))
       color="primary"
-      href="/dashboard"
+      component={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      to="/dashboard"
     >
       <WithStyles(ForwardRef(Typography))
         variant="body2"
@@ -22,7 +35,20 @@ exports[`Test Cases for Breadcrumb Snapshot 1`] = `
     </WithStyles(ForwardRef(Link))>
     <WithStyles(ForwardRef(Link))
       color="primary"
-      href="/overview"
+      component={
+        Object {
+          "$$typeof": Symbol(react.forward_ref),
+          "propTypes": Object {
+            "innerRef": [Function],
+            "onClick": [Function],
+            "replace": [Function],
+            "target": [Function],
+            "to": [Function],
+          },
+          "render": [Function],
+        }
+      }
+      to="/overview"
     >
       <WithStyles(ForwardRef(Typography))
         color="primary"

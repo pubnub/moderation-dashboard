@@ -96,10 +96,6 @@ export default function UsersTable({
     })();
   };
 
-  const handleRowClick = () => {
-    // Update with User detail screen Route
-  };
-
   const editRow = (event, row) => {
     setModalOpen(true);
     setUserData(row);
@@ -157,7 +153,6 @@ export default function UsersTable({
       <ListingTable
         data={users}
         headCells={headCells}
-        handleRowClick={handleRowClick}
         message={message}
         editRow={editRow}
         deleteRow={deleteRow}

@@ -86,12 +86,12 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
           <Component
             classes={
               Object {
-                "checked": "Component-checked-15",
-                "focusVisible": "Component-focusVisible-16",
-                "root": "Component-root-11",
-                "switchBase": "Component-switchBase-12",
-                "thumb": "Component-thumb-13",
-                "track": "Component-track-14",
+                "checked": "Component-checked-14",
+                "focusVisible": "Component-focusVisible-15",
+                "root": "Component-root-10",
+                "switchBase": "Component-switchBase-11",
+                "thumb": "Component-thumb-12",
+                "track": "Component-track-13",
               }
             }
             onChange={[Function]}
@@ -99,60 +99,60 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
             <WithStyles(ForwardRef(Switch))
               classes={
                 Object {
-                  "checked": "Component-checked-15",
-                  "root": "Component-root-11",
-                  "switchBase": "Component-switchBase-12",
-                  "thumb": "Component-thumb-13",
-                  "track": "Component-track-14",
+                  "checked": "Component-checked-14",
+                  "root": "Component-root-10",
+                  "switchBase": "Component-switchBase-11",
+                  "thumb": "Component-thumb-12",
+                  "track": "Component-track-13",
                 }
               }
               disableRipple={true}
-              focusVisibleClassName="Component-focusVisible-16"
+              focusVisibleClassName="Component-focusVisible-15"
               onChange={[Function]}
             >
               <ForwardRef(Switch)
                 classes={
                   Object {
-                    "checked": "Mui-checked Component-checked-15",
+                    "checked": "Mui-checked Component-checked-14",
                     "colorPrimary": "MuiSwitch-colorPrimary",
                     "colorSecondary": "MuiSwitch-colorSecondary",
                     "disabled": "Mui-disabled",
                     "edgeEnd": "MuiSwitch-edgeEnd",
                     "edgeStart": "MuiSwitch-edgeStart",
                     "input": "MuiSwitch-input",
-                    "root": "MuiSwitch-root Component-root-11",
+                    "root": "MuiSwitch-root Component-root-10",
                     "sizeSmall": "MuiSwitch-sizeSmall",
-                    "switchBase": "MuiSwitch-switchBase Component-switchBase-12",
-                    "thumb": "MuiSwitch-thumb Component-thumb-13",
-                    "track": "MuiSwitch-track Component-track-14",
+                    "switchBase": "MuiSwitch-switchBase Component-switchBase-11",
+                    "thumb": "MuiSwitch-thumb Component-thumb-12",
+                    "track": "MuiSwitch-track Component-track-13",
                   }
                 }
                 disableRipple={true}
-                focusVisibleClassName="Component-focusVisible-16"
+                focusVisibleClassName="Component-focusVisible-15"
                 onChange={[Function]}
               >
                 <span
-                  className="MuiSwitch-root Component-root-11"
+                  className="MuiSwitch-root Component-root-10"
                 >
                   <WithStyles(ForwardRef(SwitchBase))
                     checkedIcon={
                       <span
-                        className="MuiSwitch-thumb Component-thumb-13"
+                        className="MuiSwitch-thumb Component-thumb-12"
                       />
                     }
                     classes={
                       Object {
-                        "checked": "Mui-checked Component-checked-15",
+                        "checked": "Mui-checked Component-checked-14",
                         "disabled": "Mui-disabled",
                         "input": "MuiSwitch-input",
-                        "root": "MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary",
+                        "root": "MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary",
                       }
                     }
                     disableRipple={true}
-                    focusVisibleClassName="Component-focusVisible-16"
+                    focusVisibleClassName="Component-focusVisible-15"
                     icon={
                       <span
-                        className="MuiSwitch-thumb Component-thumb-13"
+                        className="MuiSwitch-thumb Component-thumb-12"
                       />
                     }
                     onChange={[Function]}
@@ -161,38 +161,38 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                     <ForwardRef(SwitchBase)
                       checkedIcon={
                         <span
-                          className="MuiSwitch-thumb Component-thumb-13"
+                          className="MuiSwitch-thumb Component-thumb-12"
                         />
                       }
                       classes={
                         Object {
-                          "checked": "PrivateSwitchBase-checked-18 Mui-checked Component-checked-15",
-                          "disabled": "PrivateSwitchBase-disabled-19 Mui-disabled",
-                          "input": "PrivateSwitchBase-input-20 MuiSwitch-input",
-                          "root": "PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary",
+                          "checked": "PrivateSwitchBase-checked-17 Mui-checked Component-checked-14",
+                          "disabled": "PrivateSwitchBase-disabled-18 Mui-disabled",
+                          "input": "PrivateSwitchBase-input-19 MuiSwitch-input",
+                          "root": "PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary",
                         }
                       }
                       disableRipple={true}
-                      focusVisibleClassName="Component-focusVisible-16"
+                      focusVisibleClassName="Component-focusVisible-15"
                       icon={
                         <span
-                          className="MuiSwitch-thumb Component-thumb-13"
+                          className="MuiSwitch-thumb Component-thumb-12"
                         />
                       }
                       onChange={[Function]}
                       type="checkbox"
                     >
                       <WithStyles(ForwardRef(IconButton))
-                        className="PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary"
+                        className="PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary"
                         component="span"
                         disableRipple={true}
-                        focusVisibleClassName="Component-focusVisible-16"
+                        focusVisibleClassName="Component-focusVisible-15"
                         onBlur={[Function]}
                         onFocus={[Function]}
                         tabIndex={null}
                       >
                         <ForwardRef(IconButton)
-                          className="PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary"
+                          className="PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary"
                           classes={
                             Object {
                               "colorInherit": "MuiIconButton-colorInherit",
@@ -208,26 +208,26 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                           }
                           component="span"
                           disableRipple={true}
-                          focusVisibleClassName="Component-focusVisible-16"
+                          focusVisibleClassName="Component-focusVisible-15"
                           onBlur={[Function]}
                           onFocus={[Function]}
                           tabIndex={null}
                         >
                           <WithStyles(ForwardRef(ButtonBase))
                             centerRipple={true}
-                            className="MuiIconButton-root PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary"
+                            className="MuiIconButton-root PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary"
                             component="span"
                             disableRipple={true}
                             disabled={false}
                             focusRipple={true}
-                            focusVisibleClassName="Component-focusVisible-16"
+                            focusVisibleClassName="Component-focusVisible-15"
                             onBlur={[Function]}
                             onFocus={[Function]}
                             tabIndex={null}
                           >
                             <ForwardRef(ButtonBase)
                               centerRipple={true}
-                              className="MuiIconButton-root PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary"
+                              className="MuiIconButton-root PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary"
                               classes={
                                 Object {
                                   "disabled": "Mui-disabled",
@@ -239,14 +239,14 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                               disableRipple={true}
                               disabled={false}
                               focusRipple={true}
-                              focusVisibleClassName="Component-focusVisible-16"
+                              focusVisibleClassName="Component-focusVisible-15"
                               onBlur={[Function]}
                               onFocus={[Function]}
                               tabIndex={null}
                             >
                               <span
                                 aria-disabled={false}
-                                className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-17 MuiSwitch-switchBase Component-switchBase-12 MuiSwitch-colorSecondary"
+                                className="MuiButtonBase-root MuiIconButton-root PrivateSwitchBase-root-16 MuiSwitch-switchBase Component-switchBase-11 MuiSwitch-colorSecondary"
                                 onBlur={[Function]}
                                 onDragLeave={[Function]}
                                 onFocus={[Function]}
@@ -264,12 +264,12 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                                   className="MuiIconButton-label"
                                 >
                                   <input
-                                    className="PrivateSwitchBase-input-20 MuiSwitch-input"
+                                    className="PrivateSwitchBase-input-19 MuiSwitch-input"
                                     onChange={[Function]}
                                     type="checkbox"
                                   />
                                   <span
-                                    className="MuiSwitch-thumb Component-thumb-13"
+                                    className="MuiSwitch-thumb Component-thumb-12"
                                   />
                                 </span>
                               </span>
@@ -280,7 +280,7 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                     </ForwardRef(SwitchBase)>
                   </WithStyles(ForwardRef(SwitchBase))>
                   <span
-                    className="MuiSwitch-track Component-track-14"
+                    className="MuiSwitch-track Component-track-13"
                   />
                 </span>
               </ForwardRef(Switch)>
@@ -607,10 +607,10 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                 className="MuiGrid-root MuiGrid-item"
               >
                 <Styled(MuiBox)
-                  className="makeStyles-methodNotSelected-29"
+                  className="makeStyles-methodNotSelected-28"
                 >
                   <div
-                    className="MuiBox-root MuiBox-root-42 makeStyles-methodNotSelected-29"
+                    className="MuiBox-root MuiBox-root-40 makeStyles-methodNotSelected-28"
                   >
                     <WithStyles(ForwardRef(Grid))
                       container={true}
@@ -734,7 +734,7 @@ exports[`Image Moderation Test Cases Snapshot 1`] = `
                             p={1}
                           >
                             <div
-                              className="MuiBox-root MuiBox-root-43"
+                              className="MuiBox-root MuiBox-root-41"
                             >
                               <img
                                 alt=""

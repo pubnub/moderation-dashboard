@@ -171,14 +171,31 @@ export async function fetchMessages(pubnub, channelName) {
 
 // --------- PubNub function -----------
 // To fetch all the PubNub functions of an Application.
-export async function fetchPubNubFunction(keyId, token) {
+export async function fetchPubNubFunction(keyId, token, fetchHandlerCode = false) {
   const functionResponse = await axios.get(`/v1/blocks/key/${keyId}/block`, {
     headers: {
       "X-Session-Token": `${token}`,
     },
   });
   if (functionResponse.status === 200) {
-    return functionResponse.data;
+    const data = functionResponse.data;
+
+    if (fetchHandlerCode) {
+      // PubNub Portal API no longer returns event handler's code, until you ask for a specific block
+      for (let block of data.payload) {
+        const blockId = block.id;
+        const blockResponse = await axios.get(`/v1/blocks/key/${keyId}/block/${blockId}`, {
+          headers: {
+            "X-Session-Token": `${token}`,
+          },
+        });
+        block.event_handlers = blockResponse.data.payload.find(
+          (p) => p.id === blockId
+        ).event_handlers;
+      }
+    }
+
+    return data;
   }
   throw new Error("Failed to fetch PubNub functions");
 }
@@ -300,7 +317,7 @@ export async function updatePubNubEventHandler(credentials, token) {
 //To fetch user By name
 export async function getUserByName(pubnub, userName) {
   const usersResponse = await pubnub.objects.getAllUUIDMetadata({
-    filter: "name LIKE '" + userName + "*'",
+    filter: `name LIKE '*${userName}*'`,
   });
   if (usersResponse.status === 200) {
     return usersResponse.data;
@@ -311,7 +328,7 @@ export async function getUserByName(pubnub, userName) {
 //To fetch channel By name
 export async function getChannelByName(pubnub, channelName) {
   const usersResponse = await pubnub.objects.getAllChannelMetadata({
-    filter: "name LIKE '" + channelName + "*'",
+    filter: `name LIKE '*${channelName}*'`,
   });
   if (usersResponse.status === 200) {
     return usersResponse.data;

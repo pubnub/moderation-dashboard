@@ -50,6 +50,7 @@ exports[`Test Case For Join Channel Modal Snapshot 1`] = `
         Channel ID
       </WithStyles(ForwardRef(Typography))>
       <WithStyles(ForwardRef(TextField))
+        autoComplete="off"
         className="makeStyles-inputBox-6"
         error={false}
         helperText=""

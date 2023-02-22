@@ -4,6 +4,7 @@ import {
   Button,
   Box,
   Card,
+  Chip,
   Typography,
   TextField,
   Select,
@@ -181,7 +182,7 @@ const WordListProfanityMethod = ({
         <Box pt={1} mb={2}>
           <TextField
             id="defaultWordsBox"
-            placeholder="Type @ to select parameters"
+            placeholder="comma,separated,list,of,words"
             className={classes.languageWords}
             multiline
             error={wordsListPatternError}
@@ -306,14 +307,7 @@ const WordListProfanityMethod = ({
           </Grid>
           <Grid item>
             <Box>
-              <Button className={classes.reroute}>
-                <img
-                  src={process.env.PUBLIC_URL + "/images/reroute.svg"}
-                  className={classes.rerouteIcon}
-                  alt="reroute"
-                />{" "}
-                {"banned." + wordListChannel}
-              </Button>
+              <Chip className={classes.reroute} label={"banned." + wordListChannel} />
             </Box>
           </Grid>
         </Grid>
@@ -322,9 +316,6 @@ const WordListProfanityMethod = ({
         <Grid container justify="space-between" spacing={2}>
           <Grid item></Grid>
           <Grid item>
-            <Button id="cancel" className={classes.cancelButton} variant="contained">
-              Cancel
-            </Button>
             <Button
               id="save"
               disabled={state.saveLoading}

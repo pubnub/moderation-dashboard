@@ -11,6 +11,12 @@ jest.mock("../../../services/pubnub", () => {
   };
 });
 
+jest.mock("react-router-dom", () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
+
 const mockResponse = jest.fn();
 Object.defineProperty(window, "location", {
   value: {

@@ -50,9 +50,6 @@ describe("User table meta data Modal", () => {
     await waitForComponentToPaint(wrapper);
     await act(async () => {
       expect(wrapper.find("FlagUser").getElements()[0].props.isUpdated("all")).toBeUndefined();
-      expect(
-        wrapper.find("ListingTable").getElements()[0].props.handleRowClick("all")
-      ).toBeUndefined();
 
       // confirm Delete
       expect(

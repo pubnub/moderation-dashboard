@@ -10,7 +10,7 @@ exports[`Ban User meta data Modal Snapshot 1`] = `
   uuid={
     Object {
       "custom": Object {
-        "ban": true,
+        "flag": Array [],
         "id": 1,
       },
     }

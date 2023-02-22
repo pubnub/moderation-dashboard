@@ -282,7 +282,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
               "color": "primary",
             }
           }
-          className="makeStyles-tablePagination-11"
+          className="makeStyles-tablePagination-12"
           component="div"
           count={1}
           labelDisplayedRows={[Function]}
@@ -306,7 +306,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                 "color": "primary",
               }
             }
-            className="makeStyles-tablePagination-11"
+            className="makeStyles-tablePagination-12"
             classes={
               Object {
                 "actions": "MuiTablePagination-actions",
@@ -339,7 +339,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
             }
           >
             <div
-              className="MuiTablePagination-root makeStyles-tablePagination-11"
+              className="MuiTablePagination-root makeStyles-tablePagination-12"
             >
               <WithStyles(ForwardRef(Toolbar))
                 className="MuiTablePagination-toolbar"
@@ -681,13 +681,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
             <WithStyles(ForwardRef(Table))
               aria-label="enhanced table"
               aria-labelledby="tableTitle"
-              className="makeStyles-table-8"
+              className="makeStyles-table-9"
               size="medium"
             >
               <ForwardRef(Table)
                 aria-label="enhanced table"
                 aria-labelledby="tableTitle"
-                className="makeStyles-table-8"
+                className="makeStyles-table-9"
                 classes={
                   Object {
                     "root": "MuiTable-root",
@@ -699,7 +699,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                 <table
                   aria-label="enhanced table"
                   aria-labelledby="tableTitle"
-                  className="MuiTable-root makeStyles-table-8"
+                  className="MuiTable-root makeStyles-table-9"
                   role={null}
                 >
                   <EnhancedTableHead
@@ -709,10 +709,10 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                     rowCount={1}
                   >
                     <WithStyles(ForwardRef(TableHead))
-                      className="makeStyles-tablehead-2"
+                      className="makeStyles-tablehead-3"
                     >
                       <ForwardRef(TableHead)
-                        className="makeStyles-tablehead-2"
+                        className="makeStyles-tablehead-3"
                         classes={
                           Object {
                             "root": "MuiTableHead-root",
@@ -720,7 +720,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                         }
                       >
                         <thead
-                          className="MuiTableHead-root makeStyles-tablehead-2"
+                          className="MuiTableHead-root makeStyles-tablehead-3"
                           role={null}
                         >
                           <WithStyles(ForwardRef(TableRow))>
@@ -773,13 +773,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -793,13 +793,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -813,7 +813,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -907,13 +907,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -927,13 +927,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -947,7 +947,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -1041,13 +1041,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -1061,13 +1061,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -1081,7 +1081,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -1175,13 +1175,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                     >
                                       <WithStyles(ForwardRef(TableSortLabel))
                                         active={false}
-                                        className="makeStyles-headLabel-3"
+                                        className="makeStyles-headLabel-4"
                                         direction="asc"
                                         onClick={[Function]}
                                       >
                                         <ForwardRef(TableSortLabel)
                                           active={false}
-                                          className="makeStyles-headLabel-3"
+                                          className="makeStyles-headLabel-4"
                                           classes={
                                             Object {
                                               "active": "MuiTableSortLabel-active",
@@ -1195,13 +1195,13 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           onClick={[Function]}
                                         >
                                           <WithStyles(ForwardRef(ButtonBase))
-                                            className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                            className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                             component="span"
                                             disableRipple={true}
                                             onClick={[Function]}
                                           >
                                             <ForwardRef(ButtonBase)
-                                              className="MuiTableSortLabel-root makeStyles-headLabel-3"
+                                              className="MuiTableSortLabel-root makeStyles-headLabel-4"
                                               classes={
                                                 Object {
                                                   "disabled": "Mui-disabled",
@@ -1215,7 +1215,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             >
                                               <span
                                                 aria-disabled={false}
-                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-3"
+                                                className="MuiButtonBase-root MuiTableSortLabel-root makeStyles-headLabel-4"
                                                 onBlur={[Function]}
                                                 onClick={[Function]}
                                                 onDragLeave={[Function]}
@@ -1295,7 +1295,10 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                         role={null}
                       >
                         <WithStyles(ForwardRef(TableRow))
-                          className="makeStyles-tableRow-1"
+                          className="
+                          makeStyles-tableRow-1
+                          makeStyles-tableRowClickable-2
+                        "
                           hover={true}
                           key="1042218-0"
                           onClick={[Function]}
@@ -1303,7 +1306,10 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                           tabIndex={-1}
                         >
                           <ForwardRef(TableRow)
-                            className="makeStyles-tableRow-1"
+                            className="
+                          makeStyles-tableRow-1
+                          makeStyles-tableRowClickable-2
+                        "
                             classes={
                               Object {
                                 "footer": "MuiTableRow-footer",
@@ -1319,7 +1325,10 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                             tabIndex={-1}
                           >
                             <tr
-                              className="MuiTableRow-root makeStyles-tableRow-1 MuiTableRow-hover"
+                              className="MuiTableRow-root 
+                          makeStyles-tableRow-1
+                          makeStyles-tableRowClickable-2
+                         MuiTableRow-hover"
                               onClick={[Function]}
                               role="checkbox"
                               tabIndex={-1}
@@ -1471,7 +1480,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             mr={1}
                                           >
                                             <div
-                                              className="MuiBox-root MuiBox-root-12"
+                                              className="MuiBox-root MuiBox-root-13"
                                             >
                                               <WithStyles(ForwardRef(Avatar))
                                                 style={
@@ -1521,14 +1530,14 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                           </Styled(MuiBox)>
                                           <Styled(MuiBox)>
                                             <div
-                                              className="MuiBox-root MuiBox-root-13"
+                                              className="MuiBox-root MuiBox-root-14"
                                             >
                                               <small
-                                                className="makeStyles-keyName-4"
+                                                className="makeStyles-keyName-5"
                                               />
                                               <br />
                                               <small
-                                                className="makeStyles-appName-5"
+                                                className="makeStyles-appName-6"
                                               >
                                                 1042218
                                               </small>
@@ -1539,7 +1548,7 @@ exports[`Test Case For Application Table Snapshot 1`] = `
                                             pt={1}
                                           >
                                             <div
-                                              className="MuiBox-root MuiBox-root-14"
+                                              className="MuiBox-root MuiBox-root-15"
                                             >
                                               <Markers
                                                 row={

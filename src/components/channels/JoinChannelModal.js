@@ -82,6 +82,7 @@ export function JoinChannelModal() {
             onChange={(e) => setChannelName(e.target.value)}
             error={error}
             helperText={error ? "Channel is Required" : ""}
+            autoComplete="off"
           />
         </DialogContent>
         <DialogActions>

@@ -9,7 +9,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-13",
           }
         }
         title="View"
@@ -21,7 +21,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-13",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
@@ -34,7 +34,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
         >
           <WithStyles(ForwardRef(IconButton))
             aria-describedby={null}
-            className="makeStyles-icons-6"
+            className="makeStyles-icons-7"
             edge="start"
             label="view"
             onBlur={[Function]}
@@ -48,7 +48,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           >
             <ForwardRef(IconButton)
               aria-describedby={null}
-              className="makeStyles-icons-6"
+              className="makeStyles-icons-7"
               classes={
                 Object {
                   "colorInherit": "MuiIconButton-colorInherit",
@@ -76,7 +76,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               <WithStyles(ForwardRef(ButtonBase))
                 aria-describedby={null}
                 centerRipple={true}
-                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 disabled={false}
                 focusRipple={true}
                 label="view"
@@ -92,7 +92,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 <ForwardRef(ButtonBase)
                   aria-describedby={null}
                   centerRipple={true}
-                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                   classes={
                     Object {
                       "disabled": "Mui-disabled",
@@ -114,7 +114,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 >
                   <button
                     aria-describedby={null}
-                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                     disabled={false}
                     label="view"
                     onBlur={[Function]}
@@ -178,7 +178,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           <ForwardRef(Popper)
             anchorEl={
               <button
-                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 label="view"
                 tabindex="0"
                 title="View"
@@ -222,7 +222,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-13",
           }
         }
         title="Edit"
@@ -234,7 +234,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-13",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
@@ -247,7 +247,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
         >
           <WithStyles(ForwardRef(IconButton))
             aria-describedby={null}
-            className="makeStyles-icons-6"
+            className="makeStyles-icons-7"
             edge="start"
             onBlur={[Function]}
             onClick={[Function]}
@@ -261,7 +261,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           >
             <ForwardRef(IconButton)
               aria-describedby={null}
-              className="makeStyles-icons-6"
+              className="makeStyles-icons-7"
               classes={
                 Object {
                   "colorInherit": "MuiIconButton-colorInherit",
@@ -289,7 +289,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               <WithStyles(ForwardRef(ButtonBase))
                 aria-describedby={null}
                 centerRipple={true}
-                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 disabled={false}
                 focusRipple={true}
                 onBlur={[Function]}
@@ -305,7 +305,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 <ForwardRef(ButtonBase)
                   aria-describedby={null}
                   centerRipple={true}
-                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                   classes={
                     Object {
                       "disabled": "Mui-disabled",
@@ -327,7 +327,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 >
                   <button
                     aria-describedby={null}
-                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                     disabled={false}
                     onBlur={[Function]}
                     onClick={[Function]}
@@ -391,7 +391,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           <ForwardRef(Popper)
             anchorEl={
               <button
-                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 tabindex="0"
                 title="Edit"
                 type="button"
@@ -434,7 +434,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
       <WithStyles(ForwardRef(Tooltip))
         classes={
           Object {
-            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-12",
+            "tooltip": "WithStyles(ForwardRef(Tooltip))-tooltip-13",
           }
         }
         title="Delete"
@@ -446,7 +446,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               "popper": "MuiTooltip-popper",
               "popperArrow": "MuiTooltip-popperArrow",
               "popperInteractive": "MuiTooltip-popperInteractive",
-              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-12",
+              "tooltip": "MuiTooltip-tooltip WithStyles(ForwardRef(Tooltip))-tooltip-13",
               "tooltipArrow": "MuiTooltip-tooltipArrow",
               "tooltipPlacementBottom": "MuiTooltip-tooltipPlacementBottom",
               "tooltipPlacementLeft": "MuiTooltip-tooltipPlacementLeft",
@@ -459,7 +459,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
         >
           <WithStyles(ForwardRef(IconButton))
             aria-describedby={null}
-            className="makeStyles-icons-6"
+            className="makeStyles-icons-7"
             edge="start"
             label="delete"
             onBlur={[Function]}
@@ -474,7 +474,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           >
             <ForwardRef(IconButton)
               aria-describedby={null}
-              className="makeStyles-icons-6"
+              className="makeStyles-icons-7"
               classes={
                 Object {
                   "colorInherit": "MuiIconButton-colorInherit",
@@ -503,7 +503,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
               <WithStyles(ForwardRef(ButtonBase))
                 aria-describedby={null}
                 centerRipple={true}
-                className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 disabled={false}
                 focusRipple={true}
                 label="delete"
@@ -520,7 +520,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 <ForwardRef(ButtonBase)
                   aria-describedby={null}
                   centerRipple={true}
-                  className="MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                  className="MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                   classes={
                     Object {
                       "disabled": "Mui-disabled",
@@ -543,7 +543,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
                 >
                   <button
                     aria-describedby={null}
-                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                    className="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                     disabled={false}
                     label="delete"
                     onBlur={[Function]}
@@ -608,7 +608,7 @@ exports[`Test Cases for Table Icons Snapshot 1`] = `
           <ForwardRef(Popper)
             anchorEl={
               <button
-                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-6 MuiIconButton-edgeStart"
+                class="MuiButtonBase-root MuiIconButton-root makeStyles-icons-7 MuiIconButton-edgeStart"
                 label="delete"
                 tabindex="0"
                 title="Delete"

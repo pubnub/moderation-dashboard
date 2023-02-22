@@ -23,7 +23,7 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               title="Note: Please add a Channel ID or a Channel pattern. eg. channel.* OR pubNub. Channel ID pattern applies to BOTH text & image moderation if both are enabled."
@@ -157,7 +157,7 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               interactive={true}
@@ -231,7 +231,7 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               interactive={true}
@@ -305,7 +305,7 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
           item={true}
         >
           <Styled(MuiBox)
-            className="makeStyles-infoIcon-10"
+            className="makeStyles-infoIcon-9"
           >
             <WithStyles(WithStyles(ForwardRef(Tooltip)))
               interactive={true}
@@ -432,16 +432,10 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
         item={true}
       >
         <Styled(MuiBox)>
-          <WithStyles(ForwardRef(Button))
-            className="makeStyles-rerouteBtn-8"
-          >
-            <img
-              alt="reroute"
-              className="makeStyles-rerouteIcon-9"
-              src="/images/reroute.svg"
-            />
-            banned.initialText
-          </WithStyles(ForwardRef(Button))>
+          <WithStyles(ForwardRef(Chip))
+            className="makeStyles-reroute-8"
+            label="banned.initialText"
+          />
         </Styled(MuiBox)>
       </WithStyles(ForwardRef(Grid))>
     </WithStyles(ForwardRef(Grid))>
@@ -457,13 +451,6 @@ exports[`Automatic Image Moderation Test Cases Snapshot 1`] = `
       <WithStyles(ForwardRef(Grid))
         item={true}
       >
-        <WithStyles(ForwardRef(Button))
-          className="makeStyles-cancel-3"
-          id="cancel"
-          variant="contained"
-        >
-          Cancel
-        </WithStyles(ForwardRef(Button))>
         <WithStyles(ForwardRef(Button))
           className="makeStyles-save-4"
           disabled={false}

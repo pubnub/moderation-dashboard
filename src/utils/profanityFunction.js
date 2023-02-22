@@ -97,6 +97,6 @@ export default function profanityFunction(data) {
          tisaneApiKey:'${tisaneApiKey}',
          tisaneLanguage:'${tisaneLanguage}'
        },
-     }
+     };
   }`;
 }
