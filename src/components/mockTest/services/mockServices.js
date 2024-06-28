@@ -13,7 +13,6 @@ export const mockUser = {
     last: "123",
     lead_conversion_cta: "",
     lead_conversion_page: "",
-    live_chat_token: "801eb818fa5685d09cd7613b9189d839c43824455c2b1d7e7650250317b0d592",
     newsletter_opt_in: 1,
     phone: 8699350737,
     utm_ad_group: "",
