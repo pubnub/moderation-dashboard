@@ -14,7 +14,7 @@
     "js-cookie": "^2.2.1",
     "material-ui-search-bar": "^1.0.0",
     "moment": "^2.29.1",
-    "pubnub": "^4.32.1",
+    "pubnub": "^13.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
@@ -70,7 +70,10 @@
   "jest": {
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "moduleNameMapper": {
+      "^pubnub$": "<rootDir>/node_modules/pubnub/dist/web/pubnub.min.js"
+    }
   },
   "lint-staged": {
     "*.{js,css,md}": "prettier --write"
