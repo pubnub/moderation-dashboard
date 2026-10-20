@@ -9,7 +9,7 @@ const pubnubObj = new PubNub({
   subscribeKey: selectedApp.subscribe_key,
   secretKey: selectedApp.secret_key,
   publishKey: selectedApp.publish_key,
-  uuid: 1,
+  userId: "1",
 });
 
 const userInfo = [

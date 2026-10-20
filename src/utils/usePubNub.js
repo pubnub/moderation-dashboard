@@ -11,10 +11,10 @@ const usePubNub = () => {
       subscribeKey: selectedApp.subscribe_key,
       secretKey: selectedApp.secret_key,
       publishKey: selectedApp.publish_key,
-      uuid: uuid,
+      userId: uuid,
     });
 
-    pubnub._config._addPnsdkSuffix("moderation-dashboard", `MD/${version}`);
+    pubnub._addPnsdkSuffix("moderation-dashboard", `MD/${version}`);
 
     return { pubnub };
   }
